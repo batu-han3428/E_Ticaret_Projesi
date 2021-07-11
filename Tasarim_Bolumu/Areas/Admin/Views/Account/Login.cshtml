@@ -1,0 +1,63 @@
+﻿@model LoginModel
+
+@{
+
+    TempData["PlaceHolder"] = $"...@outlook.com";
+
+    ViewBag.Title = "Admin";
+}
+
+
+<div class="container-fluid d-flex justify-content-center align-items-center" id="container">
+
+    <!-- Body -->
+    <div class="row" id="body">
+        <form method="post" asp-controller="Account" asp-action="Login" class="col-md-12 needs-validation" novalidate>
+            <div class="row">
+                <div class="col-md-12">
+                    <div asp-validation-summary="ModelOnly" class="text-light"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 Sutun">
+                    <label asp-for="Email" for="validationCustom01" class="form-label"></label>
+                    <input asp-for="Email" type="email" pattern="[A-Za-z0-9._%+-]+@@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" class="form-control" id="validationCustom01" placeholder="@TempData["PlaceHolder"]" required>
+                    <div class="valid-feedback text-end">
+                        <span class="badge bg-success">Başarılı</span>
+                    </div>
+                    <div id="email" class="invalid-feedback text-end">
+                        <span asp-validation-for="Email" class="badge bg-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12 Sutun">
+                    <label asp-for="Parola" for="validationCustom02" class="form-label"></label>
+                    <input asp-for="Parola" type="password" pattern="(?=.*[.@@€₺><*,!#$%&'*+\/=?^_`{|}~-])(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" class="form-control" id="validationCustom02" placeholder="Parola" required>
+                    <div class="valid-feedback text-end">
+                        <span class="badge bg-success">Başarılı</span>
+                    </div>
+                    <div id="password" class="invalid-feedback text-end">
+                        <span asp-validation-for="Parola" class="badge bg-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center mt-2">
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /Body -->
+    <!-- Footer -->
+    <div class="row">
+        <!-- Hakları Saklıdır -->
+        <div class="col-md-12 text-center">
+            <p id="haklariSaklidirParagrafLogin">Copyright © 2000-2021 BTicaret.com, Her hakkı saklıdır.</p>
+        </div>
+        <!-- /Hakları Saklıdır -->
+    </div>
+    <!-- /Footer -->
+
+</div>

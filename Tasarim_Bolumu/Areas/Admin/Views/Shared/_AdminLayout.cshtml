@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" sizes="" href="~/favicon_io1/apple-touch-icon_logo.png"><!-- title icon ekler -->
+
+    <partial name="cssVeJsDosyaYollari/Login.cshtml/css/Index.cshtml" /><!-- Login Sayfası css dosyası -->
+    <partial name="cssVeJsDosyaYollari/Anasayfa(Home_Index.cshtml)/css/Index.cshtml" /> <!-- Anasayfa css dosyası -->
+    <partial name="cssVeJsDosyaYollari/_AnasayfaDuzenle.cshtml/css/Index.cshtml" /> <!-- _AnasayfaDuzenle css dosyası -->
+
+
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    @RenderBody()
+
+    <script src="~/jquery/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <partial name="cssVeJsDosyaYollari/Login.cshtml/js/Index.cshtml" /> <!-- Login Sayfası js dosyası -->
+
+    @RenderSection("scripts", required: false)
+
+    <partial name="cssVeJsDosyaYollari/Anasayfa(Home_Index.cshtml)/js/Index.cshtml" />  <!-- Anasyafa Js Dosyası -->
+
+
+
+</body>
+</html>

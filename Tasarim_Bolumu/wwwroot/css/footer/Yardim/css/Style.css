@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+#yardimContainer{
+
+    position:relative;
+    height: auto; 
+    
+}
+
+#yardimSutun{
+
+    display: flex;
+
+}
+
+.topAlanDivYardim {
+
+    display: flex; 
+    width: 200px; 
+    height: 60px; 
+    position: relative;
+    margin-right: 20px;
+
+}
+
+
+.topYardim {
+
+    position: relative ;
+    background-color: rgb(242, 121, 11) ;
+    border-radius: 50% ;
+    height: 60px ;
+    width: 65px ;
+
+}
+
+.yaziYardim {
+
+    position: relative; 
+    width: 70% ;
+    height: 100%;
+    font-weight: bold;
+
+}
+
+
+#yardimSutun .yaziYardim a span:not(.topAlanDivYardim:nth-child(1) .yaziYardim a span){
+
+    width: 116px;
+    display: block;
+    margin-top:15px;
+    margin-left: 15px;
+    font-size: 15px; 
+    color:rgb(0, 0, 0);
+  
+}
+
+#musteri{
+
+    width: 116px;
+    display: block;
+    margin-top: 10px;
+    margin-left: 15px;
+    font-weight:600;
+    font-size: 13px;
+    color:rgb(170, 170, 170);
+
+}
+
+#no{
+    
+    margin-left: 15px;
+    color:rgb(0, 0, 0);
+
+}
+
+.yaziYardim a {
+    
+    text-decoration: none;
+    color: rgb(33, 37, 41);
+ 
+}
+
+.kategoriIkonYardim {
+
+    position: absolute ;
+    left: 31%;
+    top: 12% ;
+    font-size: 160% ;
+    color: white;
+
+}
+
+
+.topYardim:hover {
+
+    cursor: pointer;
+    background: linear-gradient(45deg, rgb(110, 49, 13), rgb(242, 121, 11), rgb(110, 49, 13));
+  
+}

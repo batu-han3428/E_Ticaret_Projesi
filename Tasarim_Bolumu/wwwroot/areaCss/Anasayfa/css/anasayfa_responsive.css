@@ -1,0 +1,283 @@
+@charset "UTF-8";
+
+
+@media (max-width: 400px) {
+
+    #mobilSolMenuUl a {
+        text-align: center !important;
+        cursor: pointer !important;
+    }
+
+    #mobilSolMenu h5{
+
+        display: flex !important;
+        margin:0 auto !important;
+        justify-content: space-around !important;
+        width: 75%;
+        padding-bottom: 10px;
+
+    }
+
+    #haklariSaklidirParagraf{
+
+        position:unset; 
+        margin: 20px auto; 
+    
+    }
+
+    #butonAlan {
+
+        display: none;
+
+    }
+
+    #iconVeYaziAlan {
+
+        margin-left: auto !important;
+
+    }
+
+    #adminPanelBaslikAlan {
+
+        padding-top: 10px;
+
+    }
+
+    #mobilSolMenu {
+
+        display: block;
+
+    }
+
+    #solMenu {
+
+        display: none;
+
+    }
+    #mobilSolMenuUl {
+
+        flex-direction: row;
+
+    }
+
+    #mobilSolMenuUl>li {
+
+        padding: 5px;
+
+    }
+    
+    #anaEkran {
+
+        width: 100% !important;
+
+    }
+}
+
+@media (min-width:400px) and (max-width: 575px) {
+
+    #haklariSaklidirParagraf{
+
+        position:unset; 
+        margin: 20px auto; 
+    
+    }
+
+    #butonAlan {
+
+        display: none;
+
+    }
+
+    #iconVeYaziAlan {
+
+        margin-left: auto !important;
+
+    }
+
+    #adminPanelBaslikAlan {
+
+        padding-top: 10px;
+
+    }
+
+    #mobilSolMenu {
+
+        display: block;
+
+    }
+
+    #solMenu {
+
+        display: none;
+
+    }
+    #mobilSolMenuUl {
+
+        flex-direction: row;
+
+    }
+
+    #mobilSolMenuUl>li {
+
+        padding: 5px;
+
+    }
+
+    #anaEkran {
+
+        width: 100% !important;
+
+    }
+}
+
+@media (min-width: 576px) and (max-width:767px) {
+
+    #butonAlan {
+
+        display: none;
+
+    }
+
+    #iconVeYaziAlan {
+
+        margin-left: auto !important;
+
+    }
+
+    #adminPanelBaslikAlan {
+
+        padding-top: 10px;
+
+    }
+
+    #mobilSolMenu {
+
+        display: block;
+
+    }
+
+    #solMenu {
+
+        display: none;
+
+    }
+    #mobilSolMenuUl {
+
+        flex-direction: row;
+
+    }
+
+    #mobilSolMenuUl>li {
+
+        padding: 5px;
+
+    }
+
+    #anasayfaKartDestesi>.col {
+
+        flex: 0 0 auto;
+        width: 50%;
+
+    }
+
+   
+    #anaEkran {
+
+        width: 100% !important;
+
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+    #anasayfaKartDestesi>.col {
+
+        flex: 0 0 auto;
+        width: 50%;
+
+    }
+
+    #mobilSolMenu {
+
+        display: block !important;
+
+    }
+
+    #solMenu {
+
+        display: none;
+
+    }
+
+    #anaEkran {
+
+        width: 100% !important;
+
+    }
+
+    #butonAlan {
+
+        display: none;
+
+    }
+
+    #iconVeYaziAlan {
+
+        margin-left: auto !important;
+
+    }
+
+    #mobilSolMenuUl {
+
+        flex-direction: row;
+
+    }
+
+    #mobilSolMenuUl>li {
+
+        padding: 5px;
+
+    }
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .sayfaAyarlari > .col {
+
+        flex: 1 0 auto;
+        width: 30%;
+
+    }
+  
+}
+
+@media (min-width: 1200px) {
+
+
+}
+
+
+
+
+@media (max-height: 475px) and (min-width: 992px) {
+
+    #haklariSaklidirParagraf {
+        position: unset !important;  
+        margin-bottom: 0 !important;
+        margin-right: 21% !important;
+        margin-left: 0 !important
+    }
+}
+
+@media (max-height: 687px) and (min-width: 576px) and (max-width: 991px) {
+
+    #haklariSaklidirParagraf{
+
+        position:unset; 
+        margin: 20px auto; 
+    
+    }
+
+}

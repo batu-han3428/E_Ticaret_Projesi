@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+#urun_kategoriSutun {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.liste:not(.liste:nth-child(5), .liste .liste) {
+
+    margin-right: 20px;
+
+}
+
+.liste a {
+    
+    text-decoration: none;
+    color: #6c757d;
+    font-size: 13px;
+    margin-bottom: 5px;
+    padding:0 !important;
+    
+}
+
+.liste .liste a {
+
+    white-space: normal !important;
+
+}
+
+.liste div {
+
+    width: auto;
+    height: auto;
+
+}
+
+.liste:nth-child(5) div, .liste .liste div {
+
+    margin-bottom: 5px;
+
+}
+
+.liste a:hover {
+
+    color: rgb(0, 0, 0);
+
+}
+
+.liste > h5 {
+
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 20px;
+
+}

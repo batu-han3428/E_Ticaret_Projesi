@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+<div class="container-fluid p-0" style="overflow-x: hidden; height: 100%;">
+    <div class="row" style="margin: 0 !important; width: 100% !important; height: 100%;">
+
+        <!-- Sol Menü -->
+        <div class="col-md-2 border border-top-0 p-0" id="solMenu">
+            <div class="list-group text-center">
+                <button style="padding:10px !important;" type="button" disabled class="list-group-item list-group-item-action">
+                    <h5>Hoşgeldin <span>Batuhan</span></h5>
+                </button>
+                <button id="KontrolPaneli" type="button" class="list-group-item list-group-item-action active">
+                    <span>Kontrol Paneli</span>
+                </button>
+                <button id="SayfaAyarlari" type="button" class="list-group-item list-group-item-action">
+                    <span>Sayfa Ayarları</span>
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">
+                    <span>The current button</span>
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">
+                    <span>The current button</span>
+                </button>
+            </div>
+        </div>
+        <!-- /Sol Menü -->
+
+        <div class="col-md-10" id="anaEkran">
+            <div class="row">
+
+                <!-- Üst Menü -->
+                <div class="col-md-12 pt-1" id="ustMenuDiv">
+                    <div id="butonAlan" style="margin-right: auto;">
+                        <a id="menuAc" href="#solMenu">
+                            <i class="bi bi-justify" id="menuAcIcon"></i>
+                        </a>
+                    </div>
+                    <div id="iconVeYaziAlan">
+                        <i class="bi bi-envelope-fill" id="iconVeYaziAlanIcon"></i>
+                        <span class="badge bg-success rounded-pill" id="iconVeYaziAlanYazi">5</span>
+                    </div>
+                    <div id="profilAlan">
+                        <div id="fotoAlan">
+                            <i class="bi bi-person-circle" id="fotoAlanIcon"></i>
+                        </div>
+                        <div id="menu">
+                            <div class="btn-group">
+                                <a id="menuLink" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Batuhan
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Hesap Ayarları</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Account" asp-action="Logout">Çıkış</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Üst Menü -->
+
+            </div>
+
+            <!-- Sol Menü Mobil -->
+            <div id="mobilSolMenu" class="row">
+                <div class="col-md-12 p-0">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <h5 class="navbar-brand text-muted text-center">
+                                Hoşgeldin <br />
+                                <span>Batuhan</span>
+                            </h5>
+                            <ul id="mobilSolMenuUl" class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active rounded-3" id="KontrolPaneliMobil">
+                                        <span>Kontrol Paneli</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="SayfaAyarlariMobil">
+                                        <span>Sayfa Ayarları</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <hr />
+            </div>
+            <!-- /Sol Menü Mobil -->
+
+            <div id="ajaxGosterimAlan">
+                <partial name="_KontrolPaneli" />
+            </div>
+
+            <!-- Footer -->
+            <div class="row">
+
+                <!-- Hakları Saklıdır -->
+                <div class="col-md-12 text-center">
+                    <p id="haklariSaklidirParagraf">
+                        Copyright © 2000-2021 BTicaret.com, Her hakkı
+                        saklıdır.
+                    </p>
+                </div>
+                <!-- /Hakları Saklıdır -->
+
+            </div>
+            <!-- /Footer -->
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            var SayfaAyarlari = "@Url.Action("SayfaAyarlari", "Home")";
+            var KontrolPaneli = "@Url.Action("KontrolPaneli", "Home")";
+
+
+            eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(a) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('$("#1").4(0(){5(!$(2).6("7")){$("#3").8().9(0(){$.a({b:"c",d:1,f:0(e){$("#3").g().h(e)}});$(2).i()})}});', 19, 19, 'function|SayfaAyarlari|this|ajaxGosterimAlan|click|if|hasClass|active|fadeOut|queue|ajax|type|GET|url||success|fadeIn|html|clearQueue'.split('|'), 0, {}))
+            eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(a) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('$("#1").4(0(){5(!$(2).6("7")){$("#3").8().9(0(){$.a({b:"c",d:1,f:0(e){$("#3").g().h(e)}});$(2).i()})}});', 19, 19, 'function|KontrolPaneli|this|ajaxGosterimAlan|click|if|hasClass|active|fadeOut|queue|ajax|type|GET|url||success|fadeIn|html|clearQueue'.split('|'), 0, {}))
+            eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(a) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('$("#6").7(0(){8(!$(1).9("a")){$("#2").3();$("#4").3().b(0(){$.c({d:"f",g:h,i:0(e){$("#4").5().j(e);$("#2").5()}});$(1).k()})}});', 21, 21, 'function|this|haklariSaklidirParagraf|fadeOut|ajaxGosterimAlan|fadeIn|SayfaAyarlariMobil|click|if|hasClass|active|queue|ajax|type||GET|url|SayfaAyarlari|success|html|clearQueue'.split('|'), 0, {}))
+            eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(a) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('$("#6").7(0(){8(!$(1).9("a")){$("#2").3();$("#4").3().b(0(){$.c({d:"f",g:h,i:0(e){$("#4").5().j(e);$("#2").5()}});$(1).k()})}});', 21, 21, 'function|this|haklariSaklidirParagraf|fadeOut|ajaxGosterimAlan|fadeIn|KontrolPaneliMobil|click|if|hasClass|active|queue|ajax|type||GET|url|KontrolPaneli|success|html|clearQueue'.split('|'), 0, {}))
+
+        });
+
+    </script>
+
+
+}

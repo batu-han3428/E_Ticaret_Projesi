@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+#filtreIcerik{
+
+    background-color: white;
+ 
+}
+
+#icerikEnUst{
+
+    display: flex;
+
+}
+
+#icerikEnUst span{
+
+    color: rgb(51, 51, 51);
+    font-size: 13px;
+    font-weight: 500;
+
+}
+
+
+@media (max-width: 991px) {
+
+    #filtreBuyukEkran{
+
+        display:none;
+
+    }
+
+    #filtreIcerik{
+
+        width: 100%;
+        
+    }
+ 
+}
+
+.form-select:focus {
+
+    border-color: rgb(235, 207, 172);
+    box-shadow: 0 0 0 0.15rem rgb(212, 159, 94);
+
+}
+
+select:focus > option:checked { 
+
+    background: rgb(255, 140, 0) !important;
+
+}
+
+
+
+
+#marcaSutun{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+
+
+}
+
+.urunlerDivAlan{
+   
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.urunlerFoto{
+
+    height: 100%; 
+    width: 70%; 
+    object-fit:scale-down;
+   
+}
+
+.urunlerDivFoto{
+
+    border-radius: 50%; 
+    border:2px solid rgb(239, 239, 239); 
+    height: 80px; 
+    width: 80px; 
+
+}

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+  /* Müşteri memnuniyeti navbar alt kısmı*/
+#badges1 > span{
+    cursor: pointer;
+    color:rgb(35, 131, 193);
+}
+
+#badges1 span:hover{
+    color:rgb(22, 84, 126);
+}

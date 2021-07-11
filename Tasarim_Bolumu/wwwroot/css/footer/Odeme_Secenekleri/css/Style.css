@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+#odemeAlanContainer{
+
+    position:relative;
+    height: auto; 
+    
+}
+
+#odemeBaslik{
+
+    color: #333333; 
+    font-weight: 600;
+
+}
+
+#odemeAlan{
+
+    display: flex; 
+    justify-content: center;
+    width: 100px; 
+    height: 100px; 
+    position: relative;
+   
+}
+
+.odemeFoto{
+
+    width: 60px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+
+}
+
+#axess{
+
+    background-image: url(../img/credit-card-axess.webp);
+
+    
+}
+
+#world{
+
+    background-image: url(../img/credit-card-world.webp);
+
+}
+
+#paraf{
+
+    background-image: url(../img/credit-card-paraf.webp);
+
+}
+
+#ziraat{
+
+    background-image: url(../img/credit-card-bankkart.webp);
+
+}
+
+#maximum{
+
+    background-image: url(../img/credit-card-maximum.webp);
+
+}
+
+#cardfinans{
+
+    background-image: url(../img/credit-card-cardfinans.webp);
+
+}
+
+#advantage{
+
+    background-image: url(../img/credit-card-advantage.webp);
+
+}
+
+#bonus{
+
+    background-image: url(../img/credit-card-bonus.webp);
+
+}
+
+#visa{
+
+    background-image: url(../img/mastercard-visa-logo.png);
+
+}
+
+.odemeYazi{
+
+    font-weight: 600;
+    color: #333333; 
+    width: auto;
+    text-align: center;
+    position: absolute; 
+    top:40px;
+
+}
+
+.odemeBorder{
+
+    padding:0px; 
+    border-right: 1px solid rgb(214, 214, 214); 
+    margin:0 20px; 
+    height:45px;
+
+}
+
+#odemeAlanSutun{
+
+    display: flex;
+
+}

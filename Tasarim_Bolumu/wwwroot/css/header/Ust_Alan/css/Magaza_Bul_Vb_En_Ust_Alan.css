@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/* Mağaza bul vb. en üst alan */
+
+#badges > span {
+
+    cursor:pointer;
+
+}

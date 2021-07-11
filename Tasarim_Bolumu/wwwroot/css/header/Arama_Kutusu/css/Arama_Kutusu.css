@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+ /* arama kutusu */
+ 
+ #form, #buton, #icon{
+    box-shadow: 0 0 0 0 !important;
+    border-color: gainsboro !important;
+    color:rgb(170, 153, 153) !important;
+} 
+
+#form:focus{
+    box-shadow: 0 0 0 0.15rem rgba(247, 182, 4, 0.856) !important;
+    color:rgba(247, 182, 4, 0.856) !important;
+    
+}
+
+#form:focus + a #icon{
+   color:rgba(247, 182, 4, 0.856) !important;
+}
+
+#form:focus +  a  #buton{
+    box-shadow: 0 0 0 0.110rem rgba(247, 182, 4, 0.856) !important;
+}

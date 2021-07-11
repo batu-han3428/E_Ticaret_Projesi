@@ -1,0 +1,1194 @@
+﻿ <!-- Site Haritası -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" id="siteHaritasiSutun">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a id="siteHaritasiLink" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
+                <li class="breadcrumb-item active">Telefon</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- /Site Haritası -->
+
+<!-- Filtreleme -->
+<div class="container mb-4" id="filtre">
+    <div class="row">
+        <div class="col-6">
+            <div class="filtreDiv">
+                <button class="filtreButon" data-bs-target="#modalFiltre" data-bs-toggle="modal">
+                    <span class="filtreYazi">Filtrele</span>
+                    <i class="bi bi-funnel-fill filtreIcon"></i>
+                </button>
+                <div class="modal fade" id="modalFiltre">
+                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header d-flex">
+                                <h4 class="modal-title ms-auto">Telefon Fiyatları ve Modelleri</h4>
+                                <button class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="accordion" style="background-color: white;">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kategoriler">
+                                                <i class="bi bi-tags-fill categoriesIcon"></i><span>KATEGORİLER</span>
+                                            </button>
+                                        </h2>
+                                        <div id="kategoriler" class="accordion-collapse collapse">
+                                            <div class="accordion-body">
+                                                <a href="#">Cep Telefonu Aksesuarları&nbsp<span>(1.399)</span></a>
+                                                <a href="#">Kılıf ve Koruyucular&nbsp<span>(845)</span></a>
+                                                <a href="#">Kulaklıklar&nbsp<span>(533)</span></a>
+                                                <a href="#">Kılıf ve Koruyucular&nbsp<span>(845)</span></a>
+                                                <a href="#">Kılıflar&nbsp<span>(473)</span></a>
+                                                <a href="#">Ekran Koruyucular&nbsp<span>(360)</span></a>
+                                                <a href="#">Şarj Cihazları&nbsp<span>(336)</span></a>
+                                                <a href="#">Şarj Kabloları&nbsp<span>(248)</span></a>
+                                                <a href="#">Cep Telefonu&nbsp<span>(213)</span></a>
+                                                <a href="#">Bluetooth Kulaklıklar&nbsp<span>(202)</span></a>
+                                                <a href="#">Kulak İçi Kulaklık&nbsp<span>(192)</span></a>
+                                                <a href="#">Discount Category&nbsp<span>(183)</span></a>
+                                                <a href="#">Orange Category&nbsp<span>(183)</span></a>
+                                                <a href="#">Android Telefonlar&nbsp<span>(149)</span></a>
+                                                <a href="#">Kulak Üstü Kulaklık&nbsp<span>(149)</span></a>
+                                                <a href="#">Giyilebilir Teknoloji&nbsp<span>(139)</span></a>
+                                                <a href="#">Taşınabilir Şarj Cihazları&nbsp<span>(113)</span></a>
+                                                <a href="#">Araç Kitleri&nbsp<span>(93)</span></a>
+                                                <a href="#">Akıllı Saatler&nbsp<span>(74)</span></a>
+                                                <a href="#">iPhone iOS Telefonlar&nbsp<span>(64)</span></a>
+                                                <a href="#">Giyilebilir Teknoloji Aksesuarları&nbsp<span>(32)</span></a>
+                                                <a href="#">Akıllı Bileklik&nbsp<span>(25)</span></a>
+                                                <a href="#">Telsiz ve Masaüstü Telefonlar&nbsp<span>(17)</span></a>
+                                                <a href="#">Masaüstü Telefonlar&nbsp<span>(17)</span></a>
+                                                <a href="#">Dr. Teknolog&nbsp<span>(16)</span></a>
+                                                <a href="#">Ekran Koruma Hizmeti&nbsp<span>(16)</span></a>
+                                                <a href="#">iPhone 12 Pro&nbsp<span>(12)</span></a>
+                                                <a href="#">Nbo Akıllı Telefon&nbsp<span>(9)</span></a>
+                                                <a href="#">iPhone SE&nbsp<span>(8)</span></a>
+                                                <a href="#">iPhone 12 Pro Max&nbsp<span>(8)</span></a>
+                                                <a href="#">iPhone 12 Mini&nbsp<span>(8)</span></a>
+                                                <a href="#">Adaptörler&nbsp<span>(8)</span></a>
+                                                <a href="#">Selfie Çubuğu&nbsp<span>(6)</span></a>
+                                                <a href="#">iPhone XR&nbsp<span>(3)</span></a>
+                                                <a href="#">Sanal Gerçeklik Gözlüğü&nbsp<span>(3)</span></a>
+                                                <a href="#">Bilgisayar&nbsp<span>(3)</span></a>
+                                                <a href="#">Bilgisayar Aksesuarları&nbsp<span>(2)</span></a>
+                                                <a href="#">Kulaklıklar&nbsp<span>(1)</span></a>
+                                                <a href="#">Bluetooth Kulaklıklar&nbsp<span>(1)</span></a>
+                                                <a href="#">Oppo Reno 5 Lite&nbsp<span>(1)</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#markalar">
+                                                <i class="bi bi-star-fill categoriesIcon"></i><span>MARKALAR</span>
+                                            </button>
+                                        </h2>
+                                        <div id="markalar" class="accordion-collapse collapse">
+                                            <div class="accordion-body">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="preoCheck">
+                                                    <label class="form-check-label" for="preoCheck">
+                                                        PREO&nbsp<span>(647)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="appleCheck">
+                                                    <label class="form-check-label" for="appleCheck">
+                                                        APPLE&nbsp<span>(202)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="samsungCheck">
+                                                    <label class="form-check-label" for="samsungCheck">
+                                                        SAMSUNG&nbsp<span>(181)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="ttecCheck">
+                                                    <label class="form-check-label" for="ttecCheck">
+                                                        TTEC&nbsp<span>(129)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="jblCheck">
+                                                    <label class="form-check-label" for="jblCheck">
+                                                        JBL&nbsp<span>(106)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="cellularlineCheck">
+                                                    <label class="form-check-label" for="cellularlineCheck">
+                                                        CELLULAR&nbspLINE&nbsp<span>(95)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="huaweiCheck">
+                                                    <label class="form-check-label" for="huaweiCheck">
+                                                        HUAWEI&nbsp<span>(77)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="cellyCheck">
+                                                    <label class="form-check-label" for="cellyCheck">
+                                                        CELLY&nbsp<span>(64)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="ankerCheck">
+                                                    <label class="form-check-label" for="ankerCheck">
+                                                        ANKER&nbsp<span>(58)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="sonyCheck">
+                                                    <label class="form-check-label" for="sonyCheck">
+                                                        SONY&nbsp<span>(55)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="swissCheck">
+                                                    <label class="form-check-label" for="swissCheck">
+                                                        SWISS&nbsp<span>(41)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="xiaomiCheck">
+                                                    <label class="form-check-label" for="xiaomiCheck">
+                                                        XIAOMI&nbsp<span>(36)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="philipsCheck">
+                                                    <label class="form-check-label" for="philipsCheck">
+                                                        PHILIPS&nbsp<span>(32)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fiyat">
+                                                <i class="bi bi-currency-dollar categoriesIcon"></i><span>FİYAT</span>
+                                            </button>
+                                        </h2>
+                                        <div id="fiyat" class="accordion-collapse collapse">
+                                            <div class="accordion-body">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="500Check">
+                                                    <label class="form-check-label" for="500Check">
+                                                        500-1.000&nbspTL&nbspArası&nbsp<span>(137)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="1000Check">
+                                                    <label class="form-check-label" for="1000Check">
+                                                        1.000-2.500&nbspTL&nbspArası&nbsp<span>(140)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="2500Check">
+                                                    <label class="form-check-label" for="2500Check">
+                                                        2.500-4.000&nbspTL&nbspArası&nbsp<span>(76)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="4000Check">
+                                                    <label class="form-check-label" for="4000Check">
+                                                        4.000-5.500&nbspTL&nbspArası&nbsp<span>(42)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="5500Check">
+                                                    <label class="form-check-label" for="5500Check">
+                                                        5.500-7.500&nbspTL&nbspArası&nbsp<span>(11)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="250Check">
+                                                    <label class="form-check-label" for="250Check">
+                                                        250-500&nbspTL&nbspArası&nbsp<span>(301)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="100Check">
+                                                    <label class="form-check-label" for="100Check">
+                                                        100-250&nbspTL&nbspArası&nbsp<span>(405)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="7500Check">
+                                                    <label class="form-check-label" for="7500Check">
+                                                        7.500&nbspTL&nbspÜzeri&nbsp<span>(73)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="50Check">
+                                                    <label class="form-check-label" for="50Check">
+                                                        50-100&nbspTL&nbspArası&nbsp<span>(749)</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="50altiCheck">
+                                                    <label class="form-check-label" for="50altiCheck">
+                                                        50&nbspTL&nbspAltı&nbsp<span>(364)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stok">
+                                                <i class="bi bi-binoculars-fill categoriesIcon"></i><span>STOK</span>
+                                            </button>
+                                        </h2>
+                                        <div id="stok" class="accordion-collapse collapse">
+                                            <div class="accordion-body">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="stokCheck">
+                                                    <label class="form-check-label" for="stokCheck">
+                                                        Stoklu&nbspÜrünler&nbsp<span>(2.226)</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-3">
+                                        <h1 class="h4">Telefon</h1>
+                                        <p>Hem en uygun fiyatlı hem son teknoloji telefon modelleri Teknosa'da! Telefon fiyatlarını ve telefon özelliklerini karşılaştırın, kullanıcı yorumlarını okuyun ve Teknosa güvencesiyle satın alın. Aradığınız telefon sizi bekliyor!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="filtreDiv">
+                <button class="filtreButon" data-bs-target="#modalPopuler" data-bs-toggle="modal">
+                    <span class="filtreYazi">Listeleme Seçenekleri</span>
+                    <i class="bi bi-card-list filtreIcon"></i>
+                </button>
+                <div class="modal fade" id="modalPopuler">
+                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header d-flex">
+                                <h4 class="modal-title ms-auto">Listeleme&nbspSeçenekleri</h4>
+                                <button class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body" id="listelemeModalBody">
+                                <button class="listelemeButon" type="button">
+                                    <i class="bi bi-star-fill listelemeIcon"></i><span>En Popüler</span>
+                                </button>
+                                <button class="listelemeButon" type="button">
+                                    <i class="bi bi-sort-alpha-down listelemeIcon"></i><span>İsme Göre (A-Z)</span>
+                                </button>
+                                <button class="listelemeButon" type="button">
+                                    <i class="bi bi-sort-alpha-up listelemeIcon"></i><span>İsme Göre (Z-A)</span>
+                                </button>
+                                <button class="listelemeButon" type="button">
+                                    <i class="bi bi-sort-numeric-up-alt listelemeIcon"></i><span>Fiyata Göre (Artan)</span>
+                                </button>
+                                <button class="listelemeButon" type="button">
+                                    <i class="bi bi-sort-numeric-down-alt listelemeIcon"></i><span>Fiyata Göre (Azalan)</span>
+                                </button>
+                                <button class="listelemeButon" type="button">
+                                    <i class="bi bi-piggy-bank-fill listelemeIcon"></i><span>İndirimli Ürünler</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Filtreleme -->
+
+<!-- Kategoriler, Markalar ve Ürünler -->
+<div class="container">
+    <div class="row">
+
+        <!-- Kategoriler -->
+        <div class="col-md-3" id="kategoriMenusu">
+            <div class="accordion" style="background-color: white;">
+                <div class="border-bottom p-3">
+                    <h1 class="h4">Telefon Fiyatları ve Modelleri</h1>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kategoriler">
+                            <i class="bi bi-tags-fill categoriesIcon"></i><span>KATEGORİLER</span>
+                        </button>
+                    </h2>
+                    <div id="kategoriler" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <a href="#">Cep Telefonu Aksesuarları&nbsp<span>(1.399)</span></a>
+                            <a href="#">Kılıf ve Koruyucular&nbsp<span>(845)</span></a>
+                            <a href="#">Kulaklıklar&nbsp<span>(533)</span></a>
+                            <a href="#">Kılıf ve Koruyucular&nbsp<span>(845)</span></a>
+                            <a href="#">Kılıflar&nbsp<span>(473)</span></a>
+                            <a href="#">Ekran Koruyucular&nbsp<span>(360)</span></a>
+                            <a href="#">Şarj Cihazları&nbsp<span>(336)</span></a>
+                            <a href="#">Şarj Kabloları&nbsp<span>(248)</span></a>
+                            <a href="#">Cep Telefonu&nbsp<span>(213)</span></a>
+                            <a href="#">Bluetooth Kulaklıklar&nbsp<span>(202)</span></a>
+                            <a href="#">Kulak İçi Kulaklık&nbsp<span>(192)</span></a>
+                            <a href="#">Discount Category&nbsp<span>(183)</span></a>
+                            <a href="#">Orange Category&nbsp<span>(183)</span></a>
+                            <a href="#">Android Telefonlar&nbsp<span>(149)</span></a>
+                            <a href="#">Kulak Üstü Kulaklık&nbsp<span>(149)</span></a>
+                            <a href="#">Giyilebilir Teknoloji&nbsp<span>(139)</span></a>
+                            <a href="#">Taşınabilir Şarj Cihazları&nbsp<span>(113)</span></a>
+                            <a href="#">Araç Kitleri&nbsp<span>(93)</span></a>
+                            <a href="#">Akıllı Saatler&nbsp<span>(74)</span></a>
+                            <a href="#">iPhone iOS Telefonlar&nbsp<span>(64)</span></a>
+                            <a href="#">Giyilebilir Teknoloji Aksesuarları&nbsp<span>(32)</span></a>
+                            <a href="#">Akıllı Bileklik&nbsp<span>(25)</span></a>
+                            <a href="#">Telsiz ve Masaüstü Telefonlar&nbsp<span>(17)</span></a>
+                            <a href="#">Masaüstü Telefonlar&nbsp<span>(17)</span></a>
+                            <a href="#">Dr. Teknolog&nbsp<span>(16)</span></a>
+                            <a href="#">Ekran Koruma Hizmeti&nbsp<span>(16)</span></a>
+                            <a href="#">iPhone 12 Pro&nbsp<span>(12)</span></a>
+                            <a href="#">Nbo Akıllı Telefon&nbsp<span>(9)</span></a>
+                            <a href="#">iPhone SE&nbsp<span>(8)</span></a>
+                            <a href="#">iPhone 12 Pro Max&nbsp<span>(8)</span></a>
+                            <a href="#">iPhone 12 Mini&nbsp<span>(8)</span></a>
+                            <a href="#">Adaptörler&nbsp<span>(8)</span></a>
+                            <a href="#">Selfie Çubuğu&nbsp<span>(6)</span></a>
+                            <a href="#">iPhone XR&nbsp<span>(3)</span></a>
+                            <a href="#">Sanal Gerçeklik Gözlüğü&nbsp<span>(3)</span></a>
+                            <a href="#">Bilgisayar&nbsp<span>(3)</span></a>
+                            <a href="#">Bilgisayar Aksesuarları&nbsp<span>(2)</span></a>
+                            <a href="#">Kulaklıklar&nbsp<span>(1)</span></a>
+                            <a href="#">Bluetooth Kulaklıklar&nbsp<span>(1)</span></a>
+                            <a href="#">Oppo Reno 5 Lite&nbsp<span>(1)</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#markalar">
+                            <i class="bi bi-star-fill categoriesIcon"></i><span>MARKALAR</span>
+                        </button>
+                    </h2>
+                    <div id="markalar" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="preoCheck">
+                                <label class="form-check-label" for="preoCheck">
+                                    PREO&nbsp<span>(647)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="appleCheck">
+                                <label class="form-check-label" for="appleCheck">
+                                    APPLE&nbsp<span>(202)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="samsungCheck">
+                                <label class="form-check-label" for="samsungCheck">
+                                    SAMSUNG&nbsp<span>(181)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="ttecCheck">
+                                <label class="form-check-label" for="ttecCheck">
+                                    TTEC&nbsp<span>(129)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="jblCheck">
+                                <label class="form-check-label" for="jblCheck">
+                                    JBL&nbsp<span>(106)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cellularlineCheck">
+                                <label class="form-check-label" for="cellularlineCheck">
+                                    CELLULAR&nbspLINE&nbsp<span>(95)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="huaweiCheck">
+                                <label class="form-check-label" for="huaweiCheck">
+                                    HUAWEI&nbsp<span>(77)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cellyCheck">
+                                <label class="form-check-label" for="cellyCheck">
+                                    CELLY&nbsp<span>(64)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="ankerCheck">
+                                <label class="form-check-label" for="ankerCheck">
+                                    ANKER&nbsp<span>(58)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="sonyCheck">
+                                <label class="form-check-label" for="sonyCheck">
+                                    SONY&nbsp<span>(55)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="swissCheck">
+                                <label class="form-check-label" for="swissCheck">
+                                    SWISS&nbsp<span>(41)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="xiaomiCheck">
+                                <label class="form-check-label" for="xiaomiCheck">
+                                    XIAOMI&nbsp<span>(36)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="philipsCheck">
+                                <label class="form-check-label" for="philipsCheck">
+                                    PHILIPS&nbsp<span>(32)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fiyat">
+                            <i class="bi bi-currency-dollar categoriesIcon"></i><span>FİYAT</span>
+                        </button>
+                    </h2>
+                    <div id="fiyat" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="500Check">
+                                <label class="form-check-label" for="500Check">
+                                    500-1.000&nbspTL&nbspArası&nbsp<span>(137)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="1000Check">
+                                <label class="form-check-label" for="1000Check">
+                                    1.000-2.500&nbspTL&nbspArası&nbsp<span>(140)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="2500Check">
+                                <label class="form-check-label" for="2500Check">
+                                    2.500-4.000&nbspTL&nbspArası&nbsp<span>(76)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="4000Check">
+                                <label class="form-check-label" for="4000Check">
+                                    4.000-5.500&nbspTL&nbspArası&nbsp<span>(42)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="5500Check">
+                                <label class="form-check-label" for="5500Check">
+                                    5.500-7.500&nbspTL&nbspArası&nbsp<span>(11)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="250Check">
+                                <label class="form-check-label" for="250Check">
+                                    250-500&nbspTL&nbspArası&nbsp<span>(301)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="100Check">
+                                <label class="form-check-label" for="100Check">
+                                    100-250&nbspTL&nbspArası&nbsp<span>(405)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="7500Check">
+                                <label class="form-check-label" for="7500Check">
+                                    7.500&nbspTL&nbspÜzeri&nbsp<span>(73)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="50Check">
+                                <label class="form-check-label" for="50Check">
+                                    50-100&nbspTL&nbspArası&nbsp<span>(749)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="50altiCheck">
+                                <label class="form-check-label" for="50altiCheck">
+                                    50&nbspTL&nbspAltı&nbsp<span>(364)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stok">
+                            <i class="bi bi-binoculars-fill categoriesIcon"></i><span>STOK</span>
+                        </button>
+                    </h2>
+                    <div id="stok" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="stokCheck">
+                                <label class="form-check-label" for="stokCheck">
+                                    Stoklu&nbspÜrünler&nbsp<span>(2.226)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <h1 class="h6">Telefon</h1>
+                    <p class="kategoriAltYazi">Hem en uygun fiyatlı hem son teknoloji telefon modelleri Teknosa'da! Telefon fiyatlarını ve telefon özelliklerini karşılaştırın, kullanıcı yorumlarını okuyun ve Teknosa güvencesiyle satın alın. Aradığınız telefon sizi bekliyor!</p>
+                </div>
+            </div>
+        </div>
+        <!-- /Kategoriler -->
+
+        <!-- Markalar ve Ürünler -->
+        <div class="col-md-9" id="filtreIcerik">
+
+            <!-- Filtre -->
+            <div class="row">
+                <div class="col-md-12 p-4" id="icerikEnUst">
+                    <div class="me-auto">
+                        <span><b>Telefon</b> için 2308 ürün bulundu</span>
+                    </div>
+                    <div id="filtreBuyukEkran">
+                        <select class="form-select form-select-sm p-2">
+                            <option disabled>Seçiniz...</option>
+                            <option selected>En Popüler</option>
+                            <option>İsme Göre (A-Z)</option>
+                            <option>İsme Göre (Z-A)</option>
+                            <option>Fiyata Göre (Artan)</option>
+                            <option>Fiyata Göre (Azalan)</option>
+                            <option>İndirimli Ürünler</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- /Filtre -->
+
+            <!-- Markalar -->
+            <div class="row">
+                <div class="col-md-12" id="marcaSutun">
+
+                    <div class="urunlerDivAlan" onclick="location.href='javascript:void(0)';">
+                        <div class="urunlerDivFoto">
+                            <img class="urunlerFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Markalar/img/logo_apple_19.webp" alt="apple">
+                        </div>
+                        <div>
+                            <span>Apple</span>
+                        </div>
+                    </div>
+                    <div class="urunlerDivAlan" onclick="location.href='javascript:void(0)';">
+                        <div class="urunlerDivFoto">
+                            <img class="urunlerFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Markalar//img/logo_samsung_19.webp" alt="apple">
+                        </div>
+                        <div>
+                            <span>Samsung</span>
+                        </div>
+                    </div>
+                    <div class="urunlerDivAlan" onclick="location.href='javascript:void(0)';">
+                        <div class="urunlerDivFoto">
+                            <img class="urunlerFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Markalar/img/category_logo_casper.webp" alt="apple">
+                        </div>
+                        <div>
+                            <span>Casper</span>
+                        </div>
+                    </div>
+                    <div class="urunlerDivAlan" onclick="location.href='javascript:void(0)';">
+                        <div class="urunlerDivFoto">
+                            <img class="urunlerFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Markalar/img/category_logo_huawei_201228.webp" alt="apple">
+                        </div>
+                        <div>
+                            <span>Huawei</span>
+                        </div>
+                    </div>
+                    <div class="urunlerDivAlan" onclick="location.href='javascript:void(0)';">
+                        <div class="urunlerDivFoto">
+                            <img class="urunlerFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Markalar/img/logo_xiaomi_19.webp" alt="apple">
+                        </div>
+                        <div>
+                            <span>Xiomi</span>
+                        </div>
+                    </div>
+                    <div class="urunlerDivAlan" onclick="location.href='javascript:void(0)';">
+                        <div class="urunlerDivFoto">
+                            <img class="urunlerFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Markalar/img/logo_realme_19.png" alt="apple">
+                        </div>
+                        <div>
+                            <span>Realme</span>
+                        </div>
+                    </div>
+                    <div class="urunlerDivAlan" onclick="location.href='javascript:void(0)';">
+                        <div class="urunlerDivFoto">
+                            <img class="urunlerFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Markalar/img/oppo.svg" alt="apple">
+                        </div>
+                        <div>
+                            <span>Oppo</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /Markalar -->
+
+            <!-- Ürünler -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-group mt-5 urunKartgrubu">
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="Telefon_Icerik/XiomiRedmi.html">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/34867488.png" alt="xiomiNote8">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8885287551026.png" alt="xiomilogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Xiaomi Redmi Note 8 4GB/64GB Mavi Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none;" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">2.999 TL</span>
+                                        <span style="display:none;" class="card-text indirim">3.099 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">2.999 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/38592535.png" alt="Huaweip40">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8876210815026.png" alt="huaweilogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Huawei P40 Lite 128 GB Pembe Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">3.599 TL</span>
+                                        <span style="display:none;" class="card-text indirim">3.099 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">2.999 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/31157116.jpg" alt="AppleAirpods">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8798552719410.png" alt="AppleAirPods">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Apple AirPods 2.Nesil ve Şarj Kutusu (MV7N2TU/A)</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">1.599 TL</span>
+                                        <span style="display:none;" class="card-text indirim">3.099 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">2.999 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/47008001.jpg" alt="SamsungGalaxyA30">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8798517788722.png" alt="Samsunglogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Samsung Galaxy A31 Blue Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span style="display:none;" class="card-text">2.999 TL</span>
+                                        <span class="card-text indirim">3.099 TL</span>
+                                        <span class="card-text indirimliFiyat">2.999 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group urunKartgrubu">
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/38592258.png" alt="huaweip40lite128gb">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8876210815026.png" alt="huaweilogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Huawei P40 Lite 128 GB Siyah Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none;" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">3.599 TL</span>
+                                        <span style="display:none;" class="card-text indirim">3.099 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">2.999 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/35317881.jpg" alt="XiomiRedmiNote8">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8885287551026.png" alt="XiomiLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Xiaomi Redmi Note 8 4GB/128GB Siyah Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span style="display: none;" class="card-text">3.599 TL</span>
+                                        <span class="card-text indirim">3.199 TL</span>
+                                        <span class="card-text indirimliFiyat">3.099 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/34867478.png" alt="XiomiRedmiNote8">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8885287551026.png" alt="XiomiLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Xiaomi Redmi Note 8 4GB/64GB Beyaz Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">2.999 TL</span>
+                                        <span style="display:none;" class="card-text indirim">3.099 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">2.999 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/38957997.jpg" alt="SamsungGalaxyNote10">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8798517788722.png" alt="Samsunglogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Samsung Galaxy Note10 Lite Siyah Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span style="display:none;" class="card-text">2.999 TL</span>
+                                        <span class="card-text indirim">5.499 TL</span>
+                                        <span class="card-text indirimliFiyat">4.999 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group urunKartgrubu">
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/36158776.png" alt="SamsungGalaxyA51">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8798517788722.png" alt="SamsungLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Samsung Galaxy A51 Akıllı Telefon Siyah</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%6</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span style="display:none;" class="card-text">3.599 TL</span>
+                                        <span class="card-text indirim">3.499 TL</span>
+                                        <span class="card-text indirimliFiyat">3.299 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/35344786.jpg" alt="HuaweiWatchGt2">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8876210815026.png" alt="HuaweiLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Huawei Watch GT2 Latona-B19S Akıllı Saat Siyah</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">1.399 TL</span>
+                                        <span style="display: none;" class="card-text indirim">3.199 TL</span>
+                                        <span style="display: none;" class="card-text indirimliFiyat">3.099 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/38592532.png" alt="HuaweiP40Lite">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8876210815026.png" alt="HuaweLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Huawei P40 Lite 128 GB Yeşil Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">3.599 TL</span>
+                                        <span style="display:none;" class="card-text indirim">3.099 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">2.999 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/44167762.png" alt="HuaweiPSmart">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8876210815026.png" alt="HuaweiLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Huawei P Smart S 4-128GB Siyah Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%10</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span style="display:none;" class="card-text">2.999 TL</span>
+                                        <span class="card-text indirim">2.899 TL</span>
+                                        <span class="card-text indirimliFiyat">2.599 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group urunKartgrubu">
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/27731024.jpg" alt="JblT500bt">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8798516215858.png" alt="JblLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Jbl T500BT Kulak Üstü Mikrofonlu Kablosuz Kulaklık Siyah</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%21</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span style="display:none;" class="card-text">3.599 TL</span>
+                                        <span class="card-text indirim">479 TL</span>
+                                        <span class="card-text indirimliFiyat">379 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/38592518.png" alt="HuaweiP40Lite">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8876210815026.png" alt="HuaweiLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Huawei P40 Lite E 64GB Siyah Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">2.799 TL</span>
+                                        <span style="display: none;" class="card-text indirim">3.199 TL</span>
+                                        <span style="display: none;" class="card-text indirimliFiyat">3.099 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/36158757.png" alt="SamsungGalaxyA51">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8798517788722.png" alt="SamsungLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Samsung Galaxy A51 Akıllı Telefon Pembe</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%6</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span style="display:none;" class="card-text">3.599 TL</span>
+                                        <span class="card-text indirim">3.499 TL</span>
+                                        <span class="card-text indirimliFiyat">3.299 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/34920944.jpg" alt="AppleAirPodsPro">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8798552719410.png" alt="AppleLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Apple MWP22TU/A AirPods Pro Kulak İçi Kablosuz Bluetooth Kulaklık</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none;" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%6</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">2.499 TL</span>
+                                        <span style="display:none;" class="card-text indirim">3.499 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">3.299 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-group urunKartgrubu">
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/35317730.png" alt="XiomiRedmiNote8">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8885287551026.png" alt="XiomiLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Xiaomi Redmi Note 8 Pro 6GB/128GB Gri Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none;" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%21</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">3.699 TL</span>
+                                        <span style="display:none;" class="card-text indirim">479 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">379 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/35768115.png" alt="XiomiRedmiNote84Gb">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8885287551026.png" alt="XiomiLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Xiaomi Redmi Note 8 4GB/128GB Beyaz Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%9</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span style="display: none;" class="card-text">2.799 TL</span>
+                                        <span class="card-text indirim">3.399 TL</span>
+                                        <span class="card-text indirimliFiyat">3.099 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/26932356.jpg" alt="JblT460bt">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8798516215858.png" alt="JblLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Jbl T460BT Kulak Üstü Mikrofonlu Kablosuz Kulaklık Siyah</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none;" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%6</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">327 TL</span>
+                                        <span style="display:none;" class="card-text indirim">3.499 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">3.299 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card urunKartlari">
+                            <div class="kartlarFotoAlan">
+                                <a href="javascript:void(0)">
+                                    <img class="card-img-top kartlarFoto" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/8806189203506_1562149528111.jpg" alt="HuaweiY62019">
+                                </a>
+                            </div>
+                            <div class="card-body kartlarBody">
+                                <div class="kartlarMarkaAlan">
+                                    <img class="kartlarMarka" src="~/css/urunler_sayfalari/telefon/body/Kategoriler_ve_Urunler/Urunler/img/marka/8876210815026.png" alt="HuaweiLogo">
+                                </div>
+                                <div class="kartlarUrunAdAlan">
+                                    <span class="kartlarUrunAd"><a href="javascript:void(0)">Huawei Y6 2019 Amber Brown Akıllı Telefon</a></span>
+                                </div>
+                                <div class="kartlarTopveFiyatlar">
+                                    <div style="display:none;" class="kartlarTop">
+                                        <span class="card-text kartTopYazi">%6</span>
+                                    </div>
+                                    <div class="kartlarFiyatlar">
+                                        <span class="card-text">1.849 TL</span>
+                                        <span style="display:none;" class="card-text indirim">3.499 TL</span>
+                                        <span style="display:none;" class="card-text indirimliFiyat">3.299 TL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Ürünler -->
+
+            <!-- Pagination -->
+            <div class="row mt-3 border-3 border-bottom" id="paginationSatir">
+                <div class="col-md-12 p-3">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">
+                                <span>&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <span>&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /Pagination-->
+
+        </div>
+        <!-- /Markalar ve Ürünler -->
+
+    </div>
+</div>
+<!-- /Kategoriler, Markalar ve Ürünler -->

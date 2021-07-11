@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasarim_Bolumu", "Tasarim_Bolumu\Tasarim_Bolumu.csproj", "{4C659959-86FD-40D7-A68A-26BA5CFE7793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{35B9F3F2-EF09-4FEB-9419-F02323350418}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C659959-86FD-40D7-A68A-26BA5CFE7793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C659959-86FD-40D7-A68A-26BA5CFE7793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C659959-86FD-40D7-A68A-26BA5CFE7793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C659959-86FD-40D7-A68A-26BA5CFE7793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B9F3F2-EF09-4FEB-9419-F02323350418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B9F3F2-EF09-4FEB-9419-F02323350418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B9F3F2-EF09-4FEB-9419-F02323350418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B9F3F2-EF09-4FEB-9419-F02323350418}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D10D13C-4372-4C91-B852-4785F36592B7}
+	EndGlobalSection
+EndGlobal

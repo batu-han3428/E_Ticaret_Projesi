@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+ /* Navbar */
+    #nav{
+        margin-top: 10px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 20px;
+    }
+
+
+    #menu > li:hover, #menu > li:hover > a {
+        
+        background-color: white;
+
+        color:orange !important;
+    }
+
+     /* Tüm ürünler menüsü */
+     #acilirmenu:hover + #dropdown-menu{
+
+        display: block;
+      
+    }
+
+    #dropdown-menu:hover{
+      
+        display: block;
+        
+    }
+
+    #dropdown-menu{
+        min-width: 155px !important;
+        border-radius: 0;
+    }
+
+    #dropdown-menu > li:hover > a{
+        color:orange;
+        background-color: white;
+        cursor: pointer;
+    }
+
+
+
+    /* Markalar Menüsü */
+
+    #acilirmenu1:hover + #dropdown-menu1{
+
+        display:inline-block;
+
+    }
+
+    #dropdown-menu1:hover{
+
+        display: inline-block;
+
+    }
+
+   
+    #dropdown-menu1{
+      
+        width: 1035px !important;
+        border-radius: 0;
+    }
+
+    #dropdown-menu1 a:hover{
+        color:orange;
+        background-color: white;
+    }
+
+    #dropdown-menu1 > .marka{
+        display: inline-block;
+        margin: 5px;
+        
+    }
+    .figcaption:hover, .figure-img:hover + .figcaption{
+        color:orange;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .figure-img:hover{
+        cursor: pointer;
+    }
+
+    .figure-img{
+        padding:10px;
+    }
+      
+
+    
+    #altmarkalar > img{
+       width: 75px;
+        
+    }
+
+    #altmarkalar > a{
+        margin:0 25px 0 25px;   
+        cursor: pointer;
+    }
+    
+    #altmarkalar img{
+        width: 75px !important;
+    }

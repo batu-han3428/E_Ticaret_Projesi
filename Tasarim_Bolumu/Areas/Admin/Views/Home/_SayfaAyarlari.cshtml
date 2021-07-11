@@ -1,0 +1,145 @@
+﻿ <!-- İçerik Başlık -->
+<div class="row">
+    <div class="col-md-12" style="display: flex;">
+        <div id="adminPanelBaslikAlan">
+            <span class="display-6">Sayfa Ayarları</span>
+        </div>
+    </div>
+</div>
+<!-- /İçerik Başlık -->
+<!-- Kartlar -->
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+        <div id="anasayfaKartDestesi" class="row row-cols-1 row-cols-md-4 g-4 sayfaAyarlari">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body" id="card0card-body" style=" background: linear-gradient(0.25turn, #3f87a6, #a0a89a, #f69d3c) !important;">
+                        <div class="sayiVeIconAlan">
+                            <h3 class="card-title text-light">Ana Sayfa</h3>
+                            <i class="bi bi-house-fill" id="card0CardIcon" style=" font-size: 35px; color: rgb(248, 242, 242) !important;"></i>
+                        </div>
+                        <div>
+                            <span class="card-text text-light cardYazi">Slider, Günün Fırsatları...</span>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="card0CardFooter" style=" background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c) !important;">
+                        <a class="cardLinkleri" id="card0cardLinkleri">
+                            <span class="card-text detayYazi">Düzenle..</span>
+                            <i class="bi bi-arrow-right-circle-fill detayIcon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body" id="card1card-body">
+                        <div class="sayiVeIconAlan">
+                            <h3 class="card-title text-light">Tüm Ürünler</h3>
+                            <i class="bi bi-basket-fill" id="card1CardIcon"></i>
+                        </div>
+                        <div>
+                            <span class="card-text text-light cardYazi">Telefon, Bilgisayar...</span>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="card1CardFooter">
+                        <a class="cardLinkleri" id="card1cardLinkleri">
+                            <span class="card-text detayYazi">Alt Sayfaları..</span>
+                            <i class="bi bi-arrow-right-circle-fill detayIcon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body" id="card2card-body">
+                        <div class="sayiVeIconAlan">
+                            <h3 class="card-title text-light">Markalar</h3>
+                            <i class="bi bi-x-diamond-fill" id="card2CardIcon"></i>
+                        </div>
+                        <div>
+                            <span class="card-text text-light cardYazi">Apple, Samsung...</span>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="card2CardFooter">
+                        <a class="cardLinkleri" id="card2cardLinkleri">
+                            <span class="card-text detayYazi">Alt Sayfaları..</span>
+                            <i class="bi bi-arrow-right-circle-fill detayIcon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body" id="card3card-body">
+                        <div class="sayiVeIconAlan">
+                            <h3 class="card-title text-light">Hakkımızda</h3>
+                            <i class="bi bi-patch-question-fill" id="card3CardIcon"></i>
+                        </div>
+                        <div>
+                            <span class="card-text text-light cardYazi">Biz Kimiz...</span>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="card3CardFooter">
+                        <a class="cardLinkleri" id="card3cardLinkleri">
+                            <span class="card-text detayYazi">Düzenle..</span>
+                            <i class="bi bi-arrow-right-circle-fill detayIcon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body" id="card4card-body">
+                        <div class="sayiVeIconAlan">
+                            <h3 class="card-title text-light">Outlet</h3>
+                            <i class="bi bi-box-arrow-right" id="card4CardIcon"></i>
+                        </div>
+                        <div>
+                            <span class="card-text text-light cardYazi">Çıkış Mağazaları..</span>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="card4CardFooter">
+                        <a class="cardLinkleri" id="card4cardLinkleri">
+                            <span class="card-text detayYazi">Düzenle..</span>
+                            <i class="bi bi-arrow-right-circle-fill detayIcon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Kartlar -->
+
+
+    <script type="text/javascript">
+
+    var Anasayfa = "@Url.Action("Anasayfa", "Home")";
+
+    $("#card0cardLinkleri").click(function () {
+
+        $("#haklariSaklidirParagraf").fadeOut();
+
+        $("#ajaxGosterimAlan").fadeOut().queue(function () {
+
+            $.ajax({
+
+                type: "GET",
+                url: Anasayfa,
+                success: function (e) {
+
+                    $("#ajaxGosterimAlan").fadeIn().html(e);
+
+                    $("#haklariSaklidirParagraf").fadeIn();
+
+                }
+            });
+
+            $(this).clearQueue();
+
+        });
+
+    });
+
+    </script>

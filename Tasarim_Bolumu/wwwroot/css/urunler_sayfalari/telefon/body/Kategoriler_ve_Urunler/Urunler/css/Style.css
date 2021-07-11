@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+.kartlarFoto{
+
+    object-fit:scale-down;
+    width: 100%;
+    height:250px;
+
+}
+
+.kartlarFotoAlan{
+
+    height: 250px; 
+    width: 100%; 
+
+}
+
+.kartlarMarka{
+
+    object-fit:scale-down;
+    width: 70px;
+
+}
+
+.urunKartlari{
+
+    border-radius: 0;
+    transition:500ms transform;
+
+}
+
+.urunKartlari:hover{
+
+    transform: scale(1.01);
+    z-index: 1;
+    box-shadow: 0 0 5px 5px rgb(255, 123, 0);
+
+}
+
+.kartlarUrunAdAlan{
+
+    width: 100%;
+    height:50px;
+    margin:0 auto;
+
+}
+
+.kartlarUrunAd{
+
+    font-size: 13px !important;
+    font-weight: 600;
+    line-height: 16px;
+    display: inline-block;
+   
+}
+
+.kartlarUrunAd > a{
+
+    transition: 500ms color;
+    text-decoration: none;
+    color:rgb(33, 37, 41);
+
+}
+
+.kartlarUrunAd > a:hover{
+
+   color:rgb(255, 123, 0);
+
+}
+
+.kartlarTopveFiyatlar{
+
+    display: flex;
+    margin-bottom: 30px;
+    margin-top:20px;
+   
+}
+
+.kartlarFiyatlar{
+
+   margin-left: 10px;
+ 
+}
+
+.kartlarFiyatlar span{
+
+    display: block;
+    padding: 0;
+    line-height: 16px;
+    font-weight: 600;
+ 
+}
+
+.kartlarTop{
+
+    border-radius: 50%;
+    background-color: rgb(255, 123, 0);
+    text-align: center;
+    width: 40px;
+    display: table;
+    color:white;
+    height: 40px;
+
+}
+
+
+.kartTopYazi{
+ 
+    display: table-cell; 
+    vertical-align: middle;
+    font-weight: bold;
+
+}
+
+.kartlarMarkaAlan{
+
+    width: 100%;
+    margin-bottom: 5px;
+
+}
+
+.kartlarBody{
+
+    padding: 5px;
+
+}
+
+.indirim{
+
+    text-decoration:line-through;
+    color:rgb(92, 101, 106);
+
+}
+
+.indirimliFiyat{
+
+    color:rgb(255, 123, 0);
+    font-weight: 700 !important;
+    font-size: 17px !important;
+
+}
+
+@media (min-width:400px) and (max-width:767px) {
+
+    .urunKartgrubu{
+
+        display: grid !important;
+        grid-template-columns: 50% 50%;
+
+    }
+
+}

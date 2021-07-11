@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.page-item.active .page-link {
+
+    z-index: 3;
+    color: #fff;
+    background-color: rgb(255, 123, 0);
+    border-color: rgb(255, 123, 0);
+}
+
+.page-link {
+
+    margin:0 10px;
+    border-radius: 50%;
+
+}
+
+#paginationSatir{
+
+    border-top: 1px solid rgb(222, 226, 230) !important;
+
+}
+
+.page-item.disabled{
+
+    cursor: no-drop;
+
+}
+
+.page-item.active .page-link{
+
+    cursor: default;
+
+}
+
+@media (max-width: 400px) {
+
+    .pagination .page-link {
+
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+
+    }
+
+    .pagination .page-item:first-child .page-link {
+
+        border-top-left-radius: 0.2rem;
+        border-bottom-left-radius: 0.2rem;
+
+    }
+
+    .pagination .page-item:last-child .page-link {
+
+        border-top-right-radius: 0.2rem;
+        border-bottom-right-radius: 0.2rem;
+
+    }
+      
+}

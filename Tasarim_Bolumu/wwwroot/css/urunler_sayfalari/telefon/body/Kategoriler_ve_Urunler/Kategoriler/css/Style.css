@@ -1,0 +1,367 @@
+@charset "UTF-8";
+
+.accordion-body a{
+
+    display: block;
+    text-decoration: none;
+    margin-bottom:20px;
+    padding:5px 0 5px 5px;
+    transition: 500ms;
+    color:rgb(51, 51, 51);
+    font-weight: 650;
+    font-size: 14px;
+   
+}
+
+.accordion-body a:hover{
+
+    background-color: rgb(255, 140, 0);
+    color:white;
+
+}
+
+.accordion-button {
+
+  justify-content: center;
+  
+}
+
+.accordion-button span{
+   
+    position: absolute;
+    font-weight: 650;
+    font-size: 14px;
+    color:rgb(51, 51, 51);
+
+}
+
+.accordion-button:focus{
+    
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+    border-color: rgb(51, 51, 51);
+    background-color: rgb(255, 140, 0);
+
+}
+
+.accordion-button:focus span, .accordion-button:focus .categoriesIcon{
+    
+    color:white;
+
+}
+
+.accordion-button:not(.collapsed) {
+
+    background-color: rgb(255, 140, 0);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+
+}
+
+.accordion-button:not(.collapsed) span, .accordion-button:not(.collapsed) .categoriesIcon{
+
+    color:white;
+
+}
+
+.accordion-button:not(.collapsed)::after {
+
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  
+}
+
+.categoriesIcon{
+
+    color:rgb(51, 51, 51);
+    
+}
+
+.form-check-label{
+
+    transition:300ms;
+    color:rgb(51, 51, 51);
+    font-weight: 500;
+    font-size: 15px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.form-check-label:hover{
+
+    color:rgb(255, 140, 0);
+    cursor:pointer;
+
+}
+.form-check{
+
+    margin-bottom:9px;
+
+}
+
+.form-check-input:focus {
+
+    border-color: rgb(241, 199, 148);
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem rgb(255, 183, 95);
+    transition: 1s;
+
+}
+
+.form-check-input:checked {
+
+    background-color: rgb(255, 140, 0);
+    border-color: rgb(238, 156, 55);
+    transform: rotate(360deg);
+
+}
+
+.kategoriAltYazi{
+
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+#markalar .accordion-body{
+
+    height: 150px;
+    overflow-y: scroll;
+   
+}
+
+#markalar .accordion-body::-webkit-scrollbar {
+
+	width: 10px; 
+	background-color: white;
+ 
+}
+
+#markalar .accordion-body::-webkit-scrollbar-thumb {
+
+	background-color: rgb(248, 174, 82); 
+   
+}
+
+#markalar .accordion-body::-webkit-scrollbar-button {
+
+    background: white;
+    
+}
+
+#fiyat .accordion-body{
+
+    height: 150px;
+    overflow-y: scroll;  
+   
+}
+
+#fiyat .accordion-body::-webkit-scrollbar {
+
+	width: 10px; 
+	background-color: white; 
+  
+}
+
+#fiyat .accordion-body::-webkit-scrollbar-button {
+
+    background: white;
+
+}
+
+#fiyat .accordion-body::-webkit-scrollbar-thumb {
+
+	background-color: rgb(248, 174, 82);  
+
+}
+
+/* Filtreleme */
+
+
+@media (max-width: 991px) {
+
+    #kategoriMenusu{
+
+        display:none;
+
+    }
+
+    #urunlerIcerik{
+
+        width: 100%; 
+
+    } 
+    .modal-open::-webkit-scrollbar {
+
+        padding-right: 0 !important;
+         
+       }
+ 
+}
+
+@media (min-width: 992px) {
+
+    #filtre{
+
+        display:none;
+
+    }
+
+    #modalPopuler{
+
+        display:none !important;
+    }
+
+    #modalFiltre{
+
+        display:none !important;
+    }
+
+    .modal-backdrop {
+
+        position:unset;
+      
+      
+        width: 0 !important;
+        height: 0 !important;
+      
+    }
+
+    .modal-open{
+
+        overflow-y: scroll!important;
+        padding: 0 !important;
+
+    }
+    
+}
+
+.filtreDiv{
+
+    background-color:rgb(255, 255, 255); 
+    
+}
+
+.filtreButon{
+
+    display: flex;
+    background-color:rgb(255, 255, 255); 
+    border-radius: 3px; 
+    padding:3px 10px; 
+    box-shadow: 0px 2px 0.15rem rgb(197, 195, 195);
+    width: 100%;
+    border:0;
+
+}
+
+.filtreYazi{
+
+    
+    font-weight: bold;
+    font-size: 14px;
+    color:rgb(51, 51, 51);
+
+}
+
+.filtreIcon{
+
+    margin-left: auto; 
+
+}
+
+.filtreButon:focus{
+    
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+    border-color: rgb(51, 51, 51);
+    background-color: rgb(255, 140, 0) !important;
+    color:white;
+
+}
+
+.filtreButon:focus .filtreYazi{
+    
+    color:white;
+
+}
+
+
+
+#listelemeModalBody{
+
+    text-align: center;
+
+}
+
+.listelemeButon {
+
+    width: 80%;
+    transition: 500ms;
+    padding:5px 0 5px 0;
+    margin:5px 0;
+    border:0;
+    position: relative;
+ 
+
+}
+  
+.listelemeButon span{
+     
+      font-weight: 650;
+      font-size: 14px;
+      color:rgb(51, 51, 51);
+  
+}
+  
+  .listelemeButon:hover{
+
+    background-color: rgb(255, 140, 0);
+    color:white; 
+    width: 100%;
+
+}
+
+.listelemeButon:hover .listelemeIcon{
+
+    left:26%;
+
+}
+
+
+.listelemeButon:focus{
+      
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+      border-color: rgb(51, 51, 51);
+      background-color: rgb(255, 140, 0);
+      width: 100%;
+
+  }
+  
+  .listelemeButon:focus span, .listelemeButon:focus .listelemeIcon,.listelemeButon:hover span, .listelemeButon:hover .listelemeIcon {
+      
+      color:white;
+  
+  }
+  
+  .listelemeIcon{
+
+    position: absolute;
+
+    left:20%;
+  
+  }
+
+  @media (max-width: 400px) {
+
+    .listelemeIcon{
+
+        position: absolute;
+    
+        left:7%;
+      
+      }
+
+      .listelemeButon:hover .listelemeIcon{
+
+        left:13%;
+    
+    }
+
+  }
+  

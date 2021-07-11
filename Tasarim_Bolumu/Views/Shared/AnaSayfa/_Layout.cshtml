@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="shortcut icon" sizes="" href="~/favicon_io1/apple-touch-icon_logo.png"><!-- title icon ekler -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"><!-- bootstrap icon -->
+   
+    
+    <!-- Header -->
+    <link rel="stylesheet" href="~/css/header/Ust_Alan/css/Magaza_Bul_Vb_En_Ust_Alan.css" type="text/css"><!-- En Üst Alan -->
+    <link rel="stylesheet" href="~/css/header/Navbar/css/Navbar.css" type="text/css"><!-- Navbar -->
+    <link rel="stylesheet" href="~/css/header/Arama_Kutusu/css/Arama_Kutusu.css" type="text/css"><!-- Arama Kutusu -->
+    <!-- /Header -->
+
+
+    <!-- Body -->
+
+        <!-- Anasayfa -->
+        <link rel="stylesheet" href="~/css/body/Site_Reklam/css/Musteri_Memnuniyeti_Navbar_Alt_Kismi.css" type="text/css"><!-- Site Reklam Navbar Alt Kısmı Müşteri Memnuniyeti vb. -->
+        <link rel="stylesheet" href="~/css/body/Slider_ve_Gunun_Firsati/css/Slider.css" type="text/css"><!-- Slider -->
+        <link rel="stylesheet" href="~/css/body/Tanitim_Kart/css/tanıtımKart.css" type="text/css"><!-- Tanıtım Kart -->
+        <!-- /Anasayfa -->    
+
+        <!-- Telefon -->
+        <partial name="../Css_Dosya_Yollari/Urunler_Sayfalari/Telefon/Body/_Css_Dosya_Yollari.cshtml" />
+        <!-- /Telefon -->
+
+    <!-- /Body -->
+
+
+
+    <!-- footer -->
+    <link rel="stylesheet" href="~/css/footer/Odeme_Secenekleri/css/Style.css" type="text/css"><!-- Ödeme Seçenekleri -->
+    <link rel="stylesheet" href="~/css/footer/Alisveris_Kredisi/css/Style.css" type="text/css"><!-- Alışveriş Kredi Seçenekleri -->
+    <link rel="stylesheet" href="~/css/footer/Yardim/css/Style.css" type="text/css"><!-- Yardım -->
+    <link rel="stylesheet" href="~/css/footer/Aciklama_Metni/css/Style.css" type="text/css"><!-- Açıklama Metni -->
+    <link rel="stylesheet" href="/css/footer/Urun_Kategori_Kurumsal_vb/css/Style.css" type="text/css"><!-- Ürün, Kategori, Kurumsal vb. -->
+    <link rel="stylesheet" href="~/css/footer/Haklari_Saklidir/css/Style.css" type="text/css"><!-- Hakları Saklıdır -->
+    <!-- /footer -->
+
+
+    <link rel="stylesheet" href="~/css/Mobil.css" type="text/css"><!-- AnaSayfa Mobil Uyum -->
+
+
+    <title>BTicaret</title>
+
+</head>
+<body>
+
+    <!-- Header -->
+
+        <!-- üst alan -->
+        <partial name="Header/_Ust_Alan.cshtml" />
+        <!-- /üst alan -->
+
+        <!-- navbar -->
+        <partial name="Header/_Navbar.cshtml" />
+        <!-- /navbar-->
+
+    <!-- /Header -->
+
+
+    <!-- Body -->
+
+        <div class="container-fluid" style="background-color: rgb(243, 243, 243); padding-bottom: 25px;">
+
+            @RenderBody()
+
+        </div>
+
+    <!-- /Body -->
+
+
+
+    <!-- Footer -->
+
+        <div class="container-fluid" style="background-color:white; padding-bottom: 50px;">
+
+            <!-- Ödeme Seçenekleri -->
+            <partial name="Footer/_Odeme_Secenekleri.cshtml" />
+            <!-- /Ödeme Seçenekleri -->
+
+            <!-- Alışveriş Kredisi Seçenekleri -->
+            <partial name="Footer/_Alisveris_Kredisi_Secenekleri.cshtml" />
+            <!-- /Alışveriş Kredisi Seçenekleri -->
+
+            <!-- Bilgi -->
+            <partial name="Footer/_Bilgi.cshtml" />
+            <!-- /Bilgi -->
+
+            <!-- Açıklama Metni-->
+            <partial name="Footer/_Aciklama_Metni.cshtml" />
+            <!-- /Açıklama Metni-->
+
+        </div>
+
+        <div class="container-fluid border-bottom" style="background-color: #FAFAFA;  padding-bottom: 70px;">
+
+            <!-- Ürün, Kategori, Kurumsal vb. -->
+            <partial name="Footer/_Urun_Kategori_Kurumsal.cshtml" />
+            <!-- /Ürün, Kategori, Kurumsal vb. -->
+
+        </div>
+
+        <div class="container-fluid" style="background-color:white;">
+
+            <!-- Hakları Saklıdır -->
+            <partial name="Footer/_Haklari_Saklidir.cshtml" />
+            <!-- /Hakları Saklıdır -->
+
+        </div>
+
+    <!-- /Footer -->
+
+    <!-- Modal Boş Alan Geçememe -->
+    <script>
+        (function () {
+            'use strict'
+
+
+            var forms = document.querySelectorAll('.needs-validation')
+
+
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+    <!-- /Modal Boş Alan Geçememe -->
+
+    <script type="text/javascript" src="~/jquery/jquery-3.6.0.min.js"></script>
+
+    <!-- Body -->
+    <script type="text/javascript" src="~/css/body/Kategoriler/js/Mobil_Degil/kategoriler.js"></script><!-- Kategoriler -->
+    <script type="text/javascript" src="~/css/body/Kategoriler/js/Mobil/kategoriler.js"></script><!-- Kategoriler -->
+    <!-- /Body -->
+    <!-- footer -->
+    <script type="text/javascript" src="~/css/footer/Aciklama_Metni/js/JQuery.js"></script><!-- aciklama metni -->
+    <!-- /footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+    </script>
+</body>
+</html>

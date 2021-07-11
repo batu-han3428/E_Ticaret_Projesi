@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+@media (max-height: 300px) and (max-width: 575px) {
+
+    #haklariSaklidirParagrafLogin {
+
+        position:absolute !important; 
+        margin: 0 auto !important; 
+        margin-top: 10px !important;
+    }
+
+}
