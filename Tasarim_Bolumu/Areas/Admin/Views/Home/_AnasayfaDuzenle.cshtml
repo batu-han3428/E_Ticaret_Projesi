@@ -28,9 +28,28 @@
                             MEMNUNİYETİ
                         </span>
                     </span>
+                    <select id="mySelect" data-show-content="true" class="form-select">
+                        <option>İkon Listesi</option>
+                        <option data-content="<i class='bi bi-alarm' style='color:rgb(35, 131, 193);'></i>" value="bi bi-alarm"></option>
+                        <option data-content="<i class='bi bi-alarm-fill' style='color:rgb(35, 131, 193);'></i>" value="bi bi-alarm-fill"></option>
+                        <option data-content="<i class='bi bi-align-bottom' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-bottom"></option>
+                        <option data-content="<i class='bi bi-align-center' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-center"></option>
+                        <option data-content="<i class='bi bi-align-end' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-end"></option>
+                        <option data-content="<i class='bi bi-align-middle' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-middle"></option>
+                        <option data-content="<i class='bi bi-align-start' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-start"></option>
+                        <option data-content="<i class='bi bi-align-top' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-top"></option>
+                    </select>
+                    <select name="filesA" id="filesA">
+                        <option value="jquery" data-class="ui-icon-script">jQuery.js</option>
+                        <option value="jquerylogo" data-class="ui-icon-image">jQuery Logo</option>
+                        <option value="jqueryui" data-class="ui-icon-script">ui.jQuery.js</option>
+                        <option value="jqueryuilogo" selected="selected" data-class="ui-icon-image">jQuery UI Logo</option>
+                        <option value="" disabled="disabled" data-animation="<i class='bi bi-alarm'></i>">Some unknown file</option>
+                    </select>
                     <div class="input-group" style="width:200px; display: inline-flex;">
-                        <input type="button" class=" btn btn-outline-primary" value="Git">
-                        <input type="text" placeholder="Url Adresi" class="form-control" />
+
+                        <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
+                        <input type="text" placeholder="Düzenleme Alanı" class="form-control" />
                     </div>
                     <span id="siteReklam2" class="badge siteReklam">
                         <i class="bi bi-box-seam" style="font-size: 25px;"></i>
@@ -40,8 +59,8 @@
                         </span>
                     </span>
                     <div class="input-group" style="width: 200px; display: inline-flex;">
-                        <input type="button" class=" btn btn-outline-primary" value="Git">
-                        <input type="text" placeholder="Url Adresi" class="form-control" />
+                        <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
+                        <input type="text" placeholder="Düzenleme Alanı" class="form-control" />
                     </div>
                     <span id="siteReklam3" class="badge siteReklam">
                         <i class="bi bi-truck" style="font-size: 25px;"></i>
@@ -51,17 +70,18 @@
                         </span>
                     </span>
                     <div class="input-group" style="width: 200px; display: inline-flex;">
-                        <input type="button" class=" btn btn-outline-primary" value="Git">
-                        <input type="text" placeholder="Url Adresi" class="form-control" />
+                        <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
+                        <input type="text" placeholder="Düzenleme Alanı" class="form-control" />
                     </div>
                     <span id="siteReklam4" class="badge siteReklam">
                         <i class="bi bi-arrow-counterclockwise" style="font-size: 25px;"></i>
-                        <span> KOLAY İADE
+                        <span>
+                            KOLAY İADE
                         </span>
                     </span>
                     <div class="input-group" style="width: 200px; display: inline-flex;">
-                        <input type="button" class=" btn btn-outline-primary" value="Git">
-                        <input type="text" placeholder="Url Adresi" class="form-control" />
+                        <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
+                        <input type="text" placeholder="Düzenleme Alanı" class="form-control" />
                     </div>
                 </div>
             </div>
@@ -922,6 +942,33 @@
             }, 1000);
 
         });
+
+
+        $.widget("custom.iconselectmenu", $.ui.selectmenu, {
+            _renderItem: function (ul, item) {
+                var li = $("<li>"),
+                    wrapper = $("<div>", { text: item.label });
+
+                if (item.disabled) {
+                    li.addClass("ui-state-disabled");
+                }
+
+                $("<span>", {
+                    style: item.element.attr("data-style"),
+                    "class": "ui-icon " + item.element.attr("data-class")
+                })
+                    .appendTo(wrapper);
+
+                return li.append(wrapper).appendTo(ul);
+            }
+        });
+
+        $("#filesA")
+            .iconselectmenu()
+            .iconselectmenu("menuWidget")
+            .addClass("ui-menu-icons");
+
+
 
     });
 
