@@ -1,0 +1,28 @@
+﻿.siteReklamDuzenlemeAlani {
+    width: 200px;
+    display: inline-flex;
+}
+
+.ikonlar {
+    border: 1px solid rgb(13, 110, 253);
+    display: inline-block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 50px;
+    height: 39px;
+}
+
+.siteReklamDuzenlemeIcon {
+    cursor: pointer;
+    font-size: 24px;
+    color: rgb(35, 131, 193);
+}
+
+.siteReklamDuzenlemeAraCubuk {
+    border-bottom: 1px solid rgb(35, 131, 193);
+    width: inherit;
+}
+
+.siteReklamDuzenlemeInput {
+    border-color: rgb(13, 110, 253) !important;
+}

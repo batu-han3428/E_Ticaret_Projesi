@@ -1,3 +1,7 @@
+using BL.Concrete;
+using BL.Models;
+using DAL.Concrete;
+using DAL.Models;
 using Entity.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +32,9 @@ namespace Tasarim_Bolumu
             services.AddControllersWithViews();
             services.IdentityServerAyarlari();
             services.CookieAyarlari();
+
+            services.AddScoped<IsiteReklamRepository, siteReklamRepository>();
+            services.AddScoped<IsiteReklamServices, siteReklamServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BL.Models;
+using Entity.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,12 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
     [Area("Admin"),Authorize(Roles ="Admin")]
     public class HomeController : Controller
     {
+        private readonly IsiteReklamServices siteReklamServices;
+        public HomeController(IsiteReklamServices siteReklamServices)
+        {
+             this.siteReklamServices = siteReklamServices;
+        }
+
         public IActionResult Index()
         {
          
@@ -35,9 +43,31 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
         [HttpGet]
         public PartialViewResult Anasayfa()
         {
-
+            //site reklam verilerini getir
 
             return PartialView("_AnasayfaDuzenle");
         }
+
+        [HttpPost]
+        public IActionResult siteReklamKayit([FromForm] SiteReklam model)
+        {
+            if (model.icon == null || model.yazi == null)
+            {
+                ModelState.AddModelError("", "Alanlar Boş Bırakılamaz");
+
+                return RedirectToAction("_AnasayfaDuzenle", "Home", new { area = "Admin" });
+            }
+
+            var veri = siteReklamServices.guncelle(model);
+
+            if (veri == 0)
+            {
+                ModelState.AddModelError("", "Aynı İsmi Kayıt Edemezsin");
+                return RedirectToAction("_AnasayfaDuzenle", "Home", new { area = "Admin" });
+            }
+
+            return RedirectToAction("_AnasayfaDuzenle", "Home", new { area = "Admin" });
+        }
+
     }
 }

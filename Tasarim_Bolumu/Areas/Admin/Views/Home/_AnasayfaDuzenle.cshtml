@@ -1,4 +1,6 @@
-﻿ <!-- İçerik Başlık -->
+﻿ @model SiteReklam
+    
+    <!-- İçerik Başlık -->
 <div class="row">
     <div class="col-md-12" style="display: flex;">
         <div id="adminPanelBaslikAlan">
@@ -26,31 +28,28 @@
                         <span>
                             %100 MÜŞTERİ
                             MEMNUNİYETİ
+                            @{
+                                if (Model.Id == 1)
+                                {
+                                    @Model.yazi;
+                                }
+                            }
                         </span>
                     </span>
-                    <select id="mySelect" data-show-content="true" class="form-select">
-                        <option>İkon Listesi</option>
-                        <option data-content="<i class='bi bi-alarm' style='color:rgb(35, 131, 193);'></i>" value="bi bi-alarm"></option>
-                        <option data-content="<i class='bi bi-alarm-fill' style='color:rgb(35, 131, 193);'></i>" value="bi bi-alarm-fill"></option>
-                        <option data-content="<i class='bi bi-align-bottom' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-bottom"></option>
-                        <option data-content="<i class='bi bi-align-center' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-center"></option>
-                        <option data-content="<i class='bi bi-align-end' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-end"></option>
-                        <option data-content="<i class='bi bi-align-middle' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-middle"></option>
-                        <option data-content="<i class='bi bi-align-start' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-start"></option>
-                        <option data-content="<i class='bi bi-align-top' style='color:rgb(35, 131, 193);'></i>" value="bi bi-align-top"></option>
-                    </select>
-                    @*<select name="filesA" id="filesA">
-                        <option value="jquery" data-class="ui-icon-script">jQuery.js</option>
-                        <option value="jquerylogo" data-class="ui-icon-image">jQuery Logo</option>
-                        <option value="jqueryui" data-class="ui-icon-script">ui.jQuery.js</option>
-                        <option value="jqueryuilogo" selected="selected" data-class="ui-icon-image">jQuery UI Logo</option>
-                        <option value="" disabled="disabled" data-animation="<i class='bi bi-alarm'></i>">Some unknown file</option>
-                    </select>*@
-                    <div class="input-group" style="width:200px; display: inline-flex;">
-
-                        <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
-                        <input type="text" placeholder="Düzenleme Alanı" class="form-control" />
+                    <div class="input-group siteReklamDuzenlemeAlani">
+                        <form id="siteReklamForm" asp-action="siteReklamKayit" asp-controller="Home" method="post">
+                            <button type="submit" class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
+                            <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
+                                <i class="bi bi-alarm siteReklamDuzenlemeIcon"></i>
+                                <div class="siteReklamDuzenlemeAraCubuk"></div>
+                                <i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i>
+                                <div class="siteReklamDuzenlemeAraCubuk"></div>
+                                <i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i>
+                            </div>
+                            <input id="siteReklamDuzenlemeInput" type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
+                        </form>
                     </div>
+      
                     <span id="siteReklam2" class="badge siteReklam">
                         <i class="bi bi-box-seam" style="font-size: 25px;"></i>
                         <span>
@@ -58,9 +57,16 @@
                             TESLİMAT
                         </span>
                     </span>
-                    <div class="input-group" style="width: 200px; display: inline-flex;">
+                    <div class="input-group siteReklamDuzenlemeAlani">
                         <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
-                        <input type="text" placeholder="Düzenleme Alanı" class="form-control" />
+                        <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
+                            <i class="bi bi-alarm siteReklamDuzenlemeIcon"></i>
+                            <div class="siteReklamDuzenlemeAraCubuk"></div>
+                            <i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i>
+                            <div class="siteReklamDuzenlemeAraCubuk"></div>
+                            <i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i>
+                        </div>
+                        <input type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
                     </div>
                     <span id="siteReklam3" class="badge siteReklam">
                         <i class="bi bi-truck" style="font-size: 25px;"></i>
@@ -69,9 +75,16 @@
                             KARGO
                         </span>
                     </span>
-                    <div class="input-group" style="width: 200px; display: inline-flex;">
+                    <div class="input-group siteReklamDuzenlemeAlani">
                         <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
-                        <input type="text" placeholder="Düzenleme Alanı" class="form-control" />
+                        <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
+                            <i class="bi bi-alarm siteReklamDuzenlemeIcon"></i>
+                            <div class="siteReklamDuzenlemeAraCubuk"></div>
+                            <i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i>
+                            <div class="siteReklamDuzenlemeAraCubuk"></div>
+                            <i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i>
+                        </div>
+                        <input type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
                     </div>
                     <span id="siteReklam4" class="badge siteReklam">
                         <i class="bi bi-arrow-counterclockwise" style="font-size: 25px;"></i>
@@ -79,9 +92,16 @@
                             KOLAY İADE
                         </span>
                     </span>
-                    <div class="input-group" style="width: 200px; display: inline-flex;">
+                    <div class="input-group siteReklamDuzenlemeAlani">
                         <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
-                        <input type="text" placeholder="Düzenleme Alanı" class="form-control" />
+                        <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
+                            <i class="bi bi-alarm siteReklamDuzenlemeIcon"></i>
+                            <div class="siteReklamDuzenlemeAraCubuk"></div>
+                            <i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i>
+                            <div class="siteReklamDuzenlemeAraCubuk"></div>
+                            <i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i>
+                        </div>
+                        <input type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
                     </div>
                 </div>
             </div>
@@ -927,7 +947,7 @@
 
             }, 1000);
 
-         });
+        });
 
         $("#siteReklam4").click(function () {
 
@@ -943,31 +963,40 @@
 
         });
 
-        
-        //$.widget("custom.iconselectmenu", $.ui.selectmenu, {
-        //    _renderItem: function (ul, item) {
-        //        var li = $("<li>"),
-        //            wrapper = $("<div>", { text: item.label });
+      
 
-        //        if (item.disabled) {
-        //            li.addClass("ui-state-disabled");
-        //        }
+        $("#siteReklamForm").submit(function (event) {
 
-        //        $("<span>", {
-        //            style: item.element.attr("data-style"),
-        //            "class": "ui-icon " + item.element.attr("data-class")
-        //        })
-        //            .appendTo(wrapper);
+            var siteReklamGuncelle = "@Url.Action("siteReklamKayit", "Home")";
 
-        //        return li.append(wrapper).appendTo(ul);
-        //    }
-        //});
+            var veri = $(".siteReklamDuzenlemeIcon").attr("class");
 
-        //$("#filesA")
-        //    .iconselectmenu()
-        //    .iconselectmenu("menuWidget")
-        //    .addClass("ui-menu-icons");
+            var torpulenmis = veri.substring(veri.length - 23, 0);
 
+           
+
+            var siteReklamBilgileri = new Object();
+            siteReklamBilgileri.Yazi = $("#siteReklamDuzenlemeInput").val();
+            siteReklamBilgileri.Icon = torpulenmis;
+
+            $.ajax({
+                url: siteReklamGuncelle,
+                type: "POST",
+                data: siteReklamBilgileri,
+                success: function (response) {
+
+                   
+
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+
+            });
+
+            event.preventDefault();
+
+        });
 
 
     });
