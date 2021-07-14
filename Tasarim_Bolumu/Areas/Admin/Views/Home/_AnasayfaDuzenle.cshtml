@@ -1,4 +1,4 @@
-﻿ @model SiteReklam
+﻿@model List<SiteReklam>
     
     <!-- İçerik Başlık -->
 <div class="row">
@@ -23,34 +23,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mt-4 text-center" id="badges1">
-                    <span id="siteReklam1" class="badge siteReklam">
-                        <i class="bi bi-people-fill" style="font-size: 25px;"></i>
-                        <span>
-                            %100 MÜŞTERİ
-                            MEMNUNİYETİ
-                            @{
-                                if (Model.Id == 1)
-                                {
-                                    @Model.yazi;
-                                }
-                            }
+
+                    @foreach (var item in Model)
+                    {
+                        <span id="@item.Id" class="badge siteReklam">
+                            <i class="@item.icon" style="font-size: 25px;"></i>
+                            <span>
+                                @item.yazi
+                            </span>
                         </span>
-                    </span>
-                    <div class="input-group siteReklamDuzenlemeAlani">
-                        <form id="siteReklamForm" asp-action="siteReklamKayit" asp-controller="Home" method="post">
-                            <button type="submit" class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
-                            <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
-                                <i class="bi bi-alarm siteReklamDuzenlemeIcon"></i>
-                                <div class="siteReklamDuzenlemeAraCubuk"></div>
-                                <i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i>
-                                <div class="siteReklamDuzenlemeAraCubuk"></div>
-                                <i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i>
-                            </div>
-                            <input id="siteReklamDuzenlemeInput" type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
-                        </form>
-                    </div>
-      
-                    <span id="siteReklam2" class="badge siteReklam">
+                        <div class="input-group siteReklamDuzenlemeAlani">
+                            @*<form id="siteReklamForm" asp-action="siteReklamKayit" asp-controller="Home" method="post">*@
+                                <button type="submit" class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
+                                <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
+                                    <span class="siteReklamDuzenlemeSpan"><i class="bi bi-alarm siteReklamDuzenlemeIcon"></i></span>
+                                    <div class="siteReklamDuzenlemeAraCubuk"></div>
+                                    <span class="siteReklamDuzenlemeSpan"><i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i></span>
+                                    <div class="siteReklamDuzenlemeAraCubuk"></div>
+                                    <span class="siteReklamDuzenlemeSpan"><i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i></span>
+                                </div>
+                                <input id="siteReklamDuzenlemeInput" type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
+                            @*</form>*@
+                        </div>
+                    }
+
+
+
+
+                    @*<span id="siteReklam2" class="badge siteReklam">
                         <i class="bi bi-box-seam" style="font-size: 25px;"></i>
                         <span>
                             AYNI GÜN
@@ -102,7 +102,7 @@
                             <i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i>
                         </div>
                         <input type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
@@ -905,11 +905,11 @@
 
         $("#badges1 > div").hide();
 
-        $("#siteReklam1").click(function () {
+        $("#2").click(function () {
 
             $(this).find("i, span").hide("explode", 1000);
 
-            $("#siteReklam1").hide();
+            $("#2").hide();
 
             setTimeout(function () {
 
@@ -919,11 +919,11 @@
 
         });
 
-        $("#siteReklam2").click(function () {
+        $("#3").click(function () {
 
             $(this).find("i, span").hide("explode", 1000);
 
-            $("#siteReklam2").hide();
+            $("#3").hide();
 
             setTimeout(function () {
 
@@ -934,11 +934,11 @@
 
         });
 
-        $("#siteReklam3").click(function () {
+        $("#4").click(function () {
 
             $(this).find("i, span").hide("explode", 1000);
 
-            $("#siteReklam3").hide();
+            $("#4").hide();
 
             setTimeout(function () {
 
@@ -949,11 +949,11 @@
 
         });
 
-        $("#siteReklam4").click(function () {
+        $("#5").click(function () {
 
             $(this).find("i, span").hide("explode", 1000);
 
-            $("#siteReklam4").hide();
+            $("#5").hide();
 
             setTimeout(function () {
 
@@ -963,17 +963,44 @@
 
         });
 
-      
+        $(".siteReklamDuzenlemeSpan").click(function () {
 
-        $("#siteReklamForm").submit(function (event) {
+            $(".siteReklamDuzenlemeSpan").css({
 
-            var siteReklamGuncelle = "@Url.Action("siteReklamKayit", "Home")";
+                "background-color": "white"
 
-            var veri = $(".siteReklamDuzenlemeIcon").attr("class");
+            });
+
+            $(".siteReklamDuzenlemeSpan > i").css({
+
+                "background-color": "white",
+                "color": "rgb(35, 131, 193)"
+
+            });
+        
+            $(this).find("i").css({
+
+                "background-color": "rgb(35, 131, 193)",
+                "color": "white"
+
+            });
+
+            $(this).css({
+
+                "background-color": "rgb(35, 131, 193)"
+
+            });
+
+        });
+
+
+        $(".ikonlar > span").click(function () {
+
+            var veri = $(this).find("i").attr("class");
 
             var torpulenmis = veri.substring(veri.length - 23, 0);
 
-           
+            @*var siteReklamGuncelle = "@Url.Action("siteReklamKayit", "Home")";
 
             var siteReklamBilgileri = new Object();
             siteReklamBilgileri.Yazi = $("#siteReklamDuzenlemeInput").val();
@@ -985,7 +1012,38 @@
                 data: siteReklamBilgileri,
                 success: function (response) {
 
-                   
+                    alert("içerdeyim");
+
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+
+            });*@
+
+        });
+
+        @*$("#siteReklamForm").submit(function (event) {
+
+            var siteReklamGuncelle = "@Url.Action("siteReklamKayit", "Home")";
+
+            var veri = $(".siteReklamDuzenlemeIcon").attr("class");
+
+            var torpulenmis = veri.substring(veri.length - 23, 0);
+
+            alert(torpulenmis);
+
+            var siteReklamBilgileri = new Object();
+            siteReklamBilgileri.Yazi = $("#siteReklamDuzenlemeInput").val();
+            siteReklamBilgileri.Icon = torpulenmis;
+
+            $.ajax({
+                url: siteReklamGuncelle,
+                type: "POST",
+                data: siteReklamBilgileri,
+                success: function (response) {
+
+                    alert("içerdeyim");
 
                 },
                 error: function (hata, ajaxoptions, throwerror) {
@@ -996,7 +1054,7 @@
 
             event.preventDefault();
 
-        });
+        });*@
 
 
     });

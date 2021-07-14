@@ -43,9 +43,9 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
         [HttpGet]
         public PartialViewResult Anasayfa()
         {
-            //site reklam verilerini getir
+            var veri = siteReklamServices.hepsiniListele(null);
 
-            return PartialView("_AnasayfaDuzenle");
+            return PartialView("_AnasayfaDuzenle", veri);
         }
 
         [HttpPost]
