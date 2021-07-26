@@ -1,0 +1,11 @@
+﻿@model ICollection<SiteReklam>
+
+@foreach (var item in Model)
+{
+    <span id="@item.Id" class="badge siteReklam">
+        <i class="@item.icon" style="font-size: 25px;"></i>
+        <span>
+            @item.yazi
+        </span>
+    </span>
+}

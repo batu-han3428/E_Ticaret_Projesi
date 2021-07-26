@@ -1,0 +1,205 @@
+﻿@model ICollection<slider>
+
+
+<div class="col-md-12">
+    <ul class="contextmenu">
+        <li>
+            <a class="btn">Fotoğraf Değiştir</a>
+        </li>
+    </ul>
+    <div id="KontrolTusuTetikle1" class="carousel slide slider1" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+            @foreach (var item in Model)
+            {
+                <div id="@item.Id" class="carousel-item sliderCarouselItem">
+                    <a href="#"> <img src="@item.fotografAdi" class="d-block w-100" alt="urun1"></a>
+                </div>
+            }
+        </div>
+
+        <!-- Mobil -->
+        <div class="col-md-12 d-none" id="gostergeCubuklari">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="0" class="active">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="1">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="2">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="3">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="4">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="5">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="6">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="7">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="8">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="9">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="10">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="11">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="12">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="13">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="14">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="15">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="16">
+        </div>
+        <!-- /Mobil -->
+
+        <div class="col-md-12" id="tuslar">
+            @{
+                int slide = 0;
+
+                foreach (var item in Model)
+                {
+
+
+                    <button id="@item.Id" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="@slide">
+                        <img src="@item.fotografAdiTus" class="d-block w-100" alt="urun1tus">
+                    </button>
+
+                    slide++;
+                }
+            }
+        </div>
+    </div>
+
+    <form id="form" name="form" style="display:none;" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-12">
+                <input onchange="uploadFiles('files');" class="form-control" type="file" id="files">
+            </div>
+        </div>
+    </form>
+    <form id="form1" name="form" style="display:none;" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-12">
+                <input onchange="uploadFile('file');" class="form-control" type="file" id="file">
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+
+    var id = 0;
+
+    $(".carousel-inner").find("div").eq(0).addClass("active");
+
+    $(".sliderCarouselItem").click(function () {
+
+            id = $(this).attr("id");
+
+            $("#KontrolTusuTetikle1").hide("explode", 1000);
+
+            setTimeout(function () {
+
+                $("#form").show("explode", 1000);
+
+            }, 1000);
+
+        });
+
+    $("#tuslar > button").contextmenu(function () {
+
+        id = $(this).attr("id");
+
+    });
+
+    $(".contextmenu a").click(function(){
+
+
+        $("#KontrolTusuTetikle1").hide("explode", 1000);
+
+        setTimeout(function () {
+
+            $("#form1").show("explode", 1000);
+
+        }, 1000);
+
+    });
+
+    var sliderFotografEkle = "@Url.Action("sliderFotoKayit", "slider")";
+    var sliderTusFotografEkle = "@Url.Action("sliderTusFotoKayit", "slider")";
+
+    function uploadFiles(inputId) {
+
+        var input = document.getElementById(inputId);
+        var files = input.files;
+        var formData = new FormData();
+
+        for (var i = 0; i != files.length; i++) {
+            formData.append("files", files[i]);
+        }
+
+        formData.append("id", id);
+
+        $.ajax(
+            {
+                url: sliderFotografEkle,
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (data) {
+
+                        $("#form").hide("explode", 1000);
+
+                        setTimeout(function () {
+
+                            $("#eeee").css("display", "none").html(data).find("#KontrolTusuTetikle1").css("display", "none");
+
+                            $("#eeee").css("display", "block");
+
+                            $("#KontrolTusuTetikle1").show("explode", 1000);
+
+                        }, 1000);
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+            }
+        );
+    }
+
+
+    function uploadFile(inputId) {
+
+        var er = $("#form1").val();
+
+        var as = er.substr(12);
+
+        veriTabaniFotoAd = as.split(".")[0];
+
+        var input = document.getElementById(inputId);
+        var files = input.files;
+        var formData = new FormData();
+
+        for (var i = 0; i != files.length; i++) {
+            formData.append("files", files[i]);
+        }
+
+        formData.append("id", id);
+
+        $.ajax(
+            {
+                url: sliderTusFotografEkle,
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: "POST",
+                success: function (data) {
+       
+                        $("#form1").hide("explode", 1000);
+
+                        setTimeout(function () {
+
+                            $("#eeee").css("display", "none").html(data).find("#KontrolTusuTetikle1").css("display", "none");
+
+                            $("#eeee").css("display", "block");
+
+                            $("#KontrolTusuTetikle1").show("explode", 1000);
+
+                        }, 1000);
+                    },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+            }
+        );
+    }
+</script>

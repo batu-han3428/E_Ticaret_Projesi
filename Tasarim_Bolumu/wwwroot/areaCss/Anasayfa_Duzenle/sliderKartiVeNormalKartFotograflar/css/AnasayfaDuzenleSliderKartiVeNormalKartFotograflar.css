@@ -1,0 +1,62 @@
+﻿.sliderKartiVeNormalKartDuzenlemeInput {
+    border-color: rgb(13, 110, 253) !important;
+    display:none;
+}
+
+.sliderKartiVeNormalKartDuzenlemeInput:nth-child(2) {
+    top:-15px;
+    position:relative;
+}
+
+.sliderKartiVeNormalKartDuzenlemeInputFiyatlar {
+    border-color: rgb(13, 110, 253) !important;
+    display: none;
+    width: 70px;
+    padding: 0;
+
+}
+
+    .sliderKartiVeNormalKartDuzenlemeInputFiyatlar:nth-child(2) {
+        grid-column: 1;
+    }
+
+.sliderKartiVeNormalKartDuzenlemeInputFiyatlarAlan {
+    display: grid;
+    grid-template-rows: 150px, 150px;
+    grid-template-columns: 100px 30px;
+    grid-column-gap: 8px;
+}
+
+.sliderKartiVeNormalKartDuzenlemeAlani {
+    width: auto;
+    display: inline-flex;
+
+}
+
+.sliderKartiVeNormalKartikonlar {
+    border: 1px solid rgb(13, 110, 253);
+    display: inline-block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 50px;
+    height: 39px;
+    
+}
+
+.sliderKartiVeNormalKartDuzenlemeSpan {
+    display: block;
+    position: unset !important;
+}
+
+.sliderKartiVeNormalKartDuzenlemeIcon {
+    cursor: pointer;
+    font-size: 24px;
+    color: rgb(35, 131, 193);
+    position: unset !important;
+    padding-left: 4px;
+}
+
+.sliderKartiVeNormalKartDuzenlemeAraCubuk {
+    border-bottom: 1px solid rgb(35, 131, 193);
+    width: inherit;
+}

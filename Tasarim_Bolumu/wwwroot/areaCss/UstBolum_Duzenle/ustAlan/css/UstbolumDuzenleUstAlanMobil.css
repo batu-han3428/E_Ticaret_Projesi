@@ -1,0 +1,62 @@
+﻿@media (min-width:400px) and (max-width: 575px) {
+
+    #badges {
+        grid-template-columns: unset !important;
+    }
+
+    .ustAlanDuzenlemeIkonAlan {
+        width: 54%;
+        margin-left: unset;
+    }
+
+    .ustAlanDuzenlemeAdAlan {
+        width: 54%;
+        margin-left: unset;
+    }
+
+    .ustAlanDuzenlemeAdSpan {
+        white-space: normal !important;
+        padding-left: 10px !important;
+    }
+
+    .butonDivUstAlan {
+        width: 54%;
+        margin-left: unset;
+    }
+}
+
+@media (max-width:400px){
+
+    #badges {
+        grid-template-columns: unset !important;
+        padding:0;
+    }
+
+    .ustAlanDuzenlemeIkonAlan {
+        width: 41%;
+        margin-left: unset;
+    }
+
+    .ustAlanDuzenlemeAdAlan {
+        width: 41%;
+        margin-left: unset;
+    }
+
+    .ustAlanDuzenlemeAdSpan {
+        white-space: normal !important;
+        padding-left: 10px !important;
+        font-size: 15px !important;
+    }
+
+    .butonDivUstAlan {
+        width: 41%;
+        margin-left: unset;
+    }
+
+    .ustAlanDuzenlemeIkonSpan {
+        display: unset;
+        font-size: 15px !important;
+        padding-left: 10px !important;
+    }
+
+}

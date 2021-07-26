@@ -1,0 +1,63 @@
+﻿@model ICollection<Kategoriler>
+
+<div class="row p-2 border-bottom " style="border-color: rgb(180, 176, 176) !important;">
+    <div class="col-md-12">
+        <span class="display-6 text-muted">Kategoriler</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 kategorilerSliderSutun" style="position: relative;" align="center">
+
+        <!-- Kategoriler Md ve Yukarısı -->
+        <div id="benimSliderım">
+            <div class="TusDiv">
+                <span id="geriKategori"><i class="bi bi-arrow-bar-left"></i></span>
+            </div>
+            <div id="sliderIc" style="left: 10.85% !important;">
+                @foreach (var item in Model)
+                {
+                    <div class="topAlan">
+                        <div id="@item.Id" class="topAlanDiv" data-bs-toggle="tooltip" data-bs-placement="top" title="Düzenlemek için tıklayın..">
+                            <div class="top" onclick="location.href='#';">
+                                <i class="@item.kategorilerTopIcon"></i>
+                            </div>
+                            <div class="yazi">
+                                <a href="#"><span>@item.kategorilerYazi</span></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="TusDiv">
+                <span id="ileriKategori"><i class="bi bi-arrow-bar-right"></i></span>
+            </div>
+        </div>
+        <!-- /Kategoriler Md ve Yukarısı -->
+        @*Kategoriler Mobil*@
+        <div id="benimSliderımMobil">
+            <div class="TusDivMobil">
+                <span id="geriKategoriMobil"><i class="bi bi-arrow-bar-left"></i></span>
+            </div>
+            <div id="sliderIcMobil">
+                @foreach (var item in Model)
+                {
+                    <div class="topAlanMobil">
+                        <div id="@item.Id" class="topAlanDivMobil" data-bs-toggle="tooltip" data-bs-placement="top" title="Düzenlemek için tıklayın..">
+                            <div class="topMobil" onclick="location.href='#';">
+                                <i class="@item.kategorilerMobilTopIcon"></i>
+                            </div>
+                            <div class="yaziMobil">
+                                <a href="#"><span>@item.kategorilerYazi</span></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="TusDivMobil">
+                <span id="ileriKategoriMobil"><i class="bi bi-arrow-bar-right"></i></span>
+            </div>
+        </div>
+        @*/Kategoriler Mobil*@
+
+    </div>
+</div>

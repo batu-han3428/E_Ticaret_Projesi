@@ -1,5 +1,6 @@
 ﻿using DAL.Models;
 using Entity.Contexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,18 +29,28 @@ namespace DAL.Concrete
 
         }
 
-        public void guncelle(T model)
+        public int guncelle(T model)
         {
 
-            context.Entry<T>(model).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            context.SaveChanges();
+            try
+            {
+                context.Entry<T>(model).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+                context.SaveChanges();
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
         }
 
         public List<T> hepsiniListele(Expression<Func<T, bool>> filter = null)
         {
             if (filter == null)
             {
-                return context.Set<T>().ToList();
+                return context.Set<T>().AsNoTracking().ToList();
             }
             else
             {

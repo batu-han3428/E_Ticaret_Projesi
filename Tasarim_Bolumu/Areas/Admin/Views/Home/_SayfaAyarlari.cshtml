@@ -13,7 +13,7 @@
         <hr>
         <div id="anasayfaKartDestesi" class="row row-cols-1 row-cols-md-4 g-4 sayfaAyarlari">
             <div class="col">
-                <div class="card">
+                <div class="card" id="Anasayfa">
                     <div class="card-body" id="card0card-body" style=" background: linear-gradient(0.25turn, #3f87a6, #a0a89a, #f69d3c) !important;">
                         <div class="sayiVeIconAlan">
                             <h3 class="card-title text-light">Ana Sayfa</h3>
@@ -25,6 +25,25 @@
                     </div>
                     <div class="card-footer" id="card0CardFooter" style=" background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c) !important;">
                         <a class="cardLinkleri" id="card0cardLinkleri">
+                            <span class="card-text detayYazi">Düzenle..</span>
+                            <i class="bi bi-arrow-right-circle-fill detayIcon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" id="UstBolum">
+                    <div class="card-body" id="card5card-body">
+                        <div class="sayiVeIconAlan">
+                            <h3 class="card-title text-light">Üst Bölüm</h3>
+                            <i class="bi bi-file-earmark-break-fill" id="card5CardIcon"></i>
+                        </div>
+                        <div>
+                            <span class="card-text text-light cardYazi">Logo, Mağaza Bul...</span>
+                        </div>
+                    </div>
+                    <div class="card-footer" id="card5CardFooter">
+                        <a class="cardLinkleri" id="card5cardLinkleri">
                             <span class="card-text detayYazi">Düzenle..</span>
                             <i class="bi bi-arrow-right-circle-fill detayIcon"></i>
                         </a>
@@ -113,33 +132,37 @@
 <!-- /Kartlar -->
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-    var Anasayfa = "@Url.Action("Anasayfa", "Home")";
+    var actio;
 
-    $("#card0cardLinkleri").click(function () {
+    $(".cardLinkleri").click(function () {
 
-        $("#haklariSaklidirParagraf").fadeOut();
+        action = $(this).parents(".card").attr("id");
+           
+        var page = "https://localhost:5001/Admin/Home/" + action;
+           
+        $("#ajaxGosterimAlan").fadeOut();
 
-        $("#ajaxGosterimAlan").fadeOut().queue(function () {
+        setTimeout(function () {
 
             $.ajax({
 
                 type: "GET",
-                url: Anasayfa,
+                url: page,
                 success: function (e) {
 
                     $("#ajaxGosterimAlan").fadeIn().html(e);
 
-                    $("#haklariSaklidirParagraf").fadeIn();
-
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
                 }
             });
 
-            $(this).clearQueue();
-
-        });
+        }, 400);
+            
 
     });
 
-    </script>
+</script>

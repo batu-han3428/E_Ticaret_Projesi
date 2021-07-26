@@ -1,0 +1,86 @@
+﻿.ustAlanDuzenlemeSpan {
+    display: inline;
+    cursor: pointer;
+}
+
+    .ustAlanDuzenlemeSpan:first-child{
+       margin-left:5px;
+    }
+    .ustAlanDuzenlemeSpan:last-child {
+        margin-right: 5px;
+    }
+.ustAlanDuzenlemeIcon {
+    font-size: 24px;
+    color: rgb(168, 174, 185);
+}
+
+.ustAlanDuzenlemeAraCubuk {
+    border-right: 1px solid rgb(233, 236, 239);
+   height:inherit;
+   margin:0 5px 0 5px;
+
+}
+
+.ustAlanDuzenlemeIkonlar {
+    border: 1px solid rgb(239, 239, 239);
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    width: 70%;
+    height: inherit;
+}
+
+.ustAlanDuzenlemeIkonAlan {
+    width: 500px;
+    margin-left: auto;
+    height:56px;
+}
+
+.ustAlanDuzenlemeIkonSpan {
+    cursor: default;
+    display: inline;
+    width: 30%;
+    color: rgb(158, 164, 175);
+}
+
+.ustAlanDuzenlemeAdAlan {
+    width: 500px;
+    margin-left: auto;
+    height: 56px;
+}
+
+.ustAlanDuzenlemeAdSpan {
+    cursor: default;
+    height: inherit;
+    width: 30%;
+    color: rgb(158, 164, 175);
+}
+
+.ustAlanDuzenlemeAdTextarea {
+    resize: none;
+    width: 70%;
+    height: inherit;
+    color: rgb(168, 174, 185) !important;
+}
+
+.butonDivUstAlan {
+    width: 500px;
+    margin-left:auto;
+    display:none;
+}
+
+    .butonDivUstAlan > button {
+        width: 100%;
+        border: 2px solid rgb(233, 236, 239);
+        border-radius: unset;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        color: rgb(158, 164, 175);
+    }
+
+
+        .butonDivUstAlan > button:hover {
+            background-color: rgb(233, 236, 239);
+            border: 2px solid rgb(233, 236, 239);
+            color: rgb(158, 164, 175);
+        }

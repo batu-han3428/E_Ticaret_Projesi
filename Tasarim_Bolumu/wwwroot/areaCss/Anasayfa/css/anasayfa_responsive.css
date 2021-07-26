@@ -18,12 +18,12 @@
 
     }
 
-    #haklariSaklidirParagraf{
+   /* #haklariSaklidirParagraf{
 
         position:unset; 
         margin: 20px auto; 
     
-    }
+    }*/
 
     #butonAlan {
 
@@ -75,12 +75,12 @@
 
 @media (min-width:400px) and (max-width: 575px) {
 
-    #haklariSaklidirParagraf{
+   /* #haklariSaklidirParagraf{
 
         position:unset; 
         margin: 20px auto; 
     
-    }
+    }*/
 
     #butonAlan {
 
@@ -263,21 +263,21 @@
 
 @media (max-height: 475px) and (min-width: 992px) {
 
-    #haklariSaklidirParagraf {
+   /* #haklariSaklidirParagraf {
         position: unset !important;  
         margin-bottom: 0 !important;
         margin-right: 21% !important;
         margin-left: 0 !important
-    }
+    }*/
 }
 
 @media (max-height: 687px) and (min-width: 576px) and (max-width: 991px) {
 
-    #haklariSaklidirParagraf{
+   /* #haklariSaklidirParagraf{
 
         position:unset; 
         margin: 20px auto; 
     
-    }
+    }*/
 
 }

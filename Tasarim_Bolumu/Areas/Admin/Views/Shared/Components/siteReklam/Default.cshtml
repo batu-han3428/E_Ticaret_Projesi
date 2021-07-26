@@ -1,0 +1,285 @@
+﻿@model ICollection<SiteReklam>
+
+<div class="container">
+    <div class="row">
+        <div class="modal fade" id="modal" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header text-light bg-danger">
+                        <h5 class="modal-title">Uyarı!</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <span class="display-6 text-danger" id="modalYaziAlan" style="font-weight: 300; font-size: calc(1.3rem + 1vw); "></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 mt-4 text-center" id="badges1">
+
+            @foreach (var item in Model)
+            {
+                <span id="@item.Id" class="badge siteReklam">
+                    <i class="@item.icon" style="font-size: 25px;"></i>
+                    <span>
+                        @item.yazi
+                    </span>
+                </span>
+
+                //<span class="badge bg-danger text-light" asp-validation-for="@item.yazi"></span>
+                <div class="input-group siteReklamDuzenlemeAlani">
+                    <button class="btn btn-outline-primary siteReklamDuzenlemeButton"><i class="bi bi-check-lg"></i></button>
+                    <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
+                        <span class="siteReklamDuzenlemeSpan"><i class="bi bi-alarm siteReklamDuzenlemeIcon"></i></span>
+                        <div class="siteReklamDuzenlemeAraCubuk"></div>
+                        <span class="siteReklamDuzenlemeSpan"><i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i></span>
+                        <div class="siteReklamDuzenlemeAraCubuk"></div>
+                        <span class="siteReklamDuzenlemeSpan"><i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i></span>
+                    </div>
+                    <input type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" required />
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        var torpulenmis;
+        var id;
+        var badgesAltDiv;
+        var inputVal;
+        var veriTabaniIkon;
+        var veriTabaniYazi;
+
+        $("#badges1 > div").hide();
+
+        $("#1").click(function () {
+
+            id = 1;
+            badgesAltDiv = 0;
+
+            veriTabaniIkon = $(this).find("i").attr("class");
+
+            veriTabaniYazi = $(this).find("span").text().trim();
+
+            $(this).find("i, span").hide("explode", 1000);
+
+            $("#1").hide();
+
+            setTimeout(function () {
+
+                $("#badges1 > div").eq(0).show("explode", 1000);
+
+            }, 1000);
+
+            $("#2, #3, #4").off();
+
+            $(".siteReklam").css("cursor", "not-allowed");
+
+        });
+
+        $("#2").click(function () {
+
+            id = 2;
+            badgesAltDiv = 1;
+
+            veriTabaniIkon = $(this).find("i").attr("class");
+
+            veriTabaniYazi = $(this).find("span").text().trim();
+
+            $(this).find("i, span").hide("explode", 1000);
+
+            $("#2").hide();
+
+            setTimeout(function () {
+
+                $("#badges1 > div").eq(1).show("explode", 1000);
+
+
+            }, 1000);
+
+            $("#1, #3, #4").off();
+
+            $(".siteReklam").css("cursor", "not-allowed");
+
+        });
+
+        $("#3").click(function () {
+
+            id = 3;
+            badgesAltDiv = 2;
+
+            veriTabaniIkon = $(this).find("i").attr("class");
+
+            veriTabaniYazi = $(this).find("span").text().trim();
+
+            $(this).find("i, span").hide("explode", 1000);
+
+            $("#3").hide();
+
+            setTimeout(function () {
+
+                $("#badges1 > div").eq(2).show("explode", 1000);
+
+
+            }, 1000);
+
+            $("#1, #2, #4").off();
+
+            $(".siteReklam").css("cursor", "not-allowed");
+
+        });
+
+        $("#4").click(function () {
+
+            id = 4;
+            badgesAltDiv = 3;
+
+            veriTabaniIkon = $(this).find("i").attr("class");
+
+            veriTabaniYazi = $(this).find("span").text().trim();
+
+            $(this).find("i, span").hide("explode", 1000);
+
+            $("#4").hide();
+
+            setTimeout(function () {
+
+                $("#badges1 > div").eq(3).show("explode", 1000);
+
+            }, 1000);
+
+            $("#1, #2, #3").off();
+
+            $(".siteReklam").css("cursor", "not-allowed");
+
+        });
+
+        $(".siteReklamDuzenlemeSpan").click(function () {
+
+
+            $(this).parent().find("span").css({
+
+                "background-color": "white"
+
+            });
+
+            $(this).parent().find("i").css({
+
+                "background-color": "white",
+                "color": "rgb(35, 131, 193)"
+
+            });
+
+            $(this).find("i").css({
+
+                "background-color": "rgb(35, 131, 193)",
+                "color": "white"
+
+            });
+
+            $(this).css({
+
+                "background-color": "rgb(35, 131, 193)"
+
+            });
+
+
+            var veri = $(this).find("i").attr("class");
+
+            torpulenmis = veri.substring(veri.length - 23, 0);
+
+        });
+
+        $(".siteReklamDuzenlemeButton").click(function () {
+
+            inputVal = $(this).siblings("input").val();
+
+            var siteReklamGuncelle = "@Url.Action("siteReklamKayit", "SiteReklam")";
+
+            var siteReklamBilgileri = new Object();
+            siteReklamBilgileri.Yazi = inputVal;
+            siteReklamBilgileri.Icon = torpulenmis;
+            siteReklamBilgileri.Id = id;
+
+            $.ajax({
+                url: siteReklamGuncelle,
+                type: "POST",
+                data: siteReklamBilgileri,
+                success: function (response) {
+
+                    if (inputVal == "") {
+
+                        $("#modalYaziAlan").text(" ");
+
+                        $("#modalYaziAlan").text("Düzenleme Alanı Zorunludur..");
+
+                        $("#modal").modal('show');
+
+                    } else if (inputVal == veriTabaniYazi) {
+
+                        $("#modalYaziAlan").text(" ");
+
+                        $("#modalYaziAlan").text("Aynı Yazıyı Yazamazsınız..");
+
+                        $("#modal").modal('show');
+
+                    } else if (torpulenmis == undefined) {
+
+                        $("#modalYaziAlan").text(" ");
+
+                        $("#modalYaziAlan").text("Lütfen İkon Seçiniz..");
+
+                        $("#modal").modal('show');
+
+                    } else if (torpulenmis == veriTabaniIkon) {
+
+                        $("#modalYaziAlan").text(" ");
+
+                        $("#modalYaziAlan").text("Aynı İkonu Seçemezsiniz..");
+
+                        $("#modal").modal('show');
+
+                    } else {
+
+                        $("#badges1 > div").eq(badgesAltDiv).hide("explode", 1000);
+
+                        setTimeout(function () {
+
+                            badgesAltDiv++;
+
+                            var badgesAltDivId = "#" + badgesAltDiv;
+
+                            $("#eeee").css("display", "none").html(response).find(badgesAltDivId).css("display", "none").find("i, span").css("display", "none");
+
+                            $("#badges1 > div").css("display","none");
+
+                            $("#eeee").css("display", "block");
+
+                            $(badgesAltDivId).show();
+
+                            $(badgesAltDivId).find("i, span").css("color","rgb(35, 131, 193)").show("explode", 1000);
+
+
+                            $("#1, #2, #3, #4").on();
+
+                            $(".siteReklam").css("cursor", "pointer");
+
+                        }, 1000);
+                    }
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+
+            });
+
+        });
+
+    });
+
+</script>

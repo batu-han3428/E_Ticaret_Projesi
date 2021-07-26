@@ -1,1062 +1,366 @@
-﻿@model List<SiteReklam>
-    
+﻿<div id="eeee">
     <!-- İçerik Başlık -->
-<div class="row">
-    <div class="col-md-12" style="display: flex;">
-        <div id="adminPanelBaslikAlan">
-            <span class="display-6">Anasayfa Ayarları</span>
+    <div class="row">
+        <div class="col-md-12" style="display: flex;">
+            <div id="adminPanelBaslikAlan">
+                <span class="display-6">Anasayfa Ayarları</span>
+            </div>
         </div>
     </div>
-</div>
-<!-- /İçerik Başlık -->
-<!-- Kartlar -->
-<div class="row">
-    <div class="col-md-12">
-        <hr>
-       <div class="row">
-           <div class="col-md-12">
-               <span>Değişiklik yapmak istediğiniz bölüme tıklayınız..</span>
-           </div>
-       </div>
-
-        <!-- Site Reklam -->
-        <div class="container">
+    <!-- /İçerik Başlık -->
+    <!-- Anasayfa -->
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
             <div class="row">
-                <div class="col-md-12 mt-4 text-center" id="badges1">
-
-                    @foreach (var item in Model)
-                    {
-                        <span id="@item.Id" class="badge siteReklam">
-                            <i class="@item.icon" style="font-size: 25px;"></i>
-                            <span>
-                                @item.yazi
-                            </span>
-                        </span>
-                        <div class="input-group siteReklamDuzenlemeAlani">
-                            @*<form id="siteReklamForm" asp-action="siteReklamKayit" asp-controller="Home" method="post">*@
-                                <button type="submit" class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
-                                <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
-                                    <span class="siteReklamDuzenlemeSpan"><i class="bi bi-alarm siteReklamDuzenlemeIcon"></i></span>
-                                    <div class="siteReklamDuzenlemeAraCubuk"></div>
-                                    <span class="siteReklamDuzenlemeSpan"><i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i></span>
-                                    <div class="siteReklamDuzenlemeAraCubuk"></div>
-                                    <span class="siteReklamDuzenlemeSpan"><i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i></span>
-                                </div>
-                                <input id="siteReklamDuzenlemeInput" type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
-                            @*</form>*@
-                        </div>
-                    }
-
-
-
-
-                    @*<span id="siteReklam2" class="badge siteReklam">
-                        <i class="bi bi-box-seam" style="font-size: 25px;"></i>
-                        <span>
-                            AYNI GÜN
-                            TESLİMAT
-                        </span>
-                    </span>
-                    <div class="input-group siteReklamDuzenlemeAlani">
-                        <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
-                        <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
-                            <i class="bi bi-alarm siteReklamDuzenlemeIcon"></i>
-                            <div class="siteReklamDuzenlemeAraCubuk"></div>
-                            <i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i>
-                            <div class="siteReklamDuzenlemeAraCubuk"></div>
-                            <i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i>
-                        </div>
-                        <input type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
-                    </div>
-                    <span id="siteReklam3" class="badge siteReklam">
-                        <i class="bi bi-truck" style="font-size: 25px;"></i>
-                        <span>
-                            100TL ÜZERİ ÜCRETSİZ
-                            KARGO
-                        </span>
-                    </span>
-                    <div class="input-group siteReklamDuzenlemeAlani">
-                        <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
-                        <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
-                            <i class="bi bi-alarm siteReklamDuzenlemeIcon"></i>
-                            <div class="siteReklamDuzenlemeAraCubuk"></div>
-                            <i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i>
-                            <div class="siteReklamDuzenlemeAraCubuk"></div>
-                            <i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i>
-                        </div>
-                        <input type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
-                    </div>
-                    <span id="siteReklam4" class="badge siteReklam">
-                        <i class="bi bi-arrow-counterclockwise" style="font-size: 25px;"></i>
-                        <span>
-                            KOLAY İADE
-                        </span>
-                    </span>
-                    <div class="input-group siteReklamDuzenlemeAlani">
-                        <button class="btn btn-outline-primary"><i class="bi bi-check-lg"></i></button>
-                        <div id="siteReklamDuzenlemeIconDiv" class="ikonlar">
-                            <i class="bi bi-alarm siteReklamDuzenlemeIcon"></i>
-                            <div class="siteReklamDuzenlemeAraCubuk"></div>
-                            <i class="bi bi-alarm-fill siteReklamDuzenlemeIcon"></i>
-                            <div class="siteReklamDuzenlemeAraCubuk"></div>
-                            <i class="bi bi-align-bottom siteReklamDuzenlemeIcon"></i>
-                        </div>
-                        <input type="text" placeholder="Düzenleme Alanı" class="form-control siteReklamDuzenlemeInput" />
-                    </div>*@
-                </div>
-            </div>
-        </div>
-        <!-- /Site Reklam -->
-        <!-- Slider ve Günün Fırsatı Foto -->
-        <div class="container mt-4">
-            <div class="row mt-3">
-
-
-                <!-- Slider -->
-
                 <div class="col-md-12">
-                    <div id="KontrolTusuTetikle1" class="carousel slide slider1" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889424805938.jpg" class="d-block w-100" alt="urun1"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889354092594.jpg" class="d-block w-100" alt="urun2"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889322930226.jpg" class="d-block w-100" alt="urun3"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889423855666.jpg" class="d-block w-100" alt="urun4"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889301598258.jpg" class="d-block w-100" alt="urun5"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889423659058.jpg" class="d-block w-100" alt="urun6"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889353633842.jpg" class="d-block w-100" alt="urun7"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8887515775026.jpg" class="d-block w-100" alt="urun8"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889186975794.jpg" class="d-block w-100" alt="urun9"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889326993458.jpg" class="d-block w-100" alt="urun10"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889292652594.jpg" class="d-block w-100" alt="urun11"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8888500551730.jpg" class="d-block w-100" alt="urun12"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889326764082.jpg" class="d-block w-100" alt="urun13"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889419399218.jpg" class="d-block w-100" alt="urun14"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8887843684402.jpg" class="d-block w-100" alt="urun15"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889451675698.jpg" class="d-block w-100" alt="urun16"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"> <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/8889323061298.jpg" class="d-block w-100" alt="urun17"></a>
-                            </div>
-                        </div>
-                        <!-- Mobil -->
-                        <div class="col-md-12 d-none" id="gostergeCubuklari">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="0" class="active">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="1">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="2">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="3">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="4">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="5">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="6">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="7">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="8">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="9">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="10">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="11">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="12">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="13">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="14">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="15">
-                            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="16">
-                        </div>
-                        <!-- /Mobil -->
-                        <div class="col-md-12" id="tuslar">
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="0">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889424871474.jpg" class="d-block w-100"
-                                     alt="urun1tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="1">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889354158130.jpg" class="d-block w-100"
-                                     alt="urun2tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="2">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889291538482.jpg" class="d-block w-100"
-                                     alt="urun3tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="3">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889423921202.jpg" class="d-block w-100"
-                                     alt="urun4tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="4">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889301729330.jpg" class="d-block w-100"
-                                     alt="urun5tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="5">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889423724594.jpg" class="d-block w-100"
-                                     alt="urun6tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="6">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889353764914.jpg" class="d-block w-100"
-                                     alt="urun7tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="7">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8887548575794.jpg" class="d-block w-100"
-                                     alt="urun8tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="8">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889186943026.jpg" class="d-block w-100"
-                                     alt="urun9tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="9">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889326927922.jpg" class="d-block w-100"
-                                     alt="urun10tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="10">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889292685362.jpg" class="d-block w-100"
-                                     alt="urun11tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="11">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8888500617266.jpg" class="d-block w-100"
-                                     alt="urun12tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="12">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889325125682.jpg" class="d-block w-100"
-                                     alt="urun13tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="13">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889419464754.jpg" class="d-block w-100"
-                                     alt="urun14tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="14">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889325125682.jpg" class="d-block w-100"
-                                     alt="urun15tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="15">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889451708466.jpg" class="d-block w-100"
-                                     alt="urun16tus">
-                            </button>
-                            <button data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="16">
-                                <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/sliderTus/8889323126834.jpg" class="d-block w-100"
-                                     alt="urun17tus">
-                            </button>
-                        </div>
-
-
-                    </div>
-
-
-
-
+                    <span class="text-muted" style="cursor:default;">Değişiklik yapmak istediğiniz bölüme tıklayınız..</span>
                 </div>
-
-                <!-- /Slider -->
-                <!-- Günün Fırsatı Foto -->
-                <div class="row">
-                    <div class="col-md-12 text-center mt-4">
-                        <img src="~/css/body/Slider_ve_Gunun_Firsati/img/slider/gunun_firsatlari_logo.png" class="img-fluid" alt="urunfirsat">
-                    </div>
-                </div>
-                <!-- /Günün Fırsatı Foto -->
-
             </div>
-        </div>
-        <!-- /Slider ve Günün Fırsatı Foto -->
-        <!-- Slider Kartı, Normal Kart ve Pc Reklam -->
-        <div class="container-fluid ">
+            <hr>
+            <!-- Site Reklam -->
+            @await Component.InvokeAsync("siteReklam")
+            <!-- /Site Reklam -->
 
-            <!-- Slider Kartı ve Normal Kart -->
-            <div class="row">
-                <div class="col-md-12 mt-4">
+            <!-- Slider ve Günün Fırsatı Foto -->
+            <div class="container mt-4">
+                <div class="row mt-3">
 
                     <!-- Slider -->
-                    <div id="KontrolTusuTetikle2" class="carousel slide gununFirsatlariSlider" data-bs-ride="carousel"
-                         data-bs-interval="false">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-
-                                <!-- Cards -->
-                                <div class="card-group" id="kartlar">
-                                    <div class="card" id="kart1">
-                                        <a href="#" class="btn text-start p-0">
-                                            <div class="card-header">
-
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text baslik">
-                                                    Apple MacBook Air 13" M1 8C CPU 256GB Space
-                                                    Grey MGN63TU/A
-                                                </p>
-                                                <span class="card-text badge rounded-pill ikon">
-                                                    3.0<i class="bi bi-star-fill"></i>
-                                                </span>
-                                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">
-                                                    9.599.00
-                                                    TL
-                                                </span>
-                                                <span class="card-text badge ps-0 asilfiyat">10.999.00 TL</span>
-                                                <span class="card-text badge fiyatfark">1400 TL İndirim</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="card" id="kart2">
-                                        <a href="#" class="btn text-start p-0">
-                                            <div class="card-header">
-
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text baslik">Samsung Galaxy A52 Akıllı Telefon Beyaz</p>
-                                                <span class="card-text badge ps-0 indirimlifiyat">3.899.00 TL</span>
-                                                <span class="card-text badge ps-0 asilfiyat">3.999.00 TL</span>
-                                                <span class="card-text badge fiyatfark">100 TL İndirim</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="card" id="kart3">
-                                        <a href="#" class="btn text-start p-0">
-                                            <div class="card-header">
-
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text baslik">
-                                                    Samsung Galaxy A32 Light Violet Akıllı
-                                                    Telefon Light Violet
-                                                </p>
-                                                <span class="card-text badge ps-0 indirimlifiyat">3.599.00 TL</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="card" id="kart4">
-                                        <a href="#" class="btn text-start p-0">
-                                            <div class="card-header">
-
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text baslik">
-                                                    Philips 55PUS7805/62 55" 139 Ekran
-                                                    Ambilightlı 4K UHD Smart TV
-                                                </p>
-                                                <span class="card-text badge rounded-pill ikon">
-                                                    5.0<i class="bi bi-star-fill"></i>
-                                                </span>
-                                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">
-                                                    9.599.00
-                                                    TL
-                                                </span>
-                                                <span class="card-text badge ps-0 asilfiyat">10.999.00 TL</span>
-                                                <span class="card-text badge fiyatfark">1400 TL İndirim</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- /Cards -->
-
-                            </div>
-                            <div class="carousel-item">
-
-                                <!-- Cards -->
-                                <div class="card-group" id="kartlar">
-                                    <div class="card" id="kart5">
-                                        <a href="#" class="btn text-start p-0">
-                                            <div class="card-header">
-
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text baslik">
-                                                    Philips XB9155/07 Marathon Ultimate Toz
-                                                    Torbasız Süpürge
-                                                </p>
-                                                <span class="card-text badge rounded-pill ikon">
-                                                    3.0<i class="bi bi-star-fill"></i>
-                                                </span>
-                                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">
-                                                    3.499.00
-                                                    TL
-                                                </span>
-                                                <span class="card-text badge ps-0 asilfiyat">3.899.00 TL</span>
-                                                <span class="card-text badge fiyatfark">400 TL İndirim</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="card" id="kart6">
-                                        <a href="#" class="btn text-start p-0">
-                                            <div class="card-header">
-
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text baslik">
-                                                    TCL 55C715 55" 139 Ekran 4K UHD Android
-                                                    Smart QLED TV
-                                                </p>
-                                                <span class="card-text badge ps-0 indirimlifiyat">5.999.00 TL</span>
-                                                <span class="card-text badge ps-0 asilfiyat">6.999.00 TL</span>
-                                                <span class="card-text badge fiyatfark">1000 TL İndirim</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="card" id="kart7">
-                                        <a href="#" class="btn text-start p-0">
-                                            <div class="card-header">
-
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text baslik">
-                                                    LG 65UN73006 65" 165 Ekran 4K UHD Smart TV
-                                                </p>
-                                                <span class="card-text badge ps-0 indirimlifiyat">7.499.00 TL</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="card" id="kart8">
-                                        <a href="#" class="btn text-start p-0">
-                                            <div class="card-header">
-
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text baslik">
-                                                    Samsung WW90J5475FW/AH A+++ Enerji Sınıfı 9
-                                                    Kg 1400 Devir Çamaşır Makinesi
-                                                </p>
-                                                <span class="card-text badge rounded-pill ikon">
-                                                    5.0<i class="bi bi-star-fill"></i>
-                                                </span>
-                                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">
-                                                    3.399.00
-                                                    TL
-                                                </span>
-                                                <span class="card-text badge ps-0 asilfiyat">4.299.00 TL</span>
-                                                <span class="card-text badge fiyatfark">900 TL İndirim</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- /Cards -->
-
-                            </div>
-                        </div>
-                        <button id="geri" class="carousel-control-prev" data-bs-target="#KontrolTusuTetikle2"
-                                data-bs-slide="prev">
-                            <span><i class="bi bi-arrow-left-circle-fill"></i></span>
-                            <span class="visually-hidden">Geri</span>
-                        </button>
-                        <button id="ileri" class="carousel-control-next" data-bs-target="#KontrolTusuTetikle2"
-                                data-bs-slide="next">
-                            <span><i class="bi bi-arrow-right-circle-fill"></i></span>
-                            <span class="visually-hidden">İleri</span>
-                        </button>
-                    </div>
+                    @await Component.InvokeAsync("slider")
                     <!-- /Slider -->
-                    <!-- Mobil İçin Kart -->
-                    <div class="card-group d-none gizliKart" id="kartlar">
-                        <div class="card" id="kart1">
-                            <a href="#" class="btn text-start p-0">
-                                <img class="card-img-top img-fluid" src="~/css/urunler/48345076.jpg" />
-                                <div class="card-body">
-                                    <p class="card-text baslik">
-                                        Apple MacBook Air 13" M1 8C CPU 256GB Space Grey
-                                        MGN63TU/A
-                                    </p>
-                                    <span class="card-text badge rounded-pill ikon">
-                                        3.0<i class="bi bi-star-fill"></i>
-                                    </span>
-                                    <span class="card-text badge ps-0 mt-2 indirimlifiyat">9.599.00 TL</span>
-                                    <span class="card-text badge ps-0 asilfiyat">10.999.00 TL</span>
-                                    <span class="card-text badge fiyatfark">1400 TL İndirim</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card" id="kart2">
-                            <a href="#" class="btn text-start p-0">
-                                <img class="card-img-top" src="~/css/urunler/52999229.png" />
-                                <div class="card-body">
-                                    <p class="card-text baslik">Samsung Galaxy A52 Akıllı Telefon Beyaz</p>
-                                    <span class="card-text badge ps-0 indirimlifiyat">3.899.00 TL</span>
-                                    <span class="card-text badge ps-0 asilfiyat">3.999.00 TL</span>
-                                    <span class="card-text badge fiyatfark">100 TL İndirim</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card" id="kart3">
-                            <a href="#" class="btn text-start p-0">
-                                <img class="card-img-top" src="~/css/urunler/52990132.png" />
-                                <div class="card-body">
-                                    <p class="card-text baslik">
-                                        Samsung Galaxy A32 Light Violet Akıllı Telefon Light
-                                        Violet
-                                    </p>
-                                    <span class="card-text badge ps-0 indirimlifiyat">3.599.00 TL</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card" id="kart4">
-                            <a href="#" class="btn text-start p-0">
-                                <img class="card-img-top" src="~/css/urunler/46607432.jpg" />
-                                <div class="card-body mt-5">
-                                    <p class="card-text baslik">
-                                        Philips 55PUS7805/62 55" 139 Ekran Ambilightlı 4K UHD
-                                        Smart TV
-                                    </p>
-                                    <span class="card-text badge rounded-pill ikon">
-                                        5.0<i class="bi bi-star-fill"></i>
-                                    </span>
-                                    <span class="card-text badge ps-0 mt-2 indirimlifiyat">9.599.00 TL</span>
-                                    <span class="card-text badge ps-0 asilfiyat">10.999.00 TL</span>
-                                    <span class="card-text badge fiyatfark">1400 TL İndirim</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card" id="kart5">
-                            <a href="#" class="btn text-start p-0">
-                                <img class="card-img-top img-fluid" src="~/css/urunler/yeni1.jpg" />
-                                <div class="card-body">
-                                    <p class="card-text baslik">
-                                        Philips XB9155/07 Marathon Ultimate Toz Torbasız Süpürge
-                                    </p>
-                                    <span class="card-text badge rounded-pill ikon">
-                                        3.0<i class="bi bi-star-fill"></i>
-                                    </span>
-                                    <span class="card-text badge ps-0 mt-2 indirimlifiyat">3.499.00 TL</span>
-                                    <span class="card-text badge ps-0 asilfiyat">3.899.00 TL</span>
-                                    <span class="card-text badge fiyatfark">400 TL İndirim</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card" id="kart6">
-                            <a href="#" class="btn text-start p-0">
-                                <img class="card-img-top" src="~/css/urunler/yeni2.png" />
-                                <div class="card-body">
-                                    <p class="card-text baslik">
-                                        TCL 55C715 55" 139 Ekran 4K UHD Android Smart QLED TV
-                                    </p>
-                                    <span class="card-text badge ps-0 indirimlifiyat">5.999.00 TL</span>
-                                    <span class="card-text badge ps-0 asilfiyat">6.999.00 TL</span>
-                                    <span class="card-text badge fiyatfark">1000 TL İndirim</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card" id="kart7">
-                            <a href="#" class="btn text-start p-0">
-                                <img class="card-img-top" src="~/css/urunler/yeni3.jpg" />
-                                <div class="card-body">
-                                    <p class="card-text baslik">LG 65UN73006 65" 165 Ekran 4K UHD Smart TV</p>
-                                    <span class="card-text badge ps-0 indirimlifiyat">7.499.00 TL</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="card" id="kart8">
-                            <a href="#" class="btn text-start p-0">
-                                <img class="card-img-top" src="~/css/urunler/yeni4.jpg" />
-                                <div class="card-body mt-5">
-                                    <p class="card-text baslik">
-                                        Samsung WW90J5475FW/AH A+++ Enerji Sınıfı 9 Kg 1400
-                                        Devir Çamaşır Makinesi
-                                    </p>
-                                    <span class="card-text badge rounded-pill ikon">
-                                        5.0<i class="bi bi-star-fill"></i>
-                                    </span>
-                                    <span class="card-text badge ps-0 mt-2 indirimlifiyat">3.399.00 TL</span>
-                                    <span class="card-text badge ps-0 asilfiyat">4.299.00 TL</span>
-                                    <span class="card-text badge fiyatfark">900 TL İndirim</span>
-                                </div>
-                            </a>
-                        </div>
+                    <!-- Günün Fırsatı Foto -->
+                    @await Component.InvokeAsync("gununFirsatiFoto")
+                    <!-- /Günün Fırsatı Foto -->
+
+                </div>
+            </div>
+            <!-- /Slider ve Günün Fırsatı Foto -->
+            <!-- Slider Kartı, Normal Kart ve Pc Reklam -->
+            <div class="container-fluid ">
+
+                <!-- Slider Kartı ve Normal Kart -->
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+
+                        @await Component.InvokeAsync("sliderKartiVeNormalKart")
+                        <!-- Slider -->
+                        <!--<div id="KontrolTusuTetikle2" class="carousel slide gununFirsatlariSlider" data-bs-ride="carousel"
+                     data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">-->
+                        <!-- Cards -->
+                        <!--<div class="card-group" id="kartlar">
+                    <div class="card" id="kart1">
+                        <a href="#" class="btn text-start p-0">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    Apple MacBook Air 13" M1 8C CPU 256GB Space
+                                    Grey MGN63TU/A
+                                </p>
+                                <span class="card-text badge rounded-pill ikon">
+                                    3.0<i class="bi bi-star-fill"></i>
+                                </span>
+                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">
+                                    9.599.00
+                                    TL
+                                </span>
+                                <span class="card-text badge ps-0 asilfiyat">10.999.00 TL</span>
+                                <span class="card-text badge fiyatfark">1400 TL İndirim</span>
+                            </div>
+                        </a>
                     </div>
-                    <!-- /Mobil İçin Kart -->
+                    <div class="card" id="kart2">
+                        <a href="#" class="btn text-start p-0">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text baslik">Samsung Galaxy A52 Akıllı Telefon Beyaz</p>
+                                <span class="card-text badge ps-0 indirimlifiyat">3.899.00 TL</span>
+                                <span class="card-text badge ps-0 asilfiyat">3.999.00 TL</span>
+                                <span class="card-text badge fiyatfark">100 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart3">
+                        <a href="#" class="btn text-start p-0">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    Samsung Galaxy A32 Light Violet Akıllı
+                                    Telefon Light Violet
+                                </p>
+                                <span class="card-text badge ps-0 indirimlifiyat">3.599.00 TL</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart4">
+                        <a href="#" class="btn text-start p-0">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    Philips 55PUS7805/62 55" 139 Ekran
+                                    Ambilightlı 4K UHD Smart TV
+                                </p>
+                                <span class="card-text badge rounded-pill ikon">
+                                    5.0<i class="bi bi-star-fill"></i>
+                                </span>
+                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">
+                                    9.599.00
+                                    TL
+                                </span>
+                                <span class="card-text badge ps-0 asilfiyat">10.999.00 TL</span>
+                                <span class="card-text badge fiyatfark">1400 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>-->
+                        <!-- /Cards -->
+                        <!--</div>
+                <div class="carousel-item">-->
+                        <!-- Cards -->
+                        <!--<div class="card-group" id="kartlar">
+                    <div class="card" id="kart5">
+                        <a href="#" class="btn text-start p-0">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    Philips XB9155/07 Marathon Ultimate Toz
+                                    Torbasız Süpürge
+                                </p>
+                                <span class="card-text badge rounded-pill ikon">
+                                    3.0<i class="bi bi-star-fill"></i>
+                                </span>
+                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">
+                                    3.499.00
+                                    TL
+                                </span>
+                                <span class="card-text badge ps-0 asilfiyat">3.899.00 TL</span>
+                                <span class="card-text badge fiyatfark">400 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart6">
+                        <a href="#" class="btn text-start p-0">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    TCL 55C715 55" 139 Ekran 4K UHD Android
+                                    Smart QLED TV
+                                </p>
+                                <span class="card-text badge ps-0 indirimlifiyat">5.999.00 TL</span>
+                                <span class="card-text badge ps-0 asilfiyat">6.999.00 TL</span>
+                                <span class="card-text badge fiyatfark">1000 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart7">
+                        <a href="#" class="btn text-start p-0">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    LG 65UN73006 65" 165 Ekran 4K UHD Smart TV
+                                </p>
+                                <span class="card-text badge ps-0 indirimlifiyat">7.499.00 TL</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart8">
+                        <a href="#" class="btn text-start p-0">
+                            <div class="card-header">
+
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    Samsung WW90J5475FW/AH A+++ Enerji Sınıfı 9
+                                    Kg 1400 Devir Çamaşır Makinesi
+                                </p>
+                                <span class="card-text badge rounded-pill ikon">
+                                    5.0<i class="bi bi-star-fill"></i>
+                                </span>
+                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">
+                                    3.399.00
+                                    TL
+                                </span>
+                                <span class="card-text badge ps-0 asilfiyat">4.299.00 TL</span>
+                                <span class="card-text badge fiyatfark">900 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>-->
+                        <!-- /Cards -->
+                        <!--</div>
+                    </div>
+                    <button id="geri" class="carousel-control-prev" data-bs-target="#KontrolTusuTetikle2"
+                            data-bs-slide="prev">
+                        <span><i class="bi bi-arrow-left-circle-fill"></i></span>
+                        <span class="visually-hidden">Geri</span>
+                    </button>
+                    <button id="ileri" class="carousel-control-next" data-bs-target="#KontrolTusuTetikle2"
+                            data-bs-slide="next">
+                        <span><i class="bi bi-arrow-right-circle-fill"></i></span>
+                        <span class="visually-hidden">İleri</span>
+                    </button>
+                </div>-->
+                        <!-- /Slider -->
+                        <!-- Mobil İçin Kart -->
+                        <!--<div class="card-group d-none gizliKart" id="kartlar">
+                    <div class="card" id="kart1">
+                        <a href="#" class="btn text-start p-0">
+                            <img class="card-img-top img-fluid" src="~/css/urunler/48345076.jpg" />
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    Apple MacBook Air 13" M1 8C CPU 256GB Space Grey
+                                    MGN63TU/A
+                                </p>
+                                <span class="card-text badge rounded-pill ikon">
+                                    3.0<i class="bi bi-star-fill"></i>
+                                </span>
+                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">9.599.00 TL</span>
+                                <span class="card-text badge ps-0 asilfiyat">10.999.00 TL</span>
+                                <span class="card-text badge fiyatfark">1400 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart2">
+                        <a href="#" class="btn text-start p-0">
+                            <img class="card-img-top" src="~/css/urunler/52999229.png" />
+                            <div class="card-body">
+                                <p class="card-text baslik">Samsung Galaxy A52 Akıllı Telefon Beyaz</p>
+                                <span class="card-text badge ps-0 indirimlifiyat">3.899.00 TL</span>
+                                <span class="card-text badge ps-0 asilfiyat">3.999.00 TL</span>
+                                <span class="card-text badge fiyatfark">100 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart3">
+                        <a href="#" class="btn text-start p-0">
+                            <img class="card-img-top" src="~/css/urunler/52990132.png" />
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    Samsung Galaxy A32 Light Violet Akıllı Telefon Light
+                                    Violet
+                                </p>
+                                <span class="card-text badge ps-0 indirimlifiyat">3.599.00 TL</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart4">
+                        <a href="#" class="btn text-start p-0">
+                            <img class="card-img-top" src="~/css/urunler/46607432.jpg" />
+                            <div class="card-body mt-5">
+                                <p class="card-text baslik">
+                                    Philips 55PUS7805/62 55" 139 Ekran Ambilightlı 4K UHD
+                                    Smart TV
+                                </p>
+                                <span class="card-text badge rounded-pill ikon">
+                                    5.0<i class="bi bi-star-fill"></i>
+                                </span>
+                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">9.599.00 TL</span>
+                                <span class="card-text badge ps-0 asilfiyat">10.999.00 TL</span>
+                                <span class="card-text badge fiyatfark">1400 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart5">
+                        <a href="#" class="btn text-start p-0">
+                            <img class="card-img-top img-fluid" src="~/css/urunler/yeni1.jpg" />
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    Philips XB9155/07 Marathon Ultimate Toz Torbasız Süpürge
+                                </p>
+                                <span class="card-text badge rounded-pill ikon">
+                                    3.0<i class="bi bi-star-fill"></i>
+                                </span>
+                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">3.499.00 TL</span>
+                                <span class="card-text badge ps-0 asilfiyat">3.899.00 TL</span>
+                                <span class="card-text badge fiyatfark">400 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart6">
+                        <a href="#" class="btn text-start p-0">
+                            <img class="card-img-top" src="~/css/urunler/yeni2.png" />
+                            <div class="card-body">
+                                <p class="card-text baslik">
+                                    TCL 55C715 55" 139 Ekran 4K UHD Android Smart QLED TV
+                                </p>
+                                <span class="card-text badge ps-0 indirimlifiyat">5.999.00 TL</span>
+                                <span class="card-text badge ps-0 asilfiyat">6.999.00 TL</span>
+                                <span class="card-text badge fiyatfark">1000 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart7">
+                        <a href="#" class="btn text-start p-0">
+                            <img class="card-img-top" src="~/css/urunler/yeni3.jpg" />
+                            <div class="card-body">
+                                <p class="card-text baslik">LG 65UN73006 65" 165 Ekran 4K UHD Smart TV</p>
+                                <span class="card-text badge ps-0 indirimlifiyat">7.499.00 TL</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card" id="kart8">
+                        <a href="#" class="btn text-start p-0">
+                            <img class="card-img-top" src="~/css/urunler/yeni4.jpg" />
+                            <div class="card-body mt-5">
+                                <p class="card-text baslik">
+                                    Samsung WW90J5475FW/AH A+++ Enerji Sınıfı 9 Kg 1400
+                                    Devir Çamaşır Makinesi
+                                </p>
+                                <span class="card-text badge rounded-pill ikon">
+                                    5.0<i class="bi bi-star-fill"></i>
+                                </span>
+                                <span class="card-text badge ps-0 mt-2 indirimlifiyat">3.399.00 TL</span>
+                                <span class="card-text badge ps-0 asilfiyat">4.299.00 TL</span>
+                                <span class="card-text badge fiyatfark">900 TL İndirim</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>-->
+                        <!-- /Mobil İçin Kart -->
+                    </div>
                 </div>
-            </div>
-            <!-- /Slider Kartı ve Normal Kart -->
-            <!-- Pc Reklam -->
-            <div class="row">
-                <div class="col-md-12 mt-3">
-                    <a href="#">
-                        <img id="pcfoto" style="margin-left:1.5%;" src="~/css/urunler/bant_bilgisayar_bulucu_210122.webp"
-                             class="img-fluid" alt="bilgisayarbulucu">
-                    </a>
+                <!-- /Slider Kartı ve Normal Kart -->
+                <!-- Pc Reklam -->
+                <div class="row">
+                    <div class="col-md-12 mt-3" style="text-align:center;">
+                        @await Component.InvokeAsync("pcReklam")
+                    </div>
                 </div>
+                <!-- /Pc Reklam -->
+
             </div>
-            <!-- /Pc Reklam -->
+            <!-- /Slider Kartı, Normal Kart ve Pc Reklam -->
+            <!-- Kategoriler -->
+            <div class="container mt-3" style="background-color: white; box-shadow: 0px 2px rgb(221, 221, 221);">
+                @await Component.InvokeAsync("kategoriler")
+            </div>
+            <!-- /Kategoriler -->
+            <!-- Tanıtım Kart -->
+            <div class="container" id="tanıtımKart">
+                @await Component.InvokeAsync("tanitimKart")
+            </div>
+            <!-- /Tanıtım Kart -->
+
 
         </div>
-        <!-- /Slider Kartı, Normal Kart ve Pc Reklam -->
-        <!-- Kategoriler -->
-        <div class="container mt-3" style="background-color: white; box-shadow: 0px 2px rgb(221, 221, 221);">
-            <div class="row p-2 border-bottom " style="border-color: rgb(180, 176, 176) !important;">
-                <div class="col-md-12">
-                    <span class="display-6 text-muted">Kategoriler</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12" align="center">
-
-                    <!-- Kategoriler Md ve Yukarısı -->
-                    <div id="benimSliderım">
-                        <div class="TusDiv">
-                            <span id="geriKategori"><i class="bi bi-arrow-bar-left"></i></span>
-                        </div>
-                        <div id="sliderIc">
-                            <div class="topAlan">
-                                <div class="topAlanDiv">
-                                    <div class="top" onclick="location.href='#';">
-                                        <i class="bi bi-phone-vibrate kategoriIkon"></i>
-                                    </div>
-                                    <div class="yazi">
-                                        <a href="#"><span>Cep Telefonları</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlan">
-                                <div class="topAlanDiv">
-                                    <div class="top" onclick="location.href='#';">
-                                        <i class="bi bi-tv kategoriIkon"></i>
-                                    </div>
-                                    <div class="yazi">
-
-                                        <a href="#"><span>Televizyonlar</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlan">
-                                <div class="topAlanDiv">
-                                    <div class="top" onclick="location.href='#';">
-                                        <i class="bi bi-laptop kategoriIkon"></i>
-                                    </div>
-                                    <div class="yazi">
-
-                                        <a href="#"><span>Notebook'lar</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlan">
-                                <div class="topAlanDiv">
-                                    <div class="top" onclick="location.href='#';">
-                                        <i class="bi bi-house kategoriIkon"></i>
-                                    </div>
-                                    <div class="yazi">
-
-                                        <a href="#"><span>Beyaz Eşya</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlan">
-                                <div class="topAlanDiv">
-                                    <div class="top" onclick="location.href='#';">
-                                        <i class="bi bi-hammer kategoriIkon"></i>
-                                    </div>
-                                    <div class="yazi">
-
-                                        <a href="#"><span>Elektrikli Ev Aletleri</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlan">
-                                <div class="topAlanDiv">
-                                    <div class="top" onclick="location.href='#';">
-
-                                        <i class="bi bi-heart kategoriIkon"></i>
-                                    </div>
-                                    <div class="yazi">
-
-                                        <a href="#"><span>Kişisel Bakım</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlan">
-                                <div class="topAlanDiv">
-                                    <div class="top" onclick="location.href='#';">
-
-                                        <i class="bi bi-controller kategoriIkon"></i>
-                                    </div>
-                                    <div class="yazi">
-
-                                        <a href="#"><span>Oyun Konsolları</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlan">
-                                <div class="topAlanDiv">
-                                    <div class="top" onclick="location.href='#';">
-
-                                        <i class="bi bi-camera kategoriIkon"></i>
-                                    </div>
-                                    <div class="yazi">
-
-                                        <a href="#"><span>Fotoğraf Makineleri</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlan">
-                                <div class="topAlanDiv">
-                                    <div class="top" onclick="location.href='#';">
-
-                                        <i class="bi bi-smartwatch kategoriIkon"></i>
-                                    </div>
-                                    <div class="yazi">
-
-                                        <a href="#"><span>Aksesuar</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="TusDiv">
-                            <span id="ileriKategori"><i class="bi bi-arrow-bar-right"></i></span>
-                        </div>
-                    </div>
-                    <!-- /Kategoriler Md ve Yukarısı -->
-                    <!-- Kategoriler Mobil -->
-                    <div id="benimSliderımMobil">
-                        <div class="TusDivMobil">
-                            <span id="geriKategoriMobil"><i class="bi bi-arrow-bar-left"></i></span>
-                        </div>
-
-
-
-                        <div id="sliderIcMobil">
-
-                            <div class="topAlanMobil">
-                                <div class="topAlanDivMobil">
-                                    <div class="topMobil" onclick="location.href='#';">
-                                        <i class="bi bi-phone-vibrate kategoriIkonMobil"></i>
-                                    </div>
-                                    <div class="yaziMobil">
-                                        <a href="#"><span>Cep Telefonları</span></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="topAlanMobil">
-                                <div class="topAlanDivMobil">
-                                    <div class="topMobil" onclick="location.href='#';">
-                                        <i class="bi bi-tv kategoriIkonMobil"></i>
-                                    </div>
-                                    <div class="yaziMobil">
-
-                                        <a href="#"><span>Televizyonlar</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlanMobil">
-                                <div class="topAlanDivMobil">
-                                    <div class="topMobil" onclick="location.href='#';">
-                                        <i class="bi bi-laptop kategoriIkonMobil"></i>
-                                    </div>
-                                    <div class="yaziMobil">
-
-                                        <a href="#"><span>Notebook'lar</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlanMobil">
-                                <div class="topAlanDivMobil">
-                                    <div class="topMobil" onclick="location.href='#';">
-                                        <i class="bi bi-house kategoriIkonMobil"></i>
-                                    </div>
-                                    <div class="yaziMobil">
-
-                                        <a href="#"><span>Beyaz Eşya</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlanMobil">
-                                <div class="topAlanDivMobil">
-                                    <div class="topMobil" onclick="location.href='#';">
-                                        <i class="bi bi-hammer kategoriIkonMobil"></i>
-                                    </div>
-                                    <div class="yaziMobil">
-
-                                        <a href="#"><span>Elektrikli Ev Aletleri</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlanMobil">
-                                <div class="topAlanDivMobil">
-                                    <div class="topMobil" onclick="location.href='#';">
-
-                                        <i class="bi bi-heart kategoriIkonMobil"></i>
-                                    </div>
-                                    <div class="yaziMobil">
-
-                                        <a href="#"><span>Kişisel Bakım</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlanMobil">
-                                <div class="topAlanDivMobil">
-                                    <div class="topMobil" onclick="location.href='#';">
-
-                                        <i class="bi bi-controller kategoriIkonMobil"></i>
-                                    </div>
-                                    <div class="yaziMobil">
-
-                                        <a href="#"><span>Oyun Konsolları</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlanMobil">
-                                <div class="topAlanDivMobil">
-                                    <div class="topMobil" onclick="location.href='#';">
-
-                                        <i class="bi bi-camera kategoriIkonMobil"></i>
-                                    </div>
-                                    <div class="yaziMobil">
-
-                                        <a href="#"><span>Fotoğraf Makineleri</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="topAlanMobil">
-                                <div class="topAlanDivMobil">
-                                    <div class="topMobil" onclick="location.href='#';">
-
-                                        <i class="bi bi-smartwatch kategoriIkonMobil"></i>
-                                    </div>
-                                    <div class="yaziMobil">
-
-                                        <a href="#"><span>Aksesuar</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="TusDivMobil">
-                            <span id="ileriKategoriMobil"><i class="bi bi-arrow-bar-right"></i></span>
-                        </div>
-                    </div>
-                    <!-- /Kategoriler Mobil -->
-
-                </div>
-            </div>
-        </div>
-        <!-- /Kategoriler -->
-        <!-- Tanıtım Kart -->
-        <div class="container" id="tanıtımKart">
-            <div class="row row-cols-1 row-cols-md-4 g-3">
-                <div class="col">
-                    <a href="#">
-                        <div class="card">
-                            <img class="card-img" src="~/css/body/Tanitim_Kart/img/Tanıtım_Kart/widget_kadinicin_teknoloji_210416.webp" />
-                            <div class="card-img-overlay">
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#">
-                        <div class="card">
-                            <img class="card-img" src="~/css/body/Tanitim_Kart/img/Tanıtım_Kart/widget_teknosacell_210331.webp" />
-                            <div class="card-img-overlay">
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#">
-                        <div class="card">
-                            <img class="card-img" src="~/css/body/Tanitim_Kart/img/Tanıtım_Kart/widget_apple_210405.webp" />
-                            <div class="card-img-overlay">
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#">
-                        <div class="card">
-                            <img class="card-img" src="~/css/body/Tanitim_Kart/img/Tanıtım_Kart/widget_ayd_210331.webp" />
-                            <div class="card-img-overlay">
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- /Tanıtım Kart -->
-
-
     </div>
+    <!-- /Anasayfa -->
 </div>
-<!-- /Kartlar -->
 
 <partial name="../Shared/cssVeJsDosyaYollari/_AnasayfaDuzenle.cshtml/js/Index.cshtml" />  <!-- _AnasayfaDuzenle Js Dosyası -->
-
-<script type="text/javascript">
-
-    $(function () {
-
-        $("#badges1 > div").hide();
-
-        $("#2").click(function () {
-
-            $(this).find("i, span").hide("explode", 1000);
-
-            $("#2").hide();
-
-            setTimeout(function () {
-
-                $("#badges1 > div").eq(0).show("explode", 1000);
-
-            }, 1000);
-
-        });
-
-        $("#3").click(function () {
-
-            $(this).find("i, span").hide("explode", 1000);
-
-            $("#3").hide();
-
-            setTimeout(function () {
-
-                $("#badges1 > div").eq(1).show("explode", 1000);
-
-
-            }, 1000);
-
-        });
-
-        $("#4").click(function () {
-
-            $(this).find("i, span").hide("explode", 1000);
-
-            $("#4").hide();
-
-            setTimeout(function () {
-
-                $("#badges1 > div").eq(2).show("explode", 1000);
-
-
-            }, 1000);
-
-        });
-
-        $("#5").click(function () {
-
-            $(this).find("i, span").hide("explode", 1000);
-
-            $("#5").hide();
-
-            setTimeout(function () {
-
-                $("#badges1 > div").eq(3).show("explode", 1000);
-
-            }, 1000);
-
-        });
-
-        $(".siteReklamDuzenlemeSpan").click(function () {
-
-            $(".siteReklamDuzenlemeSpan").css({
-
-                "background-color": "white"
-
-            });
-
-            $(".siteReklamDuzenlemeSpan > i").css({
-
-                "background-color": "white",
-                "color": "rgb(35, 131, 193)"
-
-            });
-        
-            $(this).find("i").css({
-
-                "background-color": "rgb(35, 131, 193)",
-                "color": "white"
-
-            });
-
-            $(this).css({
-
-                "background-color": "rgb(35, 131, 193)"
-
-            });
-
-        });
-
-
-        $(".ikonlar > span").click(function () {
-
-            var veri = $(this).find("i").attr("class");
-
-            var torpulenmis = veri.substring(veri.length - 23, 0);
-
-            @*var siteReklamGuncelle = "@Url.Action("siteReklamKayit", "Home")";
-
-            var siteReklamBilgileri = new Object();
-            siteReklamBilgileri.Yazi = $("#siteReklamDuzenlemeInput").val();
-            siteReklamBilgileri.Icon = torpulenmis;
-
-            $.ajax({
-                url: siteReklamGuncelle,
-                type: "POST",
-                data: siteReklamBilgileri,
-                success: function (response) {
-
-                    alert("içerdeyim");
-
-                },
-                error: function (hata, ajaxoptions, throwerror) {
-                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
-                }
-
-            });*@
-
-        });
-
-        @*$("#siteReklamForm").submit(function (event) {
-
-            var siteReklamGuncelle = "@Url.Action("siteReklamKayit", "Home")";
-
-            var veri = $(".siteReklamDuzenlemeIcon").attr("class");
-
-            var torpulenmis = veri.substring(veri.length - 23, 0);
-
-            alert(torpulenmis);
-
-            var siteReklamBilgileri = new Object();
-            siteReklamBilgileri.Yazi = $("#siteReklamDuzenlemeInput").val();
-            siteReklamBilgileri.Icon = torpulenmis;
-
-            $.ajax({
-                url: siteReklamGuncelle,
-                type: "POST",
-                data: siteReklamBilgileri,
-                success: function (response) {
-
-                    alert("içerdeyim");
-
-                },
-                error: function (hata, ajaxoptions, throwerror) {
-                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
-                }
-
-            });
-
-            event.preventDefault();
-
-        });*@
-
-
-    });
-
-</script>

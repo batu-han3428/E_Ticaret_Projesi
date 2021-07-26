@@ -5,6 +5,7 @@ using DAL.Models;
 using Entity.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,6 +36,27 @@ namespace Tasarim_Bolumu
 
             services.AddScoped<IsiteReklamRepository, siteReklamRepository>();
             services.AddScoped<IsiteReklamServices, siteReklamServices>();
+
+            services.AddScoped<IsliderRepository, sliderRepository>();
+            services.AddScoped<IsliderServices, sliderServices>();
+
+            services.AddScoped<IgununFirsatiFotoRepository, gununFirsatiFotoRepository>();
+            services.AddScoped<IgununFirsatiFotoServices, gununFirsatiFotoServices>();
+
+            //services.AddScoped<IsliderKartiVeNormalKartRepository, sliderKartiVeNormalKartRepository>();
+            services.AddScoped<IsliderKartiVeNormalKartServices, sliderKartiVeNormalKartServices>();
+
+            services.AddScoped<IpcReklamRepository, pcReklamRepository>();
+            services.AddScoped<IpcReklamServices, pcReklamServices>();
+
+            services.AddScoped<ItanitimKartRepository, tanitimKartRepository>();
+            services.AddScoped<ItanitimKartServices, tanitimKartServices>();
+
+            services.AddScoped<IkategorilerRepository, kategorilerRepository>();
+            services.AddScoped<IkategorilerServices, kategorilerServices>();
+
+            services.AddScoped<IustAlanRepository, ustAlanRepository>();
+            services.AddScoped<IustAlanServices, ustAlanServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,16 +81,17 @@ namespace Tasarim_Bolumu
 
             app.UseAuthorization();
 
-         
 
-            app.UseEndpoints(endpoints =>
+               app.UseEndpoints(endpoints =>
             {
                 app.UseEndpoints(endpoints =>
                 {
                     endpoints.MapControllerRoute(
                       name: "areas",
                       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+
                     );
+
                 });
 
                 endpoints.MapControllerRoute(

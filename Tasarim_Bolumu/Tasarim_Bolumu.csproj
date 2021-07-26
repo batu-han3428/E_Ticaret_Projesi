@@ -26,7 +26,10 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="wwwroot\areaCss\Anasayfa\css\" />
     <Folder Include="wwwroot\areaCss\Anasayfa\js\" />
+    <Folder Include="wwwroot\areaCss\Anasayfa_Duzenle\slider\js\" />
     <Folder Include="wwwroot\areaCss\Login\js\" />
+    <Folder Include="wwwroot\tanitimKartFotograflar\" />
+    <Folder Include="wwwroot\sliderKartiVeNormalKartFotograflar\" />
   </ItemGroup>
 
   <ItemGroup>

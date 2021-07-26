@@ -1,0 +1,8 @@
+﻿@model ICollection<pcReklam>
+
+@foreach (var item in Model)
+{
+    <a id="pcReklamATag" style="cursor:pointer;">
+        <img id="@item.Id" src="@item.fotografAdiPcReklam" class="img-fluid" alt="bilgisayarbulucu">
+    </a>
+}

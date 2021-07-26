@@ -1,0 +1,292 @@
+﻿@model ICollection<Kategoriler>
+
+<div class="row p-2 border-bottom " style="border-color: rgb(180, 176, 176) !important;">
+    <div class="col-md-12">
+        <span class="display-6 text-muted">Kategoriler</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 kategorilerSliderSutun" style="position: relative;" align="center">
+
+        <!-- Kategoriler Md ve Yukarısı -->
+        <div id="benimSliderım">
+            <div class="TusDiv">
+                <span id="geriKategori"><i class="bi bi-arrow-bar-left"></i></span>
+            </div>
+            <div id="sliderIc" style="left: 10.85% !important;">
+                @foreach (var item in Model)
+                {
+                    <div class="topAlan">
+                        <div id="@item.Id" class="topAlanDiv" data-bs-toggle="tooltip" data-bs-placement="top" title="Düzenlemek için tıklayın..">
+                            <div class="top" onclick="location.href='#';">
+                                <i class="@item.kategorilerTopIcon"></i>
+                            </div>
+                            <div class="yazi">
+                                <a href="#"><span>@item.kategorilerYazi</span></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="TusDiv">
+                <span id="ileriKategori"><i class="bi bi-arrow-bar-right"></i></span>
+            </div>
+        </div>
+        <!-- /Kategoriler Md ve Yukarısı -->
+        @*Kategoriler Mobil*@
+        <div id="benimSliderımMobil">
+            <div class="TusDivMobil">
+                <span id="geriKategoriMobil"><i class="bi bi-arrow-bar-left"></i></span>
+            </div>
+            <div id="sliderIcMobil">
+                @foreach (var item in Model)
+	            {
+                    <div class="topAlanMobil">
+                        <div id="@item.Id" class="topAlanDivMobil" data-bs-toggle="tooltip" data-bs-placement="top" title="Düzenlemek için tıklayın..">
+                            <div class="topMobil" onclick="location.href='#';">
+                                <i class="@item.kategorilerMobilTopIcon"></i>
+                            </div>
+                            <div class="yaziMobil">
+                                <a href="#"><span>@item.kategorilerYazi</span></a>
+                            </div>
+                        </div>
+                    </div>
+	            }
+                </div>
+            <div class="TusDivMobil">
+                <span id="ileriKategoriMobil"><i class="bi bi-arrow-bar-right"></i></span>
+            </div>
+        </div>
+        @*/Kategoriler Mobil*@
+
+    </div>
+    <div class="col-md-12 kategoriDuzenlemeSutun">
+        <div class="input-group input-group-lg kategoriDuzenlemeIkonAlan">
+            <span class="input-group-text kategoriDuzenlemeIkonSpan">Kategori İkon:</span>
+            <div id="kategorilerDuzenlemeIconDiv" class="kategorilerDuzenlemeIkonlar">
+                <span class="kategorilerDuzenlemeSpan"><i class="bi bi-alarm kategorilerDuzenlemeIcon"></i></span>
+                <div class="kategorilerDuzenlemeAraCubuk"></div>
+                <span class="kategorilerDuzenlemeSpan"><i class="bi bi-alarm-fill kategorilerDuzenlemeIcon"></i></span>
+                <div class="kategorilerDuzenlemeAraCubuk"></div>
+                <span class="kategorilerDuzenlemeSpan"><i class="bi bi-align-bottom kategorilerDuzenlemeIcon"></i></span>
+                <div class="kategorilerDuzenlemeAraCubuk"></div>
+                <span class="kategorilerDuzenlemeSpan"><i class="bi bi-align-bottom kategorilerDuzenlemeIcon"></i></span>
+                <div class="kategorilerDuzenlemeAraCubuk"></div>
+                <span class="kategorilerDuzenlemeSpan"><i class="bi bi-align-bottom kategorilerDuzenlemeIcon"></i></span>
+                <div class="kategorilerDuzenlemeAraCubuk"></div>
+                <span class="kategorilerDuzenlemeSpan"><i class="bi bi-align-bottom kategorilerDuzenlemeIcon"></i></span>
+            </div>
+        </div>
+        <div class="butonDivKategoriler">
+            <button id="butonKategorilerKaydet" class="btn btn-outline-secondary">Kaydet</button>
+        </div>
+        <div class="input-group input-group-lg kategoriDuzenlemeAdAlan">
+            <span class="input-group-text kategoriDuzenlemeAdSpan">Kategori Ad:</span>
+            <textarea class="form-control kategoriDuzenlemeAdTextarea" rows="4" cols="30"></textarea>
+        </div>
+    </div> 
+</div>
+
+<script type="text/javascript">
+
+    var tiklandi = 0;
+    var bos = 1;
+    var Ikon;
+    var InputVal;
+    var id;
+    var veriTabaniIkon;
+    var veriTabaniYazi;
+    var mobilIkon;
+
+    $(".kategoriDuzenlemeSutun").hide();
+
+    $(".topAlanDiv, .topAlanDivMobil").hover(i, o);
+
+    function i() {
+
+        $(this).css({
+            "cursor": "pointer",
+            "background-color": "rgb(247, 190, 106)"
+        });
+
+    }
+
+    function o() {
+
+        $(this).css({
+
+            "background-color": "unset"
+        });
+
+    }
+
+    $(".topAlanDiv, .topAlanDivMobil").click(function () {
+
+        id = $(this).attr("id");
+
+        veriTabaniIkon = $(this).find("i").attr("class");
+
+        veriTabaniYazi = $(this).find("span").text().trim();
+
+        $(".kategorilerSliderSutun").hide("explode", 1000);
+
+        $(".kategoriDuzenlemeSutun").find("textarea").text("Cep Telefonu").css({ "color": "#6c757d", "font-size": "13px" });
+
+        setTimeout(function () {
+
+            $(".kategoriDuzenlemeSutun").show(1000).effect("shake", 1000);
+
+        }, 1000);
+
+    });
+
+    
+
+    $(".kategoriDuzenlemeSutun").find("textarea").click(function (event) {
+
+        $(this).text("");
+
+        event.stopPropagation();
+    });
+    
+
+    $(document).click(function () {
+
+        $(".kategoriDuzenlemeSutun").find("textarea").text("Cep Telefonu").css({ "color": "#6c757d", "font-size": "13px" });
+
+    });
+   
+
+    $(".kategorilerDuzenlemeSpan").click(function () {
+
+        $(this).parent().find("span").css({
+
+            "background-color": "white"
+
+        });
+
+        $(this).parent().find("i").css({
+
+            "background-color": "white",
+            "color": "rgb(35, 131, 193)"
+
+        });
+
+        $(this).find("i").css({
+
+            "background-color": "rgb(35, 131, 193)",
+            "color": "white"
+
+        });
+
+        $(this).css({
+
+            "background-color": "rgb(35, 131, 193)"
+
+        });
+
+        tiklandi = 1;
+
+        mobilIkon = $(this).find("i").attr("class");
+
+        mobilIkon = mobilIkon.substring(mobilIkon.length - 25, 0);
+
+        mobilIkon += " kategoriIkonMobil";
+
+        Ikon = $(this).find("i").attr("class");
+
+        Ikon = Ikon.substring(Ikon.length - 25, 0);
+
+        Ikon += " kategoriIkon";   
+
+    });
+   
+
+    $(".kategoriDuzenlemeSutun").find("textarea").keyup(function () {
+        if (!$(this).val()) {
+            bos = 1;
+            $(".butonDivKategoriler").slideUp("slow");
+        } else {
+            bos = 0;
+            $(".kategoriDuzenlemeSutun").trigger("DOMSubtreeModified");
+        }
+    });
+
+    
+
+    $(".kategoriDuzenlemeSutun").on("DOMSubtreeModified", function () {
+        if (tiklandi == 1 && bos == 0) {
+            if ($(".butonDivKategoriler").css("display") != "none") {
+
+            } else {
+                $(".butonDivKategoriler").slideDown("slow").effect("shake", 500);
+            }
+        }
+    });
+
+ 
+
+    $("#butonKategorilerKaydet").click(function () {
+
+        inputVal = $(".kategoriDuzenlemeSutun").find("textarea").val();
+
+        var kategoriBilgileri = new Object();
+        kategoriBilgileri.kategorilerYazi = inputVal;
+        kategoriBilgileri.kategorilerTopIcon = Ikon;
+        kategoriBilgileri.Id = id;
+        kategoriBilgileri.kategorilerMobilTopIcon = mobilIkon;
+
+        var kategorilerGuncelle = "@Url.Action("kategorilerKayit", "kategoriler")";
+
+        $.ajax({
+            url: kategorilerGuncelle,
+            type: "POST",
+            data: kategoriBilgileri,
+            success: function (response) {
+
+                if(inputVal == veriTabaniYazi) {
+
+                        $("#modalYaziAlan").text(" ");
+
+                        $("#modalYaziAlan").text("Aynı Yazıyı Yazamazsınız..");
+
+                        $("#modal").modal('show');
+
+                } else if (Ikon == veriTabaniIkon || mobilIkon == veriTabaniIkon) {
+
+                    $("#modalYaziAlan").text(" ");
+
+                    $("#modalYaziAlan").text("Aynı İkonu Seçemezsiniz..");
+
+                    $("#modal").modal('show');
+
+                } else {
+
+                    $(".kategoriDuzenlemeSutun").hide("explode", 1000);
+
+                    setTimeout(function() {
+
+                        $("#eeee").css("display", "none").html(response).find(".kategorilerSliderSutun").css("display", "none");
+
+                        $("#eeee").css("display", "block");
+
+                        $(".kategorilerSliderSutun").show(1000).effect("shake", 1000);
+
+                    }, 1000);
+                }
+                
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+
+        });
+
+    });
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>

@@ -1,0 +1,91 @@
+﻿@model ICollection<TanitimKart>
+
+<div class="row row-cols-1 row-cols-md-4 g-3">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <a href="#">
+                <div id="@item.Id" class="card tanitimKartlari">
+                    <img class="card-img" src="@item.tanitimKartFotografAdi" />
+                    <div class="card-img-overlay">
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+<form id="tanitimKartForm" name="form" style="display:none; margin-bottom:25px;" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12">
+            <input onchange="tanitimKartDosyalari('tanitimKartİnputId');" class="form-control" type="file" id="tanitimKartİnputId">
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+
+    var id = 0;
+
+    $(".tanitimKartlari").click(function () {
+
+        id = $(this).attr("id");
+
+        $(".tanitimKartlari").hide("explode", 1000);
+
+        setTimeout(function () {
+
+            $("#tanitimKartForm").show("explode", 1000);
+
+        },1000)
+           
+
+    });
+
+
+
+    function tanitimKartDosyalari(inputId) {
+
+        var tanitimKartUrl = "@Url.Action("tanitimKartFotoKayit", "tanitimKart")";
+
+        var input = document.getElementById(inputId);
+        var inputVerileri = input.files;
+        var formData = new FormData();
+
+        for (var i = 0; i != inputVerileri.length; i++) {
+            formData.append("files", inputVerileri[i]);
+        }
+
+        formData.append("id", id);
+
+        $.ajax({
+            url: tanitimKartUrl,
+            data: formData,
+            contentType: false,
+            processData: false,
+            method: "POST",
+            success: function (html) {
+
+                //alert("içerdeyim"); ilkinde buraya girmiyor. sonrakilerde buraya giriyor.
+                //sadece dotnet watch run da böyle. diğer componentlerde de durum aynı
+
+                $("#tanitimKartForm").hide("explode", 1000);
+
+                setTimeout(function () {
+
+                    $("#eeee").css("display", "none").html(html).find(".tanitimKartlari").css("display", "none");
+
+                    $("#eeee").css("display", "block");
+
+                    $(".tanitimKartlari").show("explode", 1000);
+
+                }, 1000);
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+        });
+    }
+
+</script>

@@ -52,70 +52,58 @@
 <body>
 
     <!-- Header -->
-
-        <!-- üst alan -->
-        <partial name="Header/_Ust_Alan.cshtml" />
-        <!-- /üst alan -->
-
-        <!-- navbar -->
-        <partial name="Header/_Navbar.cshtml" />
-        <!-- /navbar-->
-
+    <!-- üst alan -->
+    <partial name="Header/_Ust_Alan.cshtml" />
+    <!-- /üst alan -->
+    <!-- navbar -->
+    <partial name="Header/_Navbar.cshtml" />
+    <!-- /navbar-->
     <!-- /Header -->
-
-
     <!-- Body -->
 
-        <div class="container-fluid" style="background-color: rgb(243, 243, 243); padding-bottom: 25px;">
+    <div class="container-fluid" style="background-color: rgb(243, 243, 243); padding-bottom: 25px;">
 
-            @RenderBody()
+        @RenderBody()
 
-        </div>
+    </div>
 
     <!-- /Body -->
-
-
-
     <!-- Footer -->
 
-        <div class="container-fluid" style="background-color:white; padding-bottom: 50px;">
+    <div class="container-fluid" style="background-color:white; padding-bottom: 50px;">
 
-            <!-- Ödeme Seçenekleri -->
-            <partial name="Footer/_Odeme_Secenekleri.cshtml" />
-            <!-- /Ödeme Seçenekleri -->
+        <!-- Ödeme Seçenekleri -->
+        <partial name="Footer/_Odeme_Secenekleri.cshtml" />
+        <!-- /Ödeme Seçenekleri -->
+        <!-- Alışveriş Kredisi Seçenekleri -->
+        <partial name="Footer/_Alisveris_Kredisi_Secenekleri.cshtml" />
+        <!-- /Alışveriş Kredisi Seçenekleri -->
+        <!-- Bilgi -->
+        <partial name="Footer/_Bilgi.cshtml" />
+        <!-- /Bilgi -->
+        <!-- Açıklama Metni-->
+        <partial name="Footer/_Aciklama_Metni.cshtml" />
+        <!-- /Açıklama Metni-->
 
-            <!-- Alışveriş Kredisi Seçenekleri -->
-            <partial name="Footer/_Alisveris_Kredisi_Secenekleri.cshtml" />
-            <!-- /Alışveriş Kredisi Seçenekleri -->
+    </div>
 
-            <!-- Bilgi -->
-            <partial name="Footer/_Bilgi.cshtml" />
-            <!-- /Bilgi -->
+    <div class="container-fluid border-bottom" style="background-color: #FAFAFA;  padding-bottom: 70px;">
 
-            <!-- Açıklama Metni-->
-            <partial name="Footer/_Aciklama_Metni.cshtml" />
-            <!-- /Açıklama Metni-->
+        <!-- Ürün, Kategori, Kurumsal vb. -->
+        <partial name="Footer/_Urun_Kategori_Kurumsal.cshtml" />
+        <!-- /Ürün, Kategori, Kurumsal vb. -->
 
-        </div>
+    </div>
 
-        <div class="container-fluid border-bottom" style="background-color: #FAFAFA;  padding-bottom: 70px;">
+    <div class="container-fluid" style="background-color:white;">
 
-            <!-- Ürün, Kategori, Kurumsal vb. -->
-            <partial name="Footer/_Urun_Kategori_Kurumsal.cshtml" />
-            <!-- /Ürün, Kategori, Kurumsal vb. -->
+        <!-- Hakları Saklıdır -->
+        <partial name="Footer/_Haklari_Saklidir.cshtml" />
+        <!-- /Hakları Saklıdır -->
 
-        </div>
-
-        <div class="container-fluid" style="background-color:white;">
-
-            <!-- Hakları Saklıdır -->
-            <partial name="Footer/_Haklari_Saklidir.cshtml" />
-            <!-- /Hakları Saklıdır -->
-
-        </div>
+    </div>
 
     <!-- /Footer -->
-
     <!-- Modal Boş Alan Geçememe -->
     <script>
         (function () {
@@ -145,6 +133,7 @@
     <!-- Body -->
     <script type="text/javascript" src="~/css/body/Kategoriler/js/Mobil_Degil/kategoriler.js"></script><!-- Kategoriler -->
     <script type="text/javascript" src="~/css/body/Kategoriler/js/Mobil/kategoriler.js"></script><!-- Kategoriler -->
+    <script type="text/javascript" src="~/css/body/Slider_ve_Gunun_Firsati/js/Slider.js"></script><!-- Slider -->
     <!-- /Body -->
     <!-- footer -->
     <script type="text/javascript" src="~/css/footer/Aciklama_Metni/js/JQuery.js"></script><!-- aciklama metni -->

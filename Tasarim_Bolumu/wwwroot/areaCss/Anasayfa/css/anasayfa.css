@@ -108,12 +108,10 @@ body {
 
 }
 
-.active {
-
+.active:not(.navHaric) {
     background-color: rgb(168, 174, 185) !important;
     color: white !important;
     border: 0 !important;
-   
 }
 
 #mobilSolMenu {
@@ -136,17 +134,11 @@ body {
 
 }
 
-#haklariSaklidirParagraf{
-
-    color: #6c757d;
-    font-size: 13px; 
-    font-weight: bold;
-    position:fixed; 
-    top:95%; 
-    margin: 0 auto; 
-    left: 0;
-    right: 0;
-
+#haklariSaklidir {
+    color: #6c757d !important;
+    font-size: 13px !important;
+    font-weight: bold !important;
+    padding-top:10px !important;
 }
 
 /* kartlar */
@@ -317,4 +309,23 @@ body {
 
     color: rgb(194, 133, 136) !important;
 
+}
+
+
+
+#card5card-body {
+    background-color: rgb(33, 37, 41);
+}
+
+#card5CardIcon {
+    font-size: 35px;
+    color: rgb(57, 63, 68);
+}
+
+#card5CardFooter {
+    background-color: rgb(14, 16, 17);
+}
+
+#card5cardLinkleri:hover {
+    color: rgb(57, 63, 68) !important;
 }

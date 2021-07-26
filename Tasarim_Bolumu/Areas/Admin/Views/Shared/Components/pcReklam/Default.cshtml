@@ -1,0 +1,89 @@
+﻿@model ICollection<pcReklam>
+
+@foreach (var item in Model)
+{
+    <a id="pcReklamATag" style="cursor:pointer;">
+        <img id="@item.Id" src="@item.fotografAdiPcReklam" class="img-fluid" alt="bilgisayarbulucu">
+    </a>
+}
+
+
+<form id="formPcReklam" name="form" style="display:none;" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12">
+            <input onchange="pcReklamFotoYukle('pcReklam');" class="form-control" type="file" id="pcReklam">
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+
+
+        var id = 0;
+
+        $("#pcReklamATag").click(function(){
+
+            id = $(this).find("img").attr("id");
+
+            $(this).hide("explode", 1000);
+
+            setTimeout(function() {
+
+                $("#formPcReklam").show("explode", 1000);
+
+            },1000);
+
+        });
+
+        var pcFotoEkle = "@Url.Action("pcReklamFotoKayit", "pcReklam")";
+
+        function pcReklamFotoYukle(veri) {
+
+            var input = document.getElementById(veri);
+            var altVeriler = input.files;
+            var formData = new FormData(); 
+
+            for (var i = 0; i != altVeriler.length; i++) {
+                formData.append("files", altVeriler[i])
+            }
+
+            formData.append("id", id);
+
+            //var scrollmesafe = 0;
+
+            //scrollmesafe = $("#scroll").scrollTop();
+
+            $.ajax(
+                {
+                    url: pcFotoEkle,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    type: "POST",
+                    success: function (donenVeri) {
+                
+                        $("#formPcReklam").hide("explode", 1000);
+
+                        setTimeout(function () {
+
+                            $("#eeee").css("display", "none").html(donenVeri).find("#pcReklamATag").css("display", "none");
+                          
+                            $("#eeee").css("display", "block");
+
+                           /* $("#scroll").scrollTop(scrollmesafe);*/
+
+                            $("#pcReklamATag").show("explode", 1000);
+
+                        }, 1000);
+
+                    },
+                    error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+            });
+
+        }
+
+
+
+</script>

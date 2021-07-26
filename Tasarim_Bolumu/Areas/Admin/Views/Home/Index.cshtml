@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Admin";
 }
-<div class="container-fluid p-0" style="overflow-x: hidden; height: 100%;">
+<div id="scroll" class="container-fluid p-0" style="overflow-x: hidden; height: 100%;">
     <div class="row" style="margin: 0 !important; width: 100% !important; height: 100%;">
 
         <!-- Sol Menü -->
@@ -32,8 +32,8 @@
                 <!-- Üst Menü -->
                 <div class="col-md-12 pt-1" id="ustMenuDiv">
                     <div id="butonAlan" style="margin-right: auto;">
-                        <a id="menuAc" href="#solMenu">
-                            <i class="bi bi-justify" id="menuAcIcon"></i>
+                        <a id="menuAc">
+                            <i style="cursor:pointer;" class="bi bi-justify" id="menuAcIcon"></i>
                         </a>
                     </div>
                     <div id="iconVeYaziAlan">
@@ -95,18 +95,18 @@
             </div>
 
             <!-- Footer -->
-            <div class="row">
+            <!--<div class="row">-->
 
                 <!-- Hakları Saklıdır -->
-                <div class="col-md-12 text-center">
+                <!--<div class="col-md-12 text-center">
                     <p id="haklariSaklidirParagraf">
                         Copyright © 2000-2021 BTicaret.com, Her hakkı
                         saklıdır.
                     </p>
-                </div>
+                </div>-->
                 <!-- /Hakları Saklıdır -->
 
-            </div>
+            <!--</div>-->
             <!-- /Footer -->
         </div>
 
@@ -129,6 +129,7 @@
             eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(a) }; if (!''.replace(/^/, String)) { while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('$("#6").7(0(){8(!$(1).9("a")){$("#2").3();$("#4").3().b(0(){$.c({d:"f",g:h,i:0(e){$("#4").5().j(e);$("#2").5()}});$(1).k()})}});', 21, 21, 'function|this|haklariSaklidirParagraf|fadeOut|ajaxGosterimAlan|fadeIn|KontrolPaneliMobil|click|if|hasClass|active|queue|ajax|type||GET|url|KontrolPaneli|success|html|clearQueue'.split('|'), 0, {}))
 
         });
+
 
     </script>
 

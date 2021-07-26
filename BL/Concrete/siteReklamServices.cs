@@ -22,10 +22,13 @@ namespace BL.Concrete
 
         public int guncelle(SiteReklam model)
         {
-            var veri = context.siteReklam.Any(b => b.icon == model.icon);
+            var field = context.siteReklam.Find(model.Id);
+
+            //var veri = context.siteReklam.Any(b => b.icon == field.icon);
 
                        
-            if (!veri)
+            //if (!veri)
+            if(model.icon != field.icon && model.yazi != field.yazi)
             {
 
                 siteReklamRepository.guncelle(model);

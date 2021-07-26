@@ -1,0 +1,17 @@
+﻿@model ICollection<TanitimKart>
+
+<div class="row row-cols-1 row-cols-md-4 g-3">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <a href="#">
+                <div id="@item.Id" class="card tanitimKartlari">
+                    <img class="card-img" src="@item.tanitimKartFotografAdi" />
+                    <div class="card-img-overlay">
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

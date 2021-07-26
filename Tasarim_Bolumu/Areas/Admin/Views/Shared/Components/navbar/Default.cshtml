@@ -1,0 +1,352 @@
+﻿<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-warning" id="nav">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuAc">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuAc">
+            <ul id="menu" class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="nav-item" style="border-right: 1px solid white; height:45px;"></div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active ms-3 me-3 navHaric" style="cursor:default;" role="button" id="acilirmenu">
+                        Tüm Ürünler
+                    </a>
+                    <ul id="dropdown-menu" class="dropdown-menu border border-1">
+                        <li><a class="dropdown-item" asp-controller="Telefon" asp-action="Index"><i class="bi bi-phone me-3"></i>Telefon</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-laptop me-3"></i>Bilgisayar</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-tv me-3"></i>Tv,Ses ve Görüntü
+                                Sistemleri
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-house me-3"></i>Beyaz Eşya ve
+                                Ankastre
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-hammer me-3"></i>Elektrikli Ev
+                                Aletleri ve Yaşam
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-heart me-3"></i>Kişisel Bakım Ve
+                                Sağlık
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-controller me-3"></i>Oyun
+                                Konsolları,Hobi ve Eğlence
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-camera me-3"></i></i></i>Fotoğraf
+                                Makinesi
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-briefcase me-3"></i>Ofis Malzemeleri
+                                ve Mobilyaları
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-watch me-3"></i>Aksesuarlar</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-shield-check me-3"></i>Kurulum Destek
+                                Paketleri
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <div class="nav-link" style="padding:0px; border-left: 1px solid white; height:45px;"></div>
+
+                <li class="nav-item dropdown" id="markalarLi">
+                    <a class="nav-link  active ms-3 me-3 navHaric" href="Markalar/Markalar.html" role="button" id="acilirmenu1">
+                        Markalar
+                    </a>
+                    <ul id="dropdown-menu1"
+                        class="dropdown-menu border border-1 border-left-0 border-right-0 col-md-12">
+                        <li><span class="text-muted ms-5" style="cursor:default;">Öne Çıkan Markalar</span></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="marka ms-5" id="apple">
+                            <figure class="figure">
+                                <img src="~/css/header/Navbar/img/marka/logo_apple_19.webp" class="figure-img img-fluid" />
+                                <a href="Markalar/Marka_Icerik/Apple.html" class="nav-link">
+                                    <figcaption class="figure-caption text-center figcaption">Apple</figcaption>
+                                </a>
+                            </figure>
+                        </li>
+                        <li class="marka">
+                            <figure class="figure" id="samsung">
+                                <img src="~/css/header/Navbar/img/marka/logo_samsung_19.webp" class="figure-img img-fluid" />
+                                <a href="#" class="nav-link">
+                                    <figcaption class="figure-caption text-center figcaption">Samsung</figcaption>
+                                </a>
+                            </figure>
+                        </li>
+
+                        <li class="marka" id="casper">
+                            <figure class="figure">
+                                <img src="~/css/header/Navbar/img/marka/category_logo_casper.webp" class="figure-img img-fluid" />
+                                <a href="#" class="nav-link">
+                                    <figcaption class="figure-caption text-center figcaption">Casper</figcaption>
+                                </a>
+                            </figure>
+                        </li>
+
+                        <li class="marka" id="huawei">
+                            <!-- id yi mobile uyum için koydum -->
+                            <figure class="figure">
+                                <img src="~/css/header/Navbar/img/marka/category_logo_huawei.webp" class="figure-img img-fluid" />
+                                <a href="#" class="nav-link">
+                                    <figcaption class="figure-caption text-center figcaption">Huawei</figcaption>
+                                </a>
+                            </figure>
+                        </li>
+                        <li class="marka" id="preo">
+                            <figure class="figure">
+                                <img src="~/css/header/Navbar/img/marka/logo_preo_19.webp" class="figure-img img-fluid" />
+                                <a href="#" class="nav-link">
+                                    <figcaption class="figure-caption text-center figcaption">Preo</figcaption>
+                                </a>
+                            </figure>
+                        </li>
+                        <li class="marka" id="bosch">
+                            <figure class="figure">
+                                <img src="~/css/header/Navbar/img/marka/category_logo_bosch.webp" class="figure-img img-fluid" />
+                                <a href="#" class="nav-link">
+                                    <figcaption class="figure-caption text-center figcaption">Bosch</figcaption>
+                                </a>
+                            </figure>
+                        </li>
+
+                        <hr class="dropdown-dvider">
+
+                        <li class="text-center" id="altmarkalar">
+                            <a href="#" style=" color: white !important;">
+                                <img src="~/css/header/Navbar/img/marka/category_logo_realme.webp" class="img-fluid" />
+                            </a>
+                            <a href="#" style=" color: white !important;">
+                                <img src="~/css/header/Navbar/img/marka/monster_logo_200619.webp"
+                                     class="img-fluid" />
+                            </a>
+                            <a href="#" style=" color: white !important;">
+                                <img src="~/css/header/Navbar/img/marka/xiaomi_yeni_210415.webp"
+                                     class="img-fluid" />
+                            </a>
+                            <a href="#" style=" color: white !important;">
+                                <img src="~/css/header/Navbar/img/marka/category_logo_asus.webp"
+                                     class="img-fluid " />
+                            </a>
+                            <a href="#" style=" color: white !important;">
+                                <img src="~/css/header/Navbar/img/marka/logo_lg.webp"
+                                     class=" img-fluid " />
+                            </a>
+                            <a href="#" style=" color: white !important;">
+                                <img src="~/css/header/Navbar/img/marka/category_logo_dyson.webp"
+                                     class=" img-fluid" />
+                            </a>
+                            <a href="#" style=" color: white !important;">
+                                <img src="~/css/header/Navbar/img/marka/logo-philips.png"
+                                     class=" img-fluid" id="philips" />
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <div class="nav-link " style="padding:0px; border-right: 1px solid white; height:45px;"></div>
+
+                <li class="nav-item ">
+                    <a class="nav-link active ms-3 me-3 navHaric" href="Hakkimizda/Hakkimizda.html">Hakkımızda</a>
+                </li>
+
+
+                <div class="nav-link" style="padding:0px; border-right: 1px solid white; height:45px;"></div>
+
+
+                <li class="nav-item">
+                    <a class="nav-link active ms-3 me-3 navHaric" href="#">Outlet</a>
+                </li>
+
+                <div class="nav-link" style="padding:0; border-right: 1px solid white; height:45px;"></div>
+
+            </ul>
+
+
+            <div class="d-flex" id="flex">
+                <span class="badge rounded-pill " style="font-size: 20px; cursor:pointer;" data-bs-target="#modal3"
+                      data-bs-toggle="modal" id="uye ol">
+                    Üye Ol
+                </span>
+
+                <span data-bs-target="#modal4" data-bs-toggle="modal" id="uye" class="badge bg-warning ms-4"
+                      style="font-size: 20px; cursor:pointer;">
+                    <i class="bi bi-person-circle"></i> Üye Girişi
+                </span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Üye Ol -->
+<div class="modal fade" id="modal3" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Üyelik Kaydı</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form onsubmit="event.preventDefault();" class="needs-validation modal-body" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Ad</label>
+                        <input type="text" class="form-control" placeholder="Ad" required>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Soyad</label>
+                        <input type="text" class="form-control" placeholder="Soyad" required>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Mail" required>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Tc</label>
+                        <input type="number" class="form-control" placeholder="Tc No" required>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Parola</label>
+                        <input type="password" class="form-control" placeholder="Parola" required>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Parola Tekrar</label>
+                        <input type="password" class="form-control" placeholder="Parola" required>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Adres</label>
+                        <textarea class="form-control" rows="3" placeholder="Apartment, studio, or floor"
+                                  required></textarea>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">İl</label>
+                        <input type="text" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">İlçe</label>
+                        <select class="form-select" required>
+                            <option disabled>İlçe Seçiniz..</option>
+                            <option>Beylikdüzü</option>
+                            <option>Büyükçekmece</option>
+                            <option>Silivri</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Geri</button>
+                    <button class="btn btn-success">Kayıt Ol</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /Üye Ol -->
+<!-- Üye Giriş -->
+<div class="modal fade" id="modal4" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Üye Giriş</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form onsubmit="event.preventDefault();" class="needs-validation modal-body" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Mail" required>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Parola</label>
+                        <input type="password" class="form-control" placeholder="Parola" required>
+                        <div class="invalid-feedback">
+                            Bu Alan Boş Geçilemez
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-danger" data-bs-dismiss="modal">Geri</button>
+                    <button class="btn btn-outline-warning">Giriş</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /Üye Giriş-->

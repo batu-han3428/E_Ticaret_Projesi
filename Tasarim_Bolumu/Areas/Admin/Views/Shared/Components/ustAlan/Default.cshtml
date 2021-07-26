@@ -1,0 +1,232 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-4 text-end" id="badges">
+            <span class="badge text-muted"><i class="bi bi-geo-alt-fill"></i> Mağaza Bul</span>
+            <span class="badge text-muted"><i class="bi bi-box-seam"></i> Kargom Nerede?</span>
+            <span class="badge text-muted"><i class="bi bi-info-circle-fill"></i> Yardım Merkezi</span>
+            <span class="badge text-muted"><i class="bi bi-file-earmark-medical"></i> Garanti & İade</span>
+            <span class="badge text-muted"><i class="bi bi-chat-dots-fill"></i> İletişim</span>
+
+            <div class="input-group input-group-lg ustAlanDuzenlemeIkonAlan">
+                <span class="input-group-text ustAlanDuzenlemeIkonSpan">İkonlar:</span>
+                <div id="ustAlanDuzenlemeIconDiv" class="ustAlanDuzenlemeIkonlar">
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-alarm ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-alarm-fill ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                    <div class="ustAlanDuzenlemeAraCubuk"></div>
+                    <span class="ustAlanDuzenlemeSpan"><i class="bi bi-align-bottom ustAlanDuzenlemeIcon"></i></span>
+                </div>
+            </div>
+            <div class="input-group input-group-lg ustAlanDuzenlemeAdAlan">
+                <span class="input-group-text ustAlanDuzenlemeAdSpan">Yazı Bölümü:</span>
+                <textarea class="form-control ustAlanDuzenlemeAdTextarea" rows="4" cols="30"></textarea>
+            </div>
+            <div class="butonDivUstAlan">
+                <button id="butonUstAlanKaydet" class="btn btn-outline-secondary">Kaydet</button>
+            </div>
+
+        </div>
+        </div>
+    <div class="row mt-4">
+        <div class="col-md-2 me-5 align-self-center" id="foto">
+            <a asp-controller="Home" asp-action="Index"><img src="~/favicon_io1/android-chrome-192x192_looogo.png" class="img-fluid" /></a>
+        </div>
+        <div class="col-md-4  d-flex align-items-center" id="ara">
+            <form class="col-md-12">
+                <div class="input-group ">
+                    <input type="search" id="form" placeholder="Ne Aramak İstersiniz" class="form-control" />
+                    <a href="#"><button id="buton" class="btn"><i class="bi bi-search" id="icon"></i></button></a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2 text-center" id="siparis">
+            <h5 class="text-muted">
+                <i class="bi bi-telephone"></i> Sipariş Hattı<span class="badge bg-warning ms-3">
+                    0850 345 6474
+                </span>
+            </h5>
+        </div>
+        <div class="col-md-3 text-center" id="sepet">
+            <button class="btn btn-outline-warning btn-lg" disabled>
+                <i class="bi bi-cart-fill" style="font-size: 27px; position: relative; z-index:2;">
+                    <span class="badge rounded-pill bg-warning border border-light"
+                          style="font-size: 10px; position: absolute; left:15px; z-index: 1;">
+                        0
+                    </span>
+                </i>Sepetim
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+
+    var tiklandi = 0;
+    var bos = 1;
+    var InputVal;
+    var Ikon;
+    var id;
+    var veriTabaniYazi;
+    var veriTabaniIkon;
+
+    $("#badges > div").hide();
+
+    $("#badges > .badge").click(function () {
+
+        id = $(this).attr("id");
+
+        veriTabaniIkon = $(this).find("i").attr("class");
+
+        veriTabaniYazi = $(this).find("span").text().trim();
+
+        $("#badges > .badge").hide("pulsate");
+
+        setTimeout(function () {
+            $("#badges > div").not(".butonDivUstAlan").show("pulsate");
+        },500);
+
+
+    });
+
+    $(".ustAlanDuzenlemeSpan").click(function () {
+
+
+        $(this).parent().find("span").css({
+
+            "background-color": "white"
+
+        });
+
+        $(this).parent().find("i").css({
+
+            "background-color": "white",
+            "color": "rgb(168, 174, 185)"
+
+        });
+
+        $(this).find("i").css({
+
+            "background-color": "rgb(168, 174, 185)",
+            "color": "white"
+
+        });
+
+        $(this).css({
+
+            "background-color": "rgb(168, 174, 185)"
+
+        });
+
+        Ikon = $(this).find("i").attr("class");
+
+        Ikon = Ikon.substring(Ikon.length - 21, 0);
+
+        tiklandi = 1;
+
+        $("#badges").trigger("DOMSubtreeModified");
+
+    });
+
+    $(".ustAlanDuzenlemeAdAlan").find("textarea").keyup(function () {
+        if (!$(this).val()) {
+            bos = 1;
+            $(".butonDivUstAlan").slideUp("slow");
+        } else {
+            bos = 0;
+            $("#badges").trigger("DOMSubtreeModified");
+        }
+    });
+
+    $("#badges").on("DOMSubtreeModified", function () {
+        if (tiklandi == 1 && bos == 0) {
+            if ($(".butonDivUstAlan").css("display") != "none") {
+
+            } else {
+                $(".butonDivUstAlan").slideDown("slow");
+            }
+        }
+    });
+
+    $("#butonUstAlanKaydet").click(function () {
+
+        inputVal = $(".ustAlanDuzenlemeAdAlan").find("textarea").val();
+
+        var ustAlanBilgileri = new Object();
+        ustAlanBilgileri.ustAlanYazi = inputVal;
+        ustAlanBilgileri.ustAlanIcon = Ikon;
+        ustAlanBilgileri.Id = id;
+
+        var ustAlanGuncelle = "@Url.Action("ustAlanKayit", "ustAlan")";
+
+        $.ajax({
+            url: ustAlanGuncelle,
+            type: "POST",
+            data: ustAlanBilgileri,
+            success: function (response) {
+
+                if(inputVal == veriTabaniYazi) {
+
+                        $("#modalYaziAlan").text(" ");
+
+                        $("#modalYaziAlan").text("Aynı Yazıyı Yazamazsınız..");
+
+                        $("#modal").modal('show');
+
+                } else if (Ikon == veriTabaniIkon) {
+
+                    $("#modalYaziAlan").text(" ");
+
+                    $("#modalYaziAlan").text("Aynı İkonu Seçemezsiniz..");
+
+                    $("#modal").modal('show');
+
+                } else {
+
+                    $("#badges > div").hide("pulsate");
+
+                    setTimeout(function() {
+                  
+                        $("#eeee").css("display", "none").html(response).find("#badges > .badge").css("display", "none");
+
+                        $("#eeee").css("display", "block");
+
+                        $("#badges > .badge").show("pulsate");
+               
+                    }, 500);
+                }
+
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+
+        });
+
+    });
+
+</script>

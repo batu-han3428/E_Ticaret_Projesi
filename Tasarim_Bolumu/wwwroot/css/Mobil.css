@@ -4673,8 +4673,8 @@
     .top {
 
         position: relative !important;
-        background-color: rgb(242, 121, 11) !important;
-        border-radius: 50% !important;
+        background-color: rgb(242, 121, 11);
+        border-radius: 50%;
         height: 50% !important;
         width: 100% !important;
         top: 10%;

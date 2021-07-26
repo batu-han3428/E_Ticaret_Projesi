@@ -20,7 +20,7 @@ $(function(){
                     },{duration: 'fast'});
                 
                     $(".topAlanDiv").eq(indexGeri).fadeOut(300);
-
+                   
                     $(".topAlanDiv").eq(indexIleri).show();
 
                     indexGeri++;

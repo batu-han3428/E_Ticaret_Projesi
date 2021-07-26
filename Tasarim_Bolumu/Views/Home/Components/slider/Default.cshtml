@@ -1,0 +1,55 @@
+﻿@model ICollection<slider>
+
+<div class="col-md-12">
+    <div id="KontrolTusuTetikle1" class="carousel slide slider1" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+            @foreach (var item in Model)
+            {
+                <div id="@item.Id" class="carousel-item">
+                    <a href="#"> <img src="@item.fotografAdi" class="d-block w-100" alt="urun1"></a>
+                </div>
+                //\sliderFotograflar\0132fdcb_8a17_4f82_a125_5eb47faccfd3.jpeg
+            }
+        </div>
+
+        <!-- Mobil -->
+        <div class="col-md-12 d-none" id="gostergeCubuklari">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="0" class="active">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="1">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="2">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="3">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="4">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="5">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="6">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="7">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="8">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="9">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="10">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="11">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="12">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="13">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="14">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="15">
+            <input type="button" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="16">
+        </div>
+        <!-- /Mobil -->
+
+        <div class="col-md-12" id="tuslar">
+            @{
+                int slide = 0;
+
+                foreach (var item in Model)
+                {
+
+
+                    <button id="@item.Id" data-bs-target="#KontrolTusuTetikle1" data-bs-slide-to="@slide">
+                        <img src="@item.fotografAdiTus" class="d-block w-100" alt="urun1tus">
+                    </button>
+                    //\sliderFotograflar\16c68ae4_ffa8_470e_9b3e_100b8cf11576.jpeg
+                    slide++;
+                }
+            }
+        </div>
+    </div>
+</div>

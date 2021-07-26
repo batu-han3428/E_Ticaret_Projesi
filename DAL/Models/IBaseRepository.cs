@@ -12,7 +12,7 @@ namespace DAL.Models
     {
         void ekle(T model);
         void sil(T model);
-        void guncelle(T model);
+        int guncelle(T model);
         List<T> hepsiniListele(Expression<Func<T, bool>> filter = null);
         T listele(int id);
 

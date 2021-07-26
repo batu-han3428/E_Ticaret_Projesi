@@ -1,0 +1,6 @@
+﻿@model ICollection<GununFirsatiFoto>
+
+@foreach (var item in Model)
+{
+    <img id="@item.Id" src="@item.gununFirsatiFotoAdi" class="img-fluid" alt="urunfirsat">
+}

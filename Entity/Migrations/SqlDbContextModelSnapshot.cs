@@ -18,6 +18,42 @@ namespace Entity.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Entity.Concrete.GununFirsatiFoto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("gununFirsatiFotoAdi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GununFirsatiFoto");
+                });
+
+            modelBuilder.Entity("Entity.Concrete.Kategoriler", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("kategorilerMobilTopIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("kategorilerTopIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("kategorilerYazi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("kategoriler");
+                });
+
             modelBuilder.Entity("Entity.Concrete.SiteReklam", b =>
                 {
                     b.Property<int>("Id")
@@ -38,6 +74,108 @@ namespace Entity.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Site_Reklam");
+                });
+
+            modelBuilder.Entity("Entity.Concrete.TanitimKart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("tanitimKartFotografAdi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tanitimKart");
+                });
+
+            modelBuilder.Entity("Entity.Concrete.pcReklam", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("fotografAdiPcReklam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("pcReklam");
+                });
+
+            modelBuilder.Entity("Entity.Concrete.slider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("fotografAdi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("fotografAdiTus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("slider");
+                });
+
+            modelBuilder.Entity("Entity.Concrete.sliderKartiVeNormalKart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("asilfiyat")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("butonIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("fiyatfark")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("icerikYazi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("indirimlifiyat")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("puan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("puanIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sliderKartiVeNormalKartFotoAdi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("sliderKartiVeNormalKart");
+                });
+
+            modelBuilder.Entity("Entity.Concrete.ustAlan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ustAlanIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ustAlanYazi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ustAlan");
                 });
 #pragma warning restore 612, 618
         }
