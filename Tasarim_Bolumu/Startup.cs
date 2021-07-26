@@ -57,6 +57,9 @@ namespace Tasarim_Bolumu
 
             services.AddScoped<IustAlanRepository, ustAlanRepository>();
             services.AddScoped<IustAlanServices, ustAlanServices>();
+
+            services.AddScoped<IsiteLogoRepository, siteLogoRepository>();
+            services.AddScoped<IsiteLogoServices, siteLogoServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

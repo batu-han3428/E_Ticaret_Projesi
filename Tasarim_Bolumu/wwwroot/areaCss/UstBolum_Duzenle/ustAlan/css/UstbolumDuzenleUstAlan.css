@@ -79,8 +79,8 @@
     }
 
 
-        .butonDivUstAlan > button:hover {
-            background-color: rgb(233, 236, 239);
-            border: 2px solid rgb(233, 236, 239);
-            color: rgb(158, 164, 175);
-        }
+.butonDivUstAlan > button:hover {
+    background-color: rgb(233, 236, 239);
+    border: 2px solid rgb(233, 236, 239);
+    color: rgb(158, 164, 175);
+}

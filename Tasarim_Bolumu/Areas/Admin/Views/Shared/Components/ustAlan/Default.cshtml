@@ -1,11 +1,14 @@
-﻿<div class="container">
+﻿@model Tuple<List<ustAlan>, List<siteLogo>>
+
+<div class="container">
     <div class="row">
         <div class="col-md-12 mt-4 text-end" id="badges">
-            <span class="badge text-muted"><i class="bi bi-geo-alt-fill"></i> Mağaza Bul</span>
-            <span class="badge text-muted"><i class="bi bi-box-seam"></i> Kargom Nerede?</span>
-            <span class="badge text-muted"><i class="bi bi-info-circle-fill"></i> Yardım Merkezi</span>
-            <span class="badge text-muted"><i class="bi bi-file-earmark-medical"></i> Garanti & İade</span>
-            <span class="badge text-muted"><i class="bi bi-chat-dots-fill"></i> İletişim</span>
+            @foreach (var item in Model.Item1)
+            {
+                <span id="@item.Id" class="badge text-muted"><i class="@item.ustAlanIcon"></i> @item.ustAlanYazi</span>
+            }
+
+
 
             <div class="input-group input-group-lg ustAlanDuzenlemeIkonAlan">
                 <span class="input-group-text ustAlanDuzenlemeIkonSpan">İkonlar:</span>
@@ -55,13 +58,27 @@
         </div>
     <div class="row mt-4">
         <div class="col-md-2 me-5 align-self-center" id="foto">
-            <a asp-controller="Home" asp-action="Index"><img src="~/favicon_io1/android-chrome-192x192_looogo.png" class="img-fluid" /></a>
+            @foreach (var item in Model.Item2)
+            {
+                <a id="logoATag" style="cursor:pointer;">
+                    <img id="@item.Id" src="@item.siteLogoFoto" class="img-fluid" />
+                </a>
+            }
+
+
+            <form id="formLogo" name="form" style="display:none;" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <input onchange="logoFotoYukle('logo');" class="form-control" type="file" id="logo">
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="col-md-4  d-flex align-items-center" id="ara">
             <form class="col-md-12">
                 <div class="input-group ">
-                    <input type="search" id="form" placeholder="Ne Aramak İstersiniz" class="form-control" />
-                    <a href="#"><button id="buton" class="btn"><i class="bi bi-search" id="icon"></i></button></a>
+                    <input type="search" style="cursor:no-drop;" id="form" placeholder="Ne Aramak İstersiniz" class="form-control" />
+                    <a href="#" ><button style="cursor:no-drop;" id="buton" class="btn"><i style="cursor:no-drop;" class="bi bi-search" id="icon"></i></buttonstyle="cursor:no-drop;"></a>
                 </div>
             </form>
         </div>
@@ -181,10 +198,10 @@
         ustAlanBilgileri.ustAlanIcon = Ikon;
         ustAlanBilgileri.Id = id;
 
-        var ustAlanGuncelle = "@Url.Action("ustAlanKayit", "ustAlan")";
+        var enUstSpanlarGuncelle = "@Url.Action("enUstSpanlarKayit", "ustAlan")";
 
         $.ajax({
-            url: ustAlanGuncelle,
+            url: enUstSpanlarGuncelle,
             type: "POST",
             data: ustAlanBilgileri,
             success: function (response) {
@@ -210,13 +227,13 @@
                     $("#badges > div").hide("pulsate");
 
                     setTimeout(function() {
-                  
+
                         $("#eeee").css("display", "none").html(response).find("#badges > .badge").css("display", "none");
 
                         $("#eeee").css("display", "block");
 
                         $("#badges > .badge").show("pulsate");
-               
+
                     }, 500);
                 }
 
@@ -229,4 +246,70 @@
 
     });
 
+
+    /* logo kod kısmı */
+
+
+        $("#logoATag").click(function(){
+
+            id = $(this).find("img").attr("id");
+
+            $(this).hide("explode", 1000);
+
+            setTimeout(function() {
+
+                $("#formLogo").show("explode", 1000);
+
+            },1000);
+
+        });
+
+        var logoEkle = "@Url.Action("logoKayit", "ustAlan")";
+
+        function logoFotoYukle(veri) {
+
+            var input = document.getElementById(veri);
+            var altVeriler = input.files;
+            var formData = new FormData();
+
+            for (var i = 0; i != altVeriler.length; i++) {
+                formData.append("files", altVeriler[i])
+            }
+
+            formData.append("id", id);
+
+            //var scrollmesafe = 0;
+
+            //scrollmesafe = $("#scroll").scrollTop();
+
+            $.ajax(
+                {
+                    url: logoEkle,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    type: "POST",
+                    success: function (donenVeri) {
+
+                        $("#formLogo").hide("explode", 1000);
+
+                        setTimeout(function () {
+
+                            $("#eeee").css("display", "none").html(donenVeri).find("#logoATag").css("display", "none");
+
+                            $("#eeee").css("display", "block");
+
+                           /* $("#scroll").scrollTop(scrollmesafe);*/
+
+                            $("#logoATag").show("explode", 1000);
+
+                        }, 1000);
+
+                    },
+                    error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+            });
+
+        }
 </script>

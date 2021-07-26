@@ -1,0 +1,47 @@
+﻿@model Tuple<List<ustAlan>, List<siteLogo>>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-4 text-end" id="badges">
+            @foreach (var item in Model.Item1)
+            {
+                <span id="@item.Id" class="badge text-muted"><i class="@item.ustAlanIcon"></i> @item.ustAlanYazi</span>
+            }
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-2 me-5 align-self-center" id="foto">
+            @foreach (var item in Model.Item2)
+            {
+                <a asp-controller="Home" asp-action="Index">
+                    <img id="@item.Id" src="@item.siteLogoFoto" class="img-fluid" />
+                </a>
+            }
+            </div>
+        <div class="col-md-4  d-flex align-items-center" id="ara">
+            <form class="col-md-12">
+                <div class="input-group ">
+                    <input type="search" id="form" placeholder="Ne Aramak İstersiniz" class="form-control" />
+                    <a href="#"><button id="buton" class="btn"><i class="bi bi-search" id="icon"></i></button></a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2 text-center" id="siparis">
+            <h5 class="text-muted">
+                <i class="bi bi-telephone"></i> Sipariş Hattı<span class="badge bg-warning ms-3">
+                    0850 345 6474
+                </span>
+            </h5>
+        </div>
+        <div class="col-md-3 text-center" id="sepet">
+            <button class="btn btn-outline-warning btn-lg" disabled>
+                <i class="bi bi-cart-fill" style="font-size: 27px; position: relative; z-index:2;">
+                    <span class="badge rounded-pill bg-warning border border-light"
+                          style="font-size: 10px; position: absolute; left:15px; z-index: 1;">
+                        0
+                    </span>
+                </i>Sepetim
+            </button>
+        </div>
+    </div>
+</div>

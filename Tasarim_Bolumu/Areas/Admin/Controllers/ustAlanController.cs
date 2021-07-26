@@ -1,6 +1,10 @@
 ﻿using BL.Models;
+using Deneme.Areas.Admin.Models;
 using Entity.Concrete;
+using Entity.Contexts;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,14 +17,19 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
     public class ustAlanController : Controller
     {
         private readonly IustAlanServices ustAlanServices;
-
-        public ustAlanController(IustAlanServices ustAlanServices)
+        private IWebHostEnvironment _hostingEnvironment;
+        private SqlDbContext context;
+        private readonly IsiteLogoServices siteLogoServices;
+        public ustAlanController(IustAlanServices ustAlanServices, IWebHostEnvironment environment, IsiteLogoServices siteLogoServices)
         {
             this.ustAlanServices = ustAlanServices;
+            context = new SqlDbContext();
+            _hostingEnvironment = environment;
+            this.siteLogoServices = siteLogoServices;
         }
 
         [HttpPost]
-        public IActionResult ustAlanKayit(ustAlan mod)
+        public IActionResult enUstSpanlarKayit(ustAlan mod)
         {
 
 
@@ -31,7 +40,7 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
 
                 //ModelState.AddModelError("Item2.yazi", "Boş Bırakılamaz");
 
-                return RedirectToAction("Anasayfa", "Home");
+                return RedirectToAction("UstBolum", "Home");
             }
 
             var veri = ustAlanServices.guncelle(mod);
@@ -41,11 +50,45 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
                 //ModelState.AddModelError("", "Aynı İsmi Kayıt Edemezsin");
 
                 //return PartialView("_AnasayfaDuzenle", model);
-                return RedirectToAction("Anasayfa", "Home");
+                return RedirectToAction("UstBolum", "Home");
             }
 
 
-            return RedirectToAction("Anasayfa", "Home");
+            return RedirectToAction("UstBolum", "Home");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> logoKayit(siteLogo item, List<IFormFile> files)
+        {
+            if (ModelState.IsValid)
+            {
+                bool imgResult;
+                string imgPath = logoFotograf.FotografYukle(files, _hostingEnvironment, out imgResult, context, item);
+
+                if (imgResult)
+                    item.siteLogoFoto = imgPath;
+                else
+                {
+                    //ViewBag.Message = $"Resim yükleme işleminde bir hata oluştu.";
+                    return RedirectToAction("UstBolum", "Home");
+                }
+
+                int result = siteLogoServices.siteLogoGuncelle(item);
+
+                if (result == 1)
+                {
+                    return RedirectToAction("UstBolum", "Home");
+                }
+                else
+                {
+                    TempData["Message"] = $"Kayıt işlemi sırasında bir hata oldu. Lütfen tüm alanları kontrol edip tekrar deneyin.";
+                }
+            }
+            else
+            {
+                TempData["Message"] = $"İşlem başarısız oldu. Lütfen tüm alanları kontrol ederek tekrar deneyin.";
+            }
+            return RedirectToAction("UstBolum", "Home");
         }
     }
 }

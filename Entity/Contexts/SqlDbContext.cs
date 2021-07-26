@@ -23,6 +23,7 @@ namespace Entity.Contexts
         public DbSet<TanitimKart> tanitimKart { get; set; }
         public DbSet<Kategoriler> kategoriler { get; set; }
         public DbSet<ustAlan> ustAlan { get; set; }
+        public DbSet<siteLogo> siteLogo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
