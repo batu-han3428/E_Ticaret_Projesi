@@ -84,3 +84,61 @@
     border: 2px solid rgb(233, 236, 239);
     color: rgb(158, 164, 175);
 }
+
+
+/* Sipariş Hattı Kısmı */
+
+.siparisHattiDuzenlemeAlani {
+    width: 80%;
+    display: inline-flex;
+}
+
+.siparisHattiIkonlar {
+    border: 1px solid rgb(168, 174, 185);
+    display: inline-block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 33%;
+    height: 75px;
+}
+
+.siparisHattiDuzenlemeIcon {
+    cursor: pointer;
+    font-size: 24px;
+    color: rgb(168, 174, 185);
+}
+
+.siparisHattiDuzenlemeAraCubuk {
+    border-bottom: 1px solid rgb(168, 174, 185);
+    width: 100%;
+}
+
+
+.siparisHattiDuzenlemeSpan {
+    display: block;
+}
+
+.butonDivSiparisHatti {
+    width: 100%;
+    margin-left: auto;
+    display:none;
+}
+
+    .butonDivSiparisHatti > button {
+        width: 100%;
+        border: 2px solid rgb(233, 236, 239);
+        border-radius: unset;
+        color: rgb(158, 164, 175);
+    }
+
+
+        .butonDivSiparisHatti > button:hover {
+            background-color: rgb(233, 236, 239);
+            border: 2px solid rgb(233, 236, 239);
+            color: rgb(158, 164, 175);
+        }
+
+.siparisHattiDuzenlemeDiv {
+    width: 100%;
+    display:none;
+}

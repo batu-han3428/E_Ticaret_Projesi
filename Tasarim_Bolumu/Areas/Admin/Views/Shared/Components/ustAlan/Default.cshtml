@@ -77,17 +77,48 @@
         <div class="col-md-4  d-flex align-items-center" id="ara">
             <form class="col-md-12">
                 <div class="input-group ">
-                    <input type="search" style="cursor:no-drop;" id="form" placeholder="Ne Aramak İstersiniz" class="form-control" />
-                    <a href="#" ><button style="cursor:no-drop;" id="buton" class="btn"><i style="cursor:no-drop;" class="bi bi-search" id="icon"></i></buttonstyle="cursor:no-drop;"></a>
+                    <input type="search" disabled style="cursor:no-drop;" id="form" placeholder="Ne Aramak İstersiniz" class="form-control" />
+                    <a href="#" ><button disabled id="buton" class="btn"><i style="cursor:no-drop;" class="bi bi-search" id="icon"></i></buttonstyle="cursor:no-drop;"></a>
                 </div>
             </form>
         </div>
         <div class="col-md-2 text-center" id="siparis">
-            <h5 class="text-muted">
+            <h5 class="text-muted siparisHatti">
                 <i class="bi bi-telephone"></i> Sipariş Hattı<span class="badge bg-warning ms-3">
                     0850 345 6474
                 </span>
             </h5>
+
+            <div class="siparisHattiDuzenlemeDiv">
+                <div style=" width:100%; display: flex;">
+
+                    <div class="siparisHattiIkonlar">
+                        <span class="siparisHattiDuzenlemeSpan">
+                            <i class="bi bi-alarm siparisHattiDuzenlemeIcon"></i>
+                        </span>
+                        <div class="siparisHattiDuzenlemeAraCubuk"></div>
+                        <span class="siparisHattiDuzenlemeSpan">
+                            <i class="bi bi-alarm-fill siparisHattiDuzenlemeIcon"></i>
+                        </span>
+                        <div class="siparisHattiDuzenlemeAraCubuk"></div>
+                        <span class="siparisHattiDuzenlemeSpan">
+                            <i class="bi bi-align-bottom siparisHattiDuzenlemeIcon"></i>
+                        </span>
+                        <div class="siparisHattiDuzenlemeAraCubuk"></div>
+                        <span class="siparisHattiDuzenlemeSpan">
+                            <i class="bi bi-align-bottom siparisHattiDuzenlemeIcon"></i>
+                        </span>
+                    </div>
+                    
+                    <div style="width:80%; ">
+                        <input type="text" class="form-control siparisHattiInput" placeholder="Düzenleme Alanı" style="width: 100%; color: rgb(168, 174, 185) !important;"/>
+                        <input onkeypress="return isNumberKey(event)" type="text" class="form-control siparisHattiInput1" placeholder="Düzenleme Alanı" style="width: 100%; color: rgb(168, 174, 185) !important;" />
+                    </div>
+                </div>
+                <div class="butonDivSiparisHatti">
+                    <button id="butonSiparisHattiKaydet" class="btn btn-outline-secondary">Kaydet</button>
+                </div>
+            </div>
         </div>
         <div class="col-md-3 text-center" id="sepet">
             <button class="btn btn-outline-warning btn-lg" disabled>
@@ -311,5 +342,115 @@
                 }
             });
 
+    }
+
+    /* Sipariş Hattı Kısmı */
+
+    $(".siparisHatti").css({
+        "cursor":"pointer"
+    });
+
+    $(".siparisHatti").click(function () {
+
+        id = $(this).attr("id");
+
+        veriTabaniIkon = $(this).find("i").attr("class");
+
+        veriTabaniYazi = $(this).find("span").text().trim();
+
+        $(".siparisHatti").hide("scale");
+
+        setTimeout(function () {
+            $(".siparisHattiDuzenlemeDiv").show("bounce");
+        }, 500);
+
+    });
+
+    $(".siparisHattiDuzenlemeSpan").click(function () {
+
+
+        $(this).parent().find("span").css({
+
+            "background-color": "white"
+
+        });
+
+        $(this).parent().find("i").css({
+
+            "background-color": "white",
+            "color": "rgb(168, 174, 185)"
+
+        });
+
+        $(this).find("i").css({
+
+            "background-color": "rgb(168, 174, 185)",
+            "color": "white"
+
+        });
+
+        $(this).css({
+
+            "background-color": "rgb(168, 174, 185)"
+
+        });
+
+        tiklandi = 1;
+
+        $(".siparisHattiIkonlar").trigger("DOMSubtreeModified");
+
+    });
+
+    $(".siparisHattiInput").keyup(function () {
+        if (!$(this).val() || !$(".siparisHattiInput1").val()) {
+            bos = 1;
+            $(".butonDivSiparisHatti").slideUp("slow");
+        } else {
+            bos = 0;
+            $(".siparisHattiIkonlar").trigger("DOMSubtreeModified");
         }
+    });
+
+    var input1length;
+    var input1deger;
+
+    $(".siparisHattiInput1").keyup(function () {
+
+        input1deger = $(this).val();
+        input1length = $(this).val().length;
+
+
+        if (input1length > 11) {
+            this.value = this.value.replace(/[^a-zA-Z]/g, input1deger);
+        }
+
+        if (!$(this).val() || !$(".siparisHattiInput").val()) {
+            bos = 1;
+            $(".butonDivSiparisHatti").slideUp("slow");
+        } else {
+            bos = 0;
+            $(".siparisHattiIkonlar").trigger("DOMSubtreeModified");
+        }
+
+    });
+
+    $(".siparisHattiIkonlar").on("DOMSubtreeModified", function () {
+        if (tiklandi == 1 && bos == 0) {
+            if ($(".butonDivSiparisHatti").css("display") != "none") {
+
+            } else {
+                $(".butonDivSiparisHatti").slideDown("slow");
+            }
+        }
+    });
+
+    function isNumberKey(evt) {
+
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+
+
 </script>
