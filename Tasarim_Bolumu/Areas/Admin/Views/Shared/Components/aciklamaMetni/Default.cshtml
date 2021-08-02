@@ -19,55 +19,41 @@
                         if (item.Id == 1)
                         {
                             <div class="aciklamaMetniBaslikParagraf">
-                                <h1 class="h5 aciklamaMetniBaslik">Teknosa ile Her Alanda Teknoloji Evinizde</h1>
+                                <h1 class="h5 aciklamaMetniBaslik">@item.aciklamaMetniBaslik</h1>
                                 <p>
-                                    Kurulduğu günden bu yana Türkiye'nin ve dünyanın önde gelen teknoloji markalarını avantajlı
-                                    fiyatlarla sunmak için çalışan Teknosa; cep telefonundan bilgisayara, televizyondan ses
-                                    sistemine, beyaz eşyadan oyun konsoluna geniş ürün yelpazesiyle hizmet veriyor. Çinli
-                                    Xiaomi, Huawei ve Oppo, Güney Koreli Samsung ya da Amerikalı Apple gibi devlerin akıllı
-                                    telefonlarını, birbirinden farklı özelliklere sahip laptoplarını, evdeki en büyük
-                                    yardımcılarınız olan elektrikli ev aletlerini ve gününüze keyif katacak televizyonlarını
-                                    ister size en yakın Teknosa mağazasında isterseniz Teknosa online alışveriş sitesinde
-                                    yakından inceleyerek kolayca satın alabilirsiniz. Ayrıca dünyanın önde gelen teknoloji
-                                    şirketlerinin ürettiği akıllı saatler de Teknosa'da! Ne yapıyor olursanız olun kolunuzdan
-                                    çıkarmak istemeyeceğiniz bu ürünler giyilebilir teknolojinin akla gelen ilk örnekleri
-                                    arasında. Samsung, Huawei, Preo, Fitbit, Amazfit, Oppo ya da Apple akıllı saatleri uygun
-                                    fiyat ve hızlı gönderim avantajıyla sizin olabilir. Siz de birbirinden avantajlı akıllı
-                                    saat, bilgisayar, beyaz eşya, televizyon ya da cep telefonu kampanyalarından yararlanmak
-                                    için Teknosa'yı takipte kalın, alışverişinizden kazançlı çıkın!
+                                    @item.aciklamaMetniYazi
                                 </p>
                             </div>
                             <hr>
+                            continue;
                         }
-                        
+
                         if (item.Id == 2)
                         {
                             <div class="aciklamaMetniBaslikParagraf">
                                 <h1 class="h5 aciklamaMetniBaslik">
-                                    Son Teknoloji Akıllı Cep Telefonları Hesaplı Fiyata Kapınızda
+                                    @item.aciklamaMetniBaslik
                                 </h1>
                                 <p>
-                                    Hayatın vazgeçilmezleri arasındaki yerini koruyan akıllı telefonlarına Teknosa farkıyla
-                                    ulaşmak mümkün. Samsung, Apple, Huawei, Xiaomi, Oppo gibi dünyanın önde gelen cep telefonu
-                                    markaları avantajlı fiyatlarla Teknosa web sitesi ve mağazalarında sizi bekliyor. En çok
-                                    tercih edilenler arasında yer alan Samsung akıllı telefonlar, Android kullananların
-                                    favorilerinden. Bunun yanı sıra sıklıkla satın alınan Huawei cep telefonu modelleri
-                                    arasındaki farklı özelliklere sahip seriler de markanın hızlı yükselişine ayak uyduruyor.
-                                    Diğer yandan Çinli yıldız Xiaomi ise üst üste piyasaya sürdüğü hesaplı ve donanımlı cep
-                                    telefonu modelleriyle Android piyasasındaki yerini koruyor. Rakipleri arasında işletim
-                                    sistemiyle farklılaşan Apple, gerek görüntü kalitesi gerek hafıza kapasitesiyle öne çıkan
-                                    efsanevi modelleriyle iOS kullanıcılarının gönlünü fethediyor. Teknosa ile tüm bu markaların
-                                    akıllı telefon modellerine çok uygun fiyatlarla ve hızlı kargo avantajıyla sahip
-                                    olabilirsiniz. Tek yapmanız gereken aradığınız ürünü web sitesinde bulup sepetinize eklemek.
-                                    Alışverişinizi tamamladığınızda satın aldığınız cep telefonu hızlıca adresinize geliyor.
-                                    Böylece siz de
-                                    <span class="collapse" id="devaminiGoster">
-                                        bütçenizi ve kendinizi yormadan kolay ve kazançlı
-                                        bir online alışveriş deneyimi yaşayabilirsiniz. Geniş ekranlarıyla Xiaomi, yenilikçi
-                                        özellikleriyle Oppo ya da eşsiz kamerasıyla Apple marka akıllı telefonlar ve hayatı
-                                        kolaylaştıran cep telefonu aksesuarları Teknosa online alışveriş sitesinde ve fiziksel
-                                        mağazalarında sizi bekliyor.
-                                    </span>
+                                    @{
+                                        var yazi = item.aciklamaMetniYazi;
+                                        var sonuc = yazi.Length - 1161;
+                                        var yaziDevami = yazi.Substring(yazi.Length - sonuc);
+                                        var yaziOncesi = yazi.Substring(0, 1161);
+
+                                        if (yazi.Length <= 1161)
+                                        {
+                                            @yazi
+                                        }
+                                        else
+                                        {
+                                            @yaziOncesi
+
+                                            <span class="collapse" id="devaminiGoster">
+                                                @yaziDevami
+                                            </span>
+                                        }
+                                    }
                                 </p>
                             </div>
                         }
