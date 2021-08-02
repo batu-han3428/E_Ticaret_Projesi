@@ -15,35 +15,34 @@
     z-index: 999999999999999999;
     opacity:0.85;
 }
-    .contextmenu:hover,
-    .contextmenu li ul:hover {
-       
-        opacity: 1;
-    }
 
-    .contextmenu li {
-        position: relative;
-    }
+.contextmenu:hover,
+.contextmenu li ul:hover {       
+    opacity: 1;
+}
 
-        .contextmenu li a,
-        .contextmenu li ul li a {
-            display: block;
-            color: #666;
-            text-decoration: none;
-            padding: 5px;
-            border-bottom: 1px solid #ccc;
-        }
+.contextmenu li {
+    position: relative;
+}
 
-            .contextmenu li a:hover {
-                color: rgb(69, 81, 82);
-                background: rgb(232, 235, 240);
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-                border-radius: 5px;
-            }
+.contextmenu li a,
+.contextmenu li ul li a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
 
-        .contextmenu li:hover ul {
-            display: block;
-            min-width: 200px;
+.contextmenu li a:hover {
+    color: rgb(69, 81, 82);
+    background: rgb(232, 235, 240);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
 
-        }
+.contextmenu li:hover ul {
+    display: block;
+    min-width: 200px;
+}

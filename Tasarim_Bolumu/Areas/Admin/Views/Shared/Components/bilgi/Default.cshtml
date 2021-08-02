@@ -1,0 +1,301 @@
+﻿@model List<bilgi>
+
+<div class="container" id="yardimContainer">
+    <div class="modal fade" id="modalBilgi" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-light bg-danger">
+                    <h5 class="modal-title">Uyarı!</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <span class="display-6 text-danger" id="modalBilgiYaziAlan" style="font-weight: 300; font-size: calc(1.3rem + 1vw); "></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12" id="yardimSutun">
+            @foreach (var item in Model)
+            {
+                <div id="@item.Id" class="topAlanDivYardim">
+                    <div class="bilgiButtonBaslikYaziAlan">
+                        <button disabled class="btn btn-outline-dark bilgiButtonBaslikYazi"><i class="bi bi-check-lg"></i></button>
+                    </div>
+                    <div class="topYardim">
+                        <i class="@item.bilgiIcon kategoriIkonYardim"></i>
+                    </div>
+                    <div class="bilgiIconSec">
+                        <div id="bilgiIconDiv" class="bilgiIkonlar">
+                            <span class="bilgiSpan"><i class="bi bi-alarm bilgiIcon"></i></span>
+                            <span class="bilgiSpan"><i class="bi bi-alarm-fill bilgiIcon"></i></span>
+                            <span class="bilgiSpan"><i class="bi bi-align-bottom bilgiIcon"></i></span>
+                        </div>
+                    </div>
+                    <div class="bilgiButtonIconAlan">
+                        <button disabled class="btn btn-outline-dark bilgiButtonIcon"><i class="bi bi-check-lg"></i></button>
+                    </div>
+                    <div class="yaziYardim">
+                        <a href="javascript:void(0)">
+                            <span class="musteri">@item.bilgiBaslik</span>
+                            <span class="no">@item.bilgiYazi</span>
+                        </a>
+                    </div>
+                    <div class="bilgiBaslikYaziEkle">
+                        <input type="text" placeholder="Başlık(Opsiyonel)" class="form-control bilgiInput" />
+                        <input type="text" placeholder="İçerik" class="form-control bilgiInput" required />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+        var Ikon;
+        var id;
+        var index;
+        var bilgiBaslik;
+        var bilgiYazi;
+        var veriTabaniIkon;
+        var veriTabaniYazi;
+        var veriTabaniBaslik;
+
+        $(".bilgiIconSec").hide();
+
+        $(".topYardim").click(function () {
+
+            id = $(this).parent(".topAlanDivYardim").attr("id");
+
+            index = $(this).parent(".topAlanDivYardim").index();
+
+            var veri = $(this).find("i").attr("class");
+
+            veriTabaniIkon = veri.substring(veri.length - 19, 0);
+
+            $(this).hide("size");
+
+            $(".topAlanDivYardim").eq(index).find(".yaziYardim").hide("size");
+
+            setTimeout(function () {
+
+                $(".topAlanDivYardim").eq(index).find(".bilgiIconSec, .bilgiButtonIconAlan").show("size");
+
+            }, 500);
+
+            $(".topYardim, .yaziYardim").off();
+
+            $(".topAlanDivYardim, .topAlanDivYardim > div, .topAlanDivYardim > div span, .topAlanDivYardim > div a").not($(".topAlanDivYardim").eq(index)).not($(".topAlanDivYardim").eq(index).find("span, div, a")).css("cursor", "not-allowed");
+
+        });
+
+        $(".yaziYardim").click(function () {
+
+            id = $(this).parent(".topAlanDivYardim").attr("id");
+
+            index = $(this).parent(".topAlanDivYardim").index();
+
+            var baslik = $(this).find(".musteri").text().trim();
+
+            if (baslik == "" || baslik == " ") {
+                veriTabaniBaslik = "Boş";
+            } else {
+                veriTabaniBaslik = baslik;
+            }
+
+            veriTabaniYazi = $(this).find(".no").text().trim();
+
+            $(this).hide("size");
+
+            $(".topAlanDivYardim").eq(index).find(".topYardim").hide("size");
+
+            setTimeout(function () {
+
+                $(".topAlanDivYardim").eq(index).find(".bilgiBaslikYaziEkle, .bilgiButtonBaslikYaziAlan").show("size");
+
+            }, 500);
+
+            $(".topYardim, .yaziYardim").off();
+
+            $(".topAlanDivYardim, .topAlanDivYardim > div, .topAlanDivYardim > div span, .topAlanDivYardim > div a").not($(".topAlanDivYardim").eq(index)).not($(".topAlanDivYardim").eq(index).find("span, div, a")).css("cursor", "not-allowed");
+
+        });
+
+        $(".bilgiSpan").click(function () {
+
+            $(this).parent().find("i").css({
+                "color": "white"
+            });
+
+            $(this).find("i").css({
+                "color": "black"
+            });
+
+            $(".topAlanDivYardim").eq(index).find(".bilgiButtonIcon").attr("disabled", false);
+
+            var veri = $(this).find("i").attr("class");
+
+            Ikon = "";
+
+            Ikon = veri.substring(veri.length - 10, 0);
+
+        });
+
+        $("input[placeholder='İçerik']").keyup(function () {
+            if (!$(this).val()) {
+                $(".topAlanDivYardim").eq(index).find(".bilgiButtonBaslikYazi").attr("disabled", true);
+            } else {
+                $(".topAlanDivYardim").eq(index).find(".bilgiButtonBaslikYazi").attr("disabled", false);
+            }
+        });
+
+        $(".bilgiButtonIcon").click(function () {
+           
+            var bilgiIconGuncelle = "@Url.Action("bilgiIconKayit", "Bilgi")";
+
+            var bilgiIcon = new Object();
+            bilgiIcon.bilgiIcon = Ikon;
+            bilgiIcon.Id = id;
+
+            $.ajax({
+                    url: bilgiIconGuncelle,
+                    type: "POST",
+                    data: bilgiIcon,
+                    success: function (response) {
+
+                        if (Ikon == veriTabaniIkon) {
+
+                            $("#modalBilgiYaziAlan").text("Aynı İkonu Seçemezsiniz..");
+
+                            $("#modalBilgi").modal('show');
+
+                        } else {
+
+                            $(".topAlanDivYardim").eq(index).find(".bilgiIconSec, .bilgiButtonIconAlan").hide("size");
+
+                            setTimeout(function () {
+
+                                $("#eeee").css("display", "none").html(response).find($(".topAlanDivYardim").eq(index).find(".topYardim, .yaziYardim")).css("display", "none");
+
+                                $("#eeee").css("display", "block");
+
+                                $(".topAlanDivYardim").eq(index).find(".topYardim, .yaziYardim").show("size");
+
+                                $(".topYardim, .yaziYardim").on();
+
+                                $(".topAlanDivYardim, .topAlanDivYardim > div, .topAlanDivYardim > div span, .topAlanDivYardim > div a").css("cursor", "pointer");
+
+                                $(".bilgiButtonIconAlan, .bilgiButtonBaslikYaziAlan").css("cursor", "default");
+
+                            }, 500);
+                        }
+                    },
+                    error: function (hata, ajaxoptions, throwerror) {
+                        alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                    }
+
+                });
+
+        });
+
+        $(".bilgiButtonBaslikYazi").click(function () {
+
+            bilgiBaslik = $(".topAlanDivYardim").eq(index).find("input[placeholder='Başlık(Opsiyonel)']").val();
+
+            bilgiYazi = $(".topAlanDivYardim").eq(index).find("input[placeholder='İçerik']").val();
+
+            alert(veriTabaniYazi + " " + bilgiYazi);
+
+            var bilgiBaslikYaziGuncelle = "@Url.Action("bilgiBaslikYaziKayit", "Bilgi")";
+
+            var bilgiBaslikYazi = new Object();
+            bilgiBaslikYazi.bilgiBaslik = bilgiBaslik;
+            bilgiBaslikYazi.bilgiYazi = bilgiYazi;
+            bilgiBaslikYazi.Id = id;
+
+            $.ajax({
+                    url: bilgiBaslikYaziGuncelle,
+                    type: "POST",
+                    data: bilgiBaslikYazi,
+                    success: function (response) {
+                        if (veriTabaniBaslik != "Boş") {
+                            if (bilgiBaslik == veriTabaniBaslik) {
+
+                                $("#modalBilgiYaziAlan").text("Aynı Başlığı Yazamazsınız..");
+
+                                $("#modalBilgi").modal('show');
+
+                            } else if (bilgiYazi == "") {
+
+                                $("#modalBilgiYaziAlan").text("İçerik Alanı Zorunludur..");
+
+                                $("#modalBilgi").modal('show');
+
+                            } else if (bilgiYazi == veriTabaniYazi) {
+
+                                $("#modalBilgiYaziAlan").text("Aynı İçeriği Yazamazsınız..");
+
+                                $("#modalBilgi").modal('show');
+
+                            } else {
+
+                                $(".topAlanDivYardim").eq(index).find(".bilgiBaslikYaziEkle, .bilgiButtonBaslikYaziAlan").hide("size");
+
+                                setTimeout(function () {
+
+                                    $("#eeee").css("display", "none").html(response).find($(".topAlanDivYardim").eq(index).find(".topYardim, .yaziYardim")).css("display", "none");
+
+                                    $("#eeee").css("display", "block");
+
+                                    $(".topAlanDivYardim").eq(index).find(".topYardim, .yaziYardim").show("size");
+
+                                    $(".topYardim, .yaziYardim").on();
+
+                                    $(".topAlanDivYardim, .topAlanDivYardim > div, .topAlanDivYardim > div span, .topAlanDivYardim > div a").css("cursor", "pointer");
+
+                                    $(".bilgiButtonIconAlan, .bilgiButtonBaslikYaziAlan").css("cursor", "default");
+
+                                }, 500);
+                            }
+                        }else if (bilgiYazi == "") {
+
+                            $("#modalBilgiYaziAlan").text("İçerik Alanı Zorunludur..");
+
+                            $("#modalBilgi").modal('show');
+
+                        } else if (bilgiYazi == veriTabaniYazi) {
+
+                            $("#modalBilgiYaziAlan").text("Aynı İçeriği Yazamazsınız..");
+
+                            $("#modalBilgi").modal('show');
+
+                        } else {
+
+                            $(".topAlanDivYardim").eq(index).find(".bilgiBaslikYaziEkle, .bilgiButtonBaslikYaziAlan").hide("size");
+
+                            setTimeout(function () {
+
+                                $("#eeee").css("display", "none").html(response).find($(".topAlanDivYardim").eq(index).find(".topYardim, .yaziYardim")).css("display", "none");
+
+                                $("#eeee").css("display", "block");
+
+                                $(".topAlanDivYardim").eq(index).find(".topYardim, .yaziYardim").show("size");
+
+                                $(".topYardim, .yaziYardim").on();
+
+                                $(".topAlanDivYardim, .topAlanDivYardim > div, .topAlanDivYardim > div span, .topAlanDivYardim > div a").css("cursor", "pointer");
+
+                                $(".bilgiButtonIconAlan, .bilgiButtonBaslikYaziAlan").css("cursor", "default");
+
+                            }, 500);
+                        }
+                    },
+                    error: function (hata, ajaxoptions, throwerror) {
+                        alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                    }
+
+                });
+           
+        });
+
+</script>

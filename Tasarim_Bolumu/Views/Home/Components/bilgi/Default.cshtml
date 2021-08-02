@@ -1,0 +1,16 @@
+﻿@model List<bilgi>
+
+@foreach (var item in Model)
+{
+    <div class="topAlanDivYardim">
+        <div class="topYardim" onclick="location.href='#';">
+            <i class="@item.bilgiIcon kategoriIkonYardim"></i>
+        </div>
+        <div class="yaziYardim">
+            <a href="#">
+                <span class="musteri">@item.bilgiBaslik</span>
+                <span class="no">@item.bilgiYazi</span>
+            </a>
+        </div>
+    </div>
+}

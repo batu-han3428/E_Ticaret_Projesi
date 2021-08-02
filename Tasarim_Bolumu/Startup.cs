@@ -60,6 +60,21 @@ namespace Tasarim_Bolumu
 
             services.AddScoped<IsiteLogoRepository, siteLogoRepository>();
             services.AddScoped<IsiteLogoServices, siteLogoServices>();
+
+            services.AddScoped<IsiparisHattiRepository,siparisHattiRepository>();
+            services.AddScoped<IsiparisHattiServices, siparisHattiServices>();
+
+            services.AddScoped<IodemeSecenekleriRepository, odemeSecenekleriRepository>();
+            services.AddScoped<IodemeSecenekleriServices, odemeSecenekleriServices>();
+
+            services.AddScoped<IalisverisKredisiSecenekleriRepository, alisverisKredisiSecenekleriRepository>();
+            services.AddScoped<IalisverisKredisiSecenekleriServices, alisverisKredisiSecenekleriServices>();
+
+            services.AddScoped<IbilgiRepository, bilgiRepository>();
+            services.AddScoped<IbilgiServices, bilgiServices>();
+
+            services.AddScoped<IaciklamaMetniRepository, aciklamaMetniRepository>();
+            services.AddScoped<IaciklamaMetniServices, aciklamaMetniServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

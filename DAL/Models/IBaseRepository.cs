@@ -10,8 +10,8 @@ namespace DAL.Models
     public interface IBaseRepository<T>
        where T : class, new()
     {
-        void ekle(T model);
-        void sil(T model);
+        int ekle(T model);
+        int sil(T model);
         int guncelle(T model);
         List<T> hepsiniListele(Expression<Func<T, bool>> filter = null);
         T listele(int id);

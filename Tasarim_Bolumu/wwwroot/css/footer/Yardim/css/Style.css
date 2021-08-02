@@ -44,7 +44,7 @@
 }
 
 
-#yardimSutun .yaziYardim a span:not(.topAlanDivYardim:nth-child(1) .yaziYardim a span){
+/*#yardimSutun .yaziYardim a span:not(.topAlanDivYardim:nth-child(1) .yaziYardim a span){
 
     width: 116px;
     display: block;
@@ -53,9 +53,9 @@
     font-size: 15px; 
     color:rgb(0, 0, 0);
   
-}
+}*/
 
-#musteri{
+.musteri{
 
     width: 116px;
     display: block;
@@ -67,7 +67,7 @@
 
 }
 
-#no{
+.no{
     
     margin-left: 15px;
     color:rgb(0, 0, 0);

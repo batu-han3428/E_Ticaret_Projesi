@@ -1,4 +1,4 @@
-﻿@model Tuple<List<ustAlan>, List<siteLogo>>
+﻿@model Tuple<List<ustAlan>, List<siteLogo>, List<siparisHatti>>
 
 <div class="container">
     <div class="row">
@@ -17,7 +17,7 @@
                     <img id="@item.Id" src="@item.siteLogoFoto" class="img-fluid" />
                 </a>
             }
-            </div>
+        </div>
         <div class="col-md-4  d-flex align-items-center" id="ara">
             <form class="col-md-12">
                 <div class="input-group ">
@@ -27,11 +27,14 @@
             </form>
         </div>
         <div class="col-md-2 text-center" id="siparis">
-            <h5 class="text-muted">
-                <i class="bi bi-telephone"></i> Sipariş Hattı<span class="badge bg-warning ms-3">
-                    0850 345 6474
-                </span>
-            </h5>
+            @foreach (var item in Model.Item3)
+            {
+                <h5 class="text-muted siparisHatti">
+                    <i class="@item.siparisHattiIcon"></i> <span class="siparisHattiYazi">@item.siparisHattiYazi</span><span class="badge bg-warning ms-3 siparisHattiTel">
+                        @item.siparisHattiTel
+                    </span>
+                </h5>
+            }
         </div>
         <div class="col-md-3 text-center" id="sepet">
             <button class="btn btn-outline-warning btn-lg" disabled>

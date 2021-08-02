@@ -1,6 +1,19 @@
-﻿@model Tuple<List<ustAlan>, List<siteLogo>>
+﻿@model Tuple<List<ustAlan>, List<siteLogo>, List<siparisHatti>>
 
 <div class="container">
+    <div class="modal fade" id="modalUstAlan" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-light bg-danger">
+                    <h5 class="modal-title">Uyarı!</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <span class="display-6 text-danger" id="modalUstAlanYaziAlan" style="font-weight: 300; font-size: calc(1.3rem + 1vw); "></span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12 mt-4 text-end" id="badges">
             @foreach (var item in Model.Item1)
@@ -55,7 +68,7 @@
             </div>
 
         </div>
-        </div>
+    </div>
     <div class="row mt-4">
         <div class="col-md-2 me-5 align-self-center" id="foto">
             @foreach (var item in Model.Item2)
@@ -78,16 +91,20 @@
             <form class="col-md-12">
                 <div class="input-group ">
                     <input type="search" disabled style="cursor:no-drop;" id="form" placeholder="Ne Aramak İstersiniz" class="form-control" />
-                    <a href="#" ><button disabled id="buton" class="btn"><i style="cursor:no-drop;" class="bi bi-search" id="icon"></i></buttonstyle="cursor:no-drop;"></a>
+                    <a href="javascript:void(0)"><button disabled id="buton" class="btn"><i style="cursor:no-drop;" class="bi bi-search" id="icon"></i></button></a>
                 </div>
             </form>
         </div>
         <div class="col-md-2 text-center" id="siparis">
-            <h5 class="text-muted siparisHatti">
-                <i class="bi bi-telephone"></i> Sipariş Hattı<span class="badge bg-warning ms-3">
-                    0850 345 6474
-                </span>
-            </h5>
+
+            @foreach (var item in Model.Item3)
+            {
+                <h5 id="@item.Id" class="text-muted siparisHatti">
+                    <i class="@item.siparisHattiIcon"></i> <span class="siparisHattiYazi">@item.siparisHattiYazi</span><span class="badge bg-warning ms-3 siparisHattiTel">
+                        @item.siparisHattiTel
+                    </span>
+                </h5>
+            }
 
             <div class="siparisHattiDuzenlemeDiv">
                 <div style=" width:100%; display: flex;">
@@ -109,10 +126,10 @@
                             <i class="bi bi-align-bottom siparisHattiDuzenlemeIcon"></i>
                         </span>
                     </div>
-                    
+
                     <div style="width:80%; ">
-                        <input type="text" class="form-control siparisHattiInput" placeholder="Düzenleme Alanı" style="width: 100%; color: rgb(168, 174, 185) !important;"/>
-                        <input onkeypress="return isNumberKey(event)" type="text" class="form-control siparisHattiInput1" placeholder="Düzenleme Alanı" style="width: 100%; color: rgb(168, 174, 185) !important;" />
+                        <input type="text" class="form-control siparisHattiInput" placeholder="Yazı" style="width: 100%; color: rgb(168, 174, 185) !important;" />
+                        <input onkeypress="return isNumberKey(event)" type="text" class="form-control siparisHattiInput1" placeholder="Telefon" style="width: 100%; color: rgb(168, 174, 185) !important;" />
                     </div>
                 </div>
                 <div class="butonDivSiparisHatti">
@@ -122,7 +139,7 @@
         </div>
         <div class="col-md-3 text-center" id="sepet">
             <button class="btn btn-outline-warning btn-lg" disabled>
-                <i class="bi bi-cart-fill" style="font-size: 27px; position: relative; z-index:2;">
+                <i class="bi bi-cart-fill" style="font-size: 27px; position: relative; z-index: 2;">
                     <span class="badge rounded-pill bg-warning border border-light"
                           style="font-size: 10px; position: absolute; left:15px; z-index: 1;">
                         0
@@ -138,9 +155,12 @@
     var bos = 1;
     var InputVal;
     var Ikon;
-    var id;
+    var id = 0;
     var veriTabaniYazi;
     var veriTabaniIkon;
+    var veriTabaniTel;
+    var input1Sayi;
+    var input1Val;
 
     $("#badges > div").hide();
 
@@ -356,7 +376,9 @@
 
         veriTabaniIkon = $(this).find("i").attr("class");
 
-        veriTabaniYazi = $(this).find("span").text().trim();
+        veriTabaniTel = $(this).find(".siparisHattiTel").text().trim();
+
+        veriTabaniYazi = $(this).find(".siparisHattiYazi").text().trim();
 
         $(".siparisHatti").hide("scale");
 
@@ -395,6 +417,10 @@
 
         });
 
+        var veri = $(this).find("i").attr("class");
+
+        Ikon = veri.substring(veri.length - 26, 0);
+
         tiklandi = 1;
 
         $(".siparisHattiIkonlar").trigger("DOMSubtreeModified");
@@ -411,31 +437,41 @@
         }
     });
 
-    var input1length;
-    var input1deger;
+    $(".siparisHattiInput1").keypress(function (event) {
 
-    $(".siparisHattiInput1").keyup(function () {
+        input1Sayi = $(this).val().length;
 
-        input1deger = $(this).val();
-        input1length = $(this).val().length;
+        if (input1Sayi == 11) {
 
+            if (event.which != 8) {
 
-        if (input1length > 11) {
-            this.value = this.value.replace(/[^a-zA-Z]/g, input1deger);
-        }
+                event.preventDefault();
 
-        if (!$(this).val() || !$(".siparisHattiInput").val()) {
-            bos = 1;
-            $(".butonDivSiparisHatti").slideUp("slow");
-        } else {
-            bos = 0;
-            $(".siparisHattiIkonlar").trigger("DOMSubtreeModified");
+            }
+
         }
 
     });
 
+    $(".siparisHattiInput1").keyup(function () {
+
+        input1Sayi = $(this).val().length;
+
+        if (!$(this).val() || !$(".siparisHattiInput").val()) {
+            bos = 1;
+            $(".butonDivSiparisHatti").slideUp("slow");
+        } else if (input1Sayi != 11) {
+            bos = 1;
+            $(".butonDivSiparisHatti").slideUp("slow");
+        } else {
+                bos = 0;
+                $(".siparisHattiIkonlar").trigger("DOMSubtreeModified");
+            }
+
+    });
+
     $(".siparisHattiIkonlar").on("DOMSubtreeModified", function () {
-        if (tiklandi == 1 && bos == 0) {
+        if (tiklandi == 1 && bos == 0 && input1Sayi == 11) {
             if ($(".butonDivSiparisHatti").css("display") != "none") {
 
             } else {
@@ -452,5 +488,88 @@
         return true;
     }
 
+    $("#butonSiparisHattiKaydet").click(function () {
+
+        inputVal = $(this).parents(".siparisHattiDuzenlemeDiv").find(".siparisHattiInput").val();
+
+        var input1ValDeger = $(this).parents(".siparisHattiDuzenlemeDiv").find(".siparisHattiInput1").val();
+
+        var ilk4 = input1ValDeger.substring(input1ValDeger.length - 7, 0);
+        ilk4 = ilk4.replace(ilk4, ilk4 + " ");
+
+        var orta3 = input1ValDeger.substring(input1ValDeger.length - 4, 4);
+        orta3 = orta3.replace(orta3, orta3 + " ");
+
+        var son4 = input1ValDeger.substring(7);
+
+        input1Val = ilk4 + orta3 + son4;
+
+
+            var siparisHattiGuncelle = "@Url.Action("siparisHattiKayit", "ustAlan")";
+
+            var siparisHattiBilgileri = new Object();
+            siparisHattiBilgileri.siparisHattiYazi = inputVal;
+            siparisHattiBilgileri.siparisHattiTel = input1Val;
+            siparisHattiBilgileri.siparisHattiIcon = Ikon;
+            siparisHattiBilgileri.Id = id;
+
+            $.ajax({
+                url: siparisHattiGuncelle,
+                type: "POST",
+                data: siparisHattiBilgileri,
+                success: function (response) {
+                 
+                    if (inputVal == "") {
+
+                        $("#modalUstAlanYaziAlan").text("Düzenleme Alanı Zorunludur..");
+
+                        $("#modalUstAlan").modal('show');
+
+                    } else if (inputVal == veriTabaniYazi) {
+
+                        $("#modalUstAlanYaziAlan").text("Aynı Yazıyı Yazamazsınız..");
+
+                        $("#modalUstAlan").modal('show');
+
+                    } else if (input1Val == veriTabaniTel) {
+
+                        $("#modalUstAlanYaziAlan").text("Aynı Tel. No. Giremezsiniz..");
+
+                        $("#modalUstAlan").modal('show');
+
+                    } else if (Ikon == undefined) {
+
+                        $("#modalUstAlanYaziAlan").text("Lütfen İkon Seçiniz..");
+
+                        $("#modalUstAlan").modal('show');
+
+                    } else if (Ikon == veriTabaniIkon) {
+
+                        $("#modalUstAlanYaziAlan").text("Aynı İkonu Seçemezsiniz..");
+
+                        $("#modalUstAlan").modal('show');
+
+                    } else {
+
+                        $(".siparisHattiDuzenlemeDiv").hide("scale");
+
+                        setTimeout(function () {
+
+                            $("#eeee").css("display", "none").html(response).find(".siparisHatti").css("display", "none");
+
+                            $("#eeee").css("display", "block");
+
+                            $(".siparisHatti").show("bounce");
+
+                        }, 500);
+                    }
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+
+            });
+
+    });
 
 </script>

@@ -24,6 +24,11 @@ namespace Entity.Contexts
         public DbSet<Kategoriler> kategoriler { get; set; }
         public DbSet<ustAlan> ustAlan { get; set; }
         public DbSet<siteLogo> siteLogo { get; set; }
+        public DbSet<siparisHatti> siparisHatti { get; set; }
+        public DbSet<odemeSecenekleri> odemeSecenekleri { get; set; }
+        public DbSet<alisverisKredisiSecenekleri> alisverisKredisiSecenekleri { get; set; }
+        public DbSet<bilgi> bilgi { get; set; }
+        public DbSet<AciklamaMetni> aciklamaMetni { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

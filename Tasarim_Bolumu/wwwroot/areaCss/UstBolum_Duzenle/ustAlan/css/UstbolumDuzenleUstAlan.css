@@ -69,14 +69,14 @@
     display:none;
 }
 
-    .butonDivUstAlan > button {
-        width: 100%;
-        border: 2px solid rgb(233, 236, 239);
-        border-radius: unset;
-        border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
-        color: rgb(158, 164, 175);
-    }
+.butonDivUstAlan > button {
+    width: 100%;
+    border: 2px solid rgb(233, 236, 239);
+    border-radius: unset;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    color: rgb(158, 164, 175);
+}
 
 
 .butonDivUstAlan > button:hover {
@@ -87,11 +87,6 @@
 
 
 /* Sipariş Hattı Kısmı */
-
-.siparisHattiDuzenlemeAlani {
-    width: 80%;
-    display: inline-flex;
-}
 
 .siparisHattiIkonlar {
     border: 1px solid rgb(168, 174, 185);
@@ -141,4 +136,12 @@
 .siparisHattiDuzenlemeDiv {
     width: 100%;
     display:none;
+}
+
+#siparis{
+    padding:0;
+}
+
+.siparisHattiInput::-webkit-input-placeholder, .siparisHattiInput1::-webkit-input-placeholder {
+    color: rgb(168, 174, 185);
 }

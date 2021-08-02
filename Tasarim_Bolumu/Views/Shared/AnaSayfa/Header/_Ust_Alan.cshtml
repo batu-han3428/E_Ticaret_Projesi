@@ -1,1 +1,3 @@
-﻿@await Component.InvokeAsync("ustAlan");
+﻿<cache expires-after="@TimeSpan.FromMinutes(5)">
+    @await Component.InvokeAsync("ustAlan");
+</cache>

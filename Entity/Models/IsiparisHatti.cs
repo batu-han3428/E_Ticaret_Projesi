@@ -11,6 +11,6 @@ namespace Entity.Models
         int Id { get; set; }
         string siparisHattiIcon { get; set; }
         string siparisHattiYazi { get; set; }
-        int siparisHattiTel { get; set; }
+        string siparisHattiTel { get; set; }
     }
 }

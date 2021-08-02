@@ -6,29 +6,9 @@
     </div>
     <div class="row mt-4">
         <div class="col-md-8" id="alisverisKredisiAlanSutun">
-            <div id="alisverisAlan">
-                <div class="alisverisFoto" id="alisverisIng">
-                </div>
-                <div class="alisverisYazi">
-                    <span onclick="location.href='#';">MAĞAZA VE ONLINE ALIŞVERİŞ KREDİSİ</span>
-                </div>
-            </div>
-            <div class="alisverisBorder"></div>
-            <div id="alisverisAlan">
-                <div class="alisverisFoto" id="alisverisAkbank">
-                </div>
-                <div class="alisverisYazi">
-                    <span onclick="location.href='#';">MAĞAZA VE ONLINE ALIŞVERİŞ KREDİSİ</span>
-                </div>
-            </div>
-            <div class="alisverisBorder"></div>
-            <div id="alisverisAlan">
-                <div class="alisverisFoto" id="alisverisYapiKredi">
-                </div>
-                <div class="alisverisYazi">
-                    <span onclick="location.href='#';">ONLINE ALIŞVERİŞ KREDİSİ</span>
-                </div>
-            </div>
+            <cache expires-after="@TimeSpan.FromMinutes(5)">
+                @await Component.InvokeAsync("alisverisKredisiSecenekleri")
+            </cache>
         </div>
     </div>
 </div>

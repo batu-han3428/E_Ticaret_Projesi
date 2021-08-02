@@ -1,0 +1,152 @@
+﻿@model List<alisverisKredisiSecenekleri>
+
+<div class="container border-bottom" id="alisverisKrediContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <span id="alisverisKrediBaslik">Alışveriş Kredisi Seçenekleri</span>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-8" id="alisverisKredisiAlanSutun">
+            @foreach (var item in Model)
+            {
+                <div id="@item.Id" class="alisverisAlan">
+                    <div class="alisverisFoto" style="background-image: url(/@item.alisverisKredisiSecenekleriFoto) !important;" id="alisverisIng">
+                    </div>
+                    <div class="alisverisYazi">
+                        <span>@item.alisverisKredisiSecenekleriYazi</span>
+                    </div>
+                </div>
+                <div class="alisverisBorder"></div>
+            }
+          
+            <form id="formAlisverisKredisiSecenekleri" name="form" style="display:none;" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <input onchange="fotoSectiAlisverisKredisiSecenekleri();" class="form-control" type="file" id="alisverisKredisiSecenekleriInputFoto" style="width:250px;">
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control alisverisKredisiSecenekleriInput" placeholder="Kredi Adı" />
+                    </div>
+                    <div class="col-md-12 butonDivAlisverisKredisiSecenekleri">
+                        <button type="button" id="butonAlisverisKredisiSecenekleriKaydet" class="btn btn-outline-secondary">Kaydet</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var id = 0;
+    var bos = 1;
+    var tiklandi = 0;
+    var InputVal;
+    var veriTabaniYazi;
+
+    $(".alisverisAlan").click(function () {
+
+        id = $(this).attr("id");
+
+        veriTabaniYazi = $(this).find("span").text().trim();
+
+        alert(veriTabaniYazi);
+
+        $(".alisverisAlan, .alisverisBorder").hide("clip");
+
+        setTimeout(function () {
+
+            $("#formAlisverisKredisiSecenekleri").show("clip");
+
+        }, 500);
+
+    });
+
+    function fotoSectiAlisverisKredisiSecenekleri() {
+
+        if (!$("#alisverisKredisiSecenekleriInputFoto").val()) {
+            tiklandi = 0;
+            $(".butonDivAlisverisKredisiSecenekleri").slideUp("slow");
+        } else {
+            tiklandi = 1;
+            $("#alisverisKredisiAlanSutun").trigger("DOMSubtreeModified");
+        }
+
+    }
+
+    $(".alisverisKredisiSecenekleriInput").keyup(function () {
+        if (!$(this).val()) {
+            bos = 1;
+            $(".butonDivAlisverisKredisiSecenekleri").slideUp("slow");
+        } else {
+            bos = 0;
+            $("#alisverisKredisiAlanSutun").trigger("DOMSubtreeModified");
+        }
+    });
+
+    $("#alisverisKredisiAlanSutun").on("DOMSubtreeModified", function () {
+        if (tiklandi == 1 && bos == 0) {
+            if ($(".butonDivAlisverisKredisiSecenekleri").css("display") != "none") {
+
+            } else {
+                $(".butonDivAlisverisKredisiSecenekleri").slideDown("slow");
+            }
+        }
+    });
+
+    $("#butonAlisverisKredisiSecenekleriKaydet").click(function () {
+
+        InputVal = $(this).parents("#formAlisverisKredisiSecenekleri").find(".alisverisKredisiSecenekleriInput").val();
+
+        var alisverisKredisiSecenekleriFotoEkle = "@Url.Action("alisverisKredisiSecenekleriKayit", "alisverisKredisiSecenekleri")";
+
+        var input = document.getElementById("alisverisKredisiSecenekleriInputFoto");
+        var files = input.files;
+        var formData = new FormData();
+
+        for (var i = 0; i != files.length; i++) {
+            formData.append("files", files[i]);
+        }
+
+        formData.append("id", id);
+        formData.append("alisverisKredisiSecenekleriYazi", InputVal);
+
+        $.ajax({
+            url: alisverisKredisiSecenekleriFotoEkle,
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function (response) {
+
+                if (InputVal == veriTabaniYazi) {
+
+                    $("#modalodemeSecenekleriYaziAlan").text("Aynı Yazıyı Yazamazsınız..");
+
+                    $("#modalodemeSecenekleri").modal('show');
+
+                } else {
+
+                    $("#formAlisverisKredisiSecenekleri").hide("clip");
+
+                    setTimeout(function() {
+
+                        $("#eeee").css("display", "none").html(response).find(".alisverisAlan, .alisverisBorder").css("display", "none");
+
+                        $("#eeee").css("display", "block");
+
+                        $(".alisverisAlan, .alisverisBorder").show("clip");
+
+                    }, 500);
+                }
+
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+
+        });
+
+    });
+
+</script>

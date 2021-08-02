@@ -1,0 +1,12 @@
+﻿@model List<odemeSecenekleri>
+
+@foreach (var item in Model)
+{
+    <div id="@item.Id" class="odemeAlan">
+        <div class="odemeFoto" style="background-image: url(/@item.odemeSecenekleriFoto) !important;"></div>
+        <div class="odemeYazi">
+            <span>@item.odemeSecenekleriYazi</span>
+        </div>
+    </div>
+    <div class="odemeBorder"></div>
+}

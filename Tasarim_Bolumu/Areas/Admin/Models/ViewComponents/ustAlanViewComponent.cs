@@ -14,11 +14,13 @@ namespace Tasarim_Bolumu.Areas.Admin.Models.ViewComponents
     {
         private readonly IustAlanServices ustAlanServices;
         private readonly IsiteLogoServices siteLogoServices;
+        private readonly IsiparisHattiServices siparisHattiServices;
 
-        public ustAlanViewComponent(IustAlanServices ustAlanServices, IsiteLogoServices siteLogoServices)
+        public ustAlanViewComponent(IustAlanServices ustAlanServices, IsiteLogoServices siteLogoServices, IsiparisHattiServices siparisHattiServices)
         {
             this.ustAlanServices = ustAlanServices;
             this.siteLogoServices = siteLogoServices;
+            this.siparisHattiServices = siparisHattiServices;
         }
 
         public IViewComponentResult Invoke()
@@ -27,7 +29,10 @@ namespace Tasarim_Bolumu.Areas.Admin.Models.ViewComponents
 
             var logo = siteLogoServices.hepsiniListele(null);
 
-            return View(Tuple.Create<List<ustAlan>, List<siteLogo>>(veri, logo));
+            var siparis = siparisHattiServices.hepsiniListele(null);
+
+
+            return View(Tuple.Create<List<ustAlan>, List<siteLogo>, List<siparisHatti>>(veri, logo, siparis));
         }
     }
 }

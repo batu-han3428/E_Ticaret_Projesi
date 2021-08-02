@@ -1,0 +1,12 @@
+﻿@model List<alisverisKredisiSecenekleri>
+
+@foreach (var item in Model){
+
+    <div id="@item.Id" class="alisverisAlan">
+        <div class="alisverisFoto" style="background-image: url(/@item.alisverisKredisiSecenekleriFoto) !important;" id="alisverisIng"></div>
+        <div class="alisverisYazi">
+            <span>@item.alisverisKredisiSecenekleriYazi</span>
+        </div>
+    </div>
+    <div class="alisverisBorder"></div>
+}

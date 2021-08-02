@@ -18,39 +18,38 @@
                 </div>
             </div>
             <hr>
-            <!-- Site Reklam -->
-            @await Component.InvokeAsync("siteReklam")
-            <!-- /Site Reklam -->
+                <!-- Site Reklam -->
+                @await Component.InvokeAsync("siteReklam")
+                <!-- /Site Reklam -->
+                <!-- Slider ve Günün Fırsatı Foto -->
+                <div class="container mt-4">
+                    <div class="row mt-3">
 
-            <!-- Slider ve Günün Fırsatı Foto -->
-            <div class="container mt-4">
-                <div class="row mt-3">
-
-                    <!-- Slider -->
-                    @await Component.InvokeAsync("slider")
-                    <!-- /Slider -->
-                    <!-- Günün Fırsatı Foto -->
-                    @await Component.InvokeAsync("gununFirsatiFoto")
-                    <!-- /Günün Fırsatı Foto -->
-
-                </div>
-            </div>
-            <!-- /Slider ve Günün Fırsatı Foto -->
-            <!-- Slider Kartı, Normal Kart ve Pc Reklam -->
-            <div class="container-fluid ">
-
-                <!-- Slider Kartı ve Normal Kart -->
-                <div class="row">
-                    <div class="col-md-12 mt-4">
-
-                        @await Component.InvokeAsync("sliderKartiVeNormalKart")
                         <!-- Slider -->
-                        <!--<div id="KontrolTusuTetikle2" class="carousel slide gununFirsatlariSlider" data-bs-ride="carousel"
-                     data-bs-interval="false">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">-->
-                        <!-- Cards -->
-                        <!--<div class="card-group" id="kartlar">
+                        @await Component.InvokeAsync("slider")
+                        <!-- /Slider -->
+                        <!-- Günün Fırsatı Foto -->
+                        @await Component.InvokeAsync("gununFirsatiFoto")
+                        <!-- /Günün Fırsatı Foto -->
+
+                    </div>
+                </div>
+                <!-- /Slider ve Günün Fırsatı Foto -->
+                <!-- Slider Kartı, Normal Kart ve Pc Reklam -->
+                <div class="container-fluid ">
+
+                    <!-- Slider Kartı ve Normal Kart -->
+                    <div class="row">
+                        <div class="col-md-12 mt-4">
+
+                            @await Component.InvokeAsync("sliderKartiVeNormalKart")
+                            <!-- Slider -->
+                            <!--<div id="KontrolTusuTetikle2" class="carousel slide gununFirsatlariSlider" data-bs-ride="carousel"
+                 data-bs-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">-->
+                            <!-- Cards -->
+                            <!--<div class="card-group" id="kartlar">
                     <div class="card" id="kart1">
                         <a href="#" class="btn text-start p-0">
                             <div class="card-header">
@@ -123,11 +122,11 @@
                         </a>
                     </div>
                 </div>-->
-                        <!-- /Cards -->
-                        <!--</div>
+                            <!-- /Cards -->
+                            <!--</div>
                 <div class="carousel-item">-->
-                        <!-- Cards -->
-                        <!--<div class="card-group" id="kartlar">
+                            <!-- Cards -->
+                            <!--<div class="card-group" id="kartlar">
                     <div class="card" id="kart5">
                         <a href="#" class="btn text-start p-0">
                             <div class="card-header">
@@ -202,8 +201,8 @@
                         </a>
                     </div>
                 </div>-->
-                        <!-- /Cards -->
-                        <!--</div>
+                            <!-- /Cards -->
+                            <!--</div>
                     </div>
                     <button id="geri" class="carousel-control-prev" data-bs-target="#KontrolTusuTetikle2"
                             data-bs-slide="prev">
@@ -216,9 +215,9 @@
                         <span class="visually-hidden">İleri</span>
                     </button>
                 </div>-->
-                        <!-- /Slider -->
-                        <!-- Mobil İçin Kart -->
-                        <!--<div class="card-group d-none gizliKart" id="kartlar">
+                            <!-- /Slider -->
+                            <!-- Mobil İçin Kart -->
+                            <!--<div class="card-group d-none gizliKart" id="kartlar">
                     <div class="card" id="kart1">
                         <a href="#" class="btn text-start p-0">
                             <img class="card-img-top img-fluid" src="~/css/urunler/48345076.jpg" />
@@ -332,32 +331,30 @@
                         </a>
                     </div>
                 </div>-->
-                        <!-- /Mobil İçin Kart -->
+                            <!-- /Mobil İçin Kart -->
+                        </div>
                     </div>
-                </div>
-                <!-- /Slider Kartı ve Normal Kart -->
-                <!-- Pc Reklam -->
-                <div class="row">
-                    <div class="col-md-12 mt-3" style="text-align:center;">
-                        @await Component.InvokeAsync("pcReklam")
+                    <!-- /Slider Kartı ve Normal Kart -->
+                    <!-- Pc Reklam -->
+                    <div class="row">
+                        <div class="col-md-12 mt-3" style="text-align:center;">
+                            @await Component.InvokeAsync("pcReklam")
+                        </div>
                     </div>
+                    <!-- /Pc Reklam -->
+
                 </div>
-                <!-- /Pc Reklam -->
-
-            </div>
-            <!-- /Slider Kartı, Normal Kart ve Pc Reklam -->
-            <!-- Kategoriler -->
-            <div class="container mt-3" style="background-color: white; box-shadow: 0px 2px rgb(221, 221, 221);">
-                @await Component.InvokeAsync("kategoriler")
-            </div>
-            <!-- /Kategoriler -->
-            <!-- Tanıtım Kart -->
-            <div class="container" id="tanıtımKart">
-                @await Component.InvokeAsync("tanitimKart")
-            </div>
-            <!-- /Tanıtım Kart -->
-
-
+                <!-- /Slider Kartı, Normal Kart ve Pc Reklam -->
+                <!-- Kategoriler -->
+                <div class="container mt-3" style="background-color: white; box-shadow: 0px 2px rgb(221, 221, 221);">
+                    @await Component.InvokeAsync("kategoriler")
+                </div>
+                <!-- /Kategoriler -->
+                <!-- Tanıtım Kart -->
+                <div class="container" id="tanıtımKart">
+                    @await Component.InvokeAsync("tanitimKart")
+                </div>
+                <!-- /Tanıtım Kart -->
         </div>
     </div>
     <!-- /Anasayfa -->

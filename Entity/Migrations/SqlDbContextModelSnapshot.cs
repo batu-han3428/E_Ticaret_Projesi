@@ -18,6 +18,24 @@ namespace Entity.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Entity.Concrete.AciklamaMetni", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("aciklamaMetniBaslik")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("aciklamaMetniYazi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("aciklamaMetni");
+                });
+
             modelBuilder.Entity("Entity.Concrete.GununFirsatiFoto", b =>
                 {
                     b.Property<int>("Id")
@@ -91,6 +109,63 @@ namespace Entity.Migrations
                     b.ToTable("tanitimKart");
                 });
 
+            modelBuilder.Entity("Entity.Concrete.alisverisKredisiSecenekleri", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("alisverisKredisiSecenekleriFoto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("alisverisKredisiSecenekleriYazi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("alisverisKredisiSecenekleri");
+                });
+
+            modelBuilder.Entity("Entity.Concrete.bilgi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("bilgiBaslik")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("bilgiIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("bilgiYazi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("bilgi");
+                });
+
+            modelBuilder.Entity("Entity.Concrete.odemeSecenekleri", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("odemeSecenekleriFoto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("odemeSecenekleriYazi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("odemeSecenekleri");
+                });
+
             modelBuilder.Entity("Entity.Concrete.pcReklam", b =>
                 {
                     b.Property<int>("Id")
@@ -104,6 +179,27 @@ namespace Entity.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("pcReklam");
+                });
+
+            modelBuilder.Entity("Entity.Concrete.siparisHatti", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("siparisHattiIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("siparisHattiTel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("siparisHattiYazi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("siparisHatti");
                 });
 
             modelBuilder.Entity("Entity.Concrete.siteLogo", b =>

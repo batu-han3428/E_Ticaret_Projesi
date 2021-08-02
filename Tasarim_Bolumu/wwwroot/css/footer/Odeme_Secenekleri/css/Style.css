@@ -14,7 +14,7 @@
 
 }
 
-#odemeAlan{
+.odemeAlan{
 
     display: flex; 
     justify-content: center;
@@ -31,61 +31,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
-
-}
-
-#axess{
-
-    background-image: url(../img/credit-card-axess.webp);
-
-    
-}
-
-#world{
-
-    background-image: url(../img/credit-card-world.webp);
-
-}
-
-#paraf{
-
-    background-image: url(../img/credit-card-paraf.webp);
-
-}
-
-#ziraat{
-
-    background-image: url(../img/credit-card-bankkart.webp);
-
-}
-
-#maximum{
-
-    background-image: url(../img/credit-card-maximum.webp);
-
-}
-
-#cardfinans{
-
-    background-image: url(../img/credit-card-cardfinans.webp);
-
-}
-
-#advantage{
-
-    background-image: url(../img/credit-card-advantage.webp);
-
-}
-
-#bonus{
-
-    background-image: url(../img/credit-card-bonus.webp);
-
-}
-
-#visa{
-
-    background-image: url(../img/mastercard-visa-logo.png);
 
 }
 
@@ -113,4 +58,8 @@
 
     display: flex;
 
+}
+
+.odemeBorder:nth-child(18) {
+    border-right: unset !important;
 }

@@ -1,0 +1,38 @@
+﻿<div id="eeee">
+    <!-- İçerik Başlık -->
+    <div class="row">
+        <div class="col-md-12" style="display: flex;">
+            <div id="adminPanelBaslikAlan">
+                <span class="display-6">Alt Bölüm Ayarları</span>
+            </div>
+        </div>
+    </div>
+    <!-- /İçerik Başlık -->
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="text-muted" style="cursor:default;">Değişiklik yapmak istediğiniz bölüme tıklayınız..</span>
+                </div>
+            </div>
+            <hr />
+
+            <!-- Ödeme Seçenekleri -->
+            @await Component.InvokeAsync("odemeSecenekleri")
+            <!-- /Ödeme Seçenekleri -->
+            <!-- Alışveriş Kredisi Seçenekleri -->
+            @await Component.InvokeAsync("alisverisKredisiSecenekleri")
+            <!-- /Alışveriş Kredisi Seçenekleri -->
+            <!-- Bilgi -->
+            @await Component.InvokeAsync("bilgi")
+            <!-- /Bilgi -->
+            <!-- Açıklama Metni-->
+            @await Component.InvokeAsync("aciklamaMetni")
+            <!-- /Açıklama Metni-->
+
+        </div>
+    </div>
+</div>
+
+<partial name="../Shared/cssVeJsDosyaYollari/_AltBolumDuzenle.cshtml/js/Index.cshtml" />  <!-- _AltBolumDuzenle Js Dosyası -->

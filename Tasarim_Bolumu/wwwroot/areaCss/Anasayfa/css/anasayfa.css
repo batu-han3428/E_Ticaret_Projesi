@@ -329,3 +329,22 @@ body {
 #card5cardLinkleri:hover {
     color: rgb(57, 63, 68) !important;
 }
+
+
+
+#card6card-body {
+    background-color: rgb(252, 240, 12);
+}
+
+#card6CardIcon {
+    font-size: 35px;
+    color: rgb(226, 213, 20);
+}
+
+#card6CardFooter {
+    background-color: rgb(214, 204, 21);
+}
+
+#card6cardLinkleri:hover {
+    color: rgb(247, 240, 106) !important;
+}

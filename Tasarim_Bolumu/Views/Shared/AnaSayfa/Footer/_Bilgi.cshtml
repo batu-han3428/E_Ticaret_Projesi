@@ -1,57 +1,9 @@
 ﻿<div class="container" id="yardimContainer">
     <div class="row mt-4">
         <div class="col-md-12" id="yardimSutun">
-            <div class="topAlanDivYardim">
-                <div class="topYardim" onclick="location.href='#';">
-                    <i class="bi bi-telephone-fill kategoriIkonYardim"></i>
-                </div>
-                <div class="yaziYardim">
-                    <a href="#">
-                        <span id="musteri">Müşteri Hizmetleri</span>
-                        <span id="no">0850 255 34 51</span>
-                    </a>
-                </div>
-            </div>
-            <div class="topAlanDivYardim">
-                <div class="topYardim" onclick="location.href='#';">
-                    <i class="bi bi-geo-alt-fill kategoriIkonYardim"></i>
-                </div>
-                <div class="yaziYardim">
-                    <a href="#">
-                        <span>Mağazalarımız</span>
-                    </a>
-                </div>
-            </div>
-            <div class="topAlanDivYardim">
-                <div class="topYardim" onclick="location.href='#';">
-                    <i class="bi bi-question-lg kategoriIkonYardim"></i>
-                </div>
-                <div class="yaziYardim">
-                    <a href="#">
-                        <span>Yardım Merkezi</span>
-                    </a>
-                </div>
-            </div>
-            <div class="topAlanDivYardim">
-                <div class="topYardim" onclick="location.href='#';">
-                    <i class="bi bi-arrow-repeat kategoriIkonYardim"></i>
-                </div>
-                <div class="yaziYardim">
-                    <a href="#">
-                        <span>Garanti & İade</span>
-                    </a>
-                </div>
-            </div>
-            <div class="topAlanDivYardim">
-                <div class="topYardim" onclick="location.href='#';">
-                    <i class="bi bi-envelope-fill kategoriIkonYardim"></i>
-                </div>
-                <div class="yaziYardim">
-                    <a href="#">
-                        <span>İletişim</span>
-                    </a>
-                </div>
-            </div>
+            <cache expires-after="@TimeSpan.FromMinutes(5)">
+                @await Component.InvokeAsync("bilgi")
+            </cache>
         </div>
     </div>
 </div>

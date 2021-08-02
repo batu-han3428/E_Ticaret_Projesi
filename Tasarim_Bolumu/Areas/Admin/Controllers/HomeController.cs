@@ -49,5 +49,12 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
             return PartialView("_UstBolumDuzenle");
         }
 
+        [HttpGet]
+        public PartialViewResult AltBolum()
+        {
+
+            return PartialView("_AltBolumDuzenle");
+        }
+
     }
 }

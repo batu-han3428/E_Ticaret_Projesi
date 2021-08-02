@@ -20,12 +20,14 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
         private IWebHostEnvironment _hostingEnvironment;
         private SqlDbContext context;
         private readonly IsiteLogoServices siteLogoServices;
-        public ustAlanController(IustAlanServices ustAlanServices, IWebHostEnvironment environment, IsiteLogoServices siteLogoServices)
+        private readonly IsiparisHattiServices siparisHattiServices;
+        public ustAlanController(IustAlanServices ustAlanServices, IWebHostEnvironment environment, IsiteLogoServices siteLogoServices, IsiparisHattiServices siparisHattiServices)
         {
             this.ustAlanServices = ustAlanServices;
             context = new SqlDbContext();
             _hostingEnvironment = environment;
             this.siteLogoServices = siteLogoServices;
+            this.siparisHattiServices = siparisHattiServices;
         }
 
         [HttpPost]
@@ -88,6 +90,28 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
             {
                 TempData["Message"] = $"İşlem başarısız oldu. Lütfen tüm alanları kontrol ederek tekrar deneyin.";
             }
+            return RedirectToAction("UstBolum", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult siparisHattiKayit(siparisHatti mod)
+        {
+
+            if (mod.siparisHattiIcon == null || mod.siparisHattiYazi == null || mod.siparisHattiTel == null)
+            {
+
+                return RedirectToAction("UstBolum", "Home");
+            }
+
+            var veri = siparisHattiServices.guncelle(mod);
+
+            if (veri == 0)
+            {
+                
+                return RedirectToAction("UstBolum", "Home");
+            }
+
+
             return RedirectToAction("UstBolum", "Home");
         }
     }

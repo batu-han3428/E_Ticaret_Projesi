@@ -1,0 +1,79 @@
+﻿@charset "UTF-8";
+
+#aciklamaMetni {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.aciklamaMetniBaslik {
+    color: rgb(72, 72, 72);
+}
+
+#aciklamaMetniLink {
+    color: rgb(72, 72, 72);
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.aciklamaMetniEkleIcon {
+    font-size: 30px;
+    color: rgb(35, 153, 98);
+}
+
+.aciklamaMetniEkleIcon:hover {
+    color: rgb(25, 135, 84);
+    cursor:pointer;
+}
+
+/* Sağ Tık Menü */
+.sagTikMenu,
+.sagTikMenu li ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background: rgb(214, 77, 88);
+    border: none;
+    border-bottom: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    display: none;
+    min-width: 100px;
+    z-index: 999999999999999999;
+    opacity: 0.85;
+}
+
+    .sagTikMenu:hover,
+    .sagTikMenu li ul:hover {
+        opacity: 1;
+    }
+
+    .sagTikMenu li {
+        position: relative;
+    }
+
+        .sagTikMenu li a,
+        .sagTikMenu li ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+
+            .sagTikMenu li a:hover {
+                color: white;
+                background: rgb(220, 53, 69);
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+            }
+
+        .sagTikMenu li:hover ul {
+            display: block;
+            min-width: 200px;
+        }

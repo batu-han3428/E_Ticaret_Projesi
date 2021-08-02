@@ -19,13 +19,21 @@ namespace DAL.Concrete
         {
             context = new SqlDbContext();
         }
-        public void ekle(T model)
+        public int ekle(T model)
         {
             //using (TContext context = new TContext())
             //{
-            context.Set<T>().Add(model);
-            context.SaveChanges();
-            //}
+            try
+            {
+                context.Set<T>().Add(model);
+                context.SaveChanges();
+                //}   return 1;
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
 
         }
 
@@ -63,10 +71,19 @@ namespace DAL.Concrete
             return context.Set<T>().Find(id);
         }
 
-        public void sil(T model)
+        public int sil(T model)
         {
-            context.Entry<T>(model).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
-            context.SaveChanges();
+            try
+            {
+                context.Entry<T>(model).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                context.SaveChanges();
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
         }
     }
 }

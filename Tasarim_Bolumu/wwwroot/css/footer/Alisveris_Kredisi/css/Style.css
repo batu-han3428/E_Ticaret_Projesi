@@ -20,9 +20,10 @@
     display: flex;
     justify-content:space-evenly;
 
+
 }
 
-#alisverisAlan{
+.alisverisAlan{
 
     display: flex; 
     justify-content: center;
@@ -40,24 +41,6 @@
     background-position: center;
     background-size: 100%;
     
-
-}
-
-#alisverisIng{
-
-    background-image: url(../img/ing_logo.webp);
-
-}
-
-#alisverisAkbank{
-
-    background-image: url(../img/akbank_logo.webp);
-
-}
-
-#alisverisYapiKredi{
-
-    background-image: url(../img/ykb_logo.webp);
 
 }
 
@@ -86,4 +69,8 @@
     margin:0 20px; 
     height:45px;
 
+}
+
+.alisverisBorder:nth-child(6) {
+    border-right: unset !important;
 }
