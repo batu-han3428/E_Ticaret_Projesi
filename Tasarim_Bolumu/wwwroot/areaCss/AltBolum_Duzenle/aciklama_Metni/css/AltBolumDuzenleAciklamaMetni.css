@@ -5,6 +5,10 @@
     font-weight: 500;
 }
 
+#aciklamaMetni > #devaminiGoster:nth-child(8) > hr {
+    display:none;
+}
+
 .aciklamaMetniBaslik {
     color: rgb(72, 72, 72);
 }
@@ -26,6 +30,48 @@
 .aciklamaMetniEkleIcon:hover {
     color: rgb(25, 135, 84);
     cursor:pointer;
+}
+
+.aciklamaMetniGeriIcon {
+    font-size: 30px;
+    color: rgb(255, 0, 0);
+    display: none;
+}
+
+.aciklamaMetniGeriIcon:hover {
+    color: rgb(229, 11, 11);
+    cursor: pointer;
+}
+
+.formAciklamaMetni {
+    display:none;
+}
+
+.formAciklamaMetni textarea, .formAciklamaMetni input[type='text'] {
+    border-color: rgb(242, 142, 55) !important;
+    color: rgb(242, 121, 11) !important;
+}
+
+.formAciklamaMetni textarea:focus, .formAciklamaMetni input[type='text']:focus {
+    border-color: rgb(242, 142, 55) !important;
+    box-shadow: 0 0 10px 0.25rem rgb(242, 121, 11) !important;
+}
+
+.formAciklamaMetni textarea::-webkit-input-placeholder, .formAciklamaMetni input[type='text']::-webkit-input-placeholder {
+    color: rgb(242, 121, 11) !important;
+}
+
+.kaydetAciklamaMetni {
+    color: rgb(242, 121, 11) !important;
+    border-color: rgb(242, 121, 11) !important;
+    width:100%;
+    display:none;
+}
+
+.kaydetAciklamaMetni:hover {
+    border-color: rgb(242, 121, 11) !important;
+    background-color: rgb(242, 121, 11) !important;
+    color: rgb(255, 255, 255) !important;
 }
 
 /* Sağ Tık Menü */

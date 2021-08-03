@@ -27,17 +27,7 @@ namespace BL.Concrete
 
             if (sayi < 6)
             { 
-                var field = context.aciklamaMetni.Find(model.Id);
-
-                if (model.aciklamaMetniBaslik != field.aciklamaMetniBaslik && model.aciklamaMetniYazi != field.aciklamaMetniYazi)
-                {
-
-                    return aciklamaMetniRepository.ekle(model);
-                }
-                else
-                {
-                    return 0;
-                }
+                return aciklamaMetniRepository.ekle(model);
             }
             else
             {
@@ -69,8 +59,15 @@ namespace BL.Concrete
 
             if (sayi > 2)
             {
-               
-                return aciklamaMetniRepository.sil(model);
+                if (model.Id != 1 && model.Id != 2)
+                {
+
+                    return aciklamaMetniRepository.sil(model);
+                }
+                else
+                {
+                    return 0;
+                }
             }
             else
             {
