@@ -1,0 +1,114 @@
+﻿@model Tuple<List<AciklamaMetni>, int>
+
+<div class="text-muted mt-4" id="aciklamaMetni">
+    @foreach (var item in Model.Item1)
+    {
+        if (Model.Item2 < 3)
+        {
+            if (item.Id == 1)
+            {
+                <div id="@item.Id" class="aciklamaMetniBaslikParagraf">
+                    <h1 class="h5 aciklamaMetniBaslik">@item.aciklamaMetniBaslik</h1>
+                    <p>
+                        @item.aciklamaMetniYazi
+                    </p>
+                </div>
+                <hr>
+                continue;
+            }
+
+            if (item.Id == 2)
+            {
+                <div id="@item.Id" class="aciklamaMetniBaslikParagraf">
+                    <h1 class="h5 aciklamaMetniBaslik">
+                        @item.aciklamaMetniBaslik
+                    </h1>
+                    <p>
+                        @{
+                            var yazi = item.aciklamaMetniYazi;
+                            var sonuc = yazi.Length - 1161;
+                            var yaziDevami = yazi.Substring(yazi.Length - sonuc);
+                            var yaziOncesi = yazi.Substring(0, 1161);
+
+                            if (yazi.Length <= 1161)
+                            {
+                                @yazi
+                            }
+                            else
+                            {
+                                @yaziOncesi
+
+                                <span class="collapse" id="devaminiGoster">
+                                    @yaziDevami
+                                </span>
+                            }
+                        }
+                    </p>
+                </div>
+            }
+        }
+        else
+        {
+            if (item.Id == 1)
+            {
+                <div id="@item.Id" class="aciklamaMetniBaslikParagraf">
+                    <h1 class="h5 aciklamaMetniBaslik">@item.aciklamaMetniBaslik</h1>
+                    <p>
+                        @item.aciklamaMetniYazi
+                    </p>
+                </div>
+                <hr>
+                continue;
+            }
+
+            if (item.Id == 2)
+            {
+                <div id="@item.Id" class="cizgiSil aciklamaMetniBaslikParagraf">
+                    <h1 class="h5 aciklamaMetniBaslik">
+                        @item.aciklamaMetniBaslik
+                    </h1>
+                    <p>
+                        @{
+                            var yazi = item.aciklamaMetniYazi;
+                            var sonuc = yazi.Length - 1161;
+                            var yaziDevami = yazi.Substring(yazi.Length - sonuc);
+                            var yaziOncesi = yazi.Substring(0, 1161);
+
+                            if (yazi.Length <= 1161)
+                            {
+                                @yazi
+                            }
+                            else
+                            {
+                                @yaziOncesi
+
+                                <span class="collapse" id="devaminiGoster">
+                                    @yaziDevami
+                                </span>
+                            }
+                        }
+                    </p>
+                </div>
+                <hr class="hr">
+                continue;
+            }
+            if (item.Id > 2)
+            {
+
+                <div class="collapse cizgiSil" id="devaminiGoster">
+                    <div id="@item.Id" class="aciklamaMetniBaslikParagraf">
+                        <h1 class="h5 aciklamaMetniBaslik">
+                            @item.aciklamaMetniBaslik
+                        </h1>
+                        <p>
+                            @item.aciklamaMetniYazi
+                        </p>
+                    </div>
+                    <hr>
+                </div>
+            }
+        }
+    }
+    <a href="javascript:void(0)" id="aciklamaMetniLink" data-bs-toggle="collapse"
+       data-bs-target="#devaminiGoster">Devamını Göster</a>
+</div>

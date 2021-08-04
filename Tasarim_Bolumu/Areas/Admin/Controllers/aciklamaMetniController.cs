@@ -56,5 +56,24 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
 
             return RedirectToAction("AltBolum", "Home");
         }
+
+        [HttpPost]
+        public IActionResult aciklamaMetniGuncelle(AciklamaMetni mod)
+        {
+
+            if (mod.aciklamaMetniBaslik == null || mod.aciklamaMetniYazi == null)
+            {
+                return RedirectToAction("AltBolum", "Home");
+            }
+
+            var veri = aciklamaMetniServices.guncelle(mod);
+
+            if (veri == 0)
+            {
+                return RedirectToAction("AltBolum", "Home");
+            }
+
+            return RedirectToAction("AltBolum", "Home");
+        }
     }
 }

@@ -5,10 +5,6 @@
     font-weight: 500;
 }
 
-#aciklamaMetni > #devaminiGoster:nth-child(8) > hr {
-    display:none;
-}
-
 .aciklamaMetniBaslik {
     color: rgb(72, 72, 72);
 }
@@ -43,36 +39,68 @@
     cursor: pointer;
 }
 
-.formAciklamaMetni {
-    display:none;
+.formAciklamaMetni, .formAciklamaMetniGuncelle {
+    display: none;
 }
 
-.formAciklamaMetni textarea, .formAciklamaMetni input[type='text'] {
+.formAciklamaMetni textarea, .formAciklamaMetni input[type='text'],
+.formAciklamaMetniGuncelle textarea, .formAciklamaMetniGuncelle input[type='text'] {
     border-color: rgb(242, 142, 55) !important;
     color: rgb(242, 121, 11) !important;
 }
 
-.formAciklamaMetni textarea:focus, .formAciklamaMetni input[type='text']:focus {
+.formAciklamaMetni textarea, .formAciklamaMetniGuncelle textarea{
+    cursor:unset;
+}
+
+.formAciklamaMetni textarea:focus, .formAciklamaMetni input[type='text']:focus,
+.formAciklamaMetniGuncelle textarea:focus, .formAciklamaMetniGuncelle input[type='text']:focus {
     border-color: rgb(242, 142, 55) !important;
     box-shadow: 0 0 10px 0.25rem rgb(242, 121, 11) !important;
 }
 
-.formAciklamaMetni textarea::-webkit-input-placeholder, .formAciklamaMetni input[type='text']::-webkit-input-placeholder {
+.formAciklamaMetni textarea::-webkit-input-placeholder, .formAciklamaMetni input[type='text']::-webkit-input-placeholder,
+.formAciklamaMetniGuncelle textarea::-webkit-input-placeholder, .formAciklamaMetniGuncelle input[type='text']::-webkit-input-placeholder {
     color: rgb(242, 121, 11) !important;
 }
 
-.kaydetAciklamaMetni {
+.kaydetAciklamaMetni, .guncelleAciklamaMetni {
     color: rgb(242, 121, 11) !important;
     border-color: rgb(242, 121, 11) !important;
-    width:100%;
-    display:none;
+    width: 100%;
+    display: none;
 }
 
-.kaydetAciklamaMetni:hover {
+.kaydetAciklamaMetni:hover, .guncelleAciklamaMetni:hover {
     border-color: rgb(242, 121, 11) !important;
     background-color: rgb(242, 121, 11) !important;
     color: rgb(255, 255, 255) !important;
 }
+
+.aciklamaMetniBaslikParagraf:hover{
+    cursor:pointer;
+}
+
+.formAciklamaMetniGuncelle textarea::-webkit-scrollbar, .formAciklamaMetni textarea::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+
+.formAciklamaMetniGuncelle textarea::-webkit-scrollbar-thumb, .formAciklamaMetni textarea::-webkit-scrollbar-thumb {
+    background-color: rgb(248, 174, 82);
+    border-radius:50%;
+    height:40px;
+}
+
+.formAciklamaMetniGuncelle textarea::-webkit-scrollbar-thumb:hover, .formAciklamaMetni textarea::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(234, 132, 42);
+}
+
+.formAciklamaMetniGuncelle textarea::-webkit-scrollbar-button, .formAciklamaMetni textarea::-webkit-scrollbar-button {
+  display:none;
+}
+
+
 
 /* Sağ Tık Menü */
 .sagTikMenu,

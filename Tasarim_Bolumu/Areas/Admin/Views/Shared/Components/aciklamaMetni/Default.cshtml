@@ -76,7 +76,7 @@
 
                         if (item.Id == 2)
                         {
-                            <div id="@item.Id" class="aciklamaMetniBaslikParagraf">
+                            <div id="@item.Id" class="cizgiSil aciklamaMetniBaslikParagraf">
                                 <h1 class="h5 aciklamaMetniBaslik">
                                     @item.aciklamaMetniBaslik
                                 </h1>
@@ -102,13 +102,13 @@
                                     }
                                 </p>
                             </div>
-                            <hr>
+                            <hr class="hr">
                             continue;
                         }
                         if (item.Id > 2)
                         {
 
-                            <div class="collapse" id="devaminiGoster">
+                            <div class="collapse cizgiSil" id="devaminiGoster">
                                 <div id="@item.Id" class="aciklamaMetniBaslikParagraf">
                                     <h1 class="h5 aciklamaMetniBaslik">
                                         @item.aciklamaMetniBaslik
@@ -138,25 +138,45 @@
                     <button type="button" class="btn btn-outline-warning kaydetAciklamaMetni">Kaydet</button>
                 </div>
             </div>
+            <div class="formAciklamaMetniGuncelle mb-5">
+                <div class="col-md-6">
+                    <label class="form-label" style="color: rgb(242, 121, 11) !important;">Başlık</label>
+                    <input type="text" class="form-control" placeholder="Başlık" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label mt-2" style="color: rgb(242, 121, 11) !important;">Açıklama Metni</label>
+                    <textarea class="form-control" rows="4" placeholder="Açıklama Metni" cols="30" required></textarea>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-outline-warning guncelleAciklamaMetni">Güncelle</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
+
     $(function () {
 
         var bos = 1;
         var textBos = 1;
         var count;
         var id;
+        var veriTabaniYazi;
+        var veriTabaniBaslik;
 
+        $(".hr").css("display", "none");
+       
+        $(".cizgiSil").last().find("hr").css("display", "none");
+       
         $('#aciklamaMetniLink').mouseup(function () {
 
             if ($("#devaminiGoster").css("display") == "none") {
-
+                $(".hr").css("display", "block");
                 $(this).text("Devamını Gizle");
 
             } else if ($("#devaminiGoster").css("display") == "inline") {
-
+                $(".cizgiSil").eq(0).next().css("display", "none");
                 $(this).text("Devamını Göster");
 
             }
@@ -175,37 +195,49 @@
 
         });
 
-        $(".formAciklamaMetni").find($("input[type='text']")).keyup(function () {
+        $('.aciklamaMetniGeriIcon').click(function () {
+
+            $(this).fadeOut();
+            $('.formAciklamaMetni, .formAciklamaMetniGuncelle').fadeOut();
+
+            setTimeout(function () {
+                $(".aciklamaMetniEkleIcon").fadeIn();
+                $('#aciklamaMetni').fadeIn();
+            },400);
+
+        });
+
+        $(".formAciklamaMetni, .formAciklamaMetniGuncelle").find($("input[type='text']")).keyup(function () {
             if (!$(this).val()) {
                 textBos = 1;
-                $(".formAciklamaMetni").find("textarea").css("border-bottom", "1px solid rgb(242, 142, 55)");
-                $(".kaydetAciklamaMetni").slideUp("slow");
+                $(".formAciklamaMetni, .formAciklamaMetniGuncelle").find("textarea").css("border-bottom", "1px solid rgb(242, 142, 55)");
+                $(".kaydetAciklamaMetni, .guncelleAciklamaMetni").slideUp("slow");
             } else {
                 textBos = 0;
-                $(".formAciklamaMetni").trigger("DOMSubtreeModified");
+                $(".formAciklamaMetni, .formAciklamaMetniGuncelle").trigger("DOMSubtreeModified");
             }
         });
 
-        $(".formAciklamaMetni").find("textarea").keyup(function () {
+        $(".formAciklamaMetni, .formAciklamaMetniGuncelle").find("textarea").keyup(function () {
             if (!$(this).val()) {
                 bos = 1;
-                $(".formAciklamaMetni").find("textarea").css("border-bottom", "1px solid rgb(242, 142, 55)");
-                $(".kaydetAciklamaMetni").slideUp("slow");
+                $(".formAciklamaMetni, .formAciklamaMetniGuncelle").find("textarea").css("border-bottom", "1px solid rgb(242, 142, 55)");
+                $(".kaydetAciklamaMetni, .guncelleAciklamaMetni").slideUp("slow");
             } else {
                 bos = 0;
-                $(".formAciklamaMetni").trigger("DOMSubtreeModified");
+                $(".formAciklamaMetni, .formAciklamaMetniGuncelle").trigger("DOMSubtreeModified");
             }
         });
 
-        $(".formAciklamaMetni").on("DOMSubtreeModified", function () {
+        $(".formAciklamaMetni, .formAciklamaMetniGuncelle").on("DOMSubtreeModified", function () {
             if (textBos == 0 && bos == 0) {
-                if ($(".kaydetAciklamaMetni").css("display") != "none") {
+                if ($(".kaydetAciklamaMetni, .guncelleAciklamaMetni").css("display") != "none") {
 
                 } else {
-                    $(".kaydetAciklamaMetni").slideDown("slow");
+                    $(".kaydetAciklamaMetni, .guncelleAciklamaMetni").slideDown("slow");
 
                     setTimeout(function () {
-                        $(".formAciklamaMetni").find("textarea").css("border-bottom", "0");
+                        $(".formAciklamaMetni, .formAciklamaMetniGuncelle").find("textarea").css("border-bottom", "0");
                     }, 400);
                 }
             }
@@ -276,7 +308,7 @@
                 success: function (donenHtml) {
 
                     if (count <= 2) {
-                       
+
                         $("#modalBilgiYaziAlan").text("En Az 2 Açıklama Metni Olmak Zorunda..").css("font-size","26px");
 
                         $("#modalBilgi").modal('show');
@@ -306,6 +338,76 @@
                 }
             });
 
+        });
+
+        $('.aciklamaMetniBaslikParagraf').click(function () {
+
+            id = $(this).attr("id");
+
+            veriTabaniBaslik = $(this).find("h1").text();
+
+            veriTabaniYazi = $(this).find("p").text();
+
+            $(".aciklamaMetniEkleIcon").fadeOut();
+            $("#aciklamaMetni").fadeOut();
+
+            setTimeout(function () {
+                $(".formAciklamaMetniGuncelle").find("input[type='text']").attr("value", veriTabaniBaslik);
+                $(".formAciklamaMetniGuncelle").find("textarea").text(veriTabaniYazi.trim()),
+                $(".aciklamaMetniGeriIcon").fadeIn();
+                $(".formAciklamaMetniGuncelle").fadeIn();
+            }, 400);
+
+        });
+
+        $(".guncelleAciklamaMetni").click(function () {
+
+            var baslik = $(".formAciklamaMetniGuncelle").find("input[type='text']").val().trim();
+            var metin = $(".formAciklamaMetniGuncelle").find("textarea").val().trim();
+
+            var aciklamaMetniBilgileri = new Object();
+            aciklamaMetniBilgileri.aciklamaMetniBaslik = baslik;
+            aciklamaMetniBilgileri.aciklamaMetniYazi = metin;
+            aciklamaMetniBilgileri.Id = id;
+
+            var aciklamaMetniGuncelle = "@Url.Action("aciklamaMetniGuncelle", "aciklamaMetni")";
+
+            $.ajax({
+                url: aciklamaMetniGuncelle,
+                data: aciklamaMetniBilgileri,
+                type: "POST",
+                success: function (donenHtml) {
+                    if (veriTabaniBaslik == baslik) {
+
+                        $("#modalBilgiYaziAlan").text("Aynı Başlığı Yazamazsınız..").css("font-size","26px");
+
+                        $("#modalBilgi").modal('show');
+
+                    } else if (veriTabaniYazi == metin) {
+
+                        $("#modalBilgiYaziAlan").text("Aynı Metni Yazamazsınız..").css("font-size", "26px");
+
+                        $("#modalBilgi").modal('show');
+
+                    } else {
+
+                        $(".aciklamaMetniGeriIcon").fadeOut();
+                        $(".formAciklamaMetniGuncelle").fadeOut();
+
+                        setTimeout(function() {
+
+                            $("#eeee").css("display", "none").html(donenHtml).find(".aciklamaMetniEkleIcon, #aciklamaMetni").css("display", "none");
+
+                            $("#eeee").css("display", "block");
+
+                            $(".aciklamaMetniEkleIcon, #aciklamaMetni").fadeIn();
+
+                        }, 400);
+                    }
+                }, error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+            });
         });
 
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
