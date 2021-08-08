@@ -22,7 +22,7 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
         [HttpGet]
         public PartialViewResult SayfaAyarlari()
         {
-            ViewData["Baslik"] = "Sayfa Ayarları";
+            
 
             return PartialView("_SayfaAyarlari");
         }
@@ -54,6 +54,20 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
         {
 
             return PartialView("_AltBolumDuzenle");
+        }
+
+        [HttpGet]
+        public PartialViewResult Kategoriler()
+        {
+
+            return PartialView("_KategorilerDuzenle");
+        }
+
+        [HttpGet]
+        public PartialViewResult TumUrunler()
+        {
+
+            return PartialView("_TumUrunlerDuzenle");
         }
 
     }

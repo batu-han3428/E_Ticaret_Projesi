@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Entity.Models
 {
-     interface ITaksitSecenekleri
+    public interface IurunKategorileriTaksitSecenekleri
     {
+         int urunKategorileriId { get; set; }
+         urunKategorileri urunKategorileri { get; set; }
          int TaksitSecenekleriId { get; set; }
-         List<urunKategorileriTaksitSecenekleri> urunKategorileriTaksitSecenekleri { get; set; }
-         Banka Banka { get; set; }
-         int TaksitSecenekleriTaksitSayisi { get; set; }
-
+         TaksitSecenekleri TaksitSecenekleri { get; set; }
     }
 }

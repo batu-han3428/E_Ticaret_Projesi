@@ -348,3 +348,22 @@ body {
 #card6cardLinkleri:hover {
     color: rgb(247, 240, 106) !important;
 }
+
+
+
+#card7card-body {
+    background-color: rgb(212, 216, 219);
+}
+
+#card7CardIcon {
+    font-size: 35px;
+    color: rgb(190, 193, 196);
+}
+
+#card7CardFooter {
+    background-color: rgb(190, 193, 196);
+}
+
+#card7cardLinkleri:hover {
+    color: rgb(222, 226, 229) !important;
+}

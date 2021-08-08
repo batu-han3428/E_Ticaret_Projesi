@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tasarim_Bolumu.Areas.Admin.Models.DTO;
 
-namespace Tasarim_Bolumu.Areas.Admin.Models.ViewComponents
+namespace Tasarim_Bolumu.Areas.Admin.Models.ViewComponents.footer
 {
     [Area("Admin"), Authorize(Roles = "Admin")]
     public class odemeSecenekleriViewComponent : ViewComponent

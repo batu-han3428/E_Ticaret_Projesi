@@ -1,0 +1,27 @@
+﻿<div id="eeee">
+    <!-- İçerik Başlık -->
+    <div class="row">
+        <div class="col-md-12" style="display: flex;">
+            <div id="adminPanelBaslikAlan">
+                <span class="display-6">Kategoriler</span>
+            </div>
+        </div>
+    </div>
+    <!-- /İçerik Başlık -->
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="text-muted" style="cursor:default;">Ürünlerinizi bir grup altında toplamak için kategori alanları ve alt kategorilerini bu sayfadan ayarlaya bilirsiniz..</span>
+                </div>
+            </div>
+            <hr />
+
+            <!-- Kategori Alanlari -->
+            @await Component.InvokeAsync("kategoriAlanlari")
+            <!-- /Kategori Alanlari -->
+
+        </div>
+    </div>
+</div>

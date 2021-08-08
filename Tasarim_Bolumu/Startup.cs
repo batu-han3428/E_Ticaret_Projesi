@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,7 +29,12 @@ namespace Tasarim_Bolumu
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services) { 
+        public void ConfigureServices(IServiceCollection services) {
+
+            //services.Configure<RazorViewEngineOptions>(options =>
+            //{
+            //    options.ViewLocationExpanders.Add(new CustomLocationExpander());
+            //});
 
             services.AddControllersWithViews();
             services.IdentityServerAyarlari();
@@ -75,6 +81,9 @@ namespace Tasarim_Bolumu
 
             services.AddScoped<IaciklamaMetniRepository, aciklamaMetniRepository>();
             services.AddScoped<IaciklamaMetniServices, aciklamaMetniServices>();
+
+            services.AddScoped<IkategoriAlanlariRepository, kategoriAlanlariRepository>();
+            services.AddScoped<IkategoriAlanlariServices, kategoriAlanlariServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

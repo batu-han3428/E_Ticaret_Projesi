@@ -1,8 +1,8 @@
-﻿ <!-- İçerik Başlık -->
+﻿<!-- İçerik Başlık -->
 <div class="row">
     <div class="col-md-12" style="display: flex;">
         <div id="adminPanelBaslikAlan">
-            <span class="display-6">Sayfa Ayarları</span>
+            <span class="display-6">Tüm Ürünler</span>
         </div>
     </div>
 </div>
@@ -63,25 +63,6 @@
                     </div>
                     <div class="card-footer" id="card6CardFooter">
                         <a class="cardLinkleri" id="card6cardLinkleri">
-                            <span class="card-text detayYazi">Düzenle..</span>
-                            <i class="bi bi-arrow-right-circle-fill detayIcon"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" id="Kategoriler">
-                    <div class="card-body" id="card7card-body">
-                        <div class="sayiVeIconAlan">
-                            <h3 class="card-title text-light">Kategoriler</h3>
-                            <i class="bi bi-bounding-box" id="card7CardIcon"></i>
-                        </div>
-                        <div>
-                            <span class="card-text text-light cardYazi">Telefon, Bilgisayar...</span>
-                        </div>
-                    </div>
-                    <div class="card-footer" id="card7CardFooter">
-                        <a class="cardLinkleri" id="card7cardLinkleri">
                             <span class="card-text detayYazi">Düzenle..</span>
                             <i class="bi bi-arrow-right-circle-fill detayIcon"></i>
                         </a>
@@ -168,39 +149,3 @@
     </div>
 </div>
 <!-- /Kartlar -->
-
-
-<script type="text/javascript">
-
-    var actio;
-
-    $(".cardLinkleri").click(function () {
-
-        action = $(this).parents(".card").attr("id");
-           
-        var page = "https://localhost:5001/Admin/Home/" + action;
-           
-        $("#ajaxGosterimAlan").fadeOut();
-
-        setTimeout(function () {
-
-            $.ajax({
-
-                type: "GET",
-                url: page,
-                success: function (e) {
-
-                    $("#ajaxGosterimAlan").fadeIn().html(e);
-
-                },
-                error: function (hata, ajaxoptions, throwerror) {
-                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
-                }
-            });
-
-        }, 400);
-            
-
-    });
-
-</script>
