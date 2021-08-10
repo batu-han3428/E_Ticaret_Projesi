@@ -75,24 +75,18 @@
                 }
                 else
                 {
-                    <div class="urunKategorileriDivAlan">
-                        @foreach (var item in Model)
-                        {
-                            <div class="urunKategorileriAdlari">
+                    <div>
+                        <label class="selectLabelKategori">Kategori Alanları</label>
+                        <select class="form-select kategoriSelect" size="3" aria-label="size 3 select example">
+                            @foreach (var item in Model)
+                            {
                                 @if (item.urunKategorileriUstId == 0)
                                 {
-
-                                    <span>@item.urunKategorileriKategoriAdi</span>
-                                    <hr />
-
+                                    <option value="@item.urunKategorileriKategoriAdi">@item.urunKategorileriKategoriAdi</option>
                                 }
-                                else
-                                {
-                                    <span>@item.urunKategorileriKategoriAdi</span>
-                                    <hr />
-                                }
-                            </div>
-                        }
+                            }
+                            <option value="asdas">asdasda</option>
+                        </select>
                     </div>
                     <div id="kategoriAlanlariButonAlan">
                         <button class="btn btn-secondary" id="kategoriButon" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
@@ -168,6 +162,8 @@
     </div>
 </div>
 <script type="text/javascript">
+
+    $(".kategoriSelect > option").eq(0).attr("selected","true");
 
     var kategoriAlanAdKontrol = 0;
 

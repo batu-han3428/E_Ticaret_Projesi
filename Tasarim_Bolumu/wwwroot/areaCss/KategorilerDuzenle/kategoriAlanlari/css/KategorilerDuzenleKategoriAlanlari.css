@@ -78,12 +78,12 @@ button > div:last-child {
     text-align:center;
 }
 
-    .urunKategorileriAlanAdlari > span, .urunKategorileriAdlari > span {
+.urunKategorileriAlanAdlari > span, .urunKategorileriAdlari > span {
         font-size: 20px;
         font-weight: bold;
         color: rgb(157, 163, 173);
         cursor: default;
-    }
+}
 
 .urunKategorileriDivAlan {
     overflow-x: hidden;
@@ -93,4 +93,18 @@ button > div:last-child {
 
 .urunKategorileriDivAlan::-webkit-scrollbar{
         display: none;
+}
+
+.selectLabelKategori {
+    color: rgb(168, 174, 185);
+    font-size: medium;
+    line-height: 30px;
+}
+
+.kategoriSelect > option:first-child:focus {
+    color: white !important;
+}
+
+.kategoriSelect > option:hover:after {
+    background-color: rgb(206, 206, 206) !important;
 }
