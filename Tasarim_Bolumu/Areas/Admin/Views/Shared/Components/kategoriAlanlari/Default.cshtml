@@ -56,19 +56,28 @@
     <div class="col-md-6">
         <fieldset>
             <legend>Kategori</legend>
-            <div id="kategoriAlanlariYaziAlan">
-                <span>Kayıtlı kategori bulunmamaktadır. Ürünlerinizi listelemek için lütfen kategori alanı giriniz.</span>
-            </div>
-            <div id="kategoriAlanlariButonAlan">
-                <button class="btn btn-secondary" id="kategoriAlanlariButon" data-bs-target="#kategoriModal" data-bs-toggle="modal">
-                    <div>
-                        <span id="kategoriAlanlariButonYazi">Kategori Ekle</span>
+            @{
+                if (Model.Any(x => x.urunKategorileriUstId != 0))
+                {
+                    <div id="kategoriAlanlariYaziAlan">
+                        <span>Kayıtlı kategori bulunmamaktadır. Ürünlerinizi listelemek için lütfen kategori alanı giriniz.</span>
                     </div>
-                    <div>
-                        <i class="bi bi-file-earmark-plus-fill" id="kategoriAlanlariButonIcon"></i>
+                    <div id="kategoriAlanlariButonAlan">
+                        <button class="btn btn-secondary" id="kategoriAlanlariButon" data-bs-target="#kategoriModal" data-bs-toggle="modal">
+                            <div>
+                                <span id="kategoriAlanlariButonYazi">Kategori Ekle</span>
+                            </div>
+                            <div>
+                                <i class="bi bi-file-earmark-plus-fill" id="kategoriAlanlariButonIcon"></i>
+                            </div>
+                        </button>
                     </div>
-                </button>
-            </div>
+                }
+                else
+                {
+                    
+                }
+            }
         </fieldset>
     </div>
     <div class="modal fade" id="kategoriAlanlariModal" data-bs-backdrop="static">
