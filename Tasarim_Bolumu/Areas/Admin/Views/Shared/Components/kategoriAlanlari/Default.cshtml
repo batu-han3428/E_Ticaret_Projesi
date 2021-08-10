@@ -79,8 +79,8 @@
                     <button class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="col-md-12 pb-4 text-center kategoriAlanlariModalModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
-                        <span>Kategori alanı, kategorilerinizi gruplayacağınız ana alan adıdır. Örn. Elektronik > Telefon..</span>
+                    <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
+                        <span>Kategori alanı, kategorilerinizi gruplayacağınız ana alan adıdır. Örğ. Elektronik > Telefon..</span>
                     </div>
                     <form class="needs-validation" novalidate id="kategoriAlanlariModalForm">
                         <div class="row g-3">
@@ -101,124 +101,28 @@
         </div>
     </div>
     <div class="modal fade" id="kategoriModal" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header" style="color:rgb(255, 123, 0); background-color: rgb(248, 248, 248);">
-                    <h5 class="modal-title">Yeni Adres</h5>
+                <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
+                    <h5 class="modal-title">Yeni Kategori</h5>
                     <button class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="col-md-12 pb-4 text-center" style="font-weight: bold; color:rgb(255, 123, 0);">
-                        <span>Kurumsal bir adres olacak ise vergi no veya tckn alanlarından sadece biri dolu olmalıdır.</span>
+                    <div class="col-md-12 pb-4 text-center kategoriModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
+                        <span>Kategori, ürünlerinizi gruplayacağınız alan adıdır.<br/> Örğ. İos > İphone 11..</span>
                     </div>
-                    <form class="needs-validation" novalidate id="teslimatAdresiModalForm">
+                    <form class="needs-validation" novalidate id="kategoriModalForm">
                         <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="adresbasligi" class="form-label">Adres Başlığı *</label>
-                                <input id="adresbasligi" type="text" class="form-control" placeholder="Adres Başlığı" required>
+                            <div class="col-md-12">
+                                <label for="kategoriAdi" class="form-label">Kategori Adı *</label>
+                                <input id="kategoriAdi" type="text" class="form-control" placeholder="Kategori Adı" required>
                                 <div class="invalid-feedback">
                                     Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="tckimlikno" class="form-label">TC Kimlik No *</label>
-                                <input id="tckimlikno" type="text" class="form-control" placeholder="Tc No" required>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="adiniz" class="form-label">Adınız *</label>
-                                <input id="adiniz" type="email" class="form-control" placeholder="Adınız" required>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="soyadiniz" class="form-label">Soyadınız *</label>
-                                <input id="soyadiniz" type="text" class="form-control" placeholder="Soyadınız" required>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="il" class="form-label">İl *</label>
-                                <select id="il" class="form-select" required>
-                                    <option disabled>İl Seçiniz..</option>
-                                    <option>İstanbul</option>
-                                    <option>Ankara</option>
-                                    <option>İzmir</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="ilce" class="form-label">İlçe *</label>
-                                <select id="ilce" class="form-select" required>
-                                    <option disabled>İlçe Seçiniz..</option>
-                                    <option>Beylikdüzü</option>
-                                    <option>Büyükçekmece</option>
-                                    <option>Silivri</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="mahalle" class="form-label">Mahalle *</label>
-                                <select id="mahalle" class="form-select" required>
-                                    <option disabled>Mahalle Seçiniz..</option>
-                                    <option>Büyükşehir Mh.</option>
-                                    <option>Barış Mh.</option>
-                                    <option>Gürpınar Mh.</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="adres" class="form-label">Adres *</label>
-                                <textarea id="adres" class="form-control" rows="3" placeholder="Açık Adresinizi Giriniz"
-                                          required></textarea>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="telefon" class="form-label">Telefon *</label>
-                                <input id="telefon" type="text" class="form-control" placeholder="(5xx) xxx xx xx" required>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="postakodu" class="form-label">Posta Kodu</label>
-                                <input id="postakodu" type="text" class="form-control" placeholder="Posta Kodu" required>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Fatura Tipi *</label>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
-                                    <label class="form-check-label" for="inlineRadio1">Bireysel</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">Kurumsal</label>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer mt-3">
-                            <button class="btn btn-warning" id="teslimatAdresiButon">
-                                <div>
-                                    <span id="teslimatAdresiButonYazi">Kaydet</span>
-                                </div>
-                            </button>
+                            <button class="btn btn-secondary" type="submit" id="kategoriButonModal">Kaydet</button>
                         </div>
                     </form>
                 </div>
@@ -253,19 +157,59 @@
     $("#kategoriAlanlariModalForm").submit(function (event) {
         event.preventDefault();
 
-        $(".urunKategorileriAlanAdlari > span").each(function (index) {
+        if ($(".urunKategorileriAlanAdlari > span").text() != "") {
 
-            if ($(this).text() == $("#kategoriAlanAdi").val()) {
+            $(".urunKategorileriAlanAdlari > span").each(function (index) {
 
-                kategoriAlanAdKontrol++;
+                if ($(this).text() == $("#kategoriAlanAdi").val()) {
 
-                if (kategoriAlanAdKontrol < 2) {
-                    $(".kategoriAlanlariModalModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Kategori Alan Adı Ekleyemezsiniz...</span>');
+                    kategoriAlanAdKontrol++;
+
+                    if (kategoriAlanAdKontrol < 2) {
+                        $(".kategoriAlanlariModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Kategori Alan Adı Ekleyemezsiniz...</span>');
+                    }
+
+
+                    return false;
+
+                } else {
+
+                    var kategoriAlan = new Object();
+                    kategoriAlan.urunKategorileriKategoriAdi = $("#kategoriAlanAdi").val();
+
+                    var kategoriAlanAdiKaydet = "@Url.Action("ustKategoriEkle", "kategoriAlanlari")";
+
+                    if (kategoriAlan.urunKategorileriKategoriAdi != "") {
+
+                        $.ajax({
+                            url: kategoriAlanAdiKaydet,
+                            type: "POST",
+                            data: kategoriAlan,
+                            success: function (response) {
+
+                                $("#kategoriAlanlariModal").modal('hide');
+
+                                setTimeout(function () {
+
+                                    $("#eeee").html(response);
+
+
+                                }, 500);
+
+                            },
+                            error: function (hata, ajaxoptions, throwerror) {
+                                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                            }
+                        });
+
+                        return false;
+                    }
                 }
-                    
 
-                return false;
-            } else {
+            });
+
+        }
+        else {
 
                 var kategoriAlan = new Object();
                 kategoriAlan.urunKategorileriKategoriAdi = $("#kategoriAlanAdi").val();
@@ -273,33 +217,121 @@
                 var kategoriAlanAdiKaydet = "@Url.Action("ustKategoriEkle", "kategoriAlanlari")";
 
                 if (kategoriAlan.urunKategorileriKategoriAdi != "") {
-                    $.ajax({
-                        url: kategoriAlanAdiKaydet,
-                        type: "POST",
-                        data: kategoriAlan,
-                        success: function (response) {
+
+                        $.ajax({
+                            url: kategoriAlanAdiKaydet,
+                            type: "POST",
+                            data: kategoriAlan,
+                            success: function (response) {
 
 
-                            $("#kategoriAlanlariModal").modal('hide');
+                                $("#kategoriAlanlariModal").modal('hide');
 
-                            setTimeout(function () {
+                                setTimeout(function () {
 
-                                $("#eeee").html(response);
+                                    $("#eeee").html(response);
 
 
-                            }, 500);
+                                }, 500);
 
-                        },
-                        error: function (hata, ajaxoptions, throwerror) {
-                            alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
-                        }
-                    });
+                            },
+                            error: function (hata, ajaxoptions, throwerror) {
+                                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                            }
+                        });
+
+                }
+        }
+    });
+
+    $("#kategoriModalForm").submit(function (event) {
+        event.preventDefault();
+
+        if ($(".urunKategorileriAlanAdlari > span").text() != "") {
+
+            $(".urunKategorileriAlanAdlari > span").each(function (index) {
+
+                if ($(this).text() == $("#kategoriAlanAdi").val()) {
+
+                    kategoriAlanAdKontrol++;
+
+                    if (kategoriAlanAdKontrol < 2) {
+                        $(".kategoriAlanlariModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Kategori Alan Adı Ekleyemezsiniz...</span>');
+                    }
+
 
                     return false;
+
+                } else {
+
+                    var kategoriAlan = new Object();
+                    kategoriAlan.urunKategorileriKategoriAdi = $("#kategoriAlanAdi").val();
+
+                    var kategoriAlanAdiKaydet = "@Url.Action("ustKategoriEkle", "kategoriAlanlari")";
+
+                    if (kategoriAlan.urunKategorileriKategoriAdi != "") {
+
+                        $.ajax({
+                            url: kategoriAlanAdiKaydet,
+                            type: "POST",
+                            data: kategoriAlan,
+                            success: function (response) {
+
+                                $("#kategoriAlanlariModal").modal('hide');
+
+                                setTimeout(function () {
+
+                                    $("#eeee").html(response);
+
+
+                                }, 500);
+
+                            },
+                            error: function (hata, ajaxoptions, throwerror) {
+                                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                            }
+                        });
+
+                        return false;
+                    }
                 }
-            }
 
-        });
+            });
 
+        }
+        else {
+
+                var kategoriAlan = new Object();
+                kategoriAlan.urunKategorileriKategoriAdi = $("#kategoriAlanAdi").val();
+
+                var kategoriAlanAdiKaydet = "@Url.Action("ustKategoriEkle", "kategoriAlanlari")";
+
+                if (kategoriAlan.urunKategorileriKategoriAdi != "") {
+
+                        $.ajax({
+                            url: kategoriAlanAdiKaydet,
+                            type: "POST",
+                            data: kategoriAlan,
+                            success: function (response) {
+
+
+                                $("#kategoriAlanlariModal").modal('hide');
+
+                                setTimeout(function () {
+
+                                    $("#eeee").html(response);
+
+
+                                }, 500);
+
+                            },
+                            error: function (hata, ajaxoptions, throwerror) {
+                                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                            }
+                        });
+
+                }
+        }
     });
+
 </script>
