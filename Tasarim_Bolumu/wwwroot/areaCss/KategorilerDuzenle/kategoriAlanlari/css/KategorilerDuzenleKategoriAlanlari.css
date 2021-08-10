@@ -78,12 +78,12 @@ button > div:last-child {
     text-align:center;
 }
 
-.urunKategorileriAlanAdlari > span {
-    font-size:20px;
-    font-weight:bold;
-    color:rgb(157, 163, 173);
-    cursor:default;
-}
+    .urunKategorileriAlanAdlari > span, .urunKategorileriAdlari > span {
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(157, 163, 173);
+        cursor: default;
+    }
 
 .urunKategorileriDivAlan {
     overflow-x: hidden;
