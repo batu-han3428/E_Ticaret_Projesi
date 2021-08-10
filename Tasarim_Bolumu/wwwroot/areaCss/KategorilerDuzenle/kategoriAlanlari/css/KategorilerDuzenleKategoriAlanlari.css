@@ -88,11 +88,10 @@ button > div:last-child {
 .urunKategorileriDivAlan {
     overflow-x: hidden;
     max-height: 100px;
-
 }
 
 .urunKategorileriDivAlan::-webkit-scrollbar{
-        display: none;
+    display: none;
 }
 
 .selectLabelKategori {
@@ -101,10 +100,28 @@ button > div:last-child {
     line-height: 30px;
 }
 
-.kategoriSelect > option:first-child:focus {
+.kategoriSelect:focus {
+    border-color: rgb(232, 235, 240) !important;
+    box-shadow: 0 0 0 0.25rem rgb(206, 206, 206) !important;
+}
+
+.kategoriSelect option:hover,
+.kategoriSelect option:focus,
+.kategoriSelect option:active {
+    background-color: rgb(232, 235, 240) !important; /* for IE */
     color: white !important;
 }
 
-.kategoriSelect > option:hover:after {
-    background-color: rgb(206, 206, 206) !important;
+.kategoriSelect option:checked {
+    background: linear-gradient(#d6d6d6, #d6d6d6);
+    background-color: #d6d6d6 !important; 
+    color: white !important;
+}
+
+.kategoriSelect, .kategoriSelect option, .kategoriSelect:not(:checked), .kategoriSelect:not(:hover), .kategoriSelect:not(:focus), .kategoriSelect:not(:active) {
+    font-size: 25px !important;
+    text-align: center !important;
+    color: white !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    background: linear-gradient(#d6d6d6, #d6d6d6);
 }

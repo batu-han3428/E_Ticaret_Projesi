@@ -77,7 +77,7 @@
                 {
                     <div>
                         <label class="selectLabelKategori">Kategori Alanları</label>
-                        <select class="form-select kategoriSelect" size="3" aria-label="size 3 select example">
+                        <select class="form-select kategoriSelect" size="2">
                             @foreach (var item in Model)
                             {
                                 @if (item.urunKategorileriUstId == 0)
@@ -85,6 +85,9 @@
                                     <option value="@item.urunKategorileriKategoriAdi">@item.urunKategorileriKategoriAdi</option>
                                 }
                             }
+                            <option value="asdas">asdasda</option>
+                            <option value="asdas">asdasda</option>
+                            <option value="asdas">asdasda</option>
                             <option value="asdas">asdasda</option>
                         </select>
                     </div>
@@ -164,6 +167,7 @@
 <script type="text/javascript">
 
     $(".kategoriSelect > option").eq(0).attr("selected","true");
+
 
     var kategoriAlanAdKontrol = 0;
 
