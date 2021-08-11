@@ -20,7 +20,7 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult ustKategoriEkle(urunKategorileri mod)
+        public IActionResult KategoriEkle(urunKategorileri mod)
         {
 
             if (mod.urunKategorileriKategoriAdi == null)
@@ -28,7 +28,7 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
                 return RedirectToAction("Kategoriler", "Home");
             }
 
-            var veri = kategoriAlanlariServices.kategoriAlanEkle(mod);
+            var veri = kategoriAlanlariServices.kategoriEkle(mod);
 
             if (veri == 0)
             {
@@ -37,5 +37,6 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
 
             return RedirectToAction("Kategoriler", "Home");
         }
+ 
     }
 }

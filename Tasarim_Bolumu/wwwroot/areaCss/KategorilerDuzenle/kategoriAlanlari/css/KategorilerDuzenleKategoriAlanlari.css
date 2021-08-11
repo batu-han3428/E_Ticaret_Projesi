@@ -24,7 +24,7 @@ legend {
     line-height: 30px;
 }
 
-#kategoriAlanlariButonAlan {
+#kategoriAlanlariButonAlan, #kategoriButonAlan, #kategoriDetayButonAlan {
     padding: 10px 18px 10px 18px;
 }
 
@@ -40,9 +40,9 @@ legend {
     justify-content: center;
 }
 
-    #kategoriAlanlariButon:hover, #kategoriButon:hover {
-        background-color: rgb(143, 148, 155);
-    }
+#kategoriAlanlariButon:hover, #kategoriButon:hover {
+    background-color: rgb(143, 148, 155);
+}
 
 #kategoriAlanlariButonIcon {
     font-size: 20px;
@@ -74,30 +74,41 @@ button > div:last-child {
     position:unset !important;
 }
 
-.urunKategorileriAlanAdlari{
-    text-align:center;
+.kategorilerDetaySpanAlan {
+    text-align: center;
 }
 
-.urunKategorileriAlanAdlari > span, .urunKategorileriAdlari > span {
+.kategorilerDetaySpanAlan > span {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(157, 163, 173);
+    cursor: default;
+}
+
+.urunKategorileriAlanAdlari, .KategorilerAdlari {
+    text-align: center;
+}
+
+    .urunKategorileriAlanAdlari > span, .KategorilerAdlari > span {
         font-size: 20px;
         font-weight: bold;
         color: rgb(157, 163, 173);
         cursor: default;
-}
+    }
 
-.urunKategorileriDivAlan {
+.urunKategorileriDivAlan, .KategorilerDivAlanUrun {
     overflow-x: hidden;
     max-height: 100px;
 }
 
-.urunKategorileriDivAlan::-webkit-scrollbar{
+.urunKategorileriDivAlan::-webkit-scrollbar, .KategorilerDivAlanUrun::-webkit-scrollbar {
     display: none;
 }
 
-.selectLabelKategori {
-    color: rgb(168, 174, 185);
-    font-size: medium;
-    line-height: 30px;
+.selectLabelKategori, .kategoriAdi {
+    color: rgb(168, 174, 185) !important;
+    font-size: medium !important;
+    line-height: 30px !important;
 }
 
 .kategoriSelect:focus {
@@ -129,4 +140,9 @@ button > div:last-child {
     text-align: center !important;
     font-family: 'Times New Roman', Times, serif !important;
     height:87px;
+}
+
+.kategorilerDetayAlan{
+    border:1px solid black;
+    width:240px;
 }

@@ -19,7 +19,7 @@ namespace BL.Concrete
         {
             this.kategoriAlanlariRepository = kategoriAlanlariRepository;
         }
-        public int kategoriAlanEkle(urunKategorileri model)
+        public int kategoriEkle(urunKategorileri model)
         {
             var veri = context.urunKategorileri.Any(a => a.urunKategorileriKategoriAdi == model.urunKategorileriKategoriAdi);
 

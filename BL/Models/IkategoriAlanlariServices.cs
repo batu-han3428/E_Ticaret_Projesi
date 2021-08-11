@@ -10,7 +10,7 @@ namespace BL.Models
 {
     public interface IkategoriAlanlariServices
     {
-        int kategoriAlanEkle(urunKategorileri model);
+        int kategoriEkle(urunKategorileri model);
         List<urunKategorileri> hepsiniListele(Expression<Func<urunKategorileri, bool>> filter = null);
     }
 }
