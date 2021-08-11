@@ -53,11 +53,43 @@
 
         </fieldset>
     </div>
+    <div class="modal fade" id="kategoriAlanlariModal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
+                    <h5 class="modal-title">Yeni Kategori Alanı</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
+                        <span>Kategori alanı, kategorilerinizi gruplayacağınız ana alan adıdır. Örğ. Elektronik > Telefon..</span>
+                    </div>
+                    <form class="needs-validation" novalidate id="kategoriAlanlariModalForm">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label for="kategoriAlanAdi" class="form-label">Kategori Alan Adı *</label>
+                                <input id="kategoriAlanAdi" type="text" class="form-control" placeholder="Kategori Alan Adı" required>
+                                <div class="invalid-feedback">
+                                    Bu Alan Boş Geçilemez
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer mt-3">
+                            <button class="btn btn-secondary" type="submit" id="kategoriAlanlariButonModal">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="row">
     <div class="col-md-6">
         <fieldset style="width:50%;">
             <legend>Kategori</legend>
             @{
-                if (Model.Any(x => x.urunKategorileriUstId != 0))
+                if (Model.Any(x => x.urunKategorileriUstId == 0))
                 {
                     <div id="kategoriAlanlariYaziAlan">
                         <span>Kayıtlı kategori bulunmamaktadır. Ürünlerinizi listelemek için lütfen kategori alanı giriniz.</span>
@@ -105,64 +137,35 @@
             }
         </fieldset>
     </div>
-    <div class="modal fade" id="kategoriAlanlariModal" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
-                    <h5 class="modal-title">Yeni Kategori Alanı</h5>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
-                        <span>Kategori alanı, kategorilerinizi gruplayacağınız ana alan adıdır. Örğ. Elektronik > Telefon..</span>
-                    </div>
-                    <form class="needs-validation" novalidate id="kategoriAlanlariModalForm">
-                        <div class="row g-3">
-                            <div class="col-md-12">
-                                <label for="kategoriAlanAdi" class="form-label">Kategori Alan Adı *</label>
-                                <input id="kategoriAlanAdi" type="text" class="form-control" placeholder="Kategori Alan Adı" required>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer mt-3">
-                            <button class="btn btn-secondary" type="submit" id="kategoriAlanlariButonModal">Kaydet</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="modal fade" id="kategoriModal" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
-                    <h5 class="modal-title">Yeni Kategori</h5>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
+                <h5 class="modal-title">Yeni Kategori</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 pb-4 text-center kategoriModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
+                    <span>Kategori, ürünlerinizi gruplayacağınız alan adıdır.<br /> Örğ. İos > İphone 11..</span>
                 </div>
-                <div class="modal-body">
-                    <div class="col-md-12 pb-4 text-center kategoriModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
-                        <span>Kategori, ürünlerinizi gruplayacağınız alan adıdır.<br/> Örğ. İos > İphone 11..</span>
-                    </div>
-                    <form class="needs-validation" novalidate id="kategoriModalForm">
-                        <div class="row g-3">
-                            <div class="col-md-12">
-                                <label for="kategoriAdi" class="form-label">Kategori Adı *</label>
-                                <input id="kategoriAdi" type="text" class="form-control" placeholder="Kategori Adı" required>
-                                <div class="invalid-feedback">
-                                    Bu Alan Boş Geçilemez
-                                </div>
+                <form class="needs-validation" novalidate id="kategoriModalForm">
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label for="kategoriAdi" class="form-label">Kategori Adı *</label>
+                            <input id="kategoriAdi" type="text" class="form-control" placeholder="Kategori Adı" required>
+                            <div class="invalid-feedback">
+                                Bu Alan Boş Geçilemez
                             </div>
                         </div>
-                        <div class="modal-footer mt-3">
-                            <button class="btn btn-secondary" type="submit" id="kategoriButonModal">Kaydet</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="modal-footer mt-3">
+                        <button class="btn btn-secondary" type="submit" id="kategoriButonModal">Kaydet</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 <script type="text/javascript">
 
