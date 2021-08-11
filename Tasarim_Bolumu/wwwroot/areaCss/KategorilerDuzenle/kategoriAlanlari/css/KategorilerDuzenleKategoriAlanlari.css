@@ -28,7 +28,7 @@ legend {
     padding: 10px 18px 10px 18px;
 }
 
-#kategoriAlanlariButon {
+#kategoriAlanlariButon, #kategoriButon {
     color: white;
     background-color: rgb(168, 174, 185);
     border: 0;
@@ -40,9 +40,9 @@ legend {
     justify-content: center;
 }
 
-#kategoriAlanlariButon:hover {
-    background-color: rgb(143, 148, 155);
-}
+    #kategoriAlanlariButon:hover, #kategoriButon:hover {
+        background-color: rgb(143, 148, 155);
+    }
 
 #kategoriAlanlariButonIcon {
     font-size: 20px;
@@ -108,20 +108,24 @@ button > div:last-child {
 .kategoriSelect option:hover,
 .kategoriSelect option:focus,
 .kategoriSelect option:active {
-    background-color: rgb(232, 235, 240) !important; /* for IE */
+    background-color: rgb(232, 235, 240) !important;
     color: white !important;
-}
-
-.kategoriSelect option:checked {
     background: linear-gradient(#d6d6d6, #d6d6d6);
-    background-color: #d6d6d6 !important; 
+}
+
+.kategoriSelect option:checked{
+    background: linear-gradient(#d6d6d6, #d6d6d6);
+    background-color: #d6d6d6 !important;
     color: white !important;
 }
 
-.kategoriSelect, .kategoriSelect option, .kategoriSelect:not(:checked), .kategoriSelect:not(:hover), .kategoriSelect:not(:focus), .kategoriSelect:not(:active) {
+.kategoriSelect option{
+    margin:5px 0;
+}
+
+.kategoriSelect {
     font-size: 25px !important;
     text-align: center !important;
-    color: white !important;
     font-family: 'Times New Roman', Times, serif !important;
-    background: linear-gradient(#d6d6d6, #d6d6d6);
+    height:87px;
 }

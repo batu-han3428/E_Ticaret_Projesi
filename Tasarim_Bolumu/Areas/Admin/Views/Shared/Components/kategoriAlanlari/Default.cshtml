@@ -54,7 +54,7 @@
         </fieldset>
     </div>
     <div class="col-md-6">
-        <fieldset>
+        <fieldset style="width:50%;">
             <legend>Kategori</legend>
             @{
                 if (Model.Any(x => x.urunKategorileriUstId != 0))
@@ -75,7 +75,7 @@
                 }
                 else
                 {
-                    <div>
+                    <div style="width:100%;">
                         <label class="selectLabelKategori">Kategori Alanları</label>
                         <select class="form-select kategoriSelect" size="2">
                             @foreach (var item in Model)
@@ -92,9 +92,9 @@
                         </select>
                     </div>
                     <div id="kategoriAlanlariButonAlan">
-                        <button class="btn btn-secondary" id="kategoriButon" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
+                        <button class="btn btn-secondary" id="kategoriButon" data-bs-target="#kategoriModal" data-bs-toggle="modal">
                             <div>
-                                <span id="kategoriAlanlariButonYazi">Kategori Alanı Ekle</span>
+                                <span id="kategoriAlanlariButonYazi">Kategori Ekle</span>
                             </div>
                             <div>
                                 <i class="bi bi-file-earmark-plus-fill" id="kategoriAlanlariButonIcon"></i>
@@ -166,8 +166,8 @@
 </div>
 <script type="text/javascript">
 
-    $(".kategoriSelect > option").eq(0).attr("selected","true");
 
+    $(".kategoriSelect > option").eq(0).attr("selected", "true");
 
     var kategoriAlanAdKontrol = 0;
 
