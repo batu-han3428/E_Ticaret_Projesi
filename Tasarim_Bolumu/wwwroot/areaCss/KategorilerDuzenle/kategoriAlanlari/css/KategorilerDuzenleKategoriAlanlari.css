@@ -75,26 +75,35 @@ button > div:last-child {
 }
 
 .kategorilerDetaySpanAlan {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(168, 174, 183);
+    padding: 10px;
+    cursor: pointer !important;
 }
 
-.kategorilerDetaySpanAlan > span {
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(157, 163, 173);
-    cursor: default;
+.kategorilerDetaySpanAlan > span, .kategorilerDetaySpanAlanIcerik > span {
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(157, 163, 173);
+        cursor: default;
+}
+
+.kategorilerDetaySpanAlanIcerik {
+    text-align: center;
+
 }
 
 .urunKategorileriAlanAdlari, .KategorilerAdlari {
     text-align: center;
 }
 
-    .urunKategorileriAlanAdlari > span, .KategorilerAdlari > span {
-        font-size: 20px;
-        font-weight: bold;
-        color: rgb(157, 163, 173);
-        cursor: default;
-    }
+.urunKategorileriAlanAdlari > span, .KategorilerAdlari > span {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(157, 163, 173);
+    cursor: default;
+}
 
 .urunKategorileriDivAlan, .KategorilerDivAlanUrun {
     overflow-x: hidden;
@@ -143,6 +152,5 @@ button > div:last-child {
 }
 
 .kategorilerDetayAlan{
-    border:1px solid black;
     width:240px;
 }

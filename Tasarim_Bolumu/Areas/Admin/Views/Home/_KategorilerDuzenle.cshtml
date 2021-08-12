@@ -1,4 +1,6 @@
-﻿<div id="eeee">
+﻿@model int
+
+<div id="eeee">
     <!-- İçerik Başlık -->
     <div class="row">
         <div class="col-md-12" style="display: flex;">
@@ -19,7 +21,7 @@
             <hr />
 
             <!-- Kategori Alanlari -->
-            @await Component.InvokeAsync("kategoriAlanlari")
+            @await Component.InvokeAsync("kategoriAlanlari",new { ver = Model})
             <!-- /Kategori Alanlari -->
 
         </div>

@@ -37,6 +37,19 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
 
             return RedirectToAction("Kategoriler", "Home");
         }
- 
+
+        [HttpPost]
+        public IActionResult KategoriDetayListele(urunKategorileri mod)
+        {
+
+            if (mod.urunKategorileriId == 0)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            int ver = mod.urunKategorileriId;
+
+            return RedirectToAction("Kategoriler", "Home",ver);
+        }
     }
 }

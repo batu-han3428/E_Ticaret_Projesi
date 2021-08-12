@@ -1,4 +1,4 @@
-﻿@model List<urunKategorileri>
+﻿@model Tuple<List<urunKategorileri>, int>
 
 <div class="row">
     <div class="col-md-3">
@@ -7,7 +7,7 @@
                 <fieldset>
                     <legend>Kategori Alanları</legend>
                     @{
-                        if (Model.Count == 0)
+                        if (Model.Item1.Count == 0)
                         {
                             <div id="kategoriAlanlariYaziAlan">
                                 <span>Kayıtlı kategori alanı bulunmamaktadır. Ürünlerinizi listelemek için lütfen kategori alanı ekleyiniz.</span>
@@ -26,7 +26,7 @@
                         else
                         {
                             <div class="urunKategorileriDivAlan">
-                                @foreach (var item in Model)
+                                @foreach (var item in Model.Item1)
                                 {
                                     if (item.urunKategorileriUstId == 0)
                                     {
@@ -87,12 +87,12 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <fieldset>
+                <fieldset style="width:84%;">
                     <legend>Kategori</legend>
                     @{
                         bool kategori = false;
 
-                        foreach (var item in Model)
+                        foreach (var item in Model.Item1)
                         {
                             if(item.urunKategorileriUstId != 0)
                             {
@@ -118,7 +118,7 @@
                         else
                         {
                             <div class="KategorilerDivAlanUrun">
-                                @foreach (var item in Model)
+                                @foreach (var item in Model.Item1)
                                 {
                                     if (item.urunKategorileriUstId != 0)
                                     {
@@ -162,7 +162,7 @@
                                     <div class="col-md-12">
                                         <label for="selectLabel" class="form-label selectLabelKategori">Kategori Alanları *</label>
                                         <select id="selectLabel" class="form-select kategoriSelect" size="2">
-                                            @foreach (var item in Model)
+                                            @foreach (var item in Model.Item1)
                                             {
                                                 @if (item.urunKategorileriUstId == 0)
                                                 {
@@ -195,41 +195,54 @@
                 <fieldset style="width:95%;">
                     <legend>Kategoriler Detay</legend>
                     @{
-                        if (Model.Count == 0)
+                        if (Model.Item1.Count == 0)
                         {
                             if (!kategori)
                             {
-                            <div id="kategoriAlanlariYaziAlan">
-                                <span>Kayıtlı kategori alanı ve kategori bulunmamaktadır. Kategori detaylarını listelemek için lütfen kategori alanı ve kategori ekleyiniz.</span>
-                            </div>
-                            <div id="kategoriDetayButonAlan">
-                                <button class="btn btn-secondary" id="kategoriDetayButon" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
-                                    <div>
-                                        <span id="kategoriAlanlariButonYazi">Kategori Alanı Ekle</span>
-                                    </div>
-                                    <div>
-                                        <i class="bi bi-file-earmark-plus-fill" id="kategoriAlanlariButonIcon"></i>
-                                    </div>
-                                </button>
-                            </div>
+                                <div id="kategoriAlanlariYaziAlan">
+                                    <span>Kayıtlı kategori alanı ve kategori bulunmamaktadır. Kategori detaylarını listelemek için lütfen kategori alanı ve kategori ekleyiniz.</span>
+                                </div>
+                                <div id="kategoriDetayButonAlan">
+                                    <button class="btn btn-secondary" id="kategoriDetayButon" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
+                                        <div>
+                                            <span id="kategoriAlanlariButonYazi">Kategori Alanı Ekle</span>
+                                        </div>
+                                        <div>
+                                            <i class="bi bi-file-earmark-plus-fill" id="kategoriAlanlariButonIcon"></i>
+                                        </div>
+                                    </button>
+                                </div>
                             }
                         }
                         else
                         {
-                            <div class="kategorilerDetayAlan">
-                                <div class="urunKategorileriDivAlan">
-                                   
-                                        @{
+                <div class="kategorilerDetayAlan">
+                    @{
 
-                                            urunKategorileri baslikKategoriAlan = Model.FirstOrDefault(x => x.urunKategorileriUstId == 0);
-                                            <div class="kategorilerDetaySpanAlan">
-                                                <span>@baslikKategoriAlan.urunKategorileriKategoriAdi</span>
-                                                <hr />
-                                            </div>
-                                        }
+                        urunKategorileri baslikKategoriAlan = Model.Item1.FirstOrDefault(x => x.urunKategorileriUstId == ((uint)Model.Item2));
 
-                                </div>
-                            </div>
+                        <div class="kategorilerDetaySpanAlan" data-bs-toggle="modal" data-bs-target="#kategoriDetaylariModal">
+                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="Kategori Alanları" style="cursor: pointer; color: white; align-self: center;">
+                            </span>
+                        </div>
+                        <div style="padding-top: 10px; max-height: 110px;" class="urunKategorileriDivAlan">
+                            @foreach (var item in Model.Item1)
+                            {
+                                if (item.urunKategorileriUstId == baslikKategoriAlan.urunKategorileriId)
+                                {
+                                    <div class="kategorilerDetaySpanAlanIcerik">
+                                        <span>@item.urunKategorileriKategoriAdi</span>
+                                        <hr />
+                                    </div>
+                                }
+
+
+                            }
+
+                        </div>
+                    }
+                </div>
+
                             <div id="kategoriAlanlariButonAlan">
                                 <button class="btn btn-secondary" id="kategoriAlanlariButon" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
                                     <div>
@@ -245,14 +258,41 @@
 
                 </fieldset>
             </div>
+            <div class="modal fade" id="kategoriDetaylariModal" data-bs-backdrop="static">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
+                            <h5 class="modal-title">Kategori Detayları</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
+                                <span>Kategorileri listelemek için bir kategori alanı seçiniz..</span>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="selectLabelDetay" class="form-label selectLabelKategori">Kategori Alanları *</label>
+                                <select id="selectLabelDetay" class="form-select kategoriSelect" size="2">
+                                    @foreach (var item in Model.Item1)
+                                    {
+                                        @if (item.urunKategorileriUstId == 0)
+                                        {
+                                            <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-   
 </div>
 <script type="text/javascript">
 
 
     $(".kategoriSelect > option").eq(0).attr("selected", "true");
+    $("#selectLabelDetay > option").eq(0).attr("selected", "true");
 
     var kategoriAlanAdKontrol = 0;
 
@@ -376,16 +416,16 @@
                 if ($(this).text() == $("#kategoriAdi").val()) {
 
                     $(".kategoriModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Kategori Ekleyemezsiniz...</span>');
-                    
+
                     return false;
 
                 } else {
-                    
+
                     var kategori = new Object();
                     kategori.urunKategorileriKategoriAdi = $("#kategoriAdi").val();
                     kategori.urunKategorileriUstId = $("#selectLabel option").filter(':selected').val();
 
-                   
+
 
                     var kategoriKaydet = "@Url.Action("KategoriEkle", "kategoriAlanlari")";
 
@@ -425,11 +465,11 @@
             kategori.urunKategorileriKategoriAdi = $("#kategoriAdi").val();
             kategori.urunKategorileriUstId = $("#selectLabel option").filter(':selected').val();
 
-          
+
                 var kategoriKaydet = "@Url.Action("KategoriEkle", "kategoriAlanlari")";
 
                     if (kategori.urunKategorileriKategoriAdi != "") {
-                        alert("asda");
+
                         $.ajax({
                             url: kategoriKaydet,
                             type: "POST",
@@ -455,5 +495,40 @@
                 }
         }
     });
+
+    $("#selectLabelDetay").change(function () {
+
+        var kategoriDetayId = new Object();
+        kategoriDetayId.urunKategorileriId = $(this).find("option").filter(':selected').val();
+
+        var kategoriDetayGetir = "@Url.Action("KategoriDetayListele", "kategoriAlanlari")";
+
+        $.ajax({
+            url: kategoriDetayGetir,
+            type: "POST",
+            data: kategoriDetayId,
+            success: function (response) {
+
+
+                $("#kategoriDetaylariModal").modal('hide');
+
+                setTimeout(function () {
+
+                    $("#eeee").html(response);
+
+
+                }, 500);
+
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+        });
+    });
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 
 </script>

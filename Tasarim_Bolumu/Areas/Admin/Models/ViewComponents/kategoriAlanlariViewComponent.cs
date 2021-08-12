@@ -1,4 +1,5 @@
 ﻿using BL.Models;
+using Entity.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,11 +19,12 @@ namespace Tasarim_Bolumu.Areas.Admin.Models.ViewComponents
             this.kategoriAlanlariServices = kategoriAlanlariServices;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int ver)
         {
+            
             var veri = kategoriAlanlariServices.hepsiniListele(null);
 
-            return View(veri);
+            return View(Tuple.Create<List<urunKategorileri>, int>(veri, ver));
         }
     }
 }

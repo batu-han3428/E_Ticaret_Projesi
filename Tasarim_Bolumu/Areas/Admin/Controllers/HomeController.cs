@@ -57,9 +57,12 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult Kategoriler()
+        public PartialViewResult Kategoriler(int ver)
         {
-
+            if (ver !=0)
+            {
+                return PartialView("_KategorilerDuzenle",ver);
+            }
             return PartialView("_KategorilerDuzenle");
         }
 
