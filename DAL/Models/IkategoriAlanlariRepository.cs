@@ -9,5 +9,6 @@ namespace DAL.Models
 {
     public interface IkategoriAlanlariRepository : IBaseRepository<urunKategorileri>
     {
+       
     }
 }

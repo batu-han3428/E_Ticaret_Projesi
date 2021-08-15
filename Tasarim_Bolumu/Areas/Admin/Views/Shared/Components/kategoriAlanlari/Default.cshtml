@@ -1,10 +1,13 @@
-﻿@model Tuple<List<urunKategorileri>, int>
+﻿@model Tuple<List<urunKategorileri>, int, List<urunKategorileri>>
+@using System.Collections;
+
+@{ArrayList kategoriAlanAdiDizi = new ArrayList(); }
 
 <div class="row">
     <div class="col-md-3">
         <div class="row">
             <div class="col-md-12">
-                <fieldset>
+                <fieldset style="width: 84%;">
                     <legend>Kategori Alanları</legend>
                     @{
                         if (Model.Item1.Count == 0)
@@ -25,11 +28,13 @@
                         }
                         else
                         {
+
                             <div class="urunKategorileriDivAlan">
                                 @foreach (var item in Model.Item1)
                                 {
                                     if (item.urunKategorileriUstId == 0)
                                     {
+                                        kategoriAlanAdiDizi.Add(item.urunKategorileriId);
 
                                         <div class="urunKategorileriAlanAdlari">
                                             <span>@item.urunKategorileriKategoriAdi</span>
@@ -87,14 +92,14 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <fieldset style="width:84%;">
+                <fieldset class="guncellenecek" style="width:84%;">
                     <legend>Kategori</legend>
                     @{
                         bool kategori = false;
 
                         foreach (var item in Model.Item1)
                         {
-                            if(item.urunKategorileriUstId != 0)
+                            if (item.urunKategorileriUstId != 0)
                             {
                                 kategori = true;
                             }
@@ -123,8 +128,8 @@
                                     if (item.urunKategorileriUstId != 0)
                                     {
 
-                                        <div class="KategorilerAdlari">
-                                            <span>@item.urunKategorileriKategoriAdi</span>
+                                        <div id="@item.urunKategorileriId" class="KategorilerAdlari" data-bs-toggle="modal" data-bs-target="#altKategoriModal">
+                                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="Alt Kategori Ekle">@item.urunKategorileriKategoriAdi</span>
                                             <hr />
                                         </div>
 
@@ -187,12 +192,41 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="altKategoriModal" data-bs-backdrop="static">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
+                            <h5 class="modal-title" style="cursor:default;">Alt Kategori</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12 pb-4 altKategoriModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185); cursor:default;">
+                                <span>Alt Kategoriler, kategorilerin ayrıntılı küçük gruplara ayrılmış halidir..</span>
+                            </div>
+                            <form class="needs-validation" novalidate id="altKategoriModalForm">
+                                <div class="row g-3">
+                                    <div class="col-md-12">
+                                        <label for="altKategoriAdi" class="form-label kategoriAdi">Alt Kategori Adı *</label>
+                                        <input id="altKategoriAdi" type="text" class="form-control" placeholder="Alt Kategori Adı" required>
+                                        <div class="invalid-feedback">
+                                            Bu Alan Boş Geçilemez
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer mt-3">
+                                    <button class="btn btn-secondary" type="submit" id="altKategoriButonModal">Kaydet</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-md-9">
         <div class="row">
             <div class="col-md-12">
-                <fieldset style="width:95%;">
+                <fieldset style="width:95%; height:443px;">
                     <legend>Kategoriler Detay</legend>
                     @{
                         if (Model.Item1.Count == 0)
@@ -216,32 +250,50 @@
                         }
                         else
                         {
-                <div class="kategorilerDetayAlan">
-                    @{
+                            <div id="guncellenecek2" class="kategorilerDetayAlan">
+                                @{
+                                    urunKategorileri baslikKategoriAlan = null;
+                                    if (Convert.ToInt32(Model.Item2.ToString()) == 0)
+                                    {
+                                        baslikKategoriAlan = Model.Item1.FirstOrDefault(x => x.urunKategorileriId == (int)kategoriAlanAdiDizi[0]);
+                                    }
+                                    else
+                                    {
+                                        baslikKategoriAlan = Model.Item1.FirstOrDefault(x => x.urunKategorileriId == Convert.ToInt32(Model.Item2.ToString()));
+                                    }
 
-                        urunKategorileri baslikKategoriAlan = Model.Item1.FirstOrDefault(x => x.urunKategorileriUstId == ((uint)Model.Item2));
 
-                        <div class="kategorilerDetaySpanAlan" data-bs-toggle="modal" data-bs-target="#kategoriDetaylariModal">
-                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="Kategori Alanları" style="cursor: pointer; color: white; align-self: center;">
-                            </span>
-                        </div>
-                        <div style="padding-top: 10px; max-height: 110px;" class="urunKategorileriDivAlan">
-                            @foreach (var item in Model.Item1)
-                            {
-                                if (item.urunKategorileriUstId == baslikKategoriAlan.urunKategorileriId)
-                                {
-                                    <div class="kategorilerDetaySpanAlanIcerik">
-                                        <span>@item.urunKategorileriKategoriAdi</span>
-                                        <hr />
+                                    <div class="kategorilerDetaySpanAlan" data-bs-toggle="modal" data-bs-target="#kategoriDetaylariModal">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Kategori Alanları" style="cursor: pointer; color: white; align-self: center;">@baslikKategoriAlan.urunKategorileriKategoriAdi</span>
+                                    </div>
+                                    <div style="padding-top: 10px; max-height: 110px;" class="urunKategorileriDivAlan">
+                                        @{
+                                            if (Model.Item1.Any(x => x.urunKategorileriUstId == baslikKategoriAlan.urunKategorileriId))
+                                            {
+                                                foreach (var item in Model.Item1)
+                                                {
+                                                    if (item.urunKategorileriUstId == baslikKategoriAlan.urunKategorileriId)
+                                                    {
+                                                        <div id="@item.urunKategorileriId" style="cursor:pointer;" class="kategorilerDetaySpanAlanIcerik">
+                                                            <span style="cursor:pointer;" data-bs-toggle="tooltip" data-bs-placement="top" title="Alt Kategoriler Detay">@item.urunKategorileriKategoriAdi</span>
+                                                            <hr />
+                                                        </div>
+                                                    }
+
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <div class="kategoriYok">
+                                                    <span>Bu Kategori Alanının Kategorisi Bulunmamaktadır..</span>
+                                                </div>
+                                            }
+
+
+                                        }
                                     </div>
                                 }
-
-
-                            }
-
-                        </div>
-                    }
-                </div>
+                            </div>
 
                             <div id="kategoriAlanlariButonAlan">
                                 <button class="btn btn-secondary" id="kategoriAlanlariButon" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
@@ -253,7 +305,7 @@
                                     </div>
                                 </button>
                             </div>
-                        }
+                                            }
                     }
 
                 </fieldset>
@@ -285,16 +337,77 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="altKategoriDetaylariModal" data-bs-backdrop="static">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
+                            <h5 class="modal-title">Alt Kategori Detayları</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
+                                <span>Alt Kategorileri listelemek için bir alt kategori seçiniz..</span>
+                            </div>
+                            <div class="col-md-12">
+                                <div id="altKategoriDetaylariModalBodyDivGosterim">
+                                    <span id="KategoriModalSpan"></span>
+                                    <i class="bi bi-arrow-down-circle-fill KategoriModalSpanIcon"></i>
+                                    @{ if (Model.Item3 != null)
+                                        {
+                                            foreach (var item in Model.Item3)
+                                            {
+                                               
+                                                <span id="@item.urunKategorileriId" class="KategoriModalSpan2"> @item.urunKategorileriKategoriAdi</span>
+                                                
+                                            }
+                                        }
+                                    }
+                                </div>
+                                <label for="altKategoriselectLabelDetay" class="form-label selectLabelKategori">Alt Kategoriler *</label>
+                                <select style="position:relative;" id="altKategoriselectLabelDetay" class="form-select kategoriSelect" size="2">
+                                    @{ if (Model.Item3 != null) {
+                                            foreach (var item in Model.Item3)
+                                            {
+
+                                                <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
+
+                                            }
+                                        }
+                                       
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
 <script type="text/javascript">
 
+    $(".KategorilerDivAlanUrun").scroll(function () {
 
-    $(".kategoriSelect > option").eq(0).attr("selected", "true");
-    $("#selectLabelDetay > option").eq(0).attr("selected", "true");
+            $(".KategorilerAdlari > span").tooltip("hide");
+    });
 
-    var kategoriAlanAdKontrol = 0;
+    $(".urunKategorileriDivAlan").scroll(function () {
+
+        $(".kategorilerDetaySpanAlanIcerik > span").tooltip("hide");
+    });
+
+
+    $("#selectLabel > option").eq(0).attr("selected", "true");
+
+    $("#selectLabelDetay > option").eq(0).attr("selected", "selected");
+
+    var kategoriId;
+    var kategoriIsimKontrol, altKategoriIsımKontrol, kategoriAlaniIsımKontrol;
+    var kategoriIsimKontrolSayi = 0, altKategoriIsımKontrolSayi = 0, kategoriAlaniIsımKontrolSayi = 0;
+
+
 
     (function () {
             'use strict'
@@ -324,17 +437,17 @@
             $(".urunKategorileriAlanAdlari > span").each(function (index) {
 
                 if ($(this).text() == $("#kategoriAlanAdi").val()) {
-
-                    kategoriAlanAdKontrol++;
-
-                    if (kategoriAlanAdKontrol < 2) {
+                    kategoriAlaniIsımKontrolSayi = 1;
+                    if (!kategoriAlaniIsımKontrol) {
                         $(".kategoriAlanlariModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Kategori Alan Adı Ekleyemezsiniz...</span>');
+                        kategoriAlaniIsımKontrol = true;
+                        return false;
                     }
+                }
 
+            });
 
-                    return false;
-
-                } else {
+            if (kategoriAlaniIsımKontrolSayi != 1) {
 
                     var kategoriAlan = new Object();
                     kategoriAlan.urunKategorileriKategoriAdi = $("#kategoriAlanAdi").val();
@@ -354,7 +467,7 @@
                                 setTimeout(function () {
 
                                     $("#eeee").html(response);
-
+                                    kategoriAlaniIsımKontrol = false;
 
                                 }, 500);
 
@@ -364,12 +477,11 @@
                             }
                         });
 
-                        return false;
+
                     }
                 }
 
-            });
-
+            kategoriAlaniIsımKontrolSayi = 0;
         }
         else {
 
@@ -414,50 +526,82 @@
             $(".KategorilerAdlari > span").each(function (index) {
 
                 if ($(this).text() == $("#kategoriAdi").val()) {
-
-                    $(".kategoriModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Kategori Ekleyemezsiniz...</span>');
-
-                    return false;
-
-                } else {
-
-                    var kategori = new Object();
-                    kategori.urunKategorileriKategoriAdi = $("#kategoriAdi").val();
-                    kategori.urunKategorileriUstId = $("#selectLabel option").filter(':selected').val();
-
-
-
-                    var kategoriKaydet = "@Url.Action("KategoriEkle", "kategoriAlanlari")";
-
-                    if (kategori.urunKategorileriKategoriAdi != "") {
-
-                        $.ajax({
-                            url: kategoriKaydet,
-                            type: "POST",
-                            data: kategori,
-                            success: function (response) {
-
-                                $("#kategoriModal").modal('hide');
-
-                                setTimeout(function () {
-
-                                    $("#eeee").html(response);
-
-
-                                }, 500);
-
-                            },
-                            error: function (hata, ajaxoptions, throwerror) {
-                                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
-                            }
-                        });
-
+                    kategoriIsimKontrolSayi = 1;
+                    if (!kategoriIsimKontrol) {
+                        $(".kategoriModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Kategori Ekleyemezsiniz...</span>');
+                        kategoriIsimKontrol = true;
                         return false;
                     }
                 }
 
             });
 
+
+            if (kategoriIsimKontrolSayi != 1) {
+                var kategori = new Object();
+                kategori.urunKategorileriKategoriAdi = $("#kategoriAdi").val();
+                kategori.urunKategorileriUstId = $("#selectLabel option").filter(':selected').val();
+
+
+
+                var kategoriKaydet = "@Url.Action("KategoriEkle", "kategoriAlanlari")";
+
+                if (kategori.urunKategorileriKategoriAdi != "") {
+
+                    $.ajax({
+                        url: kategoriKaydet,
+                        type: "POST",
+                        data: kategori,
+                        success: function (response) {
+
+                            $("#kategoriModal").modal('hide');
+
+                            setTimeout(function () {
+
+                                var index = $("#selectLabelDetay > option").filter(':selected').index();
+
+                                $("#eeee .guncellenecek").html($(response).find(".guncellenecek").html());
+
+                                var kategoriDetayGetir = "@Url.Action("KategoriDetayListele", "kategoriAlanlari")";
+
+                                var kategoriDetayId = new Object();
+                                kategoriDetayId.urunKategorileriId = $("#selectLabelDetay > option").filter(':selected').val();
+
+                                $.ajax({
+                                    url: kategoriDetayGetir,
+                                    type: "POST",
+                                    data: kategoriDetayId,
+                                    success: function (response) {
+
+                                        $("#kategoriDetaylariModal").modal('hide');
+
+                                        setTimeout(function () {
+
+                                            $("#eeee #guncellenecek2").html($(response).find("#guncellenecek2").html());
+
+                                            $("#selectLabelDetay > option").eq(index).attr("selected", "selected");
+                                            kategoriIsimKontrol = false;
+                                        }, 500);
+
+                                    },
+                                    error: function (hata, ajaxoptions, throwerror) {
+                                        alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                                    }
+                                });
+
+                            }, 500);
+
+                        },
+                        error: function (hata, ajaxoptions, throwerror) {
+                            alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                        }
+                    });
+
+
+                }
+            }
+
+            kategoriIsimKontrolSayi = 0;
         }
         else {
 
@@ -481,7 +625,36 @@
 
                                 setTimeout(function () {
 
-                                    $("#eeee").html(response);
+                                     var index = $("#selectLabelDetay > option").filter(':selected').index();
+
+                                    $("#eeee .guncellenecek").html($(response).find(".guncellenecek").html());
+
+                                    var kategoriDetayGetir = "@Url.Action("KategoriDetayListele", "kategoriAlanlari")";
+
+                                    var kategoriDetayId = new Object();
+                                    kategoriDetayId.urunKategorileriId = $("#selectLabelDetay > option").filter(':selected').val();
+
+                                            $.ajax({
+                                                url: kategoriDetayGetir,
+                                                type: "POST",
+                                                data: kategoriDetayId,
+                                                success: function (response) {
+
+                                                    $("#kategoriDetaylariModal").modal('hide');
+
+                                                    setTimeout(function () {
+
+                                                        $("#eeee #guncellenecek2").html($(response).find("#guncellenecek2").html());
+
+                                                        $("#selectLabelDetay > option").eq(index).attr("selected", "selected");
+
+                                                    }, 500);
+
+                                                },
+                                                error: function (hata, ajaxoptions, throwerror) {
+                                                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                                                }
+                                            });
 
 
                                 }, 500);
@@ -501,7 +674,11 @@
         var kategoriDetayId = new Object();
         kategoriDetayId.urunKategorileriId = $(this).find("option").filter(':selected').val();
 
+        var index = $(this).find("option").filter(':selected').index();
+
         var kategoriDetayGetir = "@Url.Action("KategoriDetayListele", "kategoriAlanlari")";
+
+
 
         $.ajax({
             url: kategoriDetayGetir,
@@ -509,15 +686,186 @@
             data: kategoriDetayId,
             success: function (response) {
 
-
                 $("#kategoriDetaylariModal").modal('hide');
 
                 setTimeout(function () {
 
                     $("#eeee").html(response);
 
+                    $("#selectLabelDetay > option").eq(index).attr("selected", "selected");
 
                 }, 500);
+
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+        });
+    });
+
+    $(".KategorilerAdlari").click(function () {
+        kategoriId = $(this).attr("id");
+    });
+
+    $("#altKategoriModalForm").submit(function (event) {
+        event.preventDefault();
+
+        if ($(".KategorilerAdlari > span").text() != "") {
+
+            $(".KategorilerAdlari > span").each(function (index) {
+
+                if ($(this).text() == $("#altKategoriAdi").val()) {
+                    altKategoriIsımKontrolSayi = 1;
+                    if (!altKategoriIsımKontrol) {
+                        $(".altKategoriModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Alt Kategori Ekleyemezsiniz...</span>');
+                        altKategoriIsımKontrol = true;
+                        return false;
+                    }
+
+
+                }
+
+            });
+
+            if (altKategoriIsımKontrolSayi != 1) {
+                    var altKategori = new Object();
+                    altKategori.urunKategorileriKategoriAdi = $("#altKategoriAdi").val();
+                    altKategori.urunKategorileriUstId = kategoriId;
+
+                    var altKategoriKaydet = "@Url.Action("KategoriEkle", "kategoriAlanlari")";
+
+                    if (altKategori.urunKategorileriKategoriAdi != "") {
+
+                        $.ajax({
+                            url: altKategoriKaydet,
+                            type: "POST",
+                            data: altKategori,
+                            success: function (response) {
+
+                                $("#altKategoriModal").modal('hide');
+
+                                setTimeout(function () {
+
+                                    $("#eeee").html(response);
+                                    altKategoriIsımKontrol = false;
+
+                                }, 500);
+
+                            },
+                            error: function (hata, ajaxoptions, throwerror) {
+                                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                            }
+                        });
+
+                    }
+            }
+
+            altKategoriIsımKontrolSayi = 0;
+
+
+        }
+        else {
+            alert("else");
+            var altKategori = new Object();
+            altKategori.urunKategorileriKategoriAdi = $("#altKategoriAdi").val();
+            altKategori.urunKategorileriUstId = kategoriId;
+
+                 var altKategoriKaydet = "@Url.Action("KategoriEkle", "kategoriAlanlari")";
+
+            if (altKategori.urunKategorileriKategoriAdi != "") {
+
+                $.ajax({
+                    url: altKategoriKaydet,
+                    type: "POST",
+                    data: altKategori,
+                    success: function (response) {
+
+                        $("#altKategoriModal").modal('hide');
+
+                        setTimeout(function () {
+
+                            $("#eeee").html(response);
+
+
+                        }, 500);
+
+                    },
+                    error: function (hata, ajaxoptions, throwerror) {
+                        alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                    }
+                });
+
+                }
+        }
+    });
+
+    $(".kategorilerDetaySpanAlanIcerik").click(function () {
+      
+        $(this).find("span").tooltip("hide");
+
+         var altKategoriDetayId = new Object();
+            altKategoriDetayId.urunKategorileriId = $(this).attr("id");
+      
+        var ad = $(this).find("span").text();
+
+
+
+        var altKategoriDetayGetir = "@Url.Action("altKategoriDetayListele", "kategoriAlanlari")";
+
+        $.ajax({
+            url: altKategoriDetayGetir,
+            type: "POST",
+            data: altKategoriDetayId,
+            success: function (response) {
+               
+                /*$("#eeee #altKategoriDetaylariModal .modal-body").html($(response).find("#altKategoriDetaylariModal .modal-body").html());*/
+                $("#eeee").html(response);
+                $("#altKategoriDetaylariModal #KategoriModalSpan").text(ad);
+                $("#altKategoriDetaylariModal").modal('show');
+
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+        });
+
+    });
+
+    $("#altKategoriselectLabelDetay").change(function () {
+
+      
+        var altKategoriDetayId = new Object();
+        altKategoriDetayId.urunKategorileriId = $(this).find("option").filter(':selected').val();
+
+
+        var altKategoriDetayGetir = "@Url.Action("altKategoriDetayListele", "kategoriAlanlari")";
+
+
+
+        $.ajax({
+            url: altKategoriDetayGetir,
+            type: "POST",
+            data: altKategoriDetayId,
+            success: function (response) {
+
+                $("#eeee #altKategoriDetaylariModal #altKategoriselectLabelDetay").html($(response).find("#altKategoriselectLabelDetay").html());
+
+                $("#altKategoriDetaylariModalBodyDivGosterim > span:last-child").append("<i class='bi bi-arrow-down-circle-fill KategoriModalSpanIcon'></i>");
+
+                if ($(response).find(".KategoriModalSpan2").is('span')) {
+                    $(response).find(".KategoriModalSpan2").each(function () {
+
+                        $(".KategoriModalSpanIcon:last-child").append("<span style='font-size: 20px; font-weight: bold; color: rgb(157, 163, 173); text-align: center; display: block;'>" + $(this).text() + "</span>");
+               
+                        $("#altKategoriDetaylariModalBodyDivGosterim").scrollTop($("#altKategoriDetaylariModalBodyDivGosterim").height());
+                    });
+                } else {
+                    $(".KategoriModalSpanIcon:last-child").append("<span class='badge bg-danger text-light' style='font-size: 20px; font-weight: bold; width:71%; border-radius:25%; margin:0 auto; text-align: center; display: block;'> Alt Kategori Bulunmamaktadır </span>");
+                    $("#altKategoriselectLabelDetay").html("<option disabled class='badge bg-danger text-light' style='position:absolute; top:28%; left:16%; font-size: 20px; font-weight: bold; width:71%; border-radius:25%; margin:0 auto; text-align: center; display: block;'> Alt Kategori Bulunmamaktadır </option>");
+                    $("#altKategoriDetaylariModalBodyDivGosterim").scrollTop($("#altKategoriDetaylariModalBodyDivGosterim").height());
+                }
+                   
+  
 
             },
             error: function (hata, ajaxoptions, throwerror) {

@@ -39,5 +39,6 @@ namespace BL.Concrete
 
             return kategoriAlanlariRepository.hepsiniListele(filter);
         }
+
     }
 }

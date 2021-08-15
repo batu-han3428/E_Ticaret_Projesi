@@ -2,6 +2,7 @@
 using Entity.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,9 +48,23 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
                 return RedirectToAction("Kategoriler", "Home");
             }
 
-            int ver = mod.urunKategorileriId;
+            TempData["Veri"] = mod.urunKategorileriId;
 
-            return RedirectToAction("Kategoriler", "Home",ver);
+            return RedirectToAction("Kategoriler", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult altKategoriDetayListele(urunKategorileri mod)
+        {
+
+            if (mod.urunKategorileriId == 0)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            TempData["altKategoriler"] = JsonConvert.SerializeObject(kategoriAlanlariServices.hepsiniListele(x => x.urunKategorileriUstId == mod.urunKategorileriId));
+
+            return RedirectToAction("Kategoriler", "Home");
         }
     }
 }
