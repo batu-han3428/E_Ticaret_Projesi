@@ -226,88 +226,143 @@
     <div class="col-md-9">
         <div class="row">
             <div class="col-md-12">
-                <fieldset style="width:95%; height:443px;">
+                <fieldset style="width:95%; height:175%;">
                     <legend>Kategoriler Detay</legend>
-                    @{
-                        if (Model.Item1.Count == 0)
-                        {
-                            if (!kategori)
-                            {
-                                <div id="kategoriAlanlariYaziAlan">
-                                    <span>Kayıtlı kategori alanı ve kategori bulunmamaktadır. Kategori detaylarını listelemek için lütfen kategori alanı ve kategori ekleyiniz.</span>
-                                </div>
-                                <div id="kategoriDetayButonAlan">
-                                    <button class="btn btn-secondary" id="kategoriDetayButon" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
-                                        <div>
-                                            <span id="kategoriAlanlariButonYazi">Kategori Alanı Ekle</span>
-                                        </div>
-                                        <div>
-                                            <i class="bi bi-file-earmark-plus-fill" id="kategoriAlanlariButonIcon"></i>
-                                        </div>
-                                    </button>
-                                </div>
-                            }
-                        }
-                        else
-                        {
-                            <div id="guncellenecek2" class="kategorilerDetayAlan">
-                                @{
-                                    urunKategorileri baslikKategoriAlan = null;
-                                    if (Convert.ToInt32(Model.Item2.ToString()) == 0)
+                    <div class="row" style="height:78%;">
+                        <div class="col-md-4">
+                            @{ if (Model.Item1.Count == 0)
+                                {
+                                    if (!kategori)
                                     {
-                                        baslikKategoriAlan = Model.Item1.FirstOrDefault(x => x.urunKategorileriId == (int)kategoriAlanAdiDizi[0]);
+                                        <div id="kategoriAlanlariYaziAlan">
+                                            <span>Kayıtlı kategori alanı ve kategori bulunmamaktadır. Kategori detaylarını listelemek için lütfen kategori alanı ve kategori ekleyiniz.</span>
+                                        </div>
                                     }
-                                    else
-                                    {
-                                        baslikKategoriAlan = Model.Item1.FirstOrDefault(x => x.urunKategorileriId == Convert.ToInt32(Model.Item2.ToString()));
-                                    }
-
-
-                                    <div class="kategorilerDetaySpanAlan" data-bs-toggle="modal" data-bs-target="#kategoriDetaylariModal">
-                                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Kategori Alanları" style="cursor: pointer; color: white; align-self: center;">@baslikKategoriAlan.urunKategorileriKategoriAdi</span>
-                                    </div>
-                                    <div style="padding-top: 10px; max-height: 110px;" class="urunKategorileriDivAlan">
+                                }
+                                else
+                                {
+                                    <div id="guncellenecek2" class="kategorilerDetayAlan">
                                         @{
-                                            if (Model.Item1.Any(x => x.urunKategorileriUstId == baslikKategoriAlan.urunKategorileriId))
+                                            urunKategorileri baslikKategoriAlan = null;
+                                            if (Convert.ToInt32(Model.Item2.ToString()) == 0)
                                             {
-                                                foreach (var item in Model.Item1)
-                                                {
-                                                    if (item.urunKategorileriUstId == baslikKategoriAlan.urunKategorileriId)
-                                                    {
-                                                        <div id="@item.urunKategorileriId" style="cursor:pointer;" class="kategorilerDetaySpanAlanIcerik">
-                                                            <span style="cursor:pointer;" data-bs-toggle="tooltip" data-bs-placement="top" title="Alt Kategoriler Detay">@item.urunKategorileriKategoriAdi</span>
-                                                            <hr />
-                                                        </div>
-                                                    }
-
-                                                }
+                                                baslikKategoriAlan = Model.Item1.FirstOrDefault(x => x.urunKategorileriId == (int)kategoriAlanAdiDizi[0]);
                                             }
                                             else
                                             {
-                                                <div class="kategoriYok">
-                                                    <span>Bu Kategori Alanının Kategorisi Bulunmamaktadır..</span>
-                                                </div>
+                                                baslikKategoriAlan = Model.Item1.FirstOrDefault(x => x.urunKategorileriId == Convert.ToInt32(Model.Item2.ToString()));
                                             }
 
 
+                                            <div class="kategorilerDetaySpanAlan" data-bs-toggle="modal" data-bs-target="#kategoriDetaylariModal">
+                                                <span data-bs-toggle="tooltip" data-bs-placement="top" title="Kategori Alanları" style="cursor: pointer; color: white; align-self: center;">@baslikKategoriAlan.urunKategorileriKategoriAdi</span>
+                                            </div>
+                                            <div style="padding-top: 10px; max-height: 370px;" class="urunKategorileriDivAlan">
+                                                @{
+                                                    if (Model.Item1.Any(x => x.urunKategorileriUstId == baslikKategoriAlan.urunKategorileriId))
+                                                    {
+                                                        foreach (var item in Model.Item1)
+                                                        {
+                                                            if (item.urunKategorileriUstId == baslikKategoriAlan.urunKategorileriId)
+                                                            {
+                                                                <div id="@item.urunKategorileriId" style="cursor:pointer;" class="kategorilerDetaySpanAlanIcerik">
+                                                                    <span style="cursor:pointer;" data-bs-toggle="tooltip" data-bs-placement="top" title="Alt Kategoriler Detay">@item.urunKategorileriKategoriAdi</span>
+                                                                    <hr />
+                                                                </div>
+                                                            }
+
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="kategoriYok">
+                                                            <span>Bu Kategori Alanının Kategorisi Bulunmamaktadır..</span>
+                                                        </div>
+                                                    }
+
+
+                                                }
+                                            </div>
                                         }
                                     </div>
-                                }
-                            </div>
 
-                            <div id="kategoriAlanlariButonAlan">
-                                <button class="btn btn-secondary" id="kategoriAlanlariButon" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
+
+                                }}
+                        </div>
+                        <div class="col-md-8" style="height:100%;">
+                            <div id="kategoriDetayAlanlariButonAlan">
+                                <button class="btn btn-secondary" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
                                     <div>
-                                        <span id="kategoriAlanlariButonYazi">Kategori Alanı Ekle</span>
+                                        <span id="kategoriAlanlariButonYazi">Kategori Detay Ekle</span>
                                     </div>
                                     <div>
                                         <i class="bi bi-file-earmark-plus-fill" id="kategoriAlanlariButonIcon"></i>
                                     </div>
                                 </button>
+                                <button class="btn btn-secondary" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
+                                    <div>
+                                        <span id="kategoriAlanlariButonYazi">Kategori Detay Güncelle</span>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-file-medical-fill" id="kategoriAlanlariButonIcon"></i>
+                                    </div>
+                                </button>
+                                <button class="btn btn-secondary" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
+                                    <div>
+                                        <span id="kategoriAlanlariButonYazi">Kategori Detay Sil</span>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-file-x-fill" id="kategoriAlanlariButonIcon"></i>
+                                    </div>
+                                </button>
                             </div>
-                                            }
-                    }
+                            <div class="kategoriDetayGosterIslem">
+                                <div class="kategoriDetaylariGosterim">
+                                    <div>
+                                        <div>
+                                            <span>Kategori Adı</span>
+                                        </div>
+                                        <div>
+                                            <span>dasdasda</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span>Kategori Logo</span>
+                                        </div>
+                                        <div>
+                                            foto
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <span>Kategori Açıklama</span>
+                                        </div>
+                                        <div>
+                                            <textarea readonly>dasdada</textarea>
+                                        </div>
+                                    </div>
+                                </div>
 
+
+
+                                <form id="formOdemeSecenekleri" name="form" style="display:none;" method="post" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input onchange="fotoSecti();" class="form-control" type="file" id="odemeSecenekleriInputFoto" style="width:250px;">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control odemeSecenekleriInput" placeholder="12 Taksit" />
+                                        </div>
+                                        <div class="col-md-12 butonDivOdemeSecenekleri">
+                                            <button type="button" id="butonOdemeSecenekleriKaydet" class="btn btn-outline-secondary">Kaydet</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </fieldset>
             </div>
             <div class="modal fade" id="kategoriDetaylariModal" data-bs-backdrop="static">
@@ -356,11 +411,12 @@
                                         {
                                             foreach (var item in Model.Item3)
                                             {
-                                               
+
                                                 <span id="@item.urunKategorileriId" class="KategoriModalSpan2"> @item.urunKategorileriKategoriAdi</span>
-                                                
+
                                             }
                                         }
+                                        
                                     }
                                 </div>
                                 <label for="altKategoriselectLabelDetay" class="form-label selectLabelKategori">Alt Kategoriler *</label>
@@ -822,8 +878,10 @@
                 $("#eeee").html(response);
                 $("#altKategoriDetaylariModal #KategoriModalSpan").text(ad);
                 $("#altKategoriDetaylariModal").modal('show');
-
-            },
+                if (!$(response).find(".KategoriModalSpan2").is('span')) {
+                    $(".KategoriModalSpanIcon:last-child").append("<span class='badge bg-danger text-light' style='font-size: 20px; font-weight: bold; width:71%; border-radius:25%; margin:0 auto; text-align: center; display: block;'> Alt Kategori Bulunmamaktadır </span>");
+                }
+             },
             error: function (hata, ajaxoptions, throwerror) {
                 alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
             }
