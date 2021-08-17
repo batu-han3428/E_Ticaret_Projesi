@@ -291,7 +291,7 @@
                         </div>
                         <div id="kategoriDetayAlanSutunForm" class="col-md-8" style="height:100%;">
                             <div id="kategoriDetayAlanlariButonAlan">
-                                <button class="btn btn-secondary" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
+                                <button class="btn btn-secondary" id="kategoriDetayEkle" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
                                     <div>
                                         <span id="kategoriAlanlariButonYazi">Kategori Detay Ekle</span>
                                     </div>
@@ -323,7 +323,7 @@
                                             <span>Kategori Adı</span>
                                         </div>
                                         <div>
-                                            <span style="display:none;">Oyun Konsolları, Hobi ve Eğlence</span>
+                                            <span class="kategoriDetayIsim">Oyun Konsolları, Hobi ve Eğlence</span>
                                             <select id="selectLabelKategoriDetay" class="form-select kategoriDetaySelect" size="2">
                                                 @foreach (var item in Model.Item1)
                                                 {
@@ -340,8 +340,8 @@
                                             <span>Kategori Logo</span>
                                         </div>
                                         <div>
-                                            <i style="display:none;" class="bi bi-alarm-fill"></i>
-                                            <div id="siteReklamDuzenlemeIconDiv" class="kategoriDetaylariIkonlar">
+                                            <i class="bi bi-alarm-fill kategoriDetayIcon"></i>
+                                            <div id="kategoriDetaylariIconDiv" class="kategoriDetaylariIkonlar">
                                                 <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm kategoriDetaylariIconForm"></i></span>
                                                 <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm-fill kategoriDetaylariIconForm"></i></span>
                                                 <span class="kategoriDetaylariSpanForm"><i class="bi bi-align-bottom kategoriDetaylariIconForm"></i></span>
@@ -353,7 +353,7 @@
                                             <span>Kategori Açıklama</span>
                                         </div>
                                         <div style="overflow-y:scroll;">
-                                            <p style="display:none;">
+                                            <p class="kategoriDetayAciklama">
                                                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
                                             </p>
                                             <textarea id="kategoriDetayTextArea" class="form-control" rows="4" placeholder="Açıklama Metni" required></textarea>
@@ -996,6 +996,14 @@
                 $(".butonDivKategoriDetaylari").slideDown("slow").effect('shake');
             }
         }
+    });
+
+    $("#kategoriDetayEkle").click(function () {
+        $(".kategoriDetayIsim, .kategoriDetayIcon, .kategoriDetayAciklama").fadeOut();
+
+        setTimeout(function () {
+            $("#selectLabelKategoriDetay, #kategoriDetaylariIconDiv, #kategoriDetayTextArea").fadeIn();
+        },500);
     });
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
