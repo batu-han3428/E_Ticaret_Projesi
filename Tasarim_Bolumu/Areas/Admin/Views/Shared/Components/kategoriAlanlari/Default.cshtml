@@ -1024,7 +1024,20 @@
     });
 
     $("#kategoriDetayAlanlariButonAlan > button").click(function () {
-        $(this).css("display", "none");
+        $(this).css({
+            transform: "scale(1.1)",
+        });
+
+        var a = $(this);
+
+        setTimeout(function () {
+            $(a).animate({opacity: 0}, 1000);
+        }, 400);
+
+        //setTimeout(function () {
+        //    $(a).css("display", "none");
+        //}, 800);
+
         /*.append("<button class='btn btn-secondary' id='kategoriDetayListele'><div><span id='kategoriAlanlariButonYazi'>Kategori Detay Listele</span></div><div><i class='bi bi-file-earmark-plus-fill' id='kategoriAlanlariButonIcon'></i></div></button>")*/
     });
 
