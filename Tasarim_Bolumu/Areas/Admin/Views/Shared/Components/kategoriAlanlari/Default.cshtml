@@ -1,7 +1,9 @@
 ﻿@model Tuple<List<urunKategorileri>, int, List<urunKategorileri>>
 @using System.Collections;
 
-@{ArrayList kategoriAlanAdiDizi = new ArrayList(); }
+@{ArrayList kategoriAlanAdiDizi = new ArrayList();
+    ArrayList kategoriDetayAdiDizi = new ArrayList();
+    }
 
 <div class="row">
     <div class="col-md-3">
@@ -287,11 +289,11 @@
                                     </div>
 
 
-                                }}
+                                                    }}
                         </div>
                         <div id="kategoriDetayAlanSutunForm" class="col-md-8" style="height:100%;">
                             <div id="kategoriDetayAlanlariButonAlan">
-                                <button class="btn btn-secondary" id="kategoriDetayEkle" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
+                                <button class="btn btn-secondary" id="kategoriDetayEkle">
                                     <div>
                                         <span id="kategoriAlanlariButonYazi">Kategori Detay Ekle</span>
                                     </div>
@@ -299,7 +301,7 @@
                                         <i class="bi bi-file-earmark-plus-fill" id="kategoriAlanlariButonIcon"></i>
                                     </div>
                                 </button>
-                                <button class="btn btn-secondary" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
+                                <button class="btn btn-secondary">
                                     <div>
                                         <span id="kategoriAlanlariButonYazi">Kategori Detay Güncelle</span>
                                     </div>
@@ -307,7 +309,7 @@
                                         <i class="bi bi-file-medical-fill" id="kategoriAlanlariButonIcon"></i>
                                     </div>
                                 </button>
-                                <button class="btn btn-secondary" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
+                                <button class="btn btn-secondary">
                                     <div>
                                         <span id="kategoriAlanlariButonYazi">Kategori Detay Sil</span>
                                     </div>
@@ -325,12 +327,27 @@
                                         <div>
                                             <span class="kategoriDetayIsim">Oyun Konsolları, Hobi ve Eğlence</span>
                                             <select id="selectLabelKategoriDetay" class="form-select kategoriDetaySelect" size="2">
-                                                @foreach (var item in Model.Item1)
-                                                {
-                                                    @if (item.urunKategorileriUstId == 0)
+                                                @{
+                                                   
+                                                    foreach (var item in Model.Item1)
                                                     {
-                                                        <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
+                                                        @if (item.urunKategorileriUstId == 0)
+                                                        {
+                                                            kategoriDetayAdiDizi.Add(item.urunKategorileriId);
+                                                        }
                                                     }
+
+                                                    for (int i = 0; i < kategoriDetayAdiDizi.Count; i++)
+                                                    {
+                                                        foreach (var item in Model.Item1.Where(x => x.urunKategorileriUstId == (int)kategoriDetayAdiDizi[i]))
+                                                        {
+                                                            
+                                                            <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
+                                                            
+
+                                                        }
+                                                    }
+
                                                 }
                                             </select>
                                         </div>
@@ -1004,6 +1021,11 @@
         setTimeout(function () {
             $("#selectLabelKategoriDetay, #kategoriDetaylariIconDiv, #kategoriDetayTextArea").fadeIn();
         },500);
+    });
+
+    $("#kategoriDetayAlanlariButonAlan > button").click(function () {
+        $(this).css("display", "none");
+        /*.append("<button class='btn btn-secondary' id='kategoriDetayListele'><div><span id='kategoriAlanlariButonYazi'>Kategori Detay Listele</span></div><div><i class='bi bi-file-earmark-plus-fill' id='kategoriAlanlariButonIcon'></i></div></button>")*/
     });
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

@@ -227,14 +227,18 @@ button > div:last-child {
     background-color: white;
     border: 0;
     border-radius: 0;
-    display: flex !important;
+    display: flex;
     align-items: center;
     width: 100%;
     justify-content: center;
     transition: 1s;
 }
 
-#kategoriDetayAlanlariButonAlan > button:hover {
+#kategoriDetayAlanlariButonAlan > button:focus {
+    box-shadow:none;
+}
+
+    #kategoriDetayAlanlariButonAlan > button:hover {
     background-color: rgb(143, 148, 155);
     height: 50px;
     color: white;
