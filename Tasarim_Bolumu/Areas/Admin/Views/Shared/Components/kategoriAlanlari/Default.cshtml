@@ -289,7 +289,7 @@
 
                                 }}
                         </div>
-                        <div class="col-md-8" style="height:100%;">
+                        <div id="kategoriDetayAlanSutunForm" class="col-md-8" style="height:100%;">
                             <div id="kategoriDetayAlanlariButonAlan">
                                 <button class="btn btn-secondary" data-bs-target="#kategoriAlanlariModal" data-bs-toggle="modal">
                                     <div>
@@ -324,7 +324,15 @@
                                         </div>
                                         <div>
                                             <span style="display:none;">Oyun Konsolları, Hobi ve Eğlence</span>
-                                            <input type="text" maxlength="35" class="form-control" />
+                                            <select id="selectLabelKategoriDetay" class="form-select kategoriDetaySelect" size="2">
+                                                @foreach (var item in Model.Item1)
+                                                {
+                                                    @if (item.urunKategorileriUstId == 0)
+                                                    {
+                                                        <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
+                                                    }
+                                                }
+                                            </select>
                                         </div>
                                     </div>
                                     <div>
@@ -348,7 +356,7 @@
                                             <p style="display:none;">
                                                 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
                                             </p>
-                                            <textarea class="form-control" rows="4" placeholder="Açıklama Metni" required></textarea>
+                                            <textarea id="kategoriDetayTextArea" class="form-control" rows="4" placeholder="Açıklama Metni" required></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -454,12 +462,16 @@
 
     $("#selectLabelDetay > option").eq(0).attr("selected", "selected");
 
+    $("#selectLabelKategoriDetay > option").eq(0).attr("selected", "selected");
+
+
     var kategoriId;
     var kategoriIsimKontrol, altKategoriIsımKontrol, kategoriAlaniIsımKontrol;
     var kategoriIsimKontrolSayi = 0, altKategoriIsımKontrolSayi = 0, kategoriAlaniIsımKontrolSayi = 0;
+    var Ikon;
+    var tiklandi;
 
-
-
+  
     (function () {
             'use strict'
 
@@ -925,6 +937,65 @@
                 alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
             }
         });
+    });
+
+    $(".kategoriDetaylariSpanForm").click(function () {
+
+
+        $(this).parent().find("span").css({
+
+            "background-color": "white"
+
+        });
+
+        $(this).parent().find("i").css({
+
+            "background-color": "white",
+            "color": "rgb(168, 174, 185)"
+
+        });
+
+        $(this).find("i").css({
+
+            "background-color": "rgb(214, 214, 214)",
+            "color": "white"
+
+        });
+
+        $(this).css({
+
+            "background-color": "rgb(214, 214, 214)"
+
+        });
+
+        Ikon = $(this).find("i").attr("class");
+
+        Ikon = Ikon.substring(Ikon.length - 21, 0);
+
+        tiklandi = 1;
+
+        $("#kategoriDetayAlanSutunForm").trigger("DOMSubtreeModified");
+
+    });
+
+    $("#kategoriDetayTextArea").keyup(function () {
+        if (!$(this).val()) {
+            bos = 1;
+            $(".butonDivKategoriDetaylari").slideUp("slow");
+        } else {
+            bos = 0;
+            $("#kategoriDetayAlanSutunForm").trigger("DOMSubtreeModified");
+        }
+    });
+
+    $("#kategoriDetayAlanSutunForm").on("DOMSubtreeModified", function () {
+        if (tiklandi == 1 && bos == 0) {
+            if ($(".butonDivKategoriDetaylari").css("display") != "none") {
+
+            } else {
+                $(".butonDivKategoriDetaylari").slideDown("slow").effect('shake');
+            }
+        }
     });
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

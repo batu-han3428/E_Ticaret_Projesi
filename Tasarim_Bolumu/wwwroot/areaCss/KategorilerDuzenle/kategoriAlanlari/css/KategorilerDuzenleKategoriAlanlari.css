@@ -157,6 +157,37 @@ button > div:last-child {
     height: 87px;
 }
 
+.kategoriDetaySelect:focus {
+    border-color: rgb(232, 235, 240) !important;
+    box-shadow: 0 0 10px 0.25rem rgb(157, 163, 173) !important;
+}
+
+.kategoriDetaySelect option:hover,
+.kategoriDetaySelect option:focus,
+.kategoriDetaySelect option:active {
+    background-color: rgb(232, 235, 240) !important;
+    color: white !important;
+    background: linear-gradient(#d6d6d6, #d6d6d6);
+}
+
+.kategoriDetaySelect option:checked {
+    background: linear-gradient(#d6d6d6, #d6d6d6);
+    background-color: #d6d6d6 !important;
+    color: white !important;
+}
+
+.kategoriDetaySelect option {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.kategoriDetaySelect {
+    font-size: 16px !important;
+    text-align: center !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    height:100%;
+}
+
 .kategorilerDetayAlan {
     width: 240px;
 }
@@ -288,15 +319,6 @@ button > div:last-child {
     color: rgb(196, 201, 209);
 }
 
-.kategoriDetaylariGosterim > div:nth-child(1) > div:nth-child(2) > input {
-    color: rgb(150, 155, 163);
-}
-
-.kategoriDetaylariGosterim > div:nth-child(1) > div:nth-child(2) > input:focus {
-    border-color: rgb(150, 155, 163) !important;
-    box-shadow: 0 0 10px 0.25rem rgb(157, 163, 173) !important;
-}
-
 .kategoriDetaylariIkonlar {
     display: inline-block;
     overflow-y: scroll;
@@ -308,12 +330,18 @@ button > div:last-child {
 .kategoriDetaylariSpanForm {
     display: block;
     text-align: center;
+    border-radius:50%;
+    width:100%;
 }
 
 .kategoriDetaylariIconForm {
     cursor: pointer;
     font-size: 30px;
     color: rgb(196, 201, 209);
+}
+
+.kategoriDetaySelect::-webkit-scrollbar {
+    display: none;
 }
 
 .kategoriDetaylariIkonlar::-webkit-scrollbar {
@@ -356,6 +384,7 @@ button > div:last-child {
 .butonDivKategoriDetaylari {
     width: 100%;
     margin-left: auto;
+    display:none;
 }
 
 .butonDivKategoriDetaylari > button {
