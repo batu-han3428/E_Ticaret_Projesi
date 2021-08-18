@@ -230,7 +230,7 @@
             <div class="col-md-12">
                 <fieldset style="width: 95%; height: 443px; ">
                     <legend>Kategoriler Detay</legend>
-                    <div class="row" style="height:78%;">
+                    <div class="row" style="height:100%;">
                         <div class="col-md-4">
                             @{ if (Model.Item1.Count == 0)
                                 {
@@ -1045,10 +1045,11 @@
 
     $("#kategoriDetayEkle").click(function () {
         $(".kategoriDetaylariGosterim").fadeOut();
-       
         setTimeout(function () {
             $(".kategoriDetaylariGosterimEkleForm").fadeIn();
-        },500);
+            $(".kategoriDetayGosterIslem").css("overflow", "unset");
+        }, 500);
+        
     });
 
     $("#kategoriDetayAlanlariButonAlan > button").click(function () {
@@ -1067,9 +1068,11 @@
             $(kategoriDetayButonlar).css("display", "none");
             $(kategoriDetayButonlar).next().effect("shake");
             $("#kategoriDetayListele").click(function () {
-                $(".kategoriDetaySelect, .kategoriDetaylariIkonlar, #kategoriDetayTextArea").fadeOut();
+                $(".kategoriDetaylariGosterimEkleForm").fadeOut();
                 setTimeout(function () {
-                    $(".kategoriDetayIsim, .kategoriDetayIcon, .kategoriDetayAciklama").fadeIn();
+                    $(".kategoriDetayGosterIslem").css("overflow-y", "scroll");
+                    $(".kategoriDetaylariGosterim").fadeIn();
+                   
                 }, 500);
                 $(this).css({
                     "transform": "scale(1.1)",
