@@ -84,6 +84,8 @@ namespace Tasarim_Bolumu
 
             services.AddScoped<IkategoriAlanlariRepository, kategoriAlanlariRepository>();
             services.AddScoped<IkategoriAlanlariServices, kategoriAlanlariServices>();
+
+            services.AddScoped<IkategoriDetayRepository, kategoriDetayRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

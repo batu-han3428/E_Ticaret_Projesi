@@ -987,7 +987,7 @@
 
         Ikon = $(this).find("i").attr("class");
 
-        Ikon = Ikon.substring(Ikon.length - 21, 0);
+        Ikon = Ikon.substring(Ikon.length - 26, 0);
 
         tiklandi = 1;
 
@@ -1066,6 +1066,45 @@
             });
         }, 1000);
         
+    });
+
+    $("#butonKategoriDetaylariKaydet").click(function () {
+
+
+        var kategoriVerileri = new Object();
+        kategoriVerileri.urunKategorileriId = $("#selectLabelKategoriDetay").find("option").filter(':selected').val();
+
+
+        var kategoriDetaylariVerileri = new Object();
+        kategoriDetaylariVerileri.urunKategorileri = kategoriVerileri
+        kategoriDetaylariVerileri.urunKategorileriDetayLogo = Ikon;
+        kategoriDetaylariVerileri.urunKategorileriKategoriAciklama = $("#kategoriDetayTextArea").val();
+
+        var kategoriDetayTabloKaydet = "@Url.Action("kategoriDetayEkle", "kategoriAlanlari")";
+
+        $.ajax({
+            url: kategoriDetayTabloKaydet,
+            data: kategoriDetaylariVerileri,
+            type: "POST",
+            success: function (veri) {
+
+                $("#selectLabelKategoriDetay, #kategoriDetaylariIconDiv, #kategoriDetayTextArea").fadeOut();
+
+                setTimeout(function () {
+                    $("#eeee").css("display", "none").html(veri).find(".kategoriDetayIsim, .kategoriDetayIcon, .kategoriDetayAciklama").css("display", "none");
+
+                    $("#eeee").css("display", "block");
+
+                    $(".kategoriDetayIsim, .kategoriDetayIcon, .kategoriDetayAciklama").fadeIn();
+
+                }, 500);
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+        });
+
+         
     });
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

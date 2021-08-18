@@ -11,6 +11,7 @@ namespace BL.Models
     public interface IkategoriAlanlariServices
     {
         int kategoriEkle(urunKategorileri model);
+        int kategoriDetayEkle(urunKategorileriDetay model);
         List<urunKategorileri> hepsiniListele(Expression<Func<urunKategorileri, bool>> filter = null);
     }
 }

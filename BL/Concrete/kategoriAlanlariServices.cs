@@ -14,10 +14,12 @@ namespace BL.Concrete
     public class kategoriAlanlariServices : IkategoriAlanlariServices
     {
         private IkategoriAlanlariRepository kategoriAlanlariRepository;
+        private IkategoriDetayRepository kategoriDetayRepository;
         SqlDbContext context = new SqlDbContext();
-        public kategoriAlanlariServices(IkategoriAlanlariRepository kategoriAlanlariRepository)
+        public kategoriAlanlariServices(IkategoriAlanlariRepository kategoriAlanlariRepository, IkategoriDetayRepository kategoriDetayRepository)
         {
             this.kategoriAlanlariRepository = kategoriAlanlariRepository;
+            this.kategoriDetayRepository = kategoriDetayRepository;
         }
         public int kategoriEkle(urunKategorileri model)
         {
@@ -32,6 +34,21 @@ namespace BL.Concrete
                 return kategoriAlanlariRepository.ekle(model);
             }
            
+        }
+
+        public int kategoriDetayEkle(urunKategorileriDetay model)
+        {
+            var veri = context.urunKategorileriDetay.Any(a => a.urunKategorileri.urunKategorileriId == model.urunKategorileri.urunKategorileriId);
+
+            if (veri)
+            {
+                return 0;
+            }
+            else
+            {
+                return kategoriDetayRepository.ekle(model);
+            }
+
         }
 
         public List<urunKategorileri> hepsiniListele(Expression<Func<urunKategorileri, bool>> filter = null)
