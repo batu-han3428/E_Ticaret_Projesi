@@ -331,7 +331,7 @@
                                     </div>
                                 </div>
                                 @{
-                                                                
+
                                     foreach (var item in Model.Item1)
                                     {
                                         @if (item.urunKategorileriUstId == 0)
@@ -349,27 +349,18 @@
                                                 <div>
                                                     <div>
                                                         <span class="kategoriDetayIsim" id="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</span>
-                                                        <select id="selectLabelKategoriDetay" class="form-select kategoriDetaySelect" size="2">
-                                                            <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option> 
-                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div>
                                                         <i class="bi bi-alarm-fill kategoriDetayIcon"></i>
-                                                        <div id="kategoriDetaylariIconDiv" class="kategoriDetaylariIkonlar">
-                                                            <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm kategoriDetaylariIconForm"></i></span>
-                                                            <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm-fill kategoriDetaylariIconForm"></i></span>
-                                                            <span class="kategoriDetaylariSpanForm"><i class="bi bi-align-bottom kategoriDetaylariIconForm"></i></span>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div>
-                                                   <div style="overflow-y:scroll;">
+                                                    <div style="overflow-y:scroll;">
                                                         <p class="kategoriDetayAciklama">
                                                             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
                                                         </p>
-                                                        <textarea id="kategoriDetayTextArea" class="form-control" rows="4" placeholder="Açıklama Metni" required></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -379,7 +370,39 @@
                                     }
 
                                 }
+                                <div class="kategoriDetaylariGosterimEkleForm">
+                                    <div>
+                                        <div>
+                                            <select id="selectLabelKategoriDetay" class="form-select kategoriDetaySelect" size="2">
+                                                @{
+                                                    for (int i = 0; i < kategoriDetayAdiDizi.Count; i++)
+                                                    {
+                                                        foreach (var item in Model.Item1.Where(x => x.urunKategorileriUstId == (int)kategoriDetayAdiDizi[i]))
+                                                        {
 
+                                                            <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
+
+                                                        }
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <div id="kategoriDetaylariIconDiv" class="kategoriDetaylariIkonlar">
+                                                <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm kategoriDetaylariIconForm"></i></span>
+                                                <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm-fill kategoriDetaylariIconForm"></i></span>
+                                                <span class="kategoriDetaylariSpanForm"><i class="bi bi-align-bottom kategoriDetaylariIconForm"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div style="overflow-y:scroll;">
+                                            <textarea id="kategoriDetayTextArea" class="form-control" rows="4" placeholder="Açıklama Metni" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="butonDivKategoriDetaylari">
                                     <button id="butonKategoriDetaylariKaydet" class="btn btn-outline-secondary">Kaydet</button>
                                 </div>
@@ -466,6 +489,8 @@
 
 
 <script type="text/javascript">
+
+    $(".kategoriDetaylariGosterimEkleForm").hide();
 
     $(".KategorilerDivAlanUrun").scroll(function () {
 
@@ -1019,10 +1044,10 @@
     });
 
     $("#kategoriDetayEkle").click(function () {
-        $(".kategoriDetayIsim, .kategoriDetayIcon, .kategoriDetayAciklama").fadeOut();
-
+        $(".kategoriDetaylariGosterim").fadeOut();
+       
         setTimeout(function () {
-            $("#selectLabelKategoriDetay, #kategoriDetaylariIconDiv, #kategoriDetayTextArea").fadeIn();
+            $(".kategoriDetaylariGosterimEkleForm").fadeIn();
         },500);
     });
 
