@@ -253,73 +253,58 @@ button > div:last-child {
 
 .kategoriDetaylariGosterim {
     border-bottom: 2px groove rgb(194, 199, 209);
-    height: 100px;
+    height: 80px;
     display: flex;
+
 }
 
 .kategoriDetaylariGosterim > div:not(:nth-child(3)) {
-    padding-top: 5px;
-    width: 27%;
+    width: 25%;
 }
 
 .kategoriDetaylariGosterim > div:nth-child(3) {
     padding-top: 5px;
-    width: 46%;
+    width: 50%;
+    padding-bottom: 5px;
 }
 
-.kategoriDetaylariGosterim > div:nth-child(3) > div:nth-child(2) {
+.kategoriDetaylariGosterim > div:nth-child(3) > div {
     font-family: 'Yu Gothic UI';
     color: rgb(143, 148, 155);
-    height: 70%;
+    height: 100%;
     font-weight: normal;
     font-size: 14px;
 }
 
-.kategoriDetaylariGosterim > div:nth-child(3) > div:nth-child(2) > textarea {
+.kategoriDetaylariGosterim > div:nth-child(3) > div > textarea {
     color: rgb(150, 155, 163) !important;
 }
 
-.kategoriDetaylariGosterim > div:nth-child(3) > div:nth-child(2) > textarea:focus {
+.kategoriDetaylariGosterim > div:nth-child(3) > div > textarea:focus {
     border-color: rgb(150, 155, 163) !important;
     box-shadow: 0 0 10px 0.25rem rgb(157, 163, 173) !important;
-}
-
-.kategoriDetaylariGosterim > div > div:first-child > span {
-    font-size: 15px;
-    font-family: Papyrus;
-    font-weight: bold;
-    color: rgb(143, 148, 155);
-    cursor: default;
-    border-bottom: 3px double rgb(143, 148, 155);
-    text-align: center;
-    display: block;
-    height: 100%;
 }
 
 .kategoriDetaylariGosterim > div {
     height: 100%;
 }
 
-.kategoriDetaylariGosterim > div > div:nth-child(1) {
-    height: 30%;
-}
-
-.kategoriDetaylariGosterim > div:not(:nth-child(3)) > div:nth-child(2) {
-    height: 70%;
+.kategoriDetaylariGosterim > div:not(:nth-child(3)) > div {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.kategoriDetaylariGosterim > div:nth-child(1) > div:nth-child(2) > span {
-    font-size: 15px;
+.kategoriDetaylariGosterim > div:nth-child(1) > div > span {
+    font-size: 20px;
     font-family: 'Yu Gothic UI';
     color: rgb(143, 148, 155);
     cursor: default;
     text-align: center;
 }
 
-.kategoriDetaylariGosterim > div:nth-child(2) > div:nth-child(2) {
+.kategoriDetaylariGosterim > div:nth-child(2) > div {
     font-size: 35px;
     color: rgb(196, 201, 209);
 }
@@ -411,4 +396,21 @@ button > div:last-child {
 
 #kategoriDetayTextArea{
     display:none;
+}
+
+#kategoriDetaylariGosterimBasliklar{
+    display:flex;
+    width:100%;
+}
+
+#kategoriDetaylariGosterimBasliklar span {
+    font-size: 15px;
+    font-family: Papyrus;
+    font-weight: bold;
+    color: rgb(143, 148, 155);
+    cursor: default;
+    border-bottom: 3px double rgb(143, 148, 155);
+    text-align: center;
+    display: block;
+    height: 100%;
 }

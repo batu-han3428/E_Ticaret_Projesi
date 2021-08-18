@@ -9,6 +9,6 @@ namespace DAL.Models
 {
     public interface IkategoriDetayRepository : IBaseRepository<urunKategorileriDetay>
     {
-       
+        int kategoriDetayEkle(urunKategorileriDetay model);
     }
 }

@@ -46,7 +46,7 @@ namespace BL.Concrete
             }
             else
             {
-                return kategoriDetayRepository.ekle(model);
+                return kategoriDetayRepository.kategoriDetayEkle(model);
             }
 
         }
