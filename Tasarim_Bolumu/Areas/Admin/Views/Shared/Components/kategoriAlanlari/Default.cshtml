@@ -352,36 +352,56 @@
                                                 </div>
                                                 <div>
                                                     <div>
-                                                        @foreach (var h in Model.Item4)
-                                                        {
-                                                            if (h.urunKategorileri.urunKategorileriId == item.urunKategorileriId)
+                                                        @{
+                                                            if (Model.Item4.Count == 0)
                                                             {
-
-                                                                    <i class="@h.urunKategorileriDetayLogo kategoriDetayIcon"></i>
-                                                            }
-                                                            else { 
                                                                 <span style="color: rgb(143, 148, 167); font-size:15px !important; text-align: center !important;">Kayıtlı Logo Bulunamamıştır..</span>
-                                                            }
-                                                        }
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div style="overflow-y:scroll;">
-                                                        @foreach (var h in Model.Item4)
-                                                        {
-                                                            if (h.urunKategorileri.urunKategorileriId == item.urunKategorileriId)
-                                                            {
-                                                                <p class="kategoriDetayAciklama">
-                                                                   @h.urunKategorileriKategoriAciklama
-                                                                </p>
-                                                                
                                                             }
                                                             else
                                                             {
-                                                                <span style="color: rgb(143, 148, 167); font-size:15px !important; text-align: center !important;">Kayıtlı Açıklama Bulunamamıştır..</span>
+                                                                foreach (var h in Model.Item4)
+                                                                {
+                                                                    if (h.urunKategorileri.urunKategorileriId == item.urunKategorileriId)
+                                                                    {
+
+                                                                        <i class="@h.urunKategorileriDetayLogo kategoriDetayIcon"></i>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span style="color: rgb(143, 148, 167); font-size:15px !important; text-align: center !important;">Kayıtlı Logo Bulunamamıştır..</span>
+                                                                    }
+                                                                }
                                                             }
                                                         }
-                                                       
+
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div style="display:flex; overflow-y:scroll;">
+                                                        @{
+                                                            if (Model.Item4.Count == 0)
+                                                            {
+                                                                <span style="align-self:center !important; text-align:center !important; color: rgb(143, 148, 167); font-size:15px !important; text-align: center !important;">Kayıtlı Açıklama Bulunamamıştır..</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                foreach (var h in Model.Item4)
+                                                                {
+                                                                    if (h.urunKategorileri.urunKategorileriId == item.urunKategorileriId)
+                                                                    {
+                                                                        <p class="kategoriDetayAciklama">
+                                                                            @h.urunKategorileriKategoriAciklama
+                                                                        </p>
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span style="align-self: center !important; text-align: center !important; color: rgb(143, 148, 167); font-size: 15px !important; text-align: center !important; ">Kayıtlı Açıklama Bulunamamıştır..</span>
+                                                                    }
+                                                                }
+                                                            }
+
+                                                        }
                                                     </div>
                                             </div>
                                         </div>
@@ -488,7 +508,8 @@
                                                                     </div>
                                                                     <label for="altKategoriselectLabelDetay" class="form-label selectLabelKategori">Alt Kategoriler *</label>
                                                                     <select style="position:relative;" id="altKategoriselectLabelDetay" class="form-select kategoriSelect" size="2">
-                                                                        @{ if (Model.Item3 != null) {
+                                                                        @{ if (Model.Item3 != null)
+                                                                            {
                                                                                 foreach (var item in Model.Item3)
                                                                                 {
 
@@ -537,6 +558,8 @@
                                         var Ikon;
                                         var tiklandi;
                                         var kategoriDetayButonlar;
+                                        var bos;
+                                        var kategoriDetayListeleTiklandi;
 
                                         (function () {
                                                 'use strict'
@@ -1050,6 +1073,7 @@
                                                 $(".butonDivKategoriDetaylari").slideUp("slow");
                                             } else {
                                                 bos = 0;
+                                                kategoriDetayListeleTiklandi = 0;
                                                 $("#kategoriDetayAlanSutunForm").trigger("DOMSubtreeModified");
                                             }
                                         });
@@ -1058,6 +1082,8 @@
                                             if (tiklandi == 1 && bos == 0) {
                                                 if ($(".butonDivKategoriDetaylari").css("display") != "none") {
 
+                                                } else if (kategoriDetayListeleTiklandi == 1) {
+
                                                 } else {
                                                     $(".butonDivKategoriDetaylari").slideDown("slow").effect('shake');
                                                 }
@@ -1065,6 +1091,9 @@
                                         });
 
                                         $("#kategoriDetayEkle").click(function () {
+                                            if (tiklandi == 1 && bos == 0) {
+                                                $(".butonDivKategoriDetaylari").css("display", "block");
+                                            }
                                             $(".kategoriDetaylariGosterim").fadeOut();
                                             setTimeout(function () {
                                                 $(".kategoriDetaylariGosterimEkleForm").fadeIn();
@@ -1089,11 +1118,12 @@
                                                 $(kategoriDetayButonlar).css("display", "none");
                                                 $(kategoriDetayButonlar).next().effect("shake");
                                                 $("#kategoriDetayListele").click(function () {
+                                                    kategoriDetayListeleTiklandi = 1;
                                                     $(".kategoriDetaylariGosterimEkleForm").fadeOut();
+                                                    $(".butonDivKategoriDetaylari").css("display","none");
                                                     setTimeout(function () {
                                                         $(".kategoriDetayGosterIslem").css("overflow-y", "scroll");
                                                         $(".kategoriDetaylariGosterim").fadeIn();
-
                                                     }, 500);
                                                     $(this).css({
                                                         "transform": "scale(1.1)",

@@ -310,6 +310,7 @@ button > div:last-child {
             color: rgb(143, 148, 155);
             cursor: default;
             text-align: center;
+            word-break:break-word !important;
         }
 
         .kategoriDetaylariGosterim > div:nth-child(2) > div {
