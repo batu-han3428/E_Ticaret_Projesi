@@ -56,6 +56,10 @@ namespace BL.Concrete
 
             return kategoriAlanlariRepository.hepsiniListele(filter);
         }
+        public List<urunKategorileriDetay> detayHepsiniListele()
+        {
 
+            return kategoriDetayRepository.detaykategoriListele();
+        }
     }
 }

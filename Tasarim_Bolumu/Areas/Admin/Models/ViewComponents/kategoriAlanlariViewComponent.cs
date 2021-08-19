@@ -17,6 +17,7 @@ namespace Tasarim_Bolumu.Areas.Admin.Models.ViewComponents
         private int TempDateVeri;
         private List<urunKategorileri> veri;
         private List<urunKategorileri> ver;
+        private List<urunKategorileriDetay> kategoriDetaylari;
 
         public kategoriAlanlariViewComponent(IkategoriAlanlariServices kategoriAlanlariServices)
         {
@@ -37,19 +38,21 @@ namespace Tasarim_Bolumu.Areas.Admin.Models.ViewComponents
            
 
             veri = kategoriAlanlariServices.hepsiniListele(null);
+            kategoriDetaylari = kategoriAlanlariServices.detayHepsiniListele();
+
             if (TempData["Veri"] == null)
             {
           
                 TempDateVeri =  0;
 
-                return View(Tuple.Create<List<urunKategorileri>, int, List<urunKategorileri>>(veri, TempDateVeri, ver));
+                return View(Tuple.Create<List<urunKategorileri>, int, List<urunKategorileri>, List<urunKategorileriDetay>>(veri, TempDateVeri, ver, kategoriDetaylari));
             }
             else
             { 
                  
                 TempDateVeri = (int)TempData["Veri"];
                
-                return View(Tuple.Create<List<urunKategorileri>, int, List<urunKategorileri>>(veri, TempDateVeri, ver));
+                return View(Tuple.Create<List<urunKategorileri>, int, List<urunKategorileri>, List<urunKategorileriDetay>>(veri, TempDateVeri, ver, kategoriDetaylari));
             }
            
         }
