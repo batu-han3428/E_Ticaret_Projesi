@@ -329,6 +329,7 @@ button > div:last-child {
             overflow-x: hidden;
             width: 80%;
             height: 70%;
+            position:relative;
         }
 
 .kategoriDetaylariSpanForm {

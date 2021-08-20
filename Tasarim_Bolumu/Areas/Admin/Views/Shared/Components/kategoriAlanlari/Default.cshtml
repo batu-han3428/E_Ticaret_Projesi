@@ -371,21 +371,23 @@
                                                             {
                                                                 <span style="color: rgb(143, 148, 167); font-size:15px !important; text-align: center !important;">Kayıtlı Logo Bulunamamıştır..</span>
                                                             }
-                                                            else
-                                                            {
-                                                                foreach (var h in Model.Item4)
-                                                                {
-                                                                    if (h.urunKategorileri.urunKategorileriId == item.urunKategorileriId)
-                                                                    {
-
-                                                                        <i class="@h.urunKategorileriDetayLogo kategoriDetayIcon"></i>
-                                                                    }
                                                                     else
                                                                     {
-                                                                        <span style="color: rgb(143, 148, 167); font-size:15px !important; text-align: center !important;">Kayıtlı Logo Bulunamamıştır..</span>
+
+                                                                        if (Model.Item4.Any(x => x.urunKategorileri.urunKategorileriId == item.urunKategorileriId))
+                                                                        {
+                                                                           var  y = Model.Item4.FirstOrDefault(x => x.urunKategorileri.urunKategorileriId == item.urunKategorileriId);
+                                                                            
+                                                                                <i id="@y.urunKategorileri.urunKategorileriId" class="@y.urunKategorileriDetayLogo kategoriDetayIcon kategoriDetayAnlamaIcon"></i>
+                                                                       
+                                                                            }
+                                                                        else
+                                                                        {
+                                                                            <span style="color: rgb(143, 148, 167); font-size:15px !important; text-align: center !important;">Kayıtlı Logo Bulunamamıştır..</span>
+                                                                           
+                                                                        }
+                                                                
                                                                     }
-                                                                }
-                                                            }
                                                         }
 
                                                     </div>
@@ -399,20 +401,22 @@
                                                             }
                                                             else
                                                             {
-                                                                foreach (var h in Model.Item4)
-                                                                {
-                                                                    if (h.urunKategorileri.urunKategorileriId == item.urunKategorileriId)
-                                                                    {
-                                                                        <p class="kategoriDetayAciklama">
-                                                                            @h.urunKategorileriKategoriAciklama
-                                                                        </p>
 
+                                                                    if (Model.Item4.Any(x => x.urunKategorileri.urunKategorileriId == item.urunKategorileriId))
+                                                                    {
+                                                                        var y = Model.Item4.FirstOrDefault(x => x.urunKategorileri.urunKategorileriId == item.urunKategorileriId);
+
+                                                                        <p id="@y.urunKategorileri.urunKategorileriId" class="kategoriDetayAciklama kategoriDetayAnlamaAciklama">
+                                                                            @y.urunKategorileriKategoriAciklama
+                                                                        </p>
+                                                                        
                                                                     }
                                                                     else
                                                                     {
                                                                         <span style="align-self: center !important; text-align: center !important; color: rgb(143, 148, 167); font-size: 15px !important; text-align: center !important; ">Kayıtlı Açıklama Bulunamamıştır..</span>
+                                                                        
                                                                     }
-                                                                }
+                                                                
                                                             }
 
                                                         }
@@ -420,7 +424,7 @@
                                                 </div>
                                             </div>
 
-
+                                            
                                         }
                                     }
 
@@ -583,6 +587,10 @@
     var kontrolKayit;
     var valueId;
     var kategoriDetayIcınTiklandi;
+    var scrollTopI;
+    var kategoriDetayIconVarmi;
+    var kategoriDetayAciklamaVarmi;
+    var kategoriDetayVarmi;
 
     (function () {
                                                 'use strict'
@@ -1145,6 +1153,8 @@
             $(kategoriDetayButonlar).css("display", "none");
             $(kategoriDetayButonlar).next().effect("shake");
             $("#kategoriDetayListele").click(function () {
+                tiklandi = 0;
+                bos = 1;
                 kategoriDetayListeleTiklandi = 1;
                 $(".kategoriDetaylariGosterimEkleForm").fadeOut();
                 $(".butonDivKategoriDetaylari").css("display", "none");
@@ -1204,6 +1214,7 @@
                 type: "POST",
                 success: function (veri) {
                     if (kategoriDetayIcınTiklandi == 1) {
+                        
                         if (Ikon == valueLogo && kategoriDetaylariVerileri.urunKategorileriKategoriAciklama == valueAciklama) {
                             $("#kategoriDetayGuncelleModalYaziAlan").text("Farklı Logo veya Açıklama Metni Giriniz..");
 
@@ -1253,11 +1264,27 @@
                 }
             });
 
-        } else if (kontrolKayit == 2) {
-
+        }
+        else if (kontrolKayit == 2) {
+           
             var kategoriVerileri = new Object();
             kategoriVerileri.urunKategorileriId = $("#selectLabelKategoriDetay").find("option").filter(':selected').val();
 
+            $(".kategoriDetayAnlamaIcon").each(function () {  
+                if ($(this).attr("id") == kategoriVerileri.urunKategorileriId) {
+                    kategoriDetayIconVarmi = true;
+                }
+            });
+
+            $(".kategoriDetayAnlamaAciklama").each(function () {
+                if ($(this).attr("id") == kategoriVerileri.urunKategorileriId) {
+                    kategoriDetayAciklamaVarmi = true;
+                }
+            });
+
+            if (kategoriDetayIconVarmi && kategoriDetayAciklamaVarmi) {
+                kategoriDetayVarmi = true;
+            }
 
             var kategoriDetaylariVerileri = new Object();
             kategoriDetaylariVerileri.urunKategorileri = kategoriVerileri;
@@ -1271,17 +1298,29 @@
                                                 data: kategoriDetaylariVerileri,
                                                 type: "POST",
                                                 success: function (veri) {
+                                                    if (kategoriDetayVarmi) {
+                                                        $("#kategoriDetayGuncelleModalYaziAlan").text("Bu Kategori Zaten Kayıtlı..");
 
-                                                    $("#selectLabelKategoriDetay, #kategoriDetaylariIconDiv, #kategoriDetayTextArea").fadeOut();
+                                                        $("#kategoriDetayGuncelleModal").modal('show');
+                                                        kategoriDetayIconVarmi = false;
+                                                        kategoriDetayAciklamaVarmi = false;
+                                                        kategoriDetayVarmi = false;
+                                                    } else {
+                                                        $(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").fadeOut();
 
-                                                    setTimeout(function () {
-                                                        $("#eeee").css("display", "none").html(veri).find(".kategoriDetayIsim, .kategoriDetayIcon, .kategoriDetayAciklama").css("display", "none");
+                                                        setTimeout(function () {
+                                                            $("#eeee").css("display", "none").html(veri).find(".kategoriDetaylariGosterim").css("display", "none");
+                                                            $(".butonDivKategoriDetaylari").hide(1);
+                                                            $("#eeee").css("display", "block");
 
-                                                        $("#eeee").css("display", "block");
-
-                                                        $(".kategoriDetayIsim, .kategoriDetayIcon, .kategoriDetayAciklama").fadeIn();
-
-                                                    }, 500);
+                                                            $(".kategoriDetaylariGosterim").fadeIn();
+                                                            kategoriDetayIconVarmi = false;
+                                                            kategoriDetayAciklamaVarmi = false;
+                                                            kategoriDetayVarmi = false;
+                                                            tiklandi = 0;
+                                                            bos = 1;
+                                                        }, 500);
+                                                    }
                                                 },
                                                 error: function (hata, ajaxoptions, throwerror) {
                                                     alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
@@ -1347,7 +1386,7 @@
 
     });
 
-    $(".kategoriDetayGuncelleIkon").click(function () {
+    $(".kategoriDetayGuncelleIkon").click(function () {    
         $("#kategoriDetaylariIconDiv, #kategoriDetaylariIconDiv > span, #kategoriDetaylariIconDiv i").attr("style", ""); 
         kategoriDetayIcınTiklandi = 0;
         kontrolKayit = 1;   
@@ -1380,14 +1419,13 @@
         } else {
             $(".butonDivKategoriDetaylari").hide();
         }
-
-
+  
 
         $("#kategoriDetaylariIconDiv i").each(function () {
             if ($(this).attr("class").substring($(this).attr("class").length - 26, 0) == valueLogo) {
-               
-                $(".kategoriDetaylariIkonlar").scrollTop(999999);
 
+                scrollTopI = $(this);
+               
                 $(this).parent("div").find("span").css({
 
                     "background-color": "white"
@@ -1421,6 +1459,7 @@
         setTimeout(function () {
             $(".kategoriDetaylariGosterimEkleForm").fadeIn();
             $(".kategoriDetayGosterIslem").css("overflow", "unset");
+            $(".kategoriDetaylariIkonlar").scrollTop(scrollTopI.position().top - 15);
         }, 500);
     });
 
