@@ -2,6 +2,7 @@
 using DAL.Models;
 using Entity.Concrete;
 using Entity.Contexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +51,21 @@ namespace BL.Concrete
             }
 
         }
+        public int kategoriDetayGuncelle(urunKategorileriDetay model)
+        {
+            var field = context.urunKategorileriDetay.Include(x => x.urunKategorileri).FirstOrDefault(x => x.urunKategorileri.urunKategorileriId == model.urunKategorileri.urunKategorileriId);
 
+            if (field.urunKategorileriDetayLogo == model.urunKategorileriDetayLogo && field.urunKategorileriKategoriAciklama == model.urunKategorileriKategoriAciklama)
+            {
+                return 0;
+            }
+            else
+            {
+                model.urunKategorilerDetayId = field.urunKategorilerDetayId;
+                return kategoriDetayRepository.guncelle(model);
+            }
+
+        }
         public List<urunKategorileri> hepsiniListele(Expression<Func<urunKategorileri, bool>> filter = null)
         {
 

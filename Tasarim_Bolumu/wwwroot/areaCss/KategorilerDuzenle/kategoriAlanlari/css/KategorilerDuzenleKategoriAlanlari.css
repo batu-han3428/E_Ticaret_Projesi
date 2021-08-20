@@ -407,9 +407,14 @@ button > div:last-child {
     color: white;
 }
 
-#kategoriDetaylariGosterimBasliklar{
-    display:flex;
-    width:100%;
+#kategoriDetaylariGosterimBasliklar {
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background-color: rgb(255, 255, 255);
 }
 
 #kategoriDetaylariGosterimBasliklar span {
@@ -437,13 +442,6 @@ button > div:last-child {
     height:100%;
 }
 
-#kategoriDetaylariGosterimBasliklar {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    background-color: rgb(255, 255, 255);
-}
-
 .kategoriDetayGosterIslem::-webkit-scrollbar {
     width: 10px;
     border: 1px dashed rgb(160, 157, 157);
@@ -459,4 +457,27 @@ button > div:last-child {
 
 .kategoriDetayGosterIslem::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.kategoriDetayGuncelleIkon {
+    cursor: pointer;
+    left: 5px;
+    top: 5px;
+    font-size: 15px;
+    color: rgb(168, 174, 183);
+    position: absolute;
+    display:none;
+}
+
+.kategoriDetayGuncelleIkon:hover {
+    color: rgb(128, 132, 137);
+}
+
+.guncelleSpanFormClass{
+    font-size: 20px;
+    font-family: 'Yu Gothic UI';
+    color: rgb(143, 148, 155);
+    cursor: default;
+    text-align: center;
+    word-break:break-word !important;
 }

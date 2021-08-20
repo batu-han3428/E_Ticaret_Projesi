@@ -84,5 +84,22 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
 
             return RedirectToAction("Kategoriler", "Home");
         }
+        [HttpPost]
+        public IActionResult kategoriDetayGuncelle(urunKategorileriDetay mod)
+        {
+            if (mod.urunKategorileri.urunKategorileriId == 0 || mod.urunKategorileriDetayLogo == null || mod.urunKategorileriKategoriAciklama == null)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            var veri = kategoriAlanlariServices.kategoriDetayGuncelle(mod);
+
+            if (veri == 0)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            return RedirectToAction("Kategoriler", "Home");
+        }
     }
 }

@@ -225,6 +225,19 @@
         </div>
     </div>
     <div class="col-md-9">
+        <div class="modal fade" id="kategoriDetayGuncelleModal" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header text-light bg-danger">
+                        <h5 class="modal-title">Uyarı!</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <span class="display-6 text-danger" id="kategoriDetayGuncelleModalYaziAlan" style="font-weight: 300; font-size: calc(1.3rem + 1vw); "></span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <fieldset style="width: 95%; height: 443px; ">
@@ -288,7 +301,7 @@
                                     </div>
 
 
-                                                    }}
+                                }}
                         </div>
                         <div id="kategoriDetayAlanSutunForm" class="col-md-8" style="height:100%;">
                             <div id="kategoriDetayAlanlariButonAlan">
@@ -300,7 +313,7 @@
                                         <i class="bi bi-file-earmark-plus-fill" id="kategoriAlanlariButonIcon"></i>
                                     </div>
                                 </button>
-                                <button class="btn btn-secondary">
+                                <button class="btn btn-secondary" id="kategoriDetayGuncelle">
                                     <div>
                                         <span id="kategoriAlanlariButonYazi">Kategori Detay Güncelle</span>
                                     </div>
@@ -345,7 +358,8 @@
                                         {
 
                                             <div class="kategoriDetaylariGosterim">
-                                                <div>
+                                                <div style="position:relative;">
+                                                    <i data-bs-toggle="tooltip" data-bs-placement="right" title="Güncelle" class="bi bi-check-circle-fill kategoriDetayGuncelleIkon"></i>
                                                     <div>
                                                         <span class="kategoriDetayIsim" id="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</span>
                                                     </div>
@@ -403,165 +417,174 @@
 
                                                         }
                                                     </div>
+                                                </div>
                                             </div>
+
+
+                                        }
+                                    }
+
+                                }
+                                <div class="kategoriDetaylariGosterimEkleForm">
+                                    <div>
+                                        <div>
+                                            <select id="selectLabelKategoriDetay" class="form-select kategoriDetaySelect" size="2">
+                                                @{
+                                                    for (int i = 0; i < kategoriDetayAdiDizi.Count; i++)
+                                                    {
+                                                        foreach (var item in Model.Item1.Where(x => x.urunKategorileriUstId == (int)kategoriDetayAdiDizi[i]))
+                                                        {
+
+                                                            <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
+
+                                                        }
+                                                    }
+                                                }
+                                            </select>
+                                            <span id="guncelleSpanForm" class="guncelleSpanFormClass"></span>
                                         </div>
-
-
-                                                                            }
-                                                                        }
-
-                                                                    }
-                                                                    <div class="kategoriDetaylariGosterimEkleForm">
-                                                                        <div>
-                                                                            <div>
-                                                                                <select id="selectLabelKategoriDetay" class="form-select kategoriDetaySelect" size="2">
-                                                                                    @{
-                                                                                        for (int i = 0; i < kategoriDetayAdiDizi.Count; i++)
-                                                                                        {
-                                                                                            foreach (var item in Model.Item1.Where(x => x.urunKategorileriUstId == (int)kategoriDetayAdiDizi[i]))
-                                                                                            {
-
-                                                                                                <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
-
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div>
-                                                                            <div>
-                                                                                <div id="kategoriDetaylariIconDiv" class="kategoriDetaylariIkonlar">
-                                                                                    <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm kategoriDetaylariIconForm"></i></span>
-                                                                                    <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm-fill kategoriDetaylariIconForm"></i></span>
-                                                                                    <span class="kategoriDetaylariSpanForm"><i class="bi bi-align-bottom kategoriDetaylariIconForm"></i></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div>
-                                                                            <div style="overflow-y:scroll;">
-                                                                                <textarea id="kategoriDetayTextArea" class="form-control" rows="4" placeholder="Açıklama Metni" required></textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="butonDivKategoriDetaylari">
-                                                                        <button id="butonKategoriDetaylariKaydet" class="btn btn-outline-secondary">Kaydet</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </fieldset>
-                                                </div>
-                                                <div class="modal fade" id="kategoriDetaylariModal" data-bs-backdrop="static">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
-                                                                <h5 class="modal-title">Kategori Detayları</h5>
-                                                                <button class="btn-close" data-bs-dismiss="modal"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
-                                                                    <span>Kategorileri listelemek için bir kategori alanı seçiniz..</span>
-                                                                </div>
-                                                                <div class="col-md-12">
-                                                                    <label for="selectLabelDetay" class="form-label selectLabelKategori">Kategori Alanları *</label>
-                                                                    <select id="selectLabelDetay" class="form-select kategoriSelect" size="2">
-                                                                        @foreach (var item in Model.Item1)
-                                                                        {
-                                                                            @if (item.urunKategorileriUstId == 0)
-                                                                            {
-                                                                                <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
-                                                                            }
-                                                                        }
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal fade" id="altKategoriDetaylariModal" data-bs-backdrop="static">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
-                                                                <h5 class="modal-title">Alt Kategori Detayları</h5>
-                                                                <button class="btn-close" data-bs-dismiss="modal"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
-                                                                    <span>Alt Kategorileri listelemek için bir alt kategori seçiniz..</span>
-                                                                </div>
-                                                                <div class="col-md-12">
-                                                                    <div id="altKategoriDetaylariModalBodyDivGosterim">
-                                                                        <span id="KategoriModalSpan"></span>
-                                                                        <i class="bi bi-arrow-down-circle-fill KategoriModalSpanIcon"></i>
-                                                                        @{ if (Model.Item3 != null)
-                                                                            {
-                                                                                foreach (var item in Model.Item3)
-                                                                                {
-
-                                                                                    <span id="@item.urunKategorileriId" class="KategoriModalSpan2"> @item.urunKategorileriKategoriAdi</span>
-
-                                                                                }
-                                                                            }
-
-                                                                        }
-                                                                    </div>
-                                                                    <label for="altKategoriselectLabelDetay" class="form-label selectLabelKategori">Alt Kategoriler *</label>
-                                                                    <select style="position:relative;" id="altKategoriselectLabelDetay" class="form-select kategoriSelect" size="2">
-                                                                        @{ if (Model.Item3 != null)
-                                                                            {
-                                                                                foreach (var item in Model.Item3)
-                                                                                {
-
-                                                                                    <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
-
-                                                                                }
-                                                                            }
-
-                                                                        }
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <div id="kategoriDetaylariIconDiv" class="kategoriDetaylariIkonlar">
+                                                <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm kategoriDetaylariIconForm"></i></span>
+                                                <span class="kategoriDetaylariSpanForm"><i class="bi bi-alarm-fill kategoriDetaylariIconForm"></i></span>
+                                                <span class="kategoriDetaylariSpanForm"><i class="bi bi-align-bottom kategoriDetaylariIconForm"></i></span>
                                             </div>
                                         </div>
                                     </div>
+                                    <div>
+                                        <div style="overflow-y:scroll;">
+                                            <textarea id="kategoriDetayTextArea" class="form-control" rows="4" placeholder="Açıklama Metni" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="butonDivKategoriDetaylari">
+                                    <button id="butonKategoriDetaylariKaydet" class="btn btn-outline-secondary">Kaydet</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="modal fade" id="kategoriDetaylariModal" data-bs-backdrop="static">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
+                            <h5 class="modal-title">Kategori Detayları</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
+                                <span>Kategorileri listelemek için bir kategori alanı seçiniz..</span>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="selectLabelDetay" class="form-label selectLabelKategori">Kategori Alanları *</label>
+                                <select id="selectLabelDetay" class="form-select kategoriSelect" size="2">
+                                    @foreach (var item in Model.Item1)
+                                    {
+                                        @if (item.urunKategorileriUstId == 0)
+                                        {
+                                            <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="altKategoriDetaylariModal" data-bs-backdrop="static">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
+                            <h5 class="modal-title">Alt Kategori Detayları</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
+                                <span>Alt Kategorileri listelemek için bir alt kategori seçiniz..</span>
+                            </div>
+                            <div class="col-md-12">
+                                <div id="altKategoriDetaylariModalBodyDivGosterim">
+                                    <span id="KategoriModalSpan"></span>
+                                    <i class="bi bi-arrow-down-circle-fill KategoriModalSpanIcon"></i>
+                                    @{ if (Model.Item3 != null)
+                                        {
+                                            foreach (var item in Model.Item3)
+                                            {
+
+                                                <span id="@item.urunKategorileriId" class="KategoriModalSpan2"> @item.urunKategorileriKategoriAdi</span>
+
+                                            }
+                                        }
+
+                                    }
+                                </div>
+                                <label for="altKategoriselectLabelDetay" class="form-label selectLabelKategori">Alt Kategoriler *</label>
+                                <select style="position:relative;" id="altKategoriselectLabelDetay" class="form-select kategoriSelect" size="2">
+                                    @{ if (Model.Item3 != null)
+                                        {
+                                            foreach (var item in Model.Item3)
+                                            {
+
+                                                <option value="@item.urunKategorileriId">@item.urunKategorileriKategoriAdi</option>
+
+                                            }
+                                        }
+
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-                                    <script type="text/javascript">
+<script type="text/javascript">
 
-                                        $(".kategoriDetaylariGosterimEkleForm").hide();
+    $(".kategoriDetaylariGosterimEkleForm").hide();
 
-                                        $(".KategorilerDivAlanUrun").scroll(function () {
+    $(".KategorilerDivAlanUrun").scroll(function () {
+        $(".KategorilerAdlari > span").tooltip("hide");
+    });
 
-                                                $(".KategorilerAdlari > span").tooltip("hide");
-                                        });
+    $(".urunKategorileriDivAlan").scroll(function () {
+        $(".kategorilerDetaySpanAlanIcerik > span").tooltip("hide");
+    });
 
-                                        $(".urunKategorileriDivAlan").scroll(function () {
-
-                                            $(".kategorilerDetaySpanAlanIcerik > span").tooltip("hide");
-                                        });
-
-
-                                        $("#selectLabel > option").eq(0).attr("selected", "true");
-
-                                        $("#selectLabelDetay > option").eq(0).attr("selected", "selected");
-
-                                        $("#selectLabelKategoriDetay > option").eq(0).attr("selected", "selected");
+    $(".kategoriDetayGosterIslem").scroll(function () {
+        $(".kategoriDetayGuncelleIkon").tooltip("hide");
+    });
 
 
-                                        var kategoriId;
-                                        var kategoriIsimKontrol, altKategoriIsımKontrol, kategoriAlaniIsımKontrol;
-                                        var kategoriIsimKontrolSayi = 0, altKategoriIsımKontrolSayi = 0, kategoriAlaniIsımKontrolSayi = 0;
-                                        var Ikon;
-                                        var tiklandi;
-                                        var kategoriDetayButonlar;
-                                        var bos;
-                                        var kategoriDetayListeleTiklandi;
+    $("#selectLabel > option").eq(0).attr("selected", "true");
 
-                                        (function () {
+    $("#selectLabelDetay > option").eq(0).attr("selected", "selected");
+
+    $("#selectLabelKategoriDetay > option").eq(0).attr("selected", "selected");
+
+
+    var kategoriId;
+    var kategoriIsimKontrol, altKategoriIsımKontrol, kategoriAlaniIsımKontrol;
+    var kategoriIsimKontrolSayi = 0, altKategoriIsımKontrolSayi = 0, kategoriAlaniIsımKontrolSayi = 0;
+    var Ikon;
+    var tiklandi;
+    var kategoriDetayButonlar;
+    var bos;
+    var kategoriDetayListeleTiklandi;
+    var valueAd;
+    var valueLogo;
+    var valueAciklama;
+    var kontrolKayit;
+    var valueId;
+    var kategoriDetayIcınTiklandi;
+
+    (function () {
                                                 'use strict'
 
 
@@ -581,7 +604,7 @@
                                                     })
                                         })()
 
-                                        $("#kategoriAlanlariModalForm").submit(function (event) {
+    $("#kategoriAlanlariModalForm").submit(function (event) {
                                             event.preventDefault();
 
                                             if ($(".urunKategorileriAlanAdlari > span").text() != "") {
@@ -670,7 +693,7 @@
                                             }
                                         });
 
-                                        $("#kategoriModalForm").submit(function (event) {
+    $("#kategoriModalForm").submit(function (event) {
                                             event.preventDefault();
 
                                             if ($(".KategorilerAdlari > span").text() != "") {
@@ -821,7 +844,7 @@
                                             }
                                         });
 
-                                        $("#selectLabelDetay").change(function () {
+    $("#selectLabelDetay").change(function () {
 
                                             var kategoriDetayId = new Object();
                                             kategoriDetayId.urunKategorileriId = $(this).find("option").filter(':selected').val();
@@ -855,11 +878,11 @@
                                             });
                                         });
 
-                                        $(".KategorilerAdlari").click(function () {
+    $(".KategorilerAdlari").click(function () {
                                             kategoriId = $(this).attr("id");
                                         });
 
-                                        $("#altKategoriModalForm").submit(function (event) {
+    $("#altKategoriModalForm").submit(function (event) {
                                             event.preventDefault();
 
                                             if ($(".KategorilerAdlari > span").text() != "") {
@@ -951,7 +974,7 @@
                                             }
                                         });
 
-                                        $(".kategorilerDetaySpanAlanIcerik").click(function () {
+    $(".kategorilerDetaySpanAlanIcerik").click(function () {
 
                                             $(this).find("span").tooltip("hide");
 
@@ -985,7 +1008,7 @@
 
                                         });
 
-                                        $("#altKategoriselectLabelDetay").change(function () {
+    $("#altKategoriselectLabelDetay").change(function () {
 
 
                                             var altKategoriDetayId = new Object();
@@ -1028,7 +1051,7 @@
                                             });
                                         });
 
-                                        $(".kategoriDetaylariSpanForm").click(function () {
+    $(".kategoriDetaylariSpanForm").click(function () {
 
 
                                             $(this).parent().find("span").css({
@@ -1063,11 +1086,13 @@
 
                                             tiklandi = 1;
 
+                                            kategoriDetayIcınTiklandi = 1;
+
                                             $("#kategoriDetayAlanSutunForm").trigger("DOMSubtreeModified");
 
                                         });
 
-                                        $("#kategoriDetayTextArea").keyup(function () {
+    $("#kategoriDetayTextArea").keyup(function () {
                                             if (!$(this).val()) {
                                                 bos = 1;
                                                 $(".butonDivKategoriDetaylari").slideUp("slow");
@@ -1078,7 +1103,7 @@
                                             }
                                         });
 
-                                        $("#kategoriDetayAlanSutunForm").on("DOMSubtreeModified", function () {
+    $("#kategoriDetayAlanSutunForm").on("DOMSubtreeModified", function () {
                                             if (tiklandi == 1 && bos == 0) {
                                                 if ($(".butonDivKategoriDetaylari").css("display") != "none") {
 
@@ -1090,79 +1115,156 @@
                                             }
                                         });
 
-                                        $("#kategoriDetayEkle").click(function () {
-                                            if (tiklandi == 1 && bos == 0) {
-                                                $(".butonDivKategoriDetaylari").css("display", "block");
-                                            }
-                                            $(".kategoriDetaylariGosterim").fadeOut();
-                                            setTimeout(function () {
-                                                $(".kategoriDetaylariGosterimEkleForm").fadeIn();
-                                                $(".kategoriDetayGosterIslem").css("overflow", "unset");
-                                            }, 500);
+    $("#kategoriDetayEkle").click(function () {
+        kontrolKayit = 2;
+        $("#kategoriDetayGuncelle").prop('disabled', true);
+        $("#guncelleSpanForm").css("display", "none");
+        $("#selectLabelKategoriDetay").css("display", "block");
+        if (tiklandi == 1 && bos == 0) {
+            $(".butonDivKategoriDetaylari").css("display", "block");
+        }
+        $(".kategoriDetaylariGosterim").fadeOut();
+        setTimeout(function () {
+            $("#kategoriDetayTextArea").val("");
+            $("#kategoriDetaylariIconDiv, #kategoriDetaylariIconDiv > span, #kategoriDetaylariIconDiv i").attr("style", "");
+            $(".kategoriDetaylariGosterimEkleForm").fadeIn();
+            $(".kategoriDetayGosterIslem").css("overflow", "unset");
+        }, 500);
+        $(this).css({
+            "transform": "scale(1.1)",
+            "background-color": "rgb(143, 148, 155)",
+            "height": "50px",
+            "color": "white"
+        });
+        kategoriDetayButonlar = $(this);
+        setTimeout(function () {
+            $(kategoriDetayButonlar).animate({ opacity: 0 }, 1000);
+        }, 400);
+        setTimeout(function () {
+            $(kategoriDetayButonlar).after("<button class='btn btn-secondary' id='kategoriDetayListele'><div><span id='kategoriAlanlariButonYazi'>Kategori Detay Listele</span></div><div><i class='bi bi-file-earmark-plus-fill' id='kategoriAlanlariButonIcon'></i></div></button>");
+            $(kategoriDetayButonlar).css("display", "none");
+            $(kategoriDetayButonlar).next().effect("shake");
+            $("#kategoriDetayListele").click(function () {
+                kategoriDetayListeleTiklandi = 1;
+                $(".kategoriDetaylariGosterimEkleForm").fadeOut();
+                $(".butonDivKategoriDetaylari").css("display", "none");
+                setTimeout(function () {
+                    $(".kategoriDetayGosterIslem").css("overflow-y", "scroll");
+                    $(".kategoriDetaylariGosterim").fadeIn();
+                }, 500);
+                $(this).css({
+                    "transform": "scale(1.1)",
+                    "background-color": "rgb(143, 148, 155)",
+                    "height": "50px",
+                    "color": "white",
+                    "transition": "1s"
+                });
+                var b = $(this);
+                setTimeout(function () {
+                    $(b).animate({ opacity: 0 }, 1000);
+                }, 1000);
+                setTimeout(function () {
+                    $(kategoriDetayButonlar).css({
+                        "display": "flex",
+                        "opacity": "1",
+                    });
+                    $(kategoriDetayButonlar).attr("style", "");
+                    $(b).css("display", "none");
+                    $(kategoriDetayButonlar).effect("shake");
+                }, 1000);
+                $("#kategoriDetayGuncelle").prop('disabled', false);
+            });
+        }, 1000);
+    });
 
-                                        });
+    $("#butonKategoriDetaylariKaydet").click(function () {
 
-                                        $("#kategoriDetayAlanlariButonAlan > button").click(function () {
-                                            $(this).css({
-                                                "transform": "scale(1.1)",
-                                                "background-color": "rgb(143, 148, 155)",
-                                                "height": "50px",
-                                                "color": "white"
-                                            });
-                                            kategoriDetayButonlar = $(this);
-                                            setTimeout(function () {
-                                                $(kategoriDetayButonlar).animate({opacity: 0}, 1000);
-                                            }, 400);
-                                            setTimeout(function () {
-                                                $(kategoriDetayButonlar).after("<button class='btn btn-secondary' id='kategoriDetayListele'><div><span id='kategoriAlanlariButonYazi'>Kategori Detay Listele</span></div><div><i class='bi bi-file-earmark-plus-fill' id='kategoriAlanlariButonIcon'></i></div></button>");
-                                                $(kategoriDetayButonlar).css("display", "none");
-                                                $(kategoriDetayButonlar).next().effect("shake");
-                                                $("#kategoriDetayListele").click(function () {
-                                                    kategoriDetayListeleTiklandi = 1;
-                                                    $(".kategoriDetaylariGosterimEkleForm").fadeOut();
-                                                    $(".butonDivKategoriDetaylari").css("display","none");
-                                                    setTimeout(function () {
-                                                        $(".kategoriDetayGosterIslem").css("overflow-y", "scroll");
-                                                        $(".kategoriDetaylariGosterim").fadeIn();
-                                                    }, 500);
-                                                    $(this).css({
-                                                        "transform": "scale(1.1)",
-                                                        "background-color": "rgb(143, 148, 155)",
-                                                        "height": "50px",
-                                                        "color": "white",
-                                                        "transition": "1s"
-                                                    });
-                                                    var b = $(this);
-                                                    setTimeout(function () {
-                                                        $(b).animate({ opacity: 0 }, 1000);
-                                                    }, 1000);
-                                                    setTimeout(function () {
-                                                        $(kategoriDetayButonlar).css({
-                                                            "display": "flex",
-                                                            "opacity":"1",
-                                                        });
-                                                        $(kategoriDetayButonlar).attr("style", "");
-                                                        $(b).css("display", "none");
-                                                        $(kategoriDetayButonlar).effect("shake");
-                                                    }, 1000);
-                                                });
-                                            }, 1000);
-
-                                        });
-
-                                        $("#butonKategoriDetaylariKaydet").click(function () {
+        if (kontrolKayit == 1) {
+            var kategoriVerileri = new Object();
+            kategoriVerileri.urunKategorileriId = valueId;
 
 
-                                            var kategoriVerileri = new Object();
-                                            kategoriVerileri.urunKategorileriId = $("#selectLabelKategoriDetay").find("option").filter(':selected').val();
+
+            var kategoriDetaylariVerileri = new Object();
+            kategoriDetaylariVerileri.urunKategorileri = kategoriVerileri;
+            if (kategoriDetayIcınTiklandi == 1) {
+                kategoriDetaylariVerileri.urunKategorileriDetayLogo = Ikon;
+            } else if (kategoriDetayIcınTiklandi == 0) {
+                kategoriDetaylariVerileri.urunKategorileriDetayLogo = valueLogo;
+            }
+           
+
+            kategoriDetaylariVerileri.urunKategorileriKategoriAciklama = $("#kategoriDetayTextArea").val();
+
+            var kategoriDetayTabloGuncelle = "@Url.Action("kategoriDetayGuncelle", "kategoriAlanlari")";
+
+            $.ajax({
+                url: kategoriDetayTabloGuncelle,
+                data: kategoriDetaylariVerileri,
+                type: "POST",
+                success: function (veri) {
+                    if (kategoriDetayIcınTiklandi == 1) {
+                        if (Ikon == valueLogo && kategoriDetaylariVerileri.urunKategorileriKategoriAciklama == valueAciklama) {
+                            $("#kategoriDetayGuncelleModalYaziAlan").text("Farklı Logo veya Açıklama Metni Giriniz..");
+
+                            $("#kategoriDetayGuncelleModal").modal('show');
+
+                        } else {
+                            $(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").fadeOut();
+                            
+                            setTimeout(function () {
+                                $("#eeee").css("display", "none").html(veri).find(".kategoriDetaylariGosterim").css("display", "none");
+                                $(".butonDivKategoriDetaylari").hide(1);
+                               
+                                    $("#eeee").css("display", "block");
+
+                                    $(".kategoriDetaylariGosterim").fadeIn();
+                              
+                                tiklandi = 0;
+                                bos = 1;
+
+                            }, 500);
+                        }
+                    } else if (kategoriDetayIcınTiklandi == 0){
+                        if (valueLogo == valueLogo && kategoriDetaylariVerileri.urunKategorileriKategoriAciklama == valueAciklama) {
+                            $("#kategoriDetayGuncelleModalYaziAlan").text("Farklı Logo veya Açıklama Metni Giriniz..");
+
+                            $("#kategoriDetayGuncelleModal").modal('show');
+
+                        } else {
+                            $(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").fadeOut();
+                            
+                            setTimeout(function () {
+                                $("#eeee").css("display", "none").html(veri).find(".kategoriDetaylariGosterim").css("display", "none");
+                                $(".butonDivKategoriDetaylari").hide(1);
+                                $("#eeee").css("display", "block");
+
+                                $(".kategoriDetaylariGosterim").fadeIn();
+                                
+                                tiklandi = 0;
+                                bos = 1;
+                            }, 500);
+                        }
+                    }
+                        
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+            });
+
+        } else if (kontrolKayit == 2) {
+
+            var kategoriVerileri = new Object();
+            kategoriVerileri.urunKategorileriId = $("#selectLabelKategoriDetay").find("option").filter(':selected').val();
 
 
-                                            var kategoriDetaylariVerileri = new Object();
-                                            kategoriDetaylariVerileri.urunKategorileri = kategoriVerileri
-                                            kategoriDetaylariVerileri.urunKategorileriDetayLogo = Ikon;
-                                            kategoriDetaylariVerileri.urunKategorileriKategoriAciklama = $("#kategoriDetayTextArea").val();
+            var kategoriDetaylariVerileri = new Object();
+            kategoriDetaylariVerileri.urunKategorileri = kategoriVerileri;
+            kategoriDetaylariVerileri.urunKategorileriDetayLogo = Ikon;
+            kategoriDetaylariVerileri.urunKategorileriKategoriAciklama = $("#kategoriDetayTextArea").val();
 
-                                            var kategoriDetayTabloKaydet = "@Url.Action("kategoriDetayEkle", "kategoriAlanlari")";
+            var kategoriDetayTabloKaydet = "@Url.Action("kategoriDetayEkle", "kategoriAlanlari")";
 
                                             $.ajax({
                                                 url: kategoriDetayTabloKaydet,
@@ -1185,13 +1287,146 @@
                                                     alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
                                                 }
                                             });
+        }
 
 
-                                        });
 
-                                        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-                                        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                                            return new bootstrap.Tooltip(tooltipTriggerEl)
-                                        })
+    });
 
-                                    </script>
+    $("#kategoriDetayGuncelle").click(function () {
+        $("#kategoriDetayEkle").prop('disabled', true);
+        $(".kategoriDetayGuncelleIkon").fadeIn();
+        $(this).css({
+            "transform": "scale(1.1)",
+            "background-color": "rgb(143, 148, 155)",
+            "height": "50px",
+            "color": "white"
+        });
+        kategoriDetayButonlar = $(this);
+        setTimeout(function () {
+            $(kategoriDetayButonlar).animate({ opacity: 0 }, 1000);
+        }, 400);
+        setTimeout(function () {
+            $(kategoriDetayButonlar).after("<button class='btn btn-secondary' id='kategoriDetayListeleGuncelle'><div><span id='kategoriAlanlariButonYazi'>Kategori Detay Listele</span></div><div><i class='bi bi-file-earmark-plus-fill' id='kategoriAlanlariButonIcon'></i></div></button>");
+            $(kategoriDetayButonlar).css("display", "none");
+            $(kategoriDetayButonlar).next().effect("shake");
+            $("#kategoriDetayListeleGuncelle").click(function () {
+                tiklandi = 0;
+                bos = 1;
+                kategoriDetayListeleTiklandi = 1;
+                $(".kategoriDetayGuncelleIkon").fadeOut();
+                $(".kategoriDetaylariGosterimEkleForm").fadeOut();
+                $(".butonDivKategoriDetaylari").css("display", "none");
+                $(this).css({
+                    "transform": "scale(1.1)",
+                    "background-color": "rgb(143, 148, 155)",
+                    "height": "50px",
+                    "color": "white",
+                    "transition": "1s"
+                });
+                setTimeout(function () {
+                    $(".kategoriDetayGosterIslem").css("overflow-y", "scroll");
+                    $(".kategoriDetaylariGosterim").fadeIn();
+                }, 500);
+                var b = $(this);
+                setTimeout(function () {
+                    $(b).animate({ opacity: 0 }, 1000);
+                }, 1000);
+                setTimeout(function () {
+                    $(kategoriDetayButonlar).css({
+                        "display": "flex",
+                        "opacity": "1",
+                    });
+                    $(kategoriDetayButonlar).attr("style", "");
+                    $(b).css("display", "none");
+                    $(kategoriDetayButonlar).effect("shake");
+                }, 1000);
+                $("#kategoriDetayEkle").prop('disabled', false);
+            });
+        }, 1000);
+
+    });
+
+    $(".kategoriDetayGuncelleIkon").click(function () {
+        $("#kategoriDetaylariIconDiv, #kategoriDetaylariIconDiv > span, #kategoriDetaylariIconDiv i").attr("style", ""); 
+        kategoriDetayIcınTiklandi = 0;
+        kontrolKayit = 1;   
+        valueAciklama = "";
+        valueLogo = "";
+        valueAd = "";
+        if (tiklandi == 1 && bos == 0) {
+            $(".butonDivKategoriDetaylari").css("display", "block");
+        }
+        $(".kategoriDetaylariGosterim").fadeOut();
+        valueAd = $(this).siblings("div").find("span").text();
+        valueId = $(this).siblings("div").find("span").attr("id");
+        $("#guncelleSpanForm").text(valueAd);
+        $("#guncelleSpanForm").css("display","inline-block");
+        $("#selectLabelKategoriDetay").css("display", "none");
+        var a = $(this).parent("div").next().find("i").attr("class");
+        if (a != undefined && a != "") {
+            valueLogo = a.substring(a.length - 18, 0);
+        } else {
+            $("#kategoriDetaylariIconDiv, #kategoriDetaylariIconDiv > span, #kategoriDetaylariIconDiv i").attr("style", "");
+        }
+
+        valueAciklama = $(this).parent("div").siblings("div:last-child").find("p").text().trim();
+
+
+        if (valueAciklama != "" && valueLogo != "" && valueAd != "") {
+            tiklandi = 1;
+            bos = 0;
+            kategoriDetayListeleTiklandi = 0;
+        } else {
+            $(".butonDivKategoriDetaylari").hide();
+        }
+
+
+
+        $("#kategoriDetaylariIconDiv i").each(function () {
+            if ($(this).attr("class").substring($(this).attr("class").length - 26, 0) == valueLogo) {
+               
+                $(".kategoriDetaylariIkonlar").scrollTop(999999);
+
+                $(this).parent("div").find("span").css({
+
+                    "background-color": "white"
+
+                });
+
+                $(this).parent("div").find("i").css({
+
+                    "background-color": "white",
+                    "color": "rgb(168, 174, 185)"
+
+                });
+
+                $(this).css({
+
+                    "background-color": "rgb(214, 214, 214)",
+                    "color": "white"
+
+                });
+
+                $(this).parent("span").css({
+
+                    "background-color": "rgb(214, 214, 214)"
+
+                });
+            }
+        });
+
+        $("#kategoriDetayTextArea").val(valueAciklama);
+
+        setTimeout(function () {
+            $(".kategoriDetaylariGosterimEkleForm").fadeIn();
+            $(".kategoriDetayGosterIslem").css("overflow", "unset");
+        }, 500);
+    });
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
