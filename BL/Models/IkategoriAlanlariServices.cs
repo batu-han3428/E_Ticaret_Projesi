@@ -13,6 +13,7 @@ namespace BL.Models
         int kategoriEkle(urunKategorileri model);
         int kategoriDetayEkle(urunKategorileriDetay model);
         int kategoriDetayGuncelle(urunKategorileriDetay model);
+        int kategoriDetaySil(urunKategorileriDetay model);
         List<urunKategorileri> hepsiniListele(Expression<Func<urunKategorileri, bool>> filter = null);
         List<urunKategorileriDetay> detayHepsiniListele();
     }

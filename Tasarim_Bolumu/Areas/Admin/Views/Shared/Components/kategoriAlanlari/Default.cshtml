@@ -358,7 +358,7 @@
                                         {
 
                                             <div class="kategoriDetaylariGosterim">
-                                                <div style="position:relative;">
+                                                <div style="position:relative;">                                                  
                                                     <i data-bs-toggle="tooltip" data-bs-placement="right" title="Güncelle" class="bi bi-check-circle-fill kategoriDetayGuncelleIkon"></i>
                                                     <i data-bs-toggle="tooltip" data-bs-placement="right" title="Sil" class="bi bi-trash-fill kategoriDetaySilIkon"></i>
                                                     <div>
@@ -384,6 +384,7 @@
                                                                             }
                                                                         else
                                                                         {
+                                                                            
                                                                             <span style="color: rgb(143, 148, 167); font-size:15px !important; text-align: center !important;">Kayıtlı Logo Bulunamamıştır..</span>
                                                                            
                                                                         }
@@ -1127,6 +1128,7 @@
     $("#kategoriDetayEkle").click(function () {
         kontrolKayit = 2;
         $("#kategoriDetayGuncelle").prop('disabled', true);
+        $("#kategoriDetaySil").prop('disabled', true);
         $("#guncelleSpanForm").css("display", "none");
         $("#selectLabelKategoriDetay").css("display", "block");
         if (tiklandi == 1 && bos == 0) {
@@ -1184,6 +1186,7 @@
                     $(kategoriDetayButonlar).effect("shake");
                 }, 1000);
                 $("#kategoriDetayGuncelle").prop('disabled', false);
+                $("#kategoriDetaySil").prop('disabled', false);
             });
         }, 1000);
     });
@@ -1203,7 +1206,7 @@
             } else if (kategoriDetayIcınTiklandi == 0) {
                 kategoriDetaylariVerileri.urunKategorileriDetayLogo = valueLogo;
             }
-           
+
 
             kategoriDetaylariVerileri.urunKategorileriKategoriAciklama = $("#kategoriDetayTextArea").val();
 
@@ -1215,7 +1218,7 @@
                 type: "POST",
                 success: function (veri) {
                     if (kategoriDetayIcınTiklandi == 1) {
-                        
+
                         if (Ikon == valueLogo && kategoriDetaylariVerileri.urunKategorileriKategoriAciklama == valueAciklama) {
                             $("#kategoriDetayGuncelleModalYaziAlan").text("Farklı Logo veya Açıklama Metni Giriniz..");
 
@@ -1223,15 +1226,15 @@
 
                         } else {
                             $(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").fadeOut();
-                            
+
                             setTimeout(function () {
                                 $("#eeee").css("display", "none").html(veri).find(".kategoriDetaylariGosterim").css("display", "none");
                                 $(".butonDivKategoriDetaylari").hide(1);
-                               
+
                                     $("#eeee").css("display", "block");
 
                                     $(".kategoriDetaylariGosterim").fadeIn();
-                              
+
                                 tiklandi = 0;
                                 bos = 1;
 
@@ -1245,20 +1248,20 @@
 
                         } else {
                             $(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").fadeOut();
-                            
+
                             setTimeout(function () {
                                 $("#eeee").css("display", "none").html(veri).find(".kategoriDetaylariGosterim").css("display", "none");
                                 $(".butonDivKategoriDetaylari").hide(1);
                                 $("#eeee").css("display", "block");
 
                                 $(".kategoriDetaylariGosterim").fadeIn();
-                                
+
                                 tiklandi = 0;
                                 bos = 1;
                             }, 500);
                         }
                     }
-                        
+
                 },
                 error: function (hata, ajaxoptions, throwerror) {
                     alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
@@ -1267,11 +1270,11 @@
 
         }
         else if (kontrolKayit == 2) {
-           
+
             var kategoriVerileri = new Object();
             kategoriVerileri.urunKategorileriId = $("#selectLabelKategoriDetay").find("option").filter(':selected').val();
 
-            $(".kategoriDetayAnlamaIcon").each(function () {  
+            $(".kategoriDetayAnlamaIcon").each(function () {
                 if ($(this).attr("id") == kategoriVerileri.urunKategorileriId) {
                     kategoriDetayIconVarmi = true;
                 }
@@ -1335,6 +1338,7 @@
 
     $("#kategoriDetayGuncelle").click(function () {
         $("#kategoriDetayEkle").prop('disabled', true);
+        $("#kategoriDetaySil").prop('disabled', true);
         $(".kategoriDetayGuncelleIkon").fadeIn();
         $(this).css({
             "transform": "scale(1.1)",
@@ -1382,15 +1386,16 @@
                     $(kategoriDetayButonlar).effect("shake");
                 }, 1000);
                 $("#kategoriDetayEkle").prop('disabled', false);
+                $("#kategoriDetaySil").prop('disabled', false);
             });
         }, 1000);
 
     });
 
-    $(".kategoriDetayGuncelleIkon").click(function () {    
-        $("#kategoriDetaylariIconDiv, #kategoriDetaylariIconDiv > span, #kategoriDetaylariIconDiv i").attr("style", ""); 
+    $(".kategoriDetayGuncelleIkon").click(function () {
+        $("#kategoriDetaylariIconDiv, #kategoriDetaylariIconDiv > span, #kategoriDetaylariIconDiv i").attr("style", "");
         kategoriDetayIcınTiklandi = 0;
-        kontrolKayit = 1;   
+        kontrolKayit = 1;
         valueAciklama = "";
         valueLogo = "";
         valueAd = "";
@@ -1405,7 +1410,7 @@
         $("#selectLabelKategoriDetay").css("display", "none");
         var a = $(this).parent("div").next().find("i").attr("class");
         if (a != undefined && a != "") {
-            valueLogo = a.substring(a.length - 18, 0);
+            valueLogo = a.substring(a.length - 42, 0);
         } else {
             $("#kategoriDetaylariIconDiv, #kategoriDetaylariIconDiv > span, #kategoriDetaylariIconDiv i").attr("style", "");
         }
@@ -1420,13 +1425,14 @@
         } else {
             $(".butonDivKategoriDetaylari").hide();
         }
-  
+
 
         $("#kategoriDetaylariIconDiv i").each(function () {
+
             if ($(this).attr("class").substring($(this).attr("class").length - 26, 0) == valueLogo) {
 
                 scrollTopI = $(this);
-               
+
                 $(this).parent("div").find("span").css({
 
                     "background-color": "white"
@@ -1467,7 +1473,11 @@
     $("#kategoriDetaySil").click(function () {
         $("#kategoriDetayGuncelle").prop('disabled', true);
         $("#kategoriDetayEkle").prop('disabled', true);
-        $(".kategoriDetaySilIkon").fadeIn();
+        $(".kategoriDetaylariGosterim").each(function () {
+            if ($(this).children("div:nth-child(2)").find("span").text() == "") {
+                $(this).find(".kategoriDetaySilIkon").fadeIn();
+            }
+        });
         $(this).css({
             "transform": "scale(1.1)",
             "background-color": "rgb(143, 148, 155)",
@@ -1482,40 +1492,75 @@
             $(kategoriDetayButonlar).after("<button class='btn btn-secondary' id='kategoriDetayListeleSil'><div><span id='kategoriAlanlariButonYazi'>Kategori Detay Listele</span></div><div><i class='bi bi-file-earmark-plus-fill' id='kategoriAlanlariButonIcon'></i></div></button>");
             $(kategoriDetayButonlar).css("display", "none");
             $(kategoriDetayButonlar).next().effect("shake");
-        //    $("#kategoriDetayListeleGuncelle").click(function () {
-        //        tiklandi = 0;
-        //        bos = 1;
-        //        kategoriDetayListeleTiklandi = 1;
-        //        $(".kategoriDetayGuncelleIkon").fadeOut();
-        //        $(".kategoriDetaylariGosterimEkleForm").fadeOut();
-        //        $(".butonDivKategoriDetaylari").css("display", "none");
-        //        $(this).css({
-        //            "transform": "scale(1.1)",
-        //            "background-color": "rgb(143, 148, 155)",
-        //            "height": "50px",
-        //            "color": "white",
-        //            "transition": "1s"
-        //        });
-        //        setTimeout(function () {
-        //            $(".kategoriDetayGosterIslem").css("overflow-y", "scroll");
-        //            $(".kategoriDetaylariGosterim").fadeIn();
-        //        }, 500);
-        //        var b = $(this);
-        //        setTimeout(function () {
-        //            $(b).animate({ opacity: 0 }, 1000);
-        //        }, 1000);
-        //        setTimeout(function () {
-        //            $(kategoriDetayButonlar).css({
-        //                "display": "flex",
-        //                "opacity": "1",
-        //            });
-        //            $(kategoriDetayButonlar).attr("style", "");
-        //            $(b).css("display", "none");
-        //            $(kategoriDetayButonlar).effect("shake");
-        //        }, 1000);
-        //        $("#kategoriDetayEkle").prop('disabled', false);
-        //    });
+            $("#kategoriDetayListeleSil").click(function () {
+                $(".kategoriDetaySilIkon").fadeOut();
+                $(this).css({
+                    "transform": "scale(1.1)",
+                    "background-color": "rgb(143, 148, 155)",
+                    "height": "50px",
+                    "color": "white",
+                    "transition": "1s"
+                });
+                var b = $(this);
+                setTimeout(function () {
+                    $(b).animate({ opacity: 0 }, 1000);
+                }, 1000);
+                setTimeout(function () {
+                    $(kategoriDetayButonlar).css({
+                        "display": "flex",
+                        "opacity": "1",
+                    });
+                    $(kategoriDetayButonlar).attr("style", "");
+                    $(b).css("display", "none");
+                    $(kategoriDetayButonlar).effect("shake");
+                }, 1000);
+                $("#kategoriDetayEkle").prop('disabled', false);
+                $("#kategoriDetayGuncelle").prop('disabled', false);
+                setTimeout(function () {
+                    $.ajax({
+                        url: '@Url.Action("Kategoriler", "Home")',
+                        type: "GET",
+                        success: function (html) {
+                            $("#eeee").css("display", "none").html(html).find(".kategoriDetaylariGosterim").css("display", "none");
+
+                            $("#eeee").css("display", "block");
+
+                            $(".kategoriDetaylariGosterim").fadeIn();
+                        },
+                        error: function (hata, ajaxoptions, throwerror) {
+                            alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                        }
+                    });
+                }, 1500);
+            });
         }, 1000);
+    });
+
+    $(".kategoriDetaySilIkon").click(function () {
+
+        var buIkon = $(this);
+
+        var kategoriVerileri = new Object();
+        kategoriVerileri.urunKategorileriId = $(this).siblings("div").find("span").attr("id");
+
+        var kategoriDetaySil = new Object();
+        kategoriDetaySil.urunKategorileri = kategoriVerileri;
+
+        var kategoriDetaySilAdres = "@Url.Action("kategoriDetaySil", "kategoriAlanlari")";
+
+        $.ajax({
+            url: kategoriDetaySilAdres,
+            data: kategoriDetaySil,
+            type: "POST",
+            success: function (html) {
+
+                $(buIkon).parents(".kategoriDetaylariGosterim").hide("drop");
+
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+        });
     });
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

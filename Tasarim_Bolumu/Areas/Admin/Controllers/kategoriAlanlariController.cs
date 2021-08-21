@@ -84,6 +84,7 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
 
             return RedirectToAction("Kategoriler", "Home");
         }
+        
         [HttpPost]
         public IActionResult kategoriDetayGuncelle(urunKategorileriDetay mod)
         {
@@ -93,6 +94,24 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
             }
 
             var veri = kategoriAlanlariServices.kategoriDetayGuncelle(mod);
+
+            if (veri == 0)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            return RedirectToAction("Kategoriler", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult kategoriDetaySil(urunKategorileriDetay mod)
+        {
+            if (mod.urunKategorileri.urunKategorileriId == 0)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            var veri = kategoriAlanlariServices.kategoriDetaySil(mod);
 
             if (veri == 0)
             {

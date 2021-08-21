@@ -66,6 +66,23 @@ namespace BL.Concrete
             }
 
         }
+        public int kategoriDetaySil(urunKategorileriDetay model)
+        {
+            var veri = context.urunKategorileriDetay.Any(a => a.urunKategorileri.urunKategorileriId == model.urunKategorileri.urunKategorileriId);
+
+            if (veri)
+            {
+                var field = context.urunKategorileriDetay.Include(x => x.urunKategorileri).FirstOrDefault(x => x.urunKategorileri.urunKategorileriId == model.urunKategorileri.urunKategorileriId);
+
+                return kategoriDetayRepository.sil(field);
+            }
+            else
+            {
+                return 0;
+            }
+
+           
+        }
         public List<urunKategorileri> hepsiniListele(Expression<Func<urunKategorileri, bool>> filter = null)
         {
 
