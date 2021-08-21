@@ -474,6 +474,20 @@ button > div:last-child {
     color: rgb(128, 132, 137);
 }
 
+.kategoriDetaySilIkon {
+    cursor: pointer;
+    left: 5px;
+    top: 5px;
+    font-size: 15px;
+    color: rgb(249, 42, 42);
+    position: absolute;
+    display: none;
+}
+
+    .kategoriDetaySilIkon:hover {
+        color: rgb(196, 0, 0);
+    }
+
 .guncelleSpanFormClass{
     font-size: 20px;
     font-family: 'Yu Gothic UI';
