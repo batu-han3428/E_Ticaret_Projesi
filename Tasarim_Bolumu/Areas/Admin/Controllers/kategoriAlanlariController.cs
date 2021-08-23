@@ -159,6 +159,13 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
                 return RedirectToAction("Kategoriler", "Home");
             }
 
+            if (veri == 2)
+            {
+                TempData["kategoriAlanSil"] = "Bu Kategori Alanı Silinemez..";
+
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
             return RedirectToAction("Kategoriler", "Home");
         }
     }

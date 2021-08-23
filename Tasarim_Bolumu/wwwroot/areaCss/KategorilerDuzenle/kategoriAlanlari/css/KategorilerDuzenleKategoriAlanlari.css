@@ -56,17 +56,17 @@ button > div:last-child {
     font-weight: 600;
 }
 
-#kategoriAlanlariModalForm input[type]:focus, #kategoriModalForm input[type]:focus, #sagTikMenuKategoriGuncelleModal input[type]:focus, #altKategoriModal input[type]:focus {
+#kategoriAlanlariModalForm input[type]:focus, #kategoriModalForm input[type]:focus, #sagTikMenuKategoriGuncelleModal input[type]:focus, #altKategoriModal input[type]:focus, #sagTikMenuAltKategoriGuncelleModal input[type]:focus {
     border-color: rgb(143, 148, 155);
     box-shadow: 0 0 10px 7px rgb(143, 148, 155);
 }
 
-#kategoriAlanlariButonModal, #kategoriButonModal, #altKategoriButonModal, #sagTikMenuKategoriGuncelleButonModal {
+#kategoriAlanlariButonModal, #kategoriButonModal, #altKategoriButonModal, #sagTikMenuKategoriGuncelleButonModal, #sagTikMenuAltKategoriGuncelleButonModal {
     font-weight: 600;
     width: 100%;
 }
 
-#kategoriAlanlariModalForm label, #kategoriModalForm label, #sagTikMenuKategoriGuncelleModal label, #altKategoriModal label{
+#kategoriAlanlariModalForm label, #kategoriModalForm label, #sagTikMenuKategoriGuncelleModal label, #altKategoriModal label, #sagTikMenuAltKategoriGuncelleModal label {
     color: rgb(129, 134, 142) !important;
 }
 

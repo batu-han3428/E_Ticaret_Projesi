@@ -5,6 +5,7 @@
     ArrayList kategoriDetayAdiDizi = new ArrayList(); }
 
 <div class="row">
+    <span style="display:none;" id="kategoriAlanSil">@TempData["kategoriAlanSil"]</span>
     <ul class="sagTikMenuKategori">
         <li>
             <a class="btn sagTikMenuKategoriGuncelle">Güncelle</a>
@@ -12,7 +13,7 @@
         <li>
             <a class="btn sagTikMenuKategoriSil">Sil</a>
         </li>
-    </ul>
+    </ul> 
     <div class="col-md-3">
         <div class="row">
             <div class="col-md-12">
@@ -121,6 +122,35 @@
                                 </div>
                                 <div class="modal-footer mt-3">
                                     <button class="btn btn-secondary" type="button" id="sagTikMenuKategoriGuncelleButonModal">Güncelle</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="sagTikMenuAltKategoriGuncelleModal" data-bs-backdrop="static">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header" style="font-weight: 600; color: rgb(157, 163, 173); background-color: rgb(248, 248, 248);">
+                            <h5 class="modal-title">Kategori Güncelle</h5>
+                            <button class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12 pb-4 text-center kategoriAlanlariModalBodyDiv" style="font-weight: bold; color:rgb(168, 174, 185);">
+                                <span>Kategori adını buradan güncelleye bilirsiniz..</span>
+                            </div>
+                            <form class="needs-validation" novalidate id="sagTikMenuAltKategoriGuncelleModalForm">
+                                <div class="row g-3">
+                                    <div class="col-md-12">
+                                        <label for="kategoriGuncelleAdi" class="form-label">Kategori Alan Adı *</label>
+                                        <input id="kategoriGuncelleAdi" type="text" class="form-control" placeholder="Kategori Adı" required>
+                                        <div class="invalid-feedback">
+                                            Bu Alan Boş Geçilemez
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer mt-3">
+                                    <button class="btn btn-secondary" type="button" id="sagTikMenuAltKategoriGuncelleButonModal">Güncelle</button>
                                 </div>
                             </form>
                         </div>
@@ -632,6 +662,9 @@
     var kategoriDetayVarmi;
     var kategoriAlanId;
     var kategoriAlanGuncelleAd;
+    var kategoriId;
+    var kategoriGuncelleAd;
+    var kontrolKategoriAlanKategori;
 
     (function () {
                                                 'use strict'
@@ -1605,11 +1638,23 @@
     $(".urunKategorileriAlanAdlari > span").contextmenu(function () {
         kategoriAlanId = $(this).attr("id");
         kategoriAlanGuncelleAd = $(this).text();
+        kontrolKategoriAlanKategori = 1;
+    });
+
+    $(".KategorilerAdlari > span").contextmenu(function () {
+        kategoriId = $(this).parent(".KategorilerAdlari").attr("id");
+        kategoriGuncelleAd = $(this).text();
+        kontrolKategoriAlanKategori = 2;
     });
 
     $(".sagTikMenuKategoriGuncelle").click(function () {
-        $("#kategoriAlanGuncelleAdi").val(kategoriAlanGuncelleAd);
-        $("#sagTikMenuKategoriGuncelleModal").modal("show");
+        if (kontrolKategoriAlanKategori == 1) {
+            $("#kategoriAlanGuncelleAdi").val(kategoriAlanGuncelleAd);
+            $("#sagTikMenuKategoriGuncelleModal").modal("show");
+        } else if (kontrolKategoriAlanKategori == 2) {
+            $("#kategoriGuncelleAdi").val(kategoriGuncelleAd);
+            $("#sagTikMenuAltKategoriGuncelleModal").modal("show");
+        }
     });
 
     $("#sagTikMenuKategoriGuncelleButonModal").click(function () {
@@ -1654,36 +1699,39 @@
         });
     });
 
-    $(".sagTikMenuKategoriSil").click(function () {
-        var idKontrol;
+    $("#sagTikMenuAltKategoriGuncelleButonModal").click(function () {
+        var adKontrolModal;
         var mod = new Object();
-        mod.urunKategorileriId = kategoriAlanId;
+        mod.urunKategorileriKategoriAdi = $("#kategoriGuncelleAdi").val();
+        mod.urunKategorileriId = kategoriId;
 
-        var b = "@Url.Action("kategoriAlanSil", "kategoriAlanlari")";
-
-        $(".urunKategorileriAlanAdlari > span").each(function () {
-            if (mod.urunKategorileriId == $(this).attr("id")) {
-                idKontrol = true;
-            }
-        });
+        var b = "@Url.Action("kategoriAlanGuncelle", "kategoriAlanlari")";
 
         $.ajax({
             url: b,
             type: "POST",
             data: { "mod": mod },
             success: function (y) {
-               
-                if (!idKontrol) {
-                    $("#kategoriDetayGuncelleModalYaziAlan").text("Kategori Alan Adı Bulunamadı..");
+                $(".KategorilerAdlari > span").each(function () {
+                    if (mod.urunKategorileriKategoriAdi == $(this).text()) {
+                        adKontrolModal = true;
+                    }
+                });
+                if (adKontrolModal) {
+                    $("#kategoriDetayGuncelleModalYaziAlan").text("Bu Kategori Adı Zaten Kayıtlı..");
 
                     $("#kategoriDetayGuncelleModal").modal('show');
 
-                    idKontrol = false;
+                    adKontrolModal = false;
                 }
                 else {
+                    $("#sagTikMenuAltKategoriGuncelleModal").modal('hide');
 
-                    $("#eeee").html(y);
+                    setTimeout(function () {
 
+                        $("#eeee").html(y);
+
+                    }, 500);
                 }
             },
             error: function (hata, ajaxoptions, throwerror) {
@@ -1691,6 +1739,91 @@
             }
         });
     });
+
+    $(".sagTikMenuKategoriSil").click(function () {
+        if (kontrolKategoriAlanKategori == 1) {
+            var idKontrol;
+            var mod = new Object();
+            mod.urunKategorileriId = kategoriAlanId;
+
+            var b = "@Url.Action("kategoriAlanSil", "kategoriAlanlari")";
+
+            $(".urunKategorileriAlanAdlari > span").each(function () {
+                if (mod.urunKategorileriId == $(this).attr("id")) {
+                    idKontrol = true;
+                }
+            });
+
+            $.ajax({
+                url: b,
+                type: "POST",
+                data: { "mod": mod },
+                success: function (y) {
+
+                    if (!idKontrol) {
+                        $("#kategoriDetayGuncelleModalYaziAlan").text("Kategori Alan Adı Bulunamadı..");
+
+                        $("#kategoriDetayGuncelleModal").modal('show');
+
+                        idKontrol = false;
+
+                    } else if ($(y).find("#kategoriAlanSil").text() != "") {
+                        $("#kategoriDetayGuncelleModalYaziAlan").text("Bu Kategori Alanı Silinemez..");
+                        $("#kategoriDetayGuncelleModal").modal('show');
+                    }
+                    else {
+
+                        $("#eeee").html(y);
+
+                    }
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+            });
+        } else if (kontrolKategoriAlanKategori == 2) {
+            var idKontrol;
+            var mod = new Object();
+            mod.urunKategorileriId = kategoriId;
+
+            var b = "@Url.Action("kategoriAlanSil", "kategoriAlanlari")";
+
+            $(".KategorilerAdlari > span").each(function () {
+                if (mod.urunKategorileriId == $(this).parent(".KategorilerAdlari").attr("id")) {
+                    idKontrol = true;
+                }
+            });
+
+            $.ajax({
+                url: b,
+                type: "POST",
+                data: { "mod": mod },
+                success: function (y) {
+
+                    if (!idKontrol) {
+                        $("#kategoriDetayGuncelleModalYaziAlan").text("Kategori Adı Bulunamadı..");
+
+                        $("#kategoriDetayGuncelleModal").modal('show');
+
+                        idKontrol = false;
+
+                    } else if ($(y).find("#kategoriAlanSil").text() != "") {
+                        $("#kategoriDetayGuncelleModalYaziAlan").text("Bu Kategori Silinemez..");
+                        $("#kategoriDetayGuncelleModal").modal('show');
+                    }
+                    else {
+
+                        $("#eeee").html(y);
+
+                    }
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+            });
+        }
+    });
+
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

@@ -1,5 +1,6 @@
 ﻿using DAL.Models;
 using Entity.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,6 +37,14 @@ namespace DAL.Concrete
             {
                 try
                 {
+
+                    var kategoriDetay = context.urunKategorileri.Where(x => x.urunKategorileriId == model.urunKategorileriId).Include(x => x.urunKategorileriDetay).FirstOrDefault(x=>x.urunKategorileriId == model.urunKategorileriId);
+
+                    if (kategoriDetay != null)
+                    {
+                        context.Entry<urunKategorileri>(kategoriDetay).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                        context.SaveChanges();
+                    }
                     context.Entry<urunKategorileri>(model).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                     context.SaveChanges();
 
@@ -49,25 +58,9 @@ namespace DAL.Concrete
             else
             {
 
-                ArrayList d = new ArrayList();
-
-                d.Add(context.urunKategorileri.Where(x => x.urunKategorileriUstId == model.urunKategorileriId).Select(x=>x.urunKategorileriId));
-
-                for (int i = 0; i < d.Count; i++)
-                { 
-                    if(context.urunKategorileri.Any(x => x.urunKategorileriUstId == d[i][i]))
-                    {
-                        d.Add(context.urunKategorileri.Where(x => x.urunKategorileriUstId == (int)d[i]).Select(x => x.urunKategorileriId).ToList());
-                    }
-                }
-
-
-
-                return 0;        //    context.Entry<urunKategorileri>().State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
-                        //context.SaveChanges();
+                return 2;  
             }
-            
-            
+                     
         }
        
     }
