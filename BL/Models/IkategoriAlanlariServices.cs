@@ -11,6 +11,8 @@ namespace BL.Models
     public interface IkategoriAlanlariServices
     {
         int kategoriEkle(urunKategorileri model);
+        int kategoriGuncelle(urunKategorileri model);
+        int kategoriSil(urunKategorileri model);
         int kategoriDetayEkle(urunKategorileriDetay model);
         int kategoriDetayGuncelle(urunKategorileriDetay model);
         int kategoriDetaySil(urunKategorileriDetay model);

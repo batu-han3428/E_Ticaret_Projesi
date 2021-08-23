@@ -7,8 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BL.Concrete
 {
@@ -36,7 +34,32 @@ namespace BL.Concrete
             }
            
         }
+        public int kategoriGuncelle(urunKategorileri model)
+        {
+            var veri = context.urunKategorileri.Any(a => a.urunKategorileriKategoriAdi == model.urunKategorileriKategoriAdi);
+           
+            if (veri)
+            {
+                return 0;
+            }
+            else
+            {
+                return kategoriAlanlariRepository.kategoriGuncelle(model);
+            }
+        }
+        public int kategoriSil(urunKategorileri model)
+        {
+            var veri = context.urunKategorileri.Any(a => a.urunKategorileriId == model.urunKategorileriId);
 
+            if (!veri)
+            {
+                return 0;
+            }
+            else
+            {
+                return kategoriAlanlariRepository.kategoriSil(model);
+            }
+        }
         public int kategoriDetayEkle(urunKategorileriDetay model)
         {
             var veri = context.urunKategorileriDetay.Any(a => a.urunKategorileri.urunKategorileriId == model.urunKategorileri.urunKategorileriId);

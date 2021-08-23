@@ -120,5 +120,46 @@ namespace Tasarim_Bolumu.Areas.Admin.Controllers
 
             return RedirectToAction("Kategoriler", "Home");
         }
+
+        [HttpPost]
+        public IActionResult kategoriAlanGuncelle(urunKategorileri mod)
+        {
+            if (mod == null)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            if (mod.urunKategorileriId == 0 || mod.urunKategorileriKategoriAdi == null)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            var veri = kategoriAlanlariServices.kategoriGuncelle(mod);
+
+            if (veri == 0)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            return RedirectToAction("Kategoriler", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult kategoriAlanSil(urunKategorileri mod)
+        {
+            if (mod.urunKategorileriId == 0)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            var veri = kategoriAlanlariServices.kategoriSil(mod);
+
+            if (veri == 0)
+            {
+                return RedirectToAction("Kategoriler", "Home");
+            }
+
+            return RedirectToAction("Kategoriler", "Home");
+        }
     }
 }

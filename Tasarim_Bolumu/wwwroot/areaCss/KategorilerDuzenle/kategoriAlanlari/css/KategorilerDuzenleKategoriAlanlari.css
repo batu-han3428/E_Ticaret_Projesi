@@ -56,17 +56,17 @@ button > div:last-child {
     font-weight: 600;
 }
 
-#kategoriAlanlariModalForm input[type]:focus, #kategoriModalForm input[type]:focus {
+#kategoriAlanlariModalForm input[type]:focus, #kategoriModalForm input[type]:focus, #sagTikMenuKategoriGuncelleModal input[type]:focus, #altKategoriModal input[type]:focus {
     border-color: rgb(143, 148, 155);
     box-shadow: 0 0 10px 7px rgb(143, 148, 155);
 }
 
-#kategoriAlanlariButonModal, #kategoriButonModal, #altKategoriButonModal {
+#kategoriAlanlariButonModal, #kategoriButonModal, #altKategoriButonModal, #sagTikMenuKategoriGuncelleButonModal {
     font-weight: 600;
     width: 100%;
 }
 
-#kategoriAlanlariModalForm label, #kategoriModalForm label {
+#kategoriAlanlariModalForm label, #kategoriModalForm label, #sagTikMenuKategoriGuncelleModal label, #altKategoriModal label{
     color: rgb(129, 134, 142) !important;
 }
 
@@ -496,3 +496,56 @@ button > div:last-child {
     text-align: center;
     word-break:break-word !important;
 }
+
+
+/* Sağ Tık Menü */
+.sagTikMenuKategori,
+.sagTikMenuKategori li ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background: rgb(196, 201, 209);
+    border: none;
+    border-bottom: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    display: none;
+    min-width: 100px;
+    z-index: 999999999999999999;
+    opacity: 0.85;
+    width: 100px;
+}
+
+    .sagTikMenuKategori:hover,
+    .sagTikMenuKategori li ul:hover {
+        opacity: 1;
+    }
+
+    .sagTikMenuKategori li {
+        position: relative;
+    }
+
+        .sagTikMenuKategori li a,
+        .sagTikMenuKategori li ul li a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            padding: 5px;
+            border-bottom: 2px groove white;
+            font-family:Papyrus;
+        }
+
+            .sagTikMenuKategori li a:hover {
+                color: white;
+                background: rgb(168, 174, 183);
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+            }
+
+        .sagTikMenuKategori li:hover ul {
+            display: block;
+            min-width: 200px;
+        }
