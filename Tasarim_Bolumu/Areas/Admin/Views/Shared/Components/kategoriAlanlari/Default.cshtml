@@ -397,7 +397,7 @@
                                     </div>
                                 </button>
                             </div>
-                            <div class="kategoriDetayGosterIslem">
+                            <div class="kategoriDetayGosterIslem" id="guncellenecek3">
                                 <div id="kategoriDetaylariGosterimBasliklar">
                                     <div>
                                         <span>Kategori Adı</span>
@@ -498,6 +498,7 @@
                                     }
 
                                 }
+                                
                                 <div class="kategoriDetaylariGosterimEkleForm">
                                     <div>
                                         <div>
@@ -776,91 +777,92 @@
                                         });
 
     $("#kategoriModalForm").submit(function (event) {
-                                            event.preventDefault();
+        event.preventDefault();
 
-                                            if ($(".KategorilerAdlari > span").text() != "") {
+        if ($(".KategorilerAdlari > span").text() != "") {
 
-                                                $(".KategorilerAdlari > span").each(function (index) {
+            $(".KategorilerAdlari > span").each(function (index) {
 
-                                                    if ($(this).text() == $("#kategoriAdi").val()) {
-                                                        kategoriIsimKontrolSayi = 1;
-                                                        if (!kategoriIsimKontrol) {
-                                                            $(".kategoriModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Kategori Ekleyemezsiniz...</span>');
-                                                            kategoriIsimKontrol = true;
-                                                            return false;
-                                                        }
-                                                    }
+                if ($(this).text() == $("#kategoriAdi").val()) {
+                    kategoriIsimKontrolSayi = 1;
+                    if (!kategoriIsimKontrol) {
+                        $(".kategoriModalBodyDiv").append('<br/><span style="color: red;">Aynı İsimde Kategori Ekleyemezsiniz...</span>');
+                        kategoriIsimKontrol = true;
+                        return false;
+                    }
+                }
 
-                                                });
-
-
-                                                if (kategoriIsimKontrolSayi != 1) {
-                                                    var kategori = new Object();
-                                                    kategori.urunKategorileriKategoriAdi = $("#kategoriAdi").val();
-                                                    kategori.urunKategorileriUstId = $("#selectLabel option").filter(':selected').val();
+            });
 
 
-
-                                                    var kategoriKaydet = "@Url.Action("KategoriEkle", "kategoriAlanlari")";
-
-                                                    if (kategori.urunKategorileriKategoriAdi != "") {
-
-                                                        $.ajax({
-                                                            url: kategoriKaydet,
-                                                            type: "POST",
-                                                            data: kategori,
-                                                            success: function (response) {
-
-                                                                $("#kategoriModal").modal('hide');
-
-                                                                setTimeout(function () {
-
-                                                                    var index = $("#selectLabelDetay > option").filter(':selected').index();
-
-                                                                    $("#eeee .guncellenecek").html($(response).find(".guncellenecek").html());
-
-                                                                    var kategoriDetayGetir = "@Url.Action("KategoriDetayListele", "kategoriAlanlari")";
-
-                                                                    var kategoriDetayId = new Object();
-                                                                    kategoriDetayId.urunKategorileriId = $("#selectLabelDetay > option").filter(':selected').val();
-
-                                                                    $.ajax({
-                                                                        url: kategoriDetayGetir,
-                                                                        type: "POST",
-                                                                        data: kategoriDetayId,
-                                                                        success: function (response) {
-
-                                                                            $("#kategoriDetaylariModal").modal('hide');
-
-                                                                            setTimeout(function () {
-
-                                                                                $("#eeee #guncellenecek2").html($(response).find("#guncellenecek2").html());
-
-                                                                                $("#selectLabelDetay > option").eq(index).attr("selected", "selected");
-                                                                                kategoriIsimKontrol = false;
-                                                                            }, 500);
-
-                                                                        },
-                                                                        error: function (hata, ajaxoptions, throwerror) {
-                                                                            alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
-                                                                        }
-                                                                    });
-
-                                                                }, 500);
-
-                                                            },
-                                                            error: function (hata, ajaxoptions, throwerror) {
-                                                                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
-                                                            }
-                                                        });
+            if (kategoriIsimKontrolSayi != 1) {
+                var kategori = new Object();
+                kategori.urunKategorileriKategoriAdi = $("#kategoriAdi").val();
+                kategori.urunKategorileriUstId = $("#selectLabel option").filter(':selected').val();
 
 
-                                                    }
-                                                }
 
-                                                kategoriIsimKontrolSayi = 0;
-                                            }
-                                            else {
+                var kategoriKaydet = "@Url.Action("KategoriEkle", "kategoriAlanlari")";
+
+                if (kategori.urunKategorileriKategoriAdi != "") {
+
+                    $.ajax({
+                        url: kategoriKaydet,
+                        type: "POST",
+                        data: kategori,
+                        success: function (response) {
+
+                            $("#kategoriModal").modal('hide');
+
+                             setTimeout(function () {
+
+                                var index = $("#selectLabelDetay > option").filter(':selected').index();
+
+                                $("#eeee .guncellenecek").html($(response).find(".guncellenecek").html());
+                                 $("#eeee").find(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").css("display", "none");
+                                var kategoriDetayGetir = "@Url.Action("KategoriDetayListele", "kategoriAlanlari")";
+
+                                var kategoriDetayId = new Object();
+                                kategoriDetayId.urunKategorileriId = $("#selectLabelDetay > option").filter(':selected').val();
+
+                                    $.ajax({
+                                        url: kategoriDetayGetir,
+                                        type: "POST",
+                                        data: kategoriDetayId,
+                                        success: function (response) {
+
+                                            $("#kategoriDetaylariModal").modal('hide');
+
+                                            setTimeout(function () {
+
+                                                $("#eeee #guncellenecek2").html($(response).find("#guncellenecek2").html());
+                                                
+                                                $("#eeee #guncellenecek3").html($(response).find("#guncellenecek3").html());
+                                                $("#eeee").find(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").css("display", "none");
+                                               
+                                                $("#selectLabelDetay > option").eq(index).attr("selected", "selected");
+                                                kategoriIsimKontrol = false;
+                                             }, 500);
+
+                                        },
+                                        error: function (hata, ajaxoptions, throwerror) {
+                                            alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                                        }
+                                    });
+
+                             }, 500);
+
+                        },
+                        error: function (hata, ajaxoptions, throwerror) {
+                            alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                        }
+                    });
+                }
+            }
+
+            kategoriIsimKontrolSayi = 0;
+        }
+        else {
 
                                                 var kategori = new Object();
                                                 kategori.urunKategorileriKategoriAdi = $("#kategoriAdi").val();
@@ -885,7 +887,7 @@
                                                                          var index = $("#selectLabelDetay > option").filter(':selected').index();
 
                                                                         $("#eeee .guncellenecek").html($(response).find(".guncellenecek").html());
-
+                                                                        $("#eeee").find(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").css("display", "none");
                                                                         var kategoriDetayGetir = "@Url.Action("KategoriDetayListele", "kategoriAlanlari")";
 
                                                                         var kategoriDetayId = new Object();
@@ -900,9 +902,10 @@
                                                                                         $("#kategoriDetaylariModal").modal('hide');
 
                                                                                         setTimeout(function () {
-
-                                                                                            $("#eeee #guncellenecek2").html($(response).find("#guncellenecek2").html());
-
+                                                                                       
+                                                                                            $("#eeee #guncellenecek2").html($(response).find("#guncellenecek2").html());                                                                                           
+                                                                                            $("#eeee #guncellenecek3").html($(response).find("#guncellenecek3").html());
+                                                                                            $("#eeee").find(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").css("display", "none");
                                                                                             $("#selectLabelDetay > option").eq(index).attr("selected", "selected");
 
                                                                                         }, 500);
