@@ -4,19 +4,19 @@
     margin: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(45deg, rgb(204, 108, 6), rgb(255, 193, 7),rgb(255, 193, 7), rgb(204, 108, 6));
     background-size: 500% 500%;
-    animation: anime 15s ease infinite;
+    animation: acountArkaPlan 4s ease infinite;
     animation-direction: alternate;
 }
 
-@keyframes anime {
+@keyframes acountArkaPlan {
     0% {background-position: 0%}
     100% {background-position: 100%}
 }
 
 
-#haklariSaklidirParagrafLogin {
+/*#haklariSaklidirParagrafLogin {
     color: white !important;
     font-size: 13px !important;
     font-weight: bold !important;
@@ -25,7 +25,7 @@
     margin: 0 auto !important;
     left: 0 !important;
     right: 0 !important;
-}
+}*/
 
 #container{
 
@@ -34,7 +34,7 @@
 }
 
 #body{
-
+ 
     width: 270px !important;
 
 }

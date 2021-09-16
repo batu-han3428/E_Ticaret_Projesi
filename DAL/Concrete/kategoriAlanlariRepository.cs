@@ -38,17 +38,20 @@ namespace DAL.Concrete
                 try
                 {
 
-                    var kategoriDetay = context.urunKategorileri.Where(x => x.urunKategorileriId == model.urunKategorileriId).Include(x => x.urunKategorileriDetay).FirstOrDefault(x=>x.urunKategorileriId == model.urunKategorileriId);
+                    var kategori = context.urunKategorileri.Where(x => x.urunKategorileriId == model.urunKategorileriId).Include(x => x.urunKategorileriDetay).FirstOrDefault(x=>x.urunKategorileriId == model.urunKategorileriId);
 
-                    if (kategoriDetay != null)
+                    if (kategori.urunKategorileriDetay.Count != 0)
                     {
-                        context.Entry<urunKategorileri>(kategoriDetay).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
-                        context.SaveChanges();
+                        var kategoriDetay = context.urunKategorileriDetay.FirstOrDefault(x => x.urunKategorileri.urunKategorileriId == kategori.urunKategorileriId);
+                        context.Entry<urunKategorileriDetay>(kategoriDetay).State = Microsoft.EntityFrameworkCore.EntityState.Deleted; 
                     }
-                    context.Entry<urunKategorileri>(model).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                   
+                  
+                    context.Entry<urunKategorileri>(kategori).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                     context.SaveChanges();
 
-                    return 1;
+                   return 1;
+               
                 }
                 catch (Exception ex)
                 {

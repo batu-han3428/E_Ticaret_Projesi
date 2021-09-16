@@ -265,6 +265,11 @@ button > div:last-child {
         padding-top: 5px;
         width: 50%;
         padding-bottom: 15px;
+
+    }
+    .kategoriDetaylariGosterim > div:nth-child(3) p {
+        padding-left:24%;
+    
     }
 
         .kategoriDetaylariGosterim > div:nth-child(3) > div, .kategoriDetaylariGosterimEkleForm > div:nth-child(3) > div {
@@ -549,3 +554,4 @@ button > div:last-child {
             display: block;
             min-width: 200px;
         }
+
