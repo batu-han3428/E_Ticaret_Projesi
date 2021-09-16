@@ -581,9 +581,8 @@
                             </div>
                             <div class="col-md-12">
                                 <div id="altKategoriDetaylariModalBodyDivGosterim">
-                                    <!--<div id="jstree">-->
-                                        <!-- in this example the tree is populated from inline HTML -->
-                                        <!--<ul>
+                                    <div id="jstree">  
+                                        <ul>
                                             <li>
                                                 Root node 1
                                                 <ul>
@@ -593,7 +592,9 @@
                                             </li>
                                             <li>Root node 2</li>
                                         </ul>
-                                    </div>-->
+                                        
+                                    </div>
+                                    <span id="event_result"></span>
                                     <span id="KategoriModalSpan"></span>
                                     <i class="bi bi-arrow-down-circle-fill KategoriModalSpanIcon"></i>
                                     @{ if (Model.Item3 != null)
@@ -608,8 +609,8 @@
 
                                     }
                                 </div>
-                                <label for="altKategoriselectLabelDetay" class="form-label selectLabelKategori">Alt Kategoriler *</label>
-                                <select style="position:relative;" id="altKategoriselectLabelDetay" class="form-select kategoriSelect" size="2">
+                                @*<label for="altKategoriselectLabelDetay" class="form-label selectLabelKategori">Alt Kategoriler *</label>*@
+                                @*<select style="position:relative;" id="altKategoriselectLabelDetay" class="form-select kategoriSelect" size="2">
                                     @{ if (Model.Item3 != null)
                                         {
                                             foreach (var item in Model.Item3)
@@ -621,7 +622,7 @@
                                         }
 
                                     }
-                                </select>
+                                </select>*@
                             </div>
                         </div>
                     </div>
@@ -635,17 +636,30 @@
 <script type="text/javascript">
 
     $(function () {
+        var m = "@Url.Action("altKategoriDetayListele", "kategoriAlanlari")";
+
+        $.jstree.defaults.core.themes.variant = "large";
         // 6 create an instance when the DOM is ready
-        $('#jstree').jstree({
-            'core': {
-                'data': {
-                    'url': 'ajax_nodes.html',
-                    'data': function (node) {
-                        return { 'id': node.id };
-                    }
-                }
+        //$('#jstree').jstree({
+        //    'core': {
+        //        'data': {
+        //            'url': m,
+        //            'data': function (node) {
+        //                return { 'id': node.id };
+        //            }
+        //        }
+        //    }
+        //});
+
+        $('#jstree').on('changed.jstree', function (e, data) {
+            var i, j, r = [];
+            for (i = 0, j = data.selected.length; i < j; i++) {
+                r.push(data.instance.get_node(data.selected[i]).text);
             }
-        });
+            $('#event_result').html('Selected: ' + r.join(', '));
+        }).jstree();
+
+
         // 7 bind to events triggered on the tree
         $('#jstree').on("changed.jstree", function (e, data) {
             console.log(data.selected);
@@ -875,10 +889,10 @@
                                             setTimeout(function () {
 
                                                 $("#eeee #guncellenecek2").html($(response).find("#guncellenecek2").html());
-                                                
+
                                                 $("#eeee #guncellenecek3").html($(response).find("#guncellenecek3").html());
                                                 $("#eeee").find(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").css("display", "none");
-                                               
+
                                                 $("#selectLabelDetay > option").eq(index).attr("selected", "selected");
                                                 kategoriIsimKontrol = false;
                                              }, 500);
@@ -941,8 +955,8 @@
                                                                                         $("#kategoriDetaylariModal").modal('hide');
 
                                                                                         setTimeout(function () {
-                                                                                       
-                                                                                            $("#eeee #guncellenecek2").html($(response).find("#guncellenecek2").html());                                                                                           
+
+                                                                                            $("#eeee #guncellenecek2").html($(response).find("#guncellenecek2").html());
                                                                                             $("#eeee #guncellenecek3").html($(response).find("#guncellenecek3").html());
                                                                                             $("#eeee").find(".kategoriDetaylariGosterimEkleForm, .butonDivKategoriDetaylari").css("display", "none");
                                                                                             $("#selectLabelDetay > option").eq(index).attr("selected", "selected");
@@ -1134,46 +1148,41 @@
 
     $("#altKategoriselectLabelDetay").change(function () {
 
+        var altKategoriDetayId = new Object();
+        altKategoriDetayId.urunKategorileriId = $(this).find("option").filter(':selected').val();
 
-                                            var altKategoriDetayId = new Object();
-                                            altKategoriDetayId.urunKategorileriId = $(this).find("option").filter(':selected').val();
+        var altKategoriDetayGetir = "@Url.Action("altKategoriDetayListele", "kategoriAlanlari")";
 
+        $.ajax({
+            url: altKategoriDetayGetir,
+            type: "POST",
+            data: altKategoriDetayId,
+            success: function (response) {
 
-                                            var altKategoriDetayGetir = "@Url.Action("altKategoriDetayListele", "kategoriAlanlari")";
+                $("#eeee #altKategoriDetaylariModal #altKategoriselectLabelDetay").html($(response).find("#altKategoriselectLabelDetay").html());
 
+                $("#altKategoriDetaylariModalBodyDivGosterim > span:last-child").append("<i class='bi bi-arrow-down-circle-fill KategoriModalSpanIcon'></i>");
 
+                if ($(response).find(".KategoriModalSpan2").is('span')) {
+                    $(response).find(".KategoriModalSpan2").each(function () {
 
-                                            $.ajax({
-                                                url: altKategoriDetayGetir,
-                                                type: "POST",
-                                                data: altKategoriDetayId,
-                                                success: function (response) {
+                        $(".KategoriModalSpanIcon:last-child").append("<span style='font-size: 20px; font-weight: bold; color: rgb(157, 163, 173); text-align: center; display: block;'>" + $(this).text() + "</span>");
 
-                                                    $("#eeee #altKategoriDetaylariModal #altKategoriselectLabelDetay").html($(response).find("#altKategoriselectLabelDetay").html());
+                        $("#altKategoriDetaylariModalBodyDivGosterim").scrollTop($("#altKategoriDetaylariModalBodyDivGosterim").height());
 
-                                                    $("#altKategoriDetaylariModalBodyDivGosterim > span:last-child").append("<i class='bi bi-arrow-down-circle-fill KategoriModalSpanIcon'></i>");
+                    });
+                } else {
+                    $(".KategoriModalSpanIcon:last-child").append("<span class='badge text-light' style='background-color:rgb(157, 163, 173); font-size: 20px; font-weight: bold; width:71%; border-radius:25%; margin:0 auto; text-align: center; display: block;'> Alt Kategori Bulunmamaktadır </span>");
+                    $("#altKategoriselectLabelDetay").html("<option disabled class='badge text-light' style='background-color:rgb(157, 163, 173); position:absolute; top:28%; left:16%; font-size: 20px; font-weight: bold; width:71%; border-radius:25%; margin:0 auto; text-align: center; display: block;'> Alt Kategori Bulunmamaktadır </option>");
+                    $("#altKategoriDetaylariModalBodyDivGosterim").scrollTop($("#altKategoriDetaylariModalBodyDivGosterim").height());
+                }
 
-                                                    if ($(response).find(".KategoriModalSpan2").is('span')) {
-                                                        $(response).find(".KategoriModalSpan2").each(function () {
-
-                                                            $(".KategoriModalSpanIcon:last-child").append("<span style='font-size: 20px; font-weight: bold; color: rgb(157, 163, 173); text-align: center; display: block;'>" + $(this).text() + "</span>");
-
-                                                            $("#altKategoriDetaylariModalBodyDivGosterim").scrollTop($("#altKategoriDetaylariModalBodyDivGosterim").height());
-                                                        });
-                                                    } else {
-                                                        $(".KategoriModalSpanIcon:last-child").append("<span class='badge text-light' style='background-color:rgb(157, 163, 173); font-size: 20px; font-weight: bold; width:71%; border-radius:25%; margin:0 auto; text-align: center; display: block;'> Alt Kategori Bulunmamaktadır </span>");
-                                                        $("#altKategoriselectLabelDetay").html("<option disabled class='badge text-light' style='background-color:rgb(157, 163, 173); position:absolute; top:28%; left:16%; font-size: 20px; font-weight: bold; width:71%; border-radius:25%; margin:0 auto; text-align: center; display: block;'> Alt Kategori Bulunmamaktadır </option>");
-                                                        $("#altKategoriDetaylariModalBodyDivGosterim").scrollTop($("#altKategoriDetaylariModalBodyDivGosterim").height());
-                                                    }
-
-
-
-                                                },
-                                                error: function (hata, ajaxoptions, throwerror) {
-                                                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
-                                                }
-                                            });
-                                        });
+            },
+            error: function (hata, ajaxoptions, throwerror) {
+                alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+            }
+        });
+    });
 
     $(".kategoriDetaylariSpanForm").click(function () {
 
