@@ -580,6 +580,19 @@
                             </div>
                             <div class="col-md-12">
                                 <div id="altKategoriDetaylariModalBodyDivGosterim">
+                                    <!--<div id="jstree">-->
+                                        <!-- in this example the tree is populated from inline HTML -->
+                                        <!--<ul>
+                                            <li>
+                                                Root node 1
+                                                <ul>
+                                                    <li id="child_node_1">Child node 1</li>
+                                                    <li>Child node 2</li>
+                                                </ul>
+                                            </li>
+                                            <li>Root node 2</li>
+                                        </ul>
+                                    </div>-->
                                     <span id="KategoriModalSpan"></span>
                                     <i class="bi bi-arrow-down-circle-fill KategoriModalSpanIcon"></i>
                                     @{ if (Model.Item3 != null)
@@ -619,6 +632,32 @@
 
 
 <script type="text/javascript">
+
+    $(function () {
+        // 6 create an instance when the DOM is ready
+        $('#jstree').jstree({
+            'core': {
+                'data': {
+                    'url': 'ajax_nodes.html',
+                    'data': function (node) {
+                        return { 'id': node.id };
+                    }
+                }
+            }
+        });
+        // 7 bind to events triggered on the tree
+        $('#jstree').on("changed.jstree", function (e, data) {
+            console.log(data.selected);
+        });
+        // 8 interact with the tree - either way is OK
+        $('button').on('click', function () {
+            $('#jstree').jstree(true).select_node('child_node_1');
+            $('#jstree').jstree('select_node', 'child_node_1');
+            $.jstree.reference('#jstree').select_node('child_node_1');
+        });
+    });
+
+
 
     $(".kategoriDetaylariGosterimEkleForm").hide();
 
