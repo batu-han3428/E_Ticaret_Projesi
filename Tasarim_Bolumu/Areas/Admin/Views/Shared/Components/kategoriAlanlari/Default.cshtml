@@ -652,12 +652,37 @@
         //});
 
         $('#jstree').on('changed.jstree', function (e, data) {
-            var i, j, r = [];
-            for (i = 0, j = data.selected.length; i < j; i++) {
-                r.push(data.instance.get_node(data.selected[i]).text);
-            }
-            $('#event_result').html('Selected: ' + r.join(', '));
+            //var i, j, r = [];
+            //for (i = 0, j = data.selected.length; i < j; i++) {
+            //    r.push(data.instance.get_node(data.selected[i]).text);
+            //}
+            //$('#event_result').html('Selected: ' + r.join(', '));
+
+            var altKategoriDetayId = new Object();
+            altKategoriDetayId.urunKategorileriId = data.instance.get_node(data.selected[i]).attr("id");
+
+            $.ajax({
+                url: altKategoriDetayGetir,
+                type: "POST",
+                data: altKategoriDetayId,
+                success: function (response) {
+
+                    createJSTrees(json);
+                },
+                error: function (hata, ajaxoptions, throwerror) {
+                    alert("Hata :" + hata.status + " " + throwerror + " " + hata.responseText);
+                }
+            });
+
         }).jstree();
+
+        function createJSTrees(jsonData) {
+            $('#jstree').jstree({
+                'core': {
+                    'data': jsonData
+                    }
+            });
+        }
 
 
         // 7 bind to events triggered on the tree
