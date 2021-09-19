@@ -581,20 +581,25 @@
                             </div>
                             <div class="col-md-12">
                                 <div id="altKategoriDetaylariModalBodyDivGosterim">
-                                    <div id="jstree">  
-                                        <ul>
-                                            <li>
-                                                Root node 1
-                                                <ul>
-                                                    <li id="child_node_1">Child node 1</li>
-                                                    <li>Child node 2</li>
-                                                </ul>
-                                            </li>
-                                            <li>Root node 2</li>
-                                        </ul>
-                                        
-                                    </div>
-                                    <span id="event_result"></span>
+                                    @{ if (Model.Item3 != null)
+                                        {
+                                            foreach (var item in Model.Item3)
+                                            {
+                                                <div id="jstree">
+                                                    <ul>
+                                                        <li id="@item.urunKategorileriId">
+                                                            @item.urunKategorileriKategoriAdi
+                                                        </li>
+                                                        <li class="jstree-closed">Node 2</li>
+                                                    </ul>
+
+                                                </div>
+
+                                            }
+                                        }
+
+                                    }
+                                    @*<span id="event_result"></span>
                                     <span id="KategoriModalSpan"></span>
                                     <i class="bi bi-arrow-down-circle-fill KategoriModalSpanIcon"></i>
                                     @{ if (Model.Item3 != null)
@@ -607,7 +612,7 @@
                                             }
                                         }
 
-                                    }
+                                    }*@
                                 </div>
                                 @*<label for="altKategoriselectLabelDetay" class="form-label selectLabelKategori">Alt Kategoriler *</label>*@
                                 @*<select style="position:relative;" id="altKategoriselectLabelDetay" class="form-select kategoriSelect" size="2">
@@ -651,7 +656,7 @@
         //    }
         //});
 
-        $('#jstree').on('changed.jstree', function (e, data) {
+        $('#jstree').on('loading.jstree', function (e, data) {
             //var i, j, r = [];
             //for (i = 0, j = data.selected.length; i < j; i++) {
             //    r.push(data.instance.get_node(data.selected[i]).text);
@@ -659,7 +664,7 @@
             //$('#event_result').html('Selected: ' + r.join(', '));
 
             var altKategoriDetayId = new Object();
-            altKategoriDetayId.urunKategorileriId = data.instance.get_node(data.selected[i]).attr("id");
+            altKategoriDetayId.urunKategorileriId = $("#jstree li").attr("id");
 
             $.ajax({
                 url: altKategoriDetayGetir,
@@ -686,15 +691,15 @@
 
 
         // 7 bind to events triggered on the tree
-        $('#jstree').on("changed.jstree", function (e, data) {
-            console.log(data.selected);
-        });
-        // 8 interact with the tree - either way is OK
-        $('button').on('click', function () {
-            $('#jstree').jstree(true).select_node('child_node_1');
-            $('#jstree').jstree('select_node', 'child_node_1');
-            $.jstree.reference('#jstree').select_node('child_node_1');
-        });
+        //$('#jstree').on("changed.jstree", function (e, data) {
+        //    console.log(data.selected);
+        //});
+        //// 8 interact with the tree - either way is OK
+        //$('button').on('click', function () {
+        //    $('#jstree').jstree(true).select_node('child_node_1');
+        //    $('#jstree').jstree('select_node', 'child_node_1');
+        //    $.jstree.reference('#jstree').select_node('child_node_1');
+        //});
     });
 
 
